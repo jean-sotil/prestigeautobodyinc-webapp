@@ -13,9 +13,6 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { FormSkeleton, EmbedSkeleton } from '@/components/ui/Skeleton';
 
-// Eager-loaded components (in initial bundle)
-import { CardSkeleton } from '@/components/ui/Skeleton';
-
 // Dynamically imported components (lazy loaded)
 const QuoteForm = dynamic(
   () => import('@/components/forms/QuoteForm').then((mod) => mod.QuoteForm),
