@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   // Core Web Vitals Optimizations
@@ -128,9 +129,12 @@ const nextConfig: NextConfig = {
   },
 };
 
+// Wrap with both bundle analyzer and next-intl
+const withNextIntl = createNextIntlPlugin();
+
 // Wrap with bundle analyzer (enabled via ANALYZE=true env var)
 const config = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-})(nextConfig);
+})(withNextIntl(nextConfig));
 
 export default config;

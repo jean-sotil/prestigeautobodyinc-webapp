@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "Prestige Auto Body Inc. - Reparación de Colisiones y Pintura de Autos",
+    "description": "Servicios profesionales de reparación de carrocería, reparación de colisiones y pintura de autos. Trabajamos con todas las compañías de seguros."
+  },
+  "nav": {
+    "home": "Inicio",
+    "collisionRepair": "Reparación de Colisiones",
+    "autoPainting": "Pintura de Autos",
+    "towing": "Remolque",
+    "insuranceClaims": "Reclamos de Seguro",
+    "rentalAssistance": "Asistencia de Alquiler",
+    "about": "Acerca de Nosotros",
+    "ourTeam": "Nuestro Equipo",
+    "certifications": "Certificaciones",
+    "contact": "Contacto",
+    "locations": "Ubicaciones",
+    "gallery": "Galería"
+  },
+  "home": {
+    "hero": {
+      "title": "Prestige Auto Body Inc.",
+      "subtitle": "Su Socio de Confianza en Reparación de Carrocería",
+      "description": "Servicios profesionales de reparación de colisiones, pintura de autos y restauración. Devolvemos la vida a su vehículo.",
+      "ctaPrimary": "Obtener Estimado Gratis",
+      "ctaSecondary": "Ver Nuestro Trabajo"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "collision": {
+        "title": "Reparación de Colisiones",
+        "description": "Servicios expertos de reparación de colisiones para restaurar su vehículo a su condición pre-accidente."
+      },
+      "painting": {
+        "title": "Pintura de Autos",
+        "description": "Servicios profesionales de pintura con igualación de color y acabados premium."
+      },
+      "towing": {
+        "title": "Remolque 24/7",
+        "description": "Servicios de remolque las 24 horas, los 7 días de la semana, cuando más nos necesita."
+      }
+    },
+    "whyChooseUs": {
+      "title": "Por Qué Elegirnos",
+      "experience": {
+        "title": "Años de Experiencia",
+        "description": "Más de 20 años de experiencia profesional en reparación de carrocería."
+      },
+      "certified": {
+        "title": "Técnicos Certificados",
+        "description": "Nuestros técnicos están certificados por I-CAR y ASE."
+      },
+      "insurance": {
+        "title": "Aprobado por Seguros",
+        "description": "Trabajamos con todas las principales compañías de seguros."
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Comenzar?",
+      "description": "Contáctenos hoy para un estimado gratuito de la reparación de su vehículo.",
+      "button": "Contáctenos Ahora"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Prestige Auto Body Inc. Todos los derechos reservados.",
+    "contact": {
+      "title": "Contáctenos",
+      "phone": "Teléfono",
+      "email": "Correo Electrónico",
+      "address": "Dirección"
+    },
+    "hours": {
+      "title": "Horario de Atención",
+      "weekdays": "Lunes - Viernes: 8:00 AM - 6:00 PM",
+      "saturday": "Sábado: 9:00 AM - 2:00 PM",
+      "sunday": "Domingo: Cerrado"
+    }
+  },
+  "common": {
+    "learnMore": "Más Información",
+    "contactUs": "Contáctenos",
+    "getQuote": "Obtener Cotización",
+    "callNow": "Llame Ahora",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "loading": "Cargando...",
+    "readMore": "Leer Más",
+    "viewAll": "Ver Todo"
+  },
+  "language": {
+    "switchTo": "Cambiar a {locale}",
+    "english": "Inglés",
+    "spanish": "Español",
+    "current": "Idioma actual: {locale}"
+  }
+}

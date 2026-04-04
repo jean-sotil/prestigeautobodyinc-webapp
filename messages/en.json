@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "Prestige Auto Body Inc. - Collision Repair & Auto Painting",
+    "description": "Professional auto body repair, collision repair, and auto painting services. We work with all insurance companies."
+  },
+  "nav": {
+    "home": "Home",
+    "collisionRepair": "Collision Repair",
+    "autoPainting": "Auto Painting",
+    "towing": "Towing",
+    "insuranceClaims": "Insurance Claims",
+    "rentalAssistance": "Rental Assistance",
+    "about": "About Us",
+    "ourTeam": "Our Team",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "locations": "Locations",
+    "gallery": "Gallery"
+  },
+  "home": {
+    "hero": {
+      "title": "Prestige Auto Body Inc.",
+      "subtitle": "Your Trusted Partner in Auto Body Repair",
+      "description": "Professional collision repair, auto painting, and restoration services. We bring your vehicle back to life.",
+      "ctaPrimary": "Get a Free Estimate",
+      "ctaSecondary": "View Our Work"
+    },
+    "services": {
+      "title": "Our Services",
+      "collision": {
+        "title": "Collision Repair",
+        "description": "Expert collision repair services to restore your vehicle to pre-accident condition."
+      },
+      "painting": {
+        "title": "Auto Painting",
+        "description": "Professional painting services with color matching and premium finishes."
+      },
+      "towing": {
+        "title": "24/7 Towing",
+        "description": "Round-the-clock towing services when you need us most."
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us",
+      "experience": {
+        "title": "Years of Experience",
+        "description": "Over 20 years of professional auto body repair experience."
+      },
+      "certified": {
+        "title": "Certified Technicians",
+        "description": "Our technicians are I-CAR and ASE certified."
+      },
+      "insurance": {
+        "title": "Insurance Approved",
+        "description": "We work with all major insurance companies."
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Contact us today for a free estimate on your vehicle repair.",
+      "button": "Contact Us Now"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Prestige Auto Body Inc. All rights reserved.",
+    "contact": {
+      "title": "Contact Us",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
+    },
+    "hours": {
+      "title": "Business Hours",
+      "weekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
+      "saturday": "Saturday: 9:00 AM - 2:00 PM",
+      "sunday": "Sunday: Closed"
+    }
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "getQuote": "Get a Quote",
+    "callNow": "Call Now",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "viewAll": "View All"
+  },
+  "language": {
+    "switchTo": "Switch to {locale}",
+    "english": "English",
+    "spanish": "Spanish",
+    "current": "Current language: {locale}"
+  }
+}
