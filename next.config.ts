@@ -2,12 +2,17 @@ import type { NextConfig } from 'next';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig: NextConfig = {
-  // Enable production source maps for debugging (can be disabled for max performance)
+  // Core Web Vitals Optimizations
+
+  // Disable production source maps for max performance (reduces bundle size)
   productionBrowserSourceMaps: false,
 
-  // Enable experimental features for optimization
+  // Enable React Strict Mode for development best practices
+  reactStrictMode: true,
+
+  // Enable experimental features for Core Web Vitals optimization
   experimental: {
-    // Optimize package imports for common libraries
+    // Optimize package imports for common libraries (reduces bundle size)
     optimizePackageImports: ['react', 'react-dom'],
   },
 
@@ -46,22 +51,81 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // Image optimization
+  // Image optimization for LCP improvement
   images: {
+    // Use modern formats for smaller file sizes
     formats: ['image/webp', 'image/avif'],
+    // Allow remote images from any HTTPS source
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
       },
     ],
+    // Minimum cache TTL (30 days)
+    minimumCacheTTL: 2592000,
   },
 
-  // Compression
+  // Compression (gzip/brotli) for faster transfer
   compress: true,
 
-  // Powered by header (disable for security)
+  // Disable powered by header for security
   poweredByHeader: false,
+
+  // Headers for Core Web Vitals optimization
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            // Enable browser resource hints
+            key: 'Accept-CH',
+            value: 'DPR, Width, Viewport-Width',
+          },
+        ],
+      },
+      {
+        // Cache static assets aggressively
+        source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // Cache JavaScript and CSS files
+        source: '/:all*.js',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:all*.css',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+
+  // Redirects (if needed)
+  async redirects() {
+    return [];
+  },
+
+  // Rewrites (if needed)
+  async rewrites() {
+    return [];
+  },
 };
 
 // Wrap with bundle analyzer (enabled via ANALYZE=true env var)
