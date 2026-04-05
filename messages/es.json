@@ -330,21 +330,46 @@
       },
       "scheduling": {
         "title": "Programar Cita",
-        "preferredDate": "Fecha Preferida",
-        "preferredTime": "Hora Preferida",
-        "alternateDate": "Fecha Alternativa (Opcional)",
-        "needsRental": "¿Necesita un auto de alquiler?",
-        "rentalOptions": {
-          "yes": "Sí, por favor",
-          "no": "No, gracias"
-        },
-        "additionalNotes": "Notas Adicionales",
+        "selectDate": "Seleccionar Fecha",
+        "dateLabel": "Fechas disponibles",
+        "halfDay": "½ día",
+        "selectTime": "Seleccionar Hora",
+        "timeLabel": "Horarios disponibles",
+        "selectedTime": "Seleccionado: {date} a las {time}",
+        "notesLabel": "Notas Adicionales",
         "notesPlaceholder": "Alguna solicitud especial o información que debamos saber...",
-        "times": {
-          "morning": "Mañana (8:00 AM - 12:00 PM)",
-          "afternoon": "Tarde (12:00 PM - 5:00 PM)",
-          "evening": "Noche (con cita previa)"
-        }
+        "skipScheduling": "Omitir programación por ahora",
+        "noDateSelected": "Ninguna fecha seleccionada",
+        "noTimeSelected": "Seleccione una hora"
+      },
+      "review": {
+        "title": "Revisar Su Información",
+        "contactTitle": "Contacto",
+        "vehicleTitle": "Vehículo",
+        "incidentTitle": "Detalles del Incidente",
+        "damageTitle": "Daño",
+        "areasSelected": "áreas seleccionadas",
+        "hasPhotos": "Se proporcionarán fotos"
+      },
+      "confirmation": {
+        "title": "¡Solicitud Enviada!",
+        "message": "Gracias, {firstName}. Nos pondremos en contacto dentro de 24 horas.",
+        "appointmentTitle": "Su Cita",
+        "appointmentLabel": "Detalles de la cita",
+        "date": "Fecha",
+        "time": "Hora",
+        "notes": "Notas",
+        "summaryTitle": "Resumen de la Solicitud",
+        "vehicle": "Vehículo",
+        "contact": "Contacto",
+        "damageAreas": "Áreas de Daño",
+        "areasCount": "{count} áreas",
+        "noAreas": "No especificado",
+        "photoTitle": "Instrucciones para Subir Fotos",
+        "photoInstructionsLabel": "Instrucciones para subir fotos",
+        "photoInstructions": "Por favor envíe sus fotos por correo electrónico a info@prestigeautobodyinc.com con su nombre y número de referencia. O tráigalas a su cita.",
+        "followUp": "Recibirá un correo de confirmación con su número de referencia.",
+        "submitAnother": "Enviar Otra Cotización"
       }
     }
   },

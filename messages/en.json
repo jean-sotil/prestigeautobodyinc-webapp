@@ -330,21 +330,46 @@
       },
       "scheduling": {
         "title": "Schedule Appointment",
-        "preferredDate": "Preferred Date",
-        "preferredTime": "Preferred Time",
-        "alternateDate": "Alternate Date (Optional)",
-        "needsRental": "Do you need a rental car?",
-        "rentalOptions": {
-          "yes": "Yes, please",
-          "no": "No, thank you"
-        },
-        "additionalNotes": "Additional Notes",
+        "selectDate": "Select a Date",
+        "dateLabel": "Available dates",
+        "halfDay": "½ day",
+        "selectTime": "Select a Time",
+        "timeLabel": "Available time slots",
+        "selectedTime": "Selected: {date} at {time}",
+        "notesLabel": "Additional Notes",
         "notesPlaceholder": "Any special requests or information we should know...",
-        "times": {
-          "morning": "Morning (8:00 AM - 12:00 PM)",
-          "afternoon": "Afternoon (12:00 PM - 5:00 PM)",
-          "evening": "Evening (by appointment)"
-        }
+        "skipScheduling": "Skip scheduling for now",
+        "noDateSelected": "No date selected",
+        "noTimeSelected": "Select a time"
+      },
+      "review": {
+        "title": "Review Your Information",
+        "contactTitle": "Contact",
+        "vehicleTitle": "Vehicle",
+        "incidentTitle": "Incident Details",
+        "damageTitle": "Damage",
+        "areasSelected": "areas selected",
+        "hasPhotos": "Photos will be provided"
+      },
+      "confirmation": {
+        "title": "Quote Request Submitted!",
+        "message": "Thanks, {firstName}! We'll contact you within 24 hours.",
+        "appointmentTitle": "Your Appointment",
+        "appointmentLabel": "Appointment details",
+        "date": "Date",
+        "time": "Time",
+        "notes": "Notes",
+        "summaryTitle": "Submission Summary",
+        "vehicle": "Vehicle",
+        "contact": "Contact",
+        "damageAreas": "Damage Areas",
+        "areasCount": "{count} areas",
+        "noAreas": "Not specified",
+        "photoTitle": "Photo Upload Instructions",
+        "photoInstructionsLabel": "Photo upload instructions",
+        "photoInstructions": "Please email your photos to info@prestigeautobodyinc.com with your name and reference number. Or bring them with you to your appointment.",
+        "followUp": "You will receive a confirmation email with your quote reference number.",
+        "submitAnother": "Submit Another Quote"
       }
     }
   },

@@ -47,7 +47,13 @@ export interface QuoteFormData {
   deductible: string;
   hasClaim: 'yes' | 'no' | 'pending';
 
-  // Step 6: Scheduling
+  // Step 6: Scheduling (enhanced)
+  appointmentDate: string;
+  appointmentTime: string;
+  schedulingNotes: string;
+  skipScheduling: boolean;
+
+  // Legacy fields (for backward compatibility with drafts)
   preferredDate: string;
   preferredTime: 'morning' | 'afternoon' | 'evening';
   alternateDate: string;
@@ -68,7 +74,7 @@ export type QuoteFormAction =
   | {
       type: 'UPDATE_FIELD';
       field: keyof QuoteFormData;
-      value: string | string[];
+      value: string | string[] | boolean;
     }
   | { type: 'UPDATE_MULTIPLE_FIELDS'; fields: Partial<QuoteFormData> }
   | { type: 'NEXT_STEP' }
@@ -87,7 +93,7 @@ export type QuoteFormAction =
 // Constants
 // ============================================================================
 
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 7;
 
 const LOCALSTORAGE_KEY = 'prestige-quote-draft';
 
@@ -115,6 +121,12 @@ const INITIAL_DATA: QuoteFormData = {
   claimNumber: '',
   deductible: '',
   hasClaim: 'pending',
+  // New enhanced scheduling fields
+  appointmentDate: '',
+  appointmentTime: '',
+  schedulingNotes: '',
+  skipScheduling: false,
+  // Legacy fields
   preferredDate: '',
   preferredTime: 'morning',
   alternateDate: '',
@@ -315,7 +327,8 @@ const STEP_REQUIRED_FIELDS: Record<number, (keyof QuoteFormData)[]> = {
   3: ['incidentDescription'],
   4: ['damageAreas'],
   5: [],
-  6: ['preferredDate'],
+  6: [], // Scheduling is optional (can skip)
+  7: [], // Confirmation step
 };
 
 function validateStep(
@@ -1147,17 +1160,227 @@ function StepScheduling({
   t: (key: string, params?: Record<string, string | number>) => string;
 }) {
   const updateField = useCallback(
-    (field: keyof QuoteFormData, value: string) => {
+    (field: keyof QuoteFormData, value: string | boolean) => {
       dispatch({ type: 'UPDATE_FIELD', field, value });
     },
     [dispatch],
   );
 
-  const today = new Date().toISOString().split('T')[0];
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  // Generate next 14 business days (excluding Sundays)
+  const generateBusinessDays = useCallback(() => {
+    const days: Array<{
+      date: Date;
+      dateStr: string;
+      isSaturday: boolean;
+      label: string;
+    }> = [];
+    const today = new Date();
+    const current = new Date(today);
+
+    while (days.length < 14) {
+      const dayOfWeek = current.getDay(); // 0 = Sunday, 6 = Saturday
+
+      if (dayOfWeek !== 0) {
+        // Skip Sundays
+        const dateStr = current.toISOString().split('T')[0];
+        const isSaturday = dayOfWeek === 6;
+
+        // Format date for display
+        const locale =
+          typeof window !== 'undefined'
+            ? navigator.language || 'en-US'
+            : 'en-US';
+
+        days.push({
+          date: new Date(current),
+          dateStr,
+          isSaturday,
+          label: current.toLocaleDateString(locale, {
+            month: 'short',
+            day: 'numeric',
+          }),
+        });
+      }
+
+      current.setDate(current.getDate() + 1);
+    }
+
+    return days;
+  }, []);
+
+  const businessDays = generateBusinessDays();
+
+  // Generate time slots based on day type
+  const generateTimeSlots = useCallback((dateStr: string) => {
+    if (!dateStr) return [];
+
+    const date = new Date(dateStr);
+    const dayOfWeek = date.getDay();
+    const isSaturday = dayOfWeek === 6;
+
+    const slots: Array<{ time: string; label: string }> = [];
+
+    if (isSaturday) {
+      // Saturday: 8AM - 12PM (4 slots)
+      for (let hour = 8; hour < 12; hour++) {
+        const time = `${hour.toString().padStart(2, '0')}:00`;
+        const label = hour < 12 ? `${hour}:00 AM` : `${hour - 12}:00 PM`;
+        slots.push({ time, label });
+      }
+    } else {
+      // Weekdays: 8AM - 5PM (9 slots)
+      for (let hour = 8; hour < 17; hour++) {
+        const time = `${hour.toString().padStart(2, '0')}:00`;
+        const label =
+          hour < 12
+            ? `${hour}:00 AM`
+            : hour === 12
+              ? '12:00 PM'
+              : `${hour - 12}:00 PM`;
+        slots.push({ time, label });
+      }
+    }
+
+    return slots;
+  }, []);
+
+  const timeSlots = data.appointmentDate
+    ? generateTimeSlots(data.appointmentDate)
+    : [];
+
+  // Handle date selection
+  const handleDateSelect = useCallback(
+    (dateStr: string) => {
+      updateField('appointmentDate', dateStr);
+      updateField('appointmentTime', ''); // Clear time when date changes
+    },
+    [updateField],
+  );
+
+  // Handle keyboard navigation for date chips
+  const handleDateKeyDown = useCallback(
+    (e: React.KeyboardEvent, index: number) => {
+      const chips = businessDays;
+
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          if (index > 0) {
+            const prevButton = document.querySelector(
+              `[data-date-index="${index - 1}"]`,
+            ) as HTMLButtonElement;
+            prevButton?.focus();
+          }
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          if (index < chips.length - 1) {
+            const nextButton = document.querySelector(
+              `[data-date-index="${index + 1}"]`,
+            ) as HTMLButtonElement;
+            nextButton?.focus();
+          }
+          break;
+        case 'Home':
+          e.preventDefault();
+          const firstButton = document.querySelector(
+            '[data-date-index="0"]',
+          ) as HTMLButtonElement;
+          firstButton?.focus();
+          break;
+        case 'End':
+          e.preventDefault();
+          const lastButton = document.querySelector(
+            `[data-date-index="${chips.length - 1}"]`,
+          ) as HTMLButtonElement;
+          lastButton?.focus();
+          break;
+        case 'Enter':
+        case ' ':
+          e.preventDefault();
+          handleDateSelect(chips[index].dateStr);
+          break;
+      }
+    },
+    [businessDays, handleDateSelect],
+  );
+
+  // Build review summary for Steps 1-4
+  const buildReviewSummary = useCallback(() => {
+    const summary = [];
+
+    // Step 1: Contact
+    if (data.firstName || data.lastName) {
+      summary.push({
+        step: 1,
+        title: t('steps.review.contactTitle'),
+        items: [
+          data.firstName &&
+            data.lastName &&
+            `${data.firstName} ${data.lastName}`,
+          data.email,
+          data.phone,
+          data.preferredContact &&
+            t(`steps.contact.methods.${data.preferredContact}`),
+        ].filter(Boolean),
+      });
+    }
+
+    // Step 2: Vehicle
+    if (data.vehicleYear || data.vehicleMake) {
+      summary.push({
+        step: 2,
+        title: t('steps.review.vehicleTitle'),
+        items: [
+          data.vehicleYear && data.vehicleMake && data.vehicleModel
+            ? `${data.vehicleYear} ${data.vehicleMake} ${data.vehicleModel}`
+            : [data.vehicleYear, data.vehicleMake, data.vehicleModel]
+                .filter(Boolean)
+                .join(' '),
+          data.vehicleVin && `VIN: ${data.vehicleVin}`,
+          data.licensePlate && `Plate: ${data.licensePlate}`,
+        ].filter(Boolean),
+      });
+    }
+
+    // Step 3: Incident
+    if (data.incidentDescription) {
+      summary.push({
+        step: 3,
+        title: t('steps.review.incidentTitle'),
+        items: [
+          data.incidentDate && new Date(data.incidentDate).toLocaleDateString(),
+          data.incidentLocation,
+          data.drivable !== 'unknown' &&
+            t(`steps.incident.drivable.${data.drivable}`),
+          data.incidentDescription?.substring(0, 100) +
+            (data.incidentDescription?.length > 100 ? '...' : ''),
+        ].filter(Boolean),
+      });
+    }
+
+    // Step 4: Damage
+    if (data.damageAreas.length > 0) {
+      summary.push({
+        step: 4,
+        title: t('steps.review.damageTitle'),
+        items: [
+          `${data.damageAreas.length} ${t('steps.review.areasSelected')}`,
+          data.hasPhotos === 'yes' && t('steps.review.hasPhotos'),
+        ].filter(Boolean),
+      });
+    }
+
+    return summary;
+  }, [data, t]);
+
+  const reviewSummary = buildReviewSummary();
 
   return (
     <div
-      className="space-y-4"
+      className="space-y-6"
       role="tabpanel"
       aria-label={t('steps.scheduling.title')}
     >
@@ -1165,118 +1388,382 @@ function StepScheduling({
         {t('steps.scheduling.title')}
       </h3>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label
-            htmlFor="preferredDate"
-            className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300"
-          >
-            {t('steps.scheduling.preferredDate')} *
-          </label>
-          <input
-            type="date"
-            id="preferredDate"
-            required
-            min={today}
-            value={data.preferredDate}
-            onChange={(e) => updateField('preferredDate', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-red-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
-            aria-invalid={errors.preferredDate ? 'true' : 'false'}
-            aria-describedby={
-              errors.preferredDate ? 'preferredDate-error' : undefined
-            }
-          />
-          {errors.preferredDate && (
-            <p
-              id="preferredDate-error"
-              className="mt-1 text-sm text-red-600 dark:text-red-400"
-            >
-              {errors.preferredDate}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label
-            htmlFor="preferredTime"
-            className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300"
-          >
-            {t('steps.scheduling.preferredTime')}
-          </label>
-          <select
-            id="preferredTime"
-            value={data.preferredTime}
-            onChange={(e) => updateField('preferredTime', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-red-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
-          >
-            <option value="morning">
-              {t('steps.scheduling.times.morning')}
-            </option>
-            <option value="afternoon">
-              {t('steps.scheduling.times.afternoon')}
-            </option>
-            <option value="evening">
-              {t('steps.scheduling.times.evening')}
-            </option>
-          </select>
-        </div>
-      </div>
-
-      <div>
-        <label
-          htmlFor="alternateDate"
-          className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300"
+      {/* Date Chips - Horizontal Scrollable */}
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          {t('steps.scheduling.selectDate')}
+        </label>
+        <div
+          role="listbox"
+          aria-label={t('steps.scheduling.dateLabel')}
+          aria-live="polite"
+          className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+          style={{ scrollbarWidth: 'thin' }}
         >
-          {t('steps.scheduling.alternateDate')}
-        </label>
-        <input
-          type="date"
-          id="alternateDate"
-          min={today}
-          value={data.alternateDate}
-          onChange={(e) => updateField('alternateDate', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-red-500 focus:border-transparent dark:bg-gray-800 dark:text-white"
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
-          {t('steps.scheduling.needsRental')}
-        </label>
-        <div className="flex gap-3">
-          {(['yes', 'no'] as const).map((option) => (
-            <label key={option} className="flex items-center">
-              <input
-                type="radio"
-                name="needsRental"
-                value={option}
-                checked={data.needsRental === option}
-                onChange={(e) => updateField('needsRental', e.target.value)}
-                className="mr-2 text-red-600 focus:ring-red-500"
-              />
-              <span className="text-sm text-gray-700 dark:text-gray-300">
-                {t(`steps.scheduling.rentalOptions.${option}`)}
-              </span>
-            </label>
+          {businessDays.map((day, index) => (
+            <button
+              key={day.dateStr}
+              data-date-index={index}
+              type="button"
+              role="option"
+              aria-selected={data.appointmentDate === day.dateStr}
+              tabIndex={data.appointmentDate === day.dateStr ? 0 : -1}
+              onClick={() => handleDateSelect(day.dateStr)}
+              onKeyDown={(e) => handleDateKeyDown(e, index)}
+              className={`flex-shrink-0 flex flex-col items-center justify-center min-w-[4.5rem] h-16 px-3 py-2 rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+                data.appointmentDate === day.dateStr
+                  ? 'bg-red-600 text-white border-red-600'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-red-400'
+              }`}
+            >
+              <span className="text-sm font-semibold">{day.label}</span>
+              {day.isSaturday && (
+                <span
+                  className={`text-xs mt-0.5 ${
+                    data.appointmentDate === day.dateStr
+                      ? 'text-red-100'
+                      : 'text-orange-500 dark:text-orange-400'
+                  }`}
+                >
+                  {t('steps.scheduling.halfDay')}
+                </span>
+              )}
+            </button>
           ))}
         </div>
       </div>
 
+      {/* Time Slots Grid */}
+      {data.appointmentDate && (
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            {t('steps.scheduling.selectTime')}
+          </label>
+          <div
+            role="radiogroup"
+            aria-label={t('steps.scheduling.timeLabel')}
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2"
+          >
+            {timeSlots.map((slot) => (
+              <button
+                key={slot.time}
+                type="button"
+                role="radio"
+                aria-checked={data.appointmentTime === slot.time}
+                onClick={() => updateField('appointmentTime', slot.time)}
+                className={`py-2 px-3 rounded-lg border-2 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 ${
+                  data.appointmentTime === slot.time
+                    ? 'bg-red-600 text-white border-red-600'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-red-400'
+                }`}
+              >
+                {slot.label}
+              </button>
+            ))}
+          </div>
+          {data.appointmentTime && (
+            <p
+              className="text-sm text-green-600 dark:text-green-400"
+              aria-live="polite"
+            >
+              {t('steps.scheduling.selectedTime', {
+                date: new Date(data.appointmentDate).toLocaleDateString(),
+                time:
+                  timeSlots.find((s) => s.time === data.appointmentTime)
+                    ?.label ?? '',
+              })}
+            </p>
+          )}
+        </div>
+      )}
+
+      {/* Notes Textarea */}
       <div>
         <label
-          htmlFor="additionalNotes"
+          htmlFor="schedulingNotes"
           className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300"
         >
-          {t('steps.scheduling.additionalNotes')}
+          {t('steps.scheduling.notesLabel')}
         </label>
         <textarea
-          id="additionalNotes"
-          rows={4}
-          value={data.additionalNotes}
-          onChange={(e) => updateField('additionalNotes', e.target.value)}
+          id="schedulingNotes"
+          rows={3}
+          value={data.schedulingNotes}
+          onChange={(e) => updateField('schedulingNotes', e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-red-500 focus:border-transparent dark:bg-gray-800 dark:text-white resize-vertical"
           placeholder={t('steps.scheduling.notesPlaceholder')}
         />
+      </div>
+
+      {/* Review Panel */}
+      {reviewSummary.length > 0 && (
+        <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 space-y-3">
+          <h4 className="font-semibold text-gray-900 dark:text-white">
+            {t('steps.review.title')}
+          </h4>
+          {reviewSummary.map((section) => (
+            <div
+              key={section.step}
+              className="border-b border-gray-200 dark:border-gray-700 last:border-0 pb-2 last:pb-0"
+            >
+              <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                {section.title}
+              </p>
+              <ul className="mt-1 space-y-0.5">
+                {section.items.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="text-sm text-gray-800 dark:text-gray-200"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ============================================================================
+// Step 7: Confirmation Component
+// ============================================================================
+
+function StepConfirmation({
+  data,
+  dispatch,
+  prefersReducedMotion,
+  onReset,
+  t,
+}: {
+  data: QuoteFormData;
+  dispatch: React.Dispatch<QuoteFormAction>;
+  prefersReducedMotion: boolean;
+  onReset: () => void;
+  t: (key: string, params?: Record<string, string | number>) => string;
+}) {
+  const [showCheckmark, setShowCheckmark] = React.useState(false);
+
+  useEffect(() => {
+    // Trigger checkmark animation after mount
+    const timer = setTimeout(() => setShowCheckmark(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Format time slot label
+  const formatTimeSlot = (time: string, dateStr: string) => {
+    if (!time || !dateStr) return '';
+    const date = new Date(dateStr);
+    const dayOfWeek = date.getDay();
+    const isSaturday = dayOfWeek === 6;
+    const hour = parseInt(time.split(':')[0], 10);
+
+    if (isSaturday) {
+      return `${hour}:00 AM`;
+    } else {
+      if (hour < 12) {
+        return `${hour}:00 AM`;
+      } else if (hour === 12) {
+        return '12:00 PM';
+      } else {
+        return `${hour - 12}:00 PM`;
+      }
+    }
+  };
+
+  const hasScheduledAppointment = data.appointmentDate && data.appointmentTime;
+
+  return (
+    <div
+      className="space-y-6 text-center"
+      role="tabpanel"
+      aria-label={t('steps.confirmation.title')}
+    >
+      {/* Animated Checkmark */}
+      <div className="flex justify-center">
+        <div
+          className={`w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 ${
+            showCheckmark
+              ? 'bg-green-100 dark:bg-green-800 scale-100'
+              : 'bg-gray-100 dark:bg-gray-800 scale-90'
+          }`}
+          style={
+            prefersReducedMotion
+              ? {}
+              : {
+                  transition: 'all 500ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+                }
+          }
+        >
+          <svg
+            className={`w-10 h-10 text-green-600 dark:text-green-400 transition-all duration-300 ${
+              showCheckmark ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+            }`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            style={
+              prefersReducedMotion
+                ? {}
+                : {
+                    transitionDelay: showCheckmark ? '200ms' : '0ms',
+                  }
+            }
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={3}
+              d="M5 13l4 4L19 7"
+              className={prefersReducedMotion ? '' : 'animate-drawCheck'}
+              style={
+                prefersReducedMotion
+                  ? {}
+                  : {
+                      strokeDasharray: 24,
+                      strokeDashoffset: showCheckmark ? 0 : 24,
+                      transition: 'stroke-dashoffset 400ms ease-out 300ms',
+                    }
+              }
+            />
+          </svg>
+        </div>
+      </div>
+
+      {/* Success Headline */}
+      <div>
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+          {t('steps.confirmation.title')}
+        </h3>
+        <p className="text-lg text-gray-700 dark:text-gray-300">
+          {t('steps.confirmation.message', { firstName: data.firstName })}
+        </p>
+      </div>
+
+      {/* Appointment Details (if scheduled) */}
+      {hasScheduledAppointment && (
+        <div
+          className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 text-left"
+          aria-label={t('steps.confirmation.appointmentLabel')}
+        >
+          <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-3">
+            {t('steps.confirmation.appointmentTitle')}
+          </h4>
+          <div className="space-y-2 text-sm">
+            <p className="text-blue-800 dark:text-blue-300">
+              <span className="font-medium">
+                {t('steps.confirmation.date')}:
+              </span>{' '}
+              {new Date(data.appointmentDate).toLocaleDateString(undefined, {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </p>
+            <p className="text-blue-800 dark:text-blue-300">
+              <span className="font-medium">
+                {t('steps.confirmation.time')}:
+              </span>{' '}
+              {formatTimeSlot(data.appointmentTime, data.appointmentDate)}
+            </p>
+            {data.schedulingNotes && (
+              <p className="text-blue-800 dark:text-blue-300">
+                <span className="font-medium">
+                  {t('steps.confirmation.notes')}:
+                </span>{' '}
+                {data.schedulingNotes}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Summary Card */}
+      <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 text-left">
+        <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+          {t('steps.confirmation.summaryTitle')}
+        </h4>
+        <div className="space-y-2 text-sm">
+          <p className="text-gray-700 dark:text-gray-300">
+            <span className="font-medium">
+              {t('steps.confirmation.vehicle')}:
+            </span>{' '}
+            {data.vehicleYear} {data.vehicleMake} {data.vehicleModel}
+          </p>
+          <p className="text-gray-700 dark:text-gray-300">
+            <span className="font-medium">
+              {t('steps.confirmation.contact')}:
+            </span>{' '}
+            {data.email}
+          </p>
+          <p className="text-gray-700 dark:text-gray-300">
+            <span className="font-medium">
+              {t('steps.confirmation.damageAreas')}:
+            </span>{' '}
+            {data.damageAreas.length > 0
+              ? t('steps.confirmation.areasCount', {
+                  count: data.damageAreas.length,
+                })
+              : t('steps.confirmation.noAreas')}
+          </p>
+        </div>
+      </div>
+
+      {/* Photo Upload Instructions (if hasPhotos) */}
+      {data.hasPhotos === 'yes' && (
+        <div
+          className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 text-left"
+          aria-label={t('steps.confirmation.photoInstructionsLabel')}
+        >
+          <div className="flex items-start gap-3">
+            <svg
+              className="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <div>
+              <h4 className="font-semibold text-yellow-900 dark:text-yellow-200 mb-1">
+                {t('steps.confirmation.photoTitle')}
+              </h4>
+              <p className="text-sm text-yellow-800 dark:text-yellow-300">
+                {t('steps.confirmation.photoInstructions')}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Next Steps */}
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        <p>{t('steps.confirmation.followUp')}</p>
+      </div>
+
+      {/* Submit Another Button */}
+      <div className="pt-4">
+        <button
+          type="button"
+          onClick={onReset}
+          className="w-full sm:w-auto px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        >
+          {t('steps.confirmation.submitAnother')}
+        </button>
       </div>
     </div>
   );
@@ -1364,7 +1851,8 @@ export function QuoteForm() {
         // Clear localStorage draft on successful submission
         localStorage.removeItem(LOCALSTORAGE_KEY);
 
-        dispatch({ type: 'SET_SUBMITTED', isSubmitted: true });
+        // Navigate to confirmation step (step 7)
+        dispatch({ type: 'GO_TO_STEP', step: 7 });
       } catch (error) {
         console.error('Form submission error:', error);
       } finally {
@@ -1387,44 +1875,6 @@ export function QuoteForm() {
       : 'animate-slideInLeft';
   };
 
-  // Success state
-  if (state.isSubmitted) {
-    return (
-      <div className="max-w-lg mx-auto p-6 bg-green-50 dark:bg-green-900/20 rounded-xl text-center shadow-md">
-        <div className="w-16 h-16 bg-green-100 dark:bg-green-800 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-8 h-8 text-green-600 dark:text-green-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2">
-          {t('success.title')}
-        </h3>
-        <p className="text-green-700 dark:text-green-300 mb-4">
-          {t('success.message', { name: state.data.firstName })}
-        </p>
-        <p className="text-sm text-green-600 dark:text-green-400 mb-6">
-          {t('success.followUp')}
-        </p>
-        <button
-          onClick={handleReset}
-          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-        >
-          {t('success.requestAnother')}
-        </button>
-      </div>
-    );
-  }
-
   const stepComponents = [
     null, // Index 0 (unused)
     StepContactInfo,
@@ -1433,6 +1883,7 @@ export function QuoteForm() {
     StepDamageAssessment,
     StepInsuranceInfo,
     StepScheduling,
+    // StepConfirmation is handled separately
   ];
 
   const CurrentStepComponent = stepComponents[state.currentStep];
@@ -1505,47 +1956,79 @@ export function QuoteForm() {
         className={`bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 ${getAnimationClass()}`}
         style={prefersReducedMotion ? {} : { animationDuration: '350ms' }}
       >
-        {CurrentStepComponent && (
-          <CurrentStepComponent
-            data={state.data}
-            dispatch={dispatch}
-            errors={state.errors}
-            t={t}
-          />
-        )}
-
-        {/* Navigation Buttons */}
-        <div className="flex gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-          {state.currentStep > 1 && (
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="flex-1 py-2.5 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300 font-medium focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
-            >
-              {t('buttons.back')}
-            </button>
-          )}
-
-          {state.currentStep < TOTAL_STEPS ? (
-            <button
-              type="button"
-              onClick={handleNext}
-              className="flex-1 py-2.5 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-            >
-              {t('buttons.next')}
-            </button>
+        {CurrentStepComponent &&
+          (state.currentStep === 7 ? (
+            <StepConfirmation
+              data={state.data}
+              dispatch={dispatch}
+              prefersReducedMotion={prefersReducedMotion}
+              onReset={handleReset}
+              t={t}
+            />
           ) : (
-            <button
-              type="submit"
-              disabled={state.isSubmitting}
-              className="flex-1 py-2.5 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-            >
-              {state.isSubmitting
-                ? t('buttons.submitting')
-                : t('buttons.submit')}
-            </button>
-          )}
-        </div>
+            <CurrentStepComponent
+              data={state.data}
+              dispatch={dispatch}
+              errors={state.errors}
+              t={t}
+            />
+          ))}
+
+        {/* Navigation Buttons - Only show for steps 1-6 */}
+        {state.currentStep < 7 && (
+          <div className="flex gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+            {state.currentStep > 1 && (
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="flex-1 py-2.5 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300 font-medium focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+              >
+                {t('buttons.back')}
+              </button>
+            )}
+
+            {state.currentStep < TOTAL_STEPS - 1 ? (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="flex-1 py-2.5 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              >
+                {t('buttons.next')}
+              </button>
+            ) : (
+              <>
+                {/* Skip Scheduling Link for Step 6 */}
+                {state.currentStep === 6 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch({
+                        type: 'UPDATE_FIELD',
+                        field: 'skipScheduling',
+                        value: true,
+                      });
+                      handleSubmit({
+                        preventDefault: () => {},
+                      } as React.FormEvent);
+                    }}
+                    className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 underline transition-colors self-center"
+                  >
+                    {t('steps.scheduling.skipScheduling')}
+                  </button>
+                )}
+                <button
+                  type="submit"
+                  disabled={state.isSubmitting}
+                  className="flex-1 py-2.5 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                >
+                  {state.isSubmitting
+                    ? t('buttons.submitting')
+                    : t('buttons.submit')}
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Draft Saved Indicator */}
@@ -1596,9 +2079,23 @@ export function QuoteFormStyles() {
         animation: slideInLeft 350ms ease-out forwards;
       }
       
+      @keyframes drawCheck {
+        from {
+          stroke-dashoffset: 24;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      
+      .animate-drawCheck {
+        animation: drawCheck 400ms ease-out forwards;
+      }
+      
       @media (prefers-reduced-motion: reduce) {
         .animate-slideInRight,
-        .animate-slideInLeft {
+        .animate-slideInLeft,
+        .animate-drawCheck {
           animation: none;
           opacity: 1;
           transform: none;
