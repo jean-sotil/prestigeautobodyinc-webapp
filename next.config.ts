@@ -65,6 +65,7 @@ const nextConfig: NextConfig = {
     ],
     // Minimum cache TTL (30 days)
     minimumCacheTTL: 2592000,
+    qualities: [75, 90],
   },
 
   // Compression (gzip/brotli) for faster transfer

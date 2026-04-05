@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
 import './globals.css';
 
-/**
- * Core Web Vitals optimized layout
- *
- * Optimizations:
- * - System font stack (no FOIT/FOUT, eliminates render-blocking font requests)
- * - Preconnect to critical origins
- * - Web Vitals RUM monitoring
- * - Meta tags for performance hints
- */
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -59,13 +61,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en" dir="ltr">
+    <html lang={locale}>
       <head>
         {/* Preconnect to critical origins for faster resource loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -79,7 +83,9 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
-      <body className="antialiased">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {/* Web Vitals RUM monitoring */}
         <WebVitals />
         {children}

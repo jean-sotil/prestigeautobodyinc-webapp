@@ -136,7 +136,7 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
   return (
     <div
       ref={carouselRef}
-      className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden bg-gray-900"
+      className="relative w-full h-125 sm:h-150 md:h-175 lg:h-200 overflow-hidden bg-gray-900"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
@@ -158,7 +158,7 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
             aria-hidden={index !== currentSlide}
           >
             {/* Image with explicit dimensions */}
-            <div className="absolute inset-0 w-full h-full">
+            <div className="absolute inset-0 w-full">
               <Image
                 src={slide.src}
                 alt={slide.alt}
@@ -169,7 +169,7 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
                 quality={90}
               />
               {/* Dark overlay for text readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-black/30" />
             </div>
 
             {/* Content Overlay */}
