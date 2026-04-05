@@ -166,28 +166,28 @@
     }
   },
   "footer": {
-    "copyright": "© {year} Prestige Auto Body Inc. All rights reserved.",
+    "copyright": "© {year} Prestige Auto Body, Inc. All Rights Reserved.",
     "company": {
-      "title": "Prestige Auto Body Inc.",
+      "title": "PRESTIGE AUTO BODY, INC.",
       "address": "928 Philadelphia Avenue",
       "address2": "Silver Spring, MD 20910",
       "phone": "(301) 578-8779",
-      "fax": "(301) 578-8780",
+      "fax": "(301) 585-7791",
       "email": "info@prestigeautobodyinc.com"
     },
     "quickLinks": {
       "title": "Quick Links",
-      "home": "Home",
-      "services": "Services",
-      "about": "About Us",
-      "contact": "Contact",
-      "gallery": "Gallery",
-      "locations": "Locations"
+      "collisionRepair": "Collision Repair",
+      "autoBodyServices": "Auto Body Services",
+      "paintSolutions": "Paint Solutions",
+      "insuranceClaims": "Insurance Claims",
+      "getAQuote": "Get a Quote",
+      "about": "About Us"
     },
     "hours": {
       "title": "Business Hours",
-      "monday": "Mon - Fri: 8:00 AM - 6:00 PM",
-      "saturday": "Saturday: 8:00 AM - 12:00 PM",
+      "monday": "Monday - Friday: 8AM - 6PM",
+      "saturday": "Saturday: 8AM - 12PM",
       "sunday": "Sunday: Closed"
     },
     "findUs": {

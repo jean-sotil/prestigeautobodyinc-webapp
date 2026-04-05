@@ -1,21 +1,14 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import { HeroCarousel, TrustBadges, StatsCounters } from '@/components/hero';
+import { StatsCounters } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
 import { SimpleQuoteFormDynamic } from '@/components/forms/SimpleQuoteFormDynamic';
 import {
   CollisionIcon,
   WrenchIcon,
   PaintbrushIcon,
-  ArrowRightIcon,
-  PhoneIcon,
-  AwardIcon,
   ShieldIcon,
-  CheckCircleIcon,
-  ThumbsUpIcon,
-  ToolsIcon,
-  StarIcon,
 } from '@/components/ui/Icons';
 
 export function generateStaticParams() {
@@ -28,318 +21,345 @@ export default function HomePage() {
 
   return (
     <div className="font-sans min-h-screen">
-      {/* Hero Carousel Section */}
-      <section aria-label="Hero carousel">
-        <HeroCarousel />
+      {/* Hero Section */}
+      <section
+        className="bg-white py-[64px] px-4 sm:px-8 lg:px-[64px]"
+        aria-label="Hero"
+      >
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
+          {/* Left: Content */}
+          <div className="flex flex-col gap-[16px] w-full lg:w-[540px] shrink-0">
+            <h1 className="font-black text-[#2d2d2d] text-[36px] leading-[1.2] tracking-[-0.72px] max-w-[480px]">
+              Auto Body Shop &amp; Collision Repair in Silver Spring, MD
+            </h1>
+            <p className="text-[#555] text-[16px] leading-[1.6]">
+              For a better today &amp; tomorrow for your vehicle
+            </p>
+            <p className="font-bold text-[14px] text-[#2d2d2d] leading-[1.5]">
+              Get your free estimate.
+            </p>
+            {/* Form row */}
+            <div className="flex flex-col sm:flex-row gap-[8px] items-stretch sm:items-center">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] text-[#2d2d2d] placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[200px]"
+                aria-label="Email address"
+              />
+              <input
+                type="text"
+                defaultValue="Silver Spring"
+                className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] font-medium text-[#2d2d2d] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[160px]"
+                aria-label="Location"
+              />
+              <Link
+                href="/contact"
+                className="bg-[#c62828] hover:bg-[#a82020] text-white font-bold text-[14px] px-[24px] h-[48px] rounded-[8px] transition-colors text-center whitespace-nowrap flex items-center justify-center min-w-[160px]"
+              >
+                Get a Quote
+              </Link>
+            </div>
+            {/* See Our Work */}
+            <Link
+              href="/gallery"
+              className="flex items-center gap-[8px] w-fit group"
+            >
+              <div className="w-6 h-6 rounded-full bg-[#c62828] flex items-center justify-center flex-shrink-0 group-hover:bg-[#a82020] transition-colors">
+                <svg
+                  className="w-3 h-3 text-white ml-0.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <div className="flex flex-col leading-[normal] text-[14px]">
+                <span className="font-bold text-[#c62828]">See</span>
+                <span className="text-[#2d2d2d]">our work.</span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Right: Hero image */}
+          <div className="w-full lg:w-[560px] h-[280px] lg:h-[340px] bg-[#385438] rounded-[12px] flex items-center justify-center overflow-hidden shrink-0">
+            <span className="text-[#d9d9d9] text-[16px] font-medium">
+              Professional Collision Repair
+            </span>
+          </div>
+        </div>
       </section>
 
-      {/* Trust Badges Bar */}
-      <TrustBadges />
-
-      {/* Stats Counters */}
+      {/* Stats Bar */}
       <StatsCounters />
 
-      {/* Services Grid Section */}
-      <section
-        className="py-16 bg-gray-50 dark:bg-gray-900/50"
-        aria-labelledby="services-heading"
-      >
+      {/* Our Services Section */}
+      <section className="py-16 bg-white" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             id="services-heading"
-            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
+            className="text-2xl font-bold text-[#2d2d2d] mb-10"
           >
             {t('services.title')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Collision Repair Card */}
-            <article className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Collision Repair */}
+            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                 <CollisionIcon
-                  className="w-8 h-8 text-red-600 dark:text-red-400"
+                  className="w-6 h-6 text-[#c62828]"
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              <h3 className="font-bold text-[#2d2d2d] text-base">
                 {t('services.collision.title')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-[#555] text-sm leading-normal">
                 {t('services.collision.description')}
               </p>
               <Link
                 href="/collision-repair"
-                className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-semibold group"
+                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
               >
-                <span>{common('learnMore')}</span>
-                <ArrowRightIcon
-                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                  aria-hidden="true"
-                />
+                {common('learnMore')} →
               </Link>
             </article>
 
-            {/* Auto Body Work Card */}
-            <article className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-6">
+            {/* Auto Body Work */}
+            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                 <WrenchIcon
-                  className="w-8 h-8 text-red-600 dark:text-red-400"
+                  className="w-6 h-6 text-[#c62828]"
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              <h3 className="font-bold text-[#2d2d2d] text-base">
                 {t('services.autoBody.title')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-[#555] text-sm leading-normal">
                 {t('services.autoBody.description')}
               </p>
               <Link
                 href="/about"
-                className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-semibold group"
+                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
               >
-                <span>{common('learnMore')}</span>
-                <ArrowRightIcon
-                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                  aria-hidden="true"
-                />
+                {common('learnMore')} →
               </Link>
             </article>
 
-            {/* Auto Painting Card */}
-            <article className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-6">
+            {/* Paint Solutions */}
+            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                 <PaintbrushIcon
-                  className="w-8 h-8 text-red-600 dark:text-red-400"
+                  className="w-6 h-6 text-[#c62828]"
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+              <h3 className="font-bold text-[#2d2d2d] text-base">
                 {t('services.painting.title')}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-[#555] text-sm leading-normal">
                 {t('services.painting.description')}
               </p>
               <Link
                 href="/auto-painting"
-                className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-semibold group"
+                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
               >
-                <span>{common('learnMore')}</span>
-                <ArrowRightIcon
-                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                {common('learnMore')} →
+              </Link>
+            </article>
+
+            {/* Insurance */}
+            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                <ShieldIcon
+                  className="w-6 h-6 text-[#c62828]"
                   aria-hidden="true"
                 />
+              </div>
+              <h3 className="font-bold text-[#2d2d2d] text-base">
+                {t('services.insurance.title')}
+              </h3>
+              <p className="text-[#555] text-sm leading-normal">
+                {t('services.insurance.description')}
+              </p>
+              <Link
+                href="/insurance-claims"
+                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+              >
+                {common('learnMore')} →
               </Link>
             </article>
           </div>
         </div>
       </section>
 
-      {/* 24/7 Towing Callout Section */}
+      {/* Why Choose Prestige Section - 2 column: bullets + YouTube */}
       <section
-        className="py-12 bg-red-600 dark:bg-red-700"
-        aria-labelledby="towing-heading"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <PhoneIcon className="w-8 h-8 text-white" aria-hidden="true" />
-              </div>
-              <div>
-                <h2
-                  id="towing-heading"
-                  className="text-2xl md:text-3xl font-bold text-white"
-                >
-                  {t('towing.title')}
-                </h2>
-                <p className="text-red-100 dark:text-red-200 mt-1">
-                  {t('towing.description')}
-                </p>
-              </div>
-            </div>
-            <a
-              href={`tel:${t('towing.phone').replace(/\D/g, '')}`}
-              className="inline-flex items-center gap-2 bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition shadow-lg hover:shadow-xl"
-            >
-              <PhoneIcon className="w-5 h-5" aria-hidden="true" />
-              <span>{t('towing.cta')}</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* YouTube Video Section */}
-      <section
-        className="py-16 bg-white dark:bg-gray-900"
-        aria-labelledby="video-heading"
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2
-              id="video-heading"
-              className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white"
-            >
-              {t('video.title')}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {t('video.description')}
-            </p>
-          </div>
-          <YouTubeEmbed videoId="dQw4w9WgXcQ" title={t('video.playButton')} />
-        </div>
-      </section>
-
-      {/* Why Choose Us Section - 6 Differentiators in 2-Column Grid */}
-      <section
-        className="py-16 bg-gray-50 dark:bg-gray-900/50"
+        className="py-16 bg-[#f5f5f5]"
         aria-labelledby="why-choose-heading"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            id="why-choose-heading"
-            className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white"
-          >
-            {t('whyChooseUs.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Experience */}
-            <article className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                <AwardIcon
-                  className="w-6 h-6 text-blue-600 dark:text-blue-400"
-                  aria-hidden="true"
-                />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
+          {/* Left: Bullets */}
+          <div className="flex-1 flex flex-col gap-4 max-w-[480px]">
+            <h2
+              id="why-choose-heading"
+              className="text-[28px] font-bold text-[#2d2d2d]"
+            >
+              {t('whyChooseUs.title')}
+            </h2>
+            {[
+              'More than two decades of collision repair experience',
+              'I-CAR Gold Class certified technicians',
+              'Lifetime warranty guarantee on all repairs',
+              'Accept all major insurance and submit claims for you',
+              'Computerized frame measuring & color matching',
+              'Free estimates with no obligation',
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <div className="w-5 h-5 border-2 border-[#c62828] rounded flex-shrink-0" />
+                <span className="text-[#2d2d2d] text-sm">{item}</span>
               </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
-                  {t('whyChooseUs.experience.title')}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('whyChooseUs.experience.description')}
-                </p>
-              </div>
-            </article>
+            ))}
+          </div>
 
-            {/* Certified */}
-            <article className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                <ShieldIcon
-                  className="w-6 h-6 text-green-600 dark:text-green-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
-                  {t('whyChooseUs.certified.title')}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('whyChooseUs.certified.description')}
-                </p>
-              </div>
-            </article>
-
-            {/* Insurance */}
-            <article className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                <CheckCircleIcon
-                  className="w-6 h-6 text-purple-600 dark:text-purple-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
-                  {t('whyChooseUs.insurance.title')}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('whyChooseUs.insurance.description')}
-                </p>
-              </div>
-            </article>
-
-            {/* Quality Guarantee */}
-            <article className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                <ThumbsUpIcon
-                  className="w-6 h-6 text-amber-600 dark:text-amber-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
-                  {t('whyChooseUs.quality.title')}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('whyChooseUs.quality.description')}
-                </p>
-              </div>
-            </article>
-
-            {/* Equipment */}
-            <article className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                <ToolsIcon
-                  className="w-6 h-6 text-cyan-600 dark:text-cyan-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
-                  {t('whyChooseUs.equipment.title')}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('whyChooseUs.equipment.description')}
-                </p>
-              </div>
-            </article>
-
-            {/* Satisfaction/Rating */}
-            <article className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                <StarIcon
-                  className="w-6 h-6 text-orange-600 dark:text-orange-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
-                  {t('whyChooseUs.satisfaction.title')}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('whyChooseUs.satisfaction.description')}
-                </p>
-              </div>
-            </article>
+          {/* Right: YouTube Embed */}
+          <div className="flex-1 w-full max-w-[520px]">
+            <YouTubeEmbed videoId="dQw4w9WgXcQ" title={t('video.playButton')} />
           </div>
         </div>
       </section>
 
-      {/* Quote Form Section */}
-      <section id="get-a-quote" className="py-16 bg-white dark:bg-gray-900">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+      {/* Get Your Free Estimate Section */}
+      <section id="get-a-quote" className="py-16 bg-[#f5f5f5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-6">
+            <h2 className="text-[28px] font-bold text-[#2d2d2d] mb-2">
               {t('quote.title')}
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              {t('quote.description')}
-            </p>
+            <div className="w-[100px] h-1 bg-[#c62828] rounded" />
           </div>
-
-          {/* Simple Quote Form with skeleton loading state */}
-          <SimpleQuoteFormDynamic />
+          <div className="bg-white rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)] p-8 lg:p-12">
+            <SimpleQuoteFormDynamic />
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-red-600 dark:bg-red-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">{t('cta.title')}</h2>
-          <p className="text-lg mb-8">{t('cta.description')}</p>
-          <Link
-            href="/contact"
-            className="bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition inline-block"
+      {/* Limited Lifetime Warranty Section */}
+      <section className="py-12 bg-white" aria-labelledby="warranty-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col gap-3 max-w-[550px]">
+            <h2
+              id="warranty-heading"
+              className="text-[28px] font-bold text-[#2d2d2d]"
+            >
+              Limited Lifetime Warranty
+            </h2>
+            <div className="w-[326px] max-w-full h-1 bg-[#c62828] rounded" />
+            <p className="font-bold text-[#2d2d2d] text-base">
+              100% Satisfaction Guaranteed
+            </p>
+            <p className="text-[#555] text-sm leading-relaxed">
+              Our technicians are the best in Silver Spring &amp; Montgomery
+              County.
+            </p>
+            <p className="text-[#555] text-sm leading-relaxed">
+              All collision repair services come with a lifetime warranty.
+            </p>
+          </div>
+          <div className="flex-shrink-0 w-[200px] h-[76px] bg-[#8b0000] rounded-full flex flex-col items-center justify-center gap-1">
+            <span className="text-white font-bold text-[10px] tracking-widest">
+              LIFETIME
+            </span>
+            <span className="text-white font-bold text-[8px] tracking-widest">
+              GUARANTEE
+            </span>
+            <span className="text-white font-bold text-sm">✓ 100%</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials Section */}
+      <section
+        className="py-16 bg-[#f5f5f5]"
+        aria-labelledby="testimonials-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
+          <h2
+            id="testimonials-heading"
+            className="text-[28px] font-bold text-[#2d2d2d] text-center"
           >
-            {t('cta.button')}
-          </Link>
+            Customer Testimonials
+          </h2>
+          <p className="text-[#555] text-sm text-center">
+            What Our Happy Customers Are Saying
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            {[
+              {
+                stars: '★★★★★',
+                text: 'Great experience! They fixed my car after a collision and it looks brand new. Highly recommended!',
+                name: '— Maria S.',
+                location: 'Silver Spring, MD',
+              },
+              {
+                stars: '★★★★★',
+                text: 'Professional, honest, and fast. They worked directly with my insurance company. Excellent service!',
+                name: '— James T.',
+                location: 'Bethesda, MD',
+              },
+              {
+                stars: '★★★★★',
+                text: 'Best auto body shop in the area. 20+ years and it shows. Lifetime warranty gives real peace of mind.',
+                name: '— Carlos R.',
+                location: 'Rockville, MD',
+              },
+            ].map((review) => (
+              <article
+                key={review.name}
+                className="bg-white p-6 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)] flex flex-col gap-3"
+              >
+                <span className="text-[#c62828] text-sm">{review.stars}</span>
+                <p className="text-[#555] text-sm leading-relaxed">
+                  {review.text}
+                </p>
+                <p className="font-bold text-[#2d2d2d] text-sm">
+                  {review.name}
+                </p>
+                <p className="text-[#808080] text-xs">{review.location}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section
+        className="bg-[#c62828] py-16 text-white"
+        aria-labelledby="cta-heading"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4 text-center">
+          <h2 id="cta-heading" className="text-[28px] font-bold">
+            {t('cta.title')}
+          </h2>
+          <p className="text-[#ffe0e0] text-base">
+            Contact us today for a free estimate. We work with all insurance
+            companies.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            <Link
+              href="/contact"
+              className="bg-white text-[#c62828] font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              Get a Quote
+            </Link>
+            <a
+              href="tel:3015788779"
+              className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              (301) 578-8779
+            </a>
+          </div>
         </div>
       </section>
     </div>

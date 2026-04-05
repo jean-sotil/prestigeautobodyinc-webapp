@@ -4,9 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ButtonLink } from '@/components/ui/Button';
-import { PhoneIcon } from '@/components/ui/Icons';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import ThemeToggle from '@/components/ThemeToggle';
 import MobileDrawer from '@/components/MobileDrawer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -21,14 +19,14 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname();
 
-  // Main navigation items (6 items as specified)
+  // Main navigation items matching Figma design
   const navItems: NavItem[] = [
-    { href: '/', label: t('home') },
     { href: '/collision-repair', label: t('collisionRepair') },
+    { href: '/about', label: 'Auto Body Services' },
     { href: '/auto-painting', label: t('autoPainting') },
-    { href: '/towing', label: t('towing') },
     { href: '/insurance-claims', label: t('insuranceClaims') },
     { href: '/about', label: t('about') },
+    { href: '/contact', label: t('contact') },
   ];
 
   const isHomePage = pathname === `/${locale}` || pathname === '/';
@@ -43,6 +41,12 @@ export default function Header() {
         Skip to content
       </a>
 
+      {/* Top Utility Bar */}
+      <div className="bg-[#121212] text-[#a6a6a6] text-xs px-16 py-2 hidden md:flex items-center justify-between">
+        <span>928 Philadelphia Ave, Silver Spring, MD 20910</span>
+        <span>Mon-Fri: 8AM-6PM &nbsp;|&nbsp; Sat: 8AM-12PM</span>
+      </div>
+
       {/* Main Header */}
       <header className="sticky top-0 z-40 bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,34 +55,23 @@ export default function Header() {
             <div className="flex-shrink-0">
               <Link
                 href="/"
-                className="text-xl font-bold text-red-600 hover:text-red-700 transition-colors"
+                className="hover:opacity-80 transition-opacity"
                 aria-label="Prestige Auto Body Inc. - Home"
               >
-                <span className="flex items-center gap-2">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2" />
-                    <circle cx="6.5" cy="16.5" r="2.5" />
-                    <circle cx="16.5" cy="16.5" r="2.5" />
-                  </svg>
-                  <span className="hidden sm:inline">Prestige Auto Body</span>
-                  <span className="sm:hidden">PAB</span>
-                </span>
+                <div className="flex flex-col leading-tight">
+                  <span className="font-black text-[22px] text-[#2d2d2d] dark:text-white tracking-wide">
+                    PRESTIGE
+                  </span>
+                  <span className="font-bold text-[9px] text-[#c62828] tracking-widest">
+                    AUTO BODY, INC
+                  </span>
+                </div>
               </Link>
             </div>
 
             {/* Desktop Navigation */}
             <nav
-              className="hidden lg:flex items-center space-x-1"
+              className="hidden lg:flex items-center gap-8"
               aria-label="Main navigation"
             >
               {navItems.map((item) => {
@@ -92,10 +85,10 @@ export default function Header() {
                   <Link
                     key={item.href}
                     href={item.href as '/'}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    className={`py-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? 'text-red-600 bg-red-50 dark:bg-red-950 dark:text-red-400'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800'
+                        ? 'text-[#c62828]'
+                        : 'text-[#2d2d2d] hover:text-[#c62828] dark:text-gray-300 dark:hover:text-white'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -106,20 +99,29 @@ export default function Header() {
             </nav>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              {/* Phone number - visible on tablet and up */}
-              <a
-                href="tel:3015788779"
-                className="hidden md:flex items-center text-sm font-medium text-gray-700 hover:text-red-600 transition-colors min-h-[44px] px-2"
-                aria-label="Call (301) 578-8779"
-              >
-                <PhoneIcon size={18} className="mr-1" ariaLabel="" />
-                <span className="hidden lg:inline">(301) 578-8779</span>
-              </a>
+            <div className="flex items-center gap-4">
+              {/* Phone number - visible on desktop */}
+              <div className="hidden lg:flex flex-col leading-tight">
+                <a
+                  href="tel:3015788779"
+                  className="font-bold text-[15px] text-[#2d2d2d] dark:text-white hover:text-[#c62828] transition-colors"
+                  aria-label="Call (301) 578-8779"
+                >
+                  (301) 578-8779
+                </a>
+                <span className="text-[11px] text-[#555] dark:text-gray-400">
+                  Call for Free Estimate
+                </span>
+              </div>
 
               {/* Get a Quote CTA - visible on desktop */}
               <div className="hidden lg:block">
-                <ButtonLink href="/contact" variant="primary" size="sm">
+                <ButtonLink
+                  href="/contact"
+                  variant="primary"
+                  size="sm"
+                  className="bg-[#c62828] hover:bg-[#a82020] text-white px-6 py-3 rounded-lg font-bold"
+                >
                   {c('getQuote')}
                 </ButtonLink>
               </div>
@@ -127,11 +129,6 @@ export default function Header() {
               {/* Language Toggle - visible on desktop */}
               <div className="hidden md:block">
                 <LanguageSwitcher />
-              </div>
-
-              {/* Theme Toggle - visible on desktop */}
-              <div className="hidden md:block">
-                <ThemeToggle />
               </div>
 
               {/* Mobile Menu Button */}

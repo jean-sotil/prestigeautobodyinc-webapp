@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Roboto, Geist_Mono } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const roboto = Roboto({
+  variable: '--font-roboto',
   subsets: ['latin'],
+  weight: ['400', '500', '700', '900'],
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
@@ -83,9 +85,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${roboto.variable} ${geistMono.variable} antialiased`}>
         {/* Web Vitals RUM monitoring */}
         <WebVitals />
         {children}
