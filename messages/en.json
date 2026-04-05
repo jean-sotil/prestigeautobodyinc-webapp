@@ -222,5 +222,130 @@
     "menu": "Menu",
     "closeMenu": "Close menu",
     "breadcrumb": "Breadcrumb"
+  },
+  "quoteForm": {
+    "formLabel": "Request a Quote",
+    "stepIndicator": "Step {current} of {total}",
+    "complete": "Complete",
+    "progressLabel": "Form progress",
+    "goToStep": "Go to step {step}",
+    "draftSaved": "Draft auto-saved",
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit Quote Request",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Quote Request Submitted!",
+      "message": "Thank you, {name}. We will contact you within 24 hours.",
+      "followUp": "You will receive a confirmation email with your quote reference number.",
+      "requestAnother": "Request Another Quote"
+    },
+    "steps": {
+      "contact": {
+        "title": "Contact Information",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "preferredContact": "Preferred Contact Method",
+        "methods": {
+          "phone": "Phone Call",
+          "email": "Email",
+          "text": "Text Message"
+        }
+      },
+      "vehicle": {
+        "title": "Vehicle Information",
+        "year": "Year",
+        "selectYear": "Select year",
+        "make": "Make",
+        "makePlaceholder": "e.g., Toyota, Honda, Ford",
+        "model": "Model",
+        "modelPlaceholder": "e.g., Camry, Accord, F-150",
+        "vin": "VIN (Optional)",
+        "licensePlate": "License Plate (Optional)",
+        "mileage": "Current Mileage"
+      },
+      "incident": {
+        "title": "Incident Details",
+        "date": "Date of Incident",
+        "location": "Location of Incident",
+        "locationPlaceholder": "e.g., Intersection of Route 29 and University Blvd",
+        "description": "Describe the Incident/Damage",
+        "descriptionPlaceholder": "Please describe what happened and the extent of the damage...",
+        "drivable": {
+          "title": "Is the vehicle drivable?",
+          "yes": "Yes",
+          "no": "No",
+          "unknown": "Not sure"
+        }
+      },
+      "damage": {
+        "title": "Damage Assessment",
+        "areasTitle": "Select damaged areas",
+        "hasPhotos": "Do you have photos of the damage?",
+        "photoOptions": {
+          "yes": "Yes",
+          "no": "No"
+        },
+        "photoDescription": "Photo Description",
+        "photoDescriptionPlaceholder": "Describe what the photos show (angles, close-ups, etc.)",
+        "areas": {
+          "frontBumper": "Front Bumper",
+          "rearBumper": "Rear Bumper",
+          "hood": "Hood",
+          "trunk": "Trunk/Liftgate",
+          "roof": "Roof",
+          "driverDoor": "Driver Door",
+          "passengerDoor": "Passenger Door",
+          "driverSide": "Driver Side",
+          "passengerSide": "Passenger Side",
+          "headlights": "Headlights",
+          "taillights": "Taillights",
+          "windshield": "Windshield",
+          "windows": "Windows",
+          "wheels": "Wheels/Rims",
+          "other": "Other"
+        }
+      },
+      "insurance": {
+        "title": "Insurance Information",
+        "hasClaim": "Have you filed an insurance claim?",
+        "claimOptions": {
+          "yes": "Yes, claim filed",
+          "no": "Not yet",
+          "pending": "Will file soon"
+        },
+        "company": "Insurance Company",
+        "selectCompany": "Select insurance company",
+        "policyNumber": "Policy Number",
+        "claimNumber": "Claim Number",
+        "claimNumberPlaceholder": "If you have it",
+        "deductible": "Deductible Amount",
+        "selectDeductible": "Select your deductible",
+        "otherDeductible": "Other",
+        "noClaimMessage": "That's fine! We can help you through the claims process or provide a cash estimate. Just bring your insurance card when you visit."
+      },
+      "scheduling": {
+        "title": "Schedule Appointment",
+        "preferredDate": "Preferred Date",
+        "preferredTime": "Preferred Time",
+        "alternateDate": "Alternate Date (Optional)",
+        "needsRental": "Do you need a rental car?",
+        "rentalOptions": {
+          "yes": "Yes, please",
+          "no": "No, thank you"
+        },
+        "additionalNotes": "Additional Notes",
+        "notesPlaceholder": "Any special requests or information we should know...",
+        "times": {
+          "morning": "Morning (8:00 AM - 12:00 PM)",
+          "afternoon": "Afternoon (12:00 PM - 5:00 PM)",
+          "evening": "Evening (by appointment)"
+        }
+      }
+    }
   }
 }

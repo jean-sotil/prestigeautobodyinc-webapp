@@ -222,5 +222,130 @@
     "menu": "Menú",
     "closeMenu": "Cerrar menú",
     "breadcrumb": "Ruta de navegación"
+  },
+  "quoteForm": {
+    "formLabel": "Solicitar una Cotización",
+    "stepIndicator": "Paso {current} de {total}",
+    "complete": "Completo",
+    "progressLabel": "Progreso del formulario",
+    "goToStep": "Ir al paso {step}",
+    "draftSaved": "Borrador guardado automáticamente",
+    "buttons": {
+      "back": "Atrás",
+      "next": "Siguiente",
+      "submit": "Enviar Solicitud de Cotización",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "¡Solicitud Enviada!",
+      "message": "Gracias, {name}. Nos pondremos en contacto dentro de 24 horas.",
+      "followUp": "Recibirá un correo de confirmación con su número de referencia de cotización.",
+      "requestAnother": "Solicitar Otra Cotización"
+    },
+    "steps": {
+      "contact": {
+        "title": "Información de Contacto",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "preferredContact": "Método de Contacto Preferido",
+        "methods": {
+          "phone": "Llamada Telefónica",
+          "email": "Correo Electrónico",
+          "text": "Mensaje de Texto"
+        }
+      },
+      "vehicle": {
+        "title": "Información del Vehículo",
+        "year": "Año",
+        "selectYear": "Seleccionar año",
+        "make": "Marca",
+        "makePlaceholder": "ej., Toyota, Honda, Ford",
+        "model": "Modelo",
+        "modelPlaceholder": "ej., Camry, Accord, F-150",
+        "vin": "VIN (Opcional)",
+        "licensePlate": "Placa (Opcional)",
+        "mileage": "Millaje Actual"
+      },
+      "incident": {
+        "title": "Detalles del Incidente",
+        "date": "Fecha del Incidente",
+        "location": "Ubicación del Incidente",
+        "locationPlaceholder": "ej., Intersección de Route 29 y University Blvd",
+        "description": "Describa el Incidente/Daño",
+        "descriptionPlaceholder": "Por favor describa qué sucedió y la extensión del daño...",
+        "drivable": {
+          "title": "¿El vehículo es manejable?",
+          "yes": "Sí",
+          "no": "No",
+          "unknown": "No estoy seguro"
+        }
+      },
+      "damage": {
+        "title": "Evaluación del Daño",
+        "areasTitle": "Seleccione las áreas dañadas",
+        "hasPhotos": "¿Tiene fotos del daño?",
+        "photoOptions": {
+          "yes": "Sí",
+          "no": "No"
+        },
+        "photoDescription": "Descripción de las Fotos",
+        "photoDescriptionPlaceholder": "Describa lo que muestran las fotos (ángulos, primeros planos, etc.)",
+        "areas": {
+          "frontBumper": "Parachoques Delantero",
+          "rearBumper": "Parachoques Trasero",
+          "hood": "Cofre",
+          "trunk": "Maletero/Puerta Trasera",
+          "roof": "Techo",
+          "driverDoor": "Puerta del Conductor",
+          "passengerDoor": "Puerta del Pasajero",
+          "driverSide": "Lado del Conductor",
+          "passengerSide": "Lado del Pasajero",
+          "headlights": "Faros Delanteros",
+          "taillights": "Luces Traseras",
+          "windshield": "Parabrisas",
+          "windows": "Ventanas",
+          "wheels": "Ruedas/Rines",
+          "other": "Otro"
+        }
+      },
+      "insurance": {
+        "title": "Información del Seguro",
+        "hasClaim": "¿Ha presentado un reclamo de seguro?",
+        "claimOptions": {
+          "yes": "Sí, reclamo presentado",
+          "no": "Aún no",
+          "pending": "Presentaré pronto"
+        },
+        "company": "Compañía de Seguros",
+        "selectCompany": "Seleccionar compañía de seguros",
+        "policyNumber": "Número de Póliza",
+        "claimNumber": "Número de Reclamo",
+        "claimNumberPlaceholder": "Si lo tiene",
+        "deductible": "Monto del Deducible",
+        "selectDeductible": "Seleccione su deducible",
+        "otherDeductible": "Otro",
+        "noClaimMessage": "¡Está bien! Podemos ayudarle con el proceso de reclamos o proporcionarle un estimado en efectivo. Solo traiga su tarjeta de seguro cuando visite."
+      },
+      "scheduling": {
+        "title": "Programar Cita",
+        "preferredDate": "Fecha Preferida",
+        "preferredTime": "Hora Preferida",
+        "alternateDate": "Fecha Alternativa (Opcional)",
+        "needsRental": "¿Necesita un auto de alquiler?",
+        "rentalOptions": {
+          "yes": "Sí, por favor",
+          "no": "No, gracias"
+        },
+        "additionalNotes": "Notas Adicionales",
+        "notesPlaceholder": "Alguna solicitud especial o información que debamos saber...",
+        "times": {
+          "morning": "Mañana (8:00 AM - 12:00 PM)",
+          "afternoon": "Tarde (12:00 PM - 5:00 PM)",
+          "evening": "Noche (con cita previa)"
+        }
+      }
+    }
   }
 }

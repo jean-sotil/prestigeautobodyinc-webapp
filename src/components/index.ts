@@ -52,7 +52,20 @@ export {
 } from './ui/Icons';
 
 // Form Components
-export { QuoteForm } from './forms/QuoteForm';
+export {
+  QuoteForm,
+  QuoteFormStyles,
+  quoteFormReducer,
+  INITIAL_STATE,
+  INITIAL_DATA,
+  TOTAL_STEPS,
+} from './forms/QuoteForm';
+export { QuoteFormDynamic } from './forms/QuoteFormDynamic';
+export type {
+  QuoteFormData,
+  QuoteFormState,
+  QuoteFormAction,
+} from './forms/QuoteForm';
 
 // Embed Components
 export { YouTubeEmbed } from './embeds/YouTubeEmbed';

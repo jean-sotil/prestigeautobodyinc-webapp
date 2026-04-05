@@ -3,6 +3,8 @@ import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { HeroCarousel, TrustBadges, StatsCounters } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
+import { QuoteFormDynamic } from '@/components/forms/QuoteFormDynamic';
+import { QuoteFormStyles } from '@/components/forms/QuoteForm';
 import {
   CollisionIcon,
   WrenchIcon,
@@ -27,6 +29,8 @@ export default function HomePage() {
 
   return (
     <div className="font-sans min-h-screen">
+      {/* Inject QuoteForm animation styles */}
+      <QuoteFormStyles />
       {/* Hero Carousel Section */}
       <section aria-label="Hero carousel">
         <HeroCarousel />
@@ -322,19 +326,9 @@ export default function HomePage() {
               {t('quote.description')}
             </p>
           </div>
-          <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-md">
-            <p className="text-center text-gray-600 dark:text-gray-300 mb-4">
-              {t('quote.comingSoon')}
-            </p>
-            <div className="flex justify-center">
-              <Link
-                href="/contact"
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition"
-              >
-                {t('quote.ctaButton')}
-              </Link>
-            </div>
-          </div>
+
+          {/* Dynamic QuoteForm with skeleton loading state */}
+          <QuoteFormDynamic />
         </div>
       </section>
 

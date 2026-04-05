@@ -46,18 +46,41 @@ export function CardSkeleton() {
 export function FormSkeleton() {
   return (
     <div
-      className="space-y-4 max-w-lg"
+      className="space-y-6 max-w-2xl mx-auto"
       aria-busy="true"
       aria-label="Loading form..."
     >
-      <Skeleton className="h-8 w-1/2" />
+      {/* Progress bar skeleton */}
       <div className="space-y-3">
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-32 w-full" />
+        <div className="flex justify-between">
+          <Skeleton className="h-4 w-24" />
+          <Skeleton className="h-4 w-16" />
+        </div>
+        <Skeleton className="h-2.5 w-full rounded-full" />
+        <div className="flex justify-between px-1">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Skeleton key={i} className="h-3 w-3 rounded-full" />
+          ))}
+        </div>
       </div>
-      <Skeleton className="h-12 w-full" />
+
+      {/* Form fields skeleton */}
+      <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 space-y-4">
+        <Skeleton className="h-6 w-1/3" />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Skeleton className="h-12 w-full rounded" />
+          <Skeleton className="h-12 w-full rounded" />
+        </div>
+
+        <Skeleton className="h-12 w-full rounded" />
+        <Skeleton className="h-12 w-full rounded" />
+
+        <div className="flex gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <Skeleton className="h-12 w-full rounded-lg" />
+          <Skeleton className="h-12 w-full rounded-lg" />
+        </div>
+      </div>
     </div>
   );
 }
