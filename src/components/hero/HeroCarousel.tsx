@@ -73,12 +73,20 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const t = useTranslations('home');
   const locale = useLocale();
 
-  // Check for reduced motion preference
+  // Set mounted state after hydration to avoid mismatch
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Check for reduced motion preference (only after mount)
+  useEffect(() => {
+    if (!isMounted) return;
+
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
 
@@ -88,18 +96,18 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+  }, [isMounted]);
 
-  // Auto-advance carousel
+  // Auto-advance carousel (only after mount)
   useEffect(() => {
-    if (prefersReducedMotion || isPaused) return;
+    if (!isMounted || prefersReducedMotion || isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused, slides.length, prefersReducedMotion]);
+  }, [isMounted, isPaused, slides.length, prefersReducedMotion]);
 
   const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index);
@@ -142,9 +150,9 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
+            className={`absolute inset-0 w-full h-full transition-opacity ease-in-out ${
+              prefersReducedMotion && isMounted ? 'duration-0' : 'duration-500'
+            } ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             aria-roledescription="slide"
             aria-label={`${t('hero.slideLabel')} ${index + 1} ${t('hero.of')} ${slides.length}`}
             aria-hidden={index !== currentSlide}
