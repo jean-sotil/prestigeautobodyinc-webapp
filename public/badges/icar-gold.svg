@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="22" fill="#1e40af" stroke="#3b82f6" stroke-width="2"/>
+  <text x="24" y="28" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">I-CAR</text>
+  <circle cx="24" cy="18" r="4" fill="#fbbf24"/>
+</svg>

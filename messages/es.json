@@ -19,11 +19,86 @@
   },
   "home": {
     "hero": {
-      "title": "Prestige Auto Body Inc.",
-      "subtitle": "Su Socio de Confianza en Reparación de Carrocería",
-      "description": "Servicios profesionales de reparación de colisiones, pintura de autos y restauración. Devolvemos la vida a su vehículo.",
-      "ctaPrimary": "Obtener Estimado Gratis",
-      "ctaSecondary": "Ver Nuestro Trabajo"
+      "carouselLabel": "Carrusel de trabajos destacados",
+      "slideLabel": "Diapositiva",
+      "of": "de",
+      "previousSlide": "Diapositiva anterior",
+      "nextSlide": "Diapositiva siguiente",
+      "slideNavigation": "Navegación de diapositivas",
+      "goToSlide": "Ir a la diapositiva {number}",
+      "currentSlide": "Diapositiva {current} de {total}",
+      "ctaPrimary": "Obtener Cotización",
+      "ctaSecondary": "Contáctenos",
+      "slide1": {
+        "title": "Prestige Auto Body Inc.",
+        "subtitle": "Su Socio de Confianza en Reparación de Carrocería Desde 2004"
+      },
+      "slide2": {
+        "title": "Reparación Experta de Colisiones",
+        "subtitle": "Restaure Su Vehículo a Su Condición Pre-Accidente"
+      },
+      "slide3": {
+        "title": "Pintura Profesional de Autos",
+        "subtitle": "Igualación de Color y Acabados de Calidad de Fábrica"
+      },
+      "slide4": {
+        "title": "Instalaciones de Vanguardia",
+        "subtitle": "Equipamiento Moderno para Reparaciones Precisas"
+      },
+      "slide5": {
+        "title": "Técnicos Certificados",
+        "subtitle": "Expertos Certificados I-CAR y ASE en Quién Puede Confiar"
+      },
+      "slide6": {
+        "title": "Calidad Que Se Ve",
+        "subtitle": "Resultados de Calidad de Sala de Exposición Cada Vez"
+      },
+      "slide7": {
+        "title": "Satisfacción del Cliente",
+        "subtitle": "Calificación de 4.7 Estrellas de 1000+ Clientes Satisfechos"
+      }
+    },
+    "trustBadges": {
+      "title": "Certificaciones y Logros",
+      "icar": {
+        "name": "I-CAR Gold Class",
+        "description": "Excelencia Certificada",
+        "alt": "Logo de certificación I-CAR Gold Class"
+      },
+      "carwise": {
+        "name": "Carwise Verificado",
+        "description": "Reseñas Confiables",
+        "alt": "Distintivo de taller verificado Carwise"
+      },
+      "lifetime": {
+        "name": "Garantía de Por Vida",
+        "description": "En Todas las Reparaciones",
+        "alt": "Distintivo de garantía de reparación de por vida"
+      },
+      "rating": {
+        "name": "Calificación 4.7 Estrellas",
+        "description": "De 1000+ Reseñas",
+        "alt": "Distintivo de calificación de 4.7 estrellas de clientes"
+      }
+    },
+    "stats": {
+      "title": "Nuestro Historial",
+      "experience": {
+        "value": "20+",
+        "label": "Años de Experiencia"
+      },
+      "rating": {
+        "value": "4.7★",
+        "label": "Calificación de Clientes"
+      },
+      "cars": {
+        "value": "1000+",
+        "label": "Autos Reparados"
+      },
+      "reviews": {
+        "value": "A+",
+        "label": "Calificación BBB"
+      }
     },
     "services": {
       "title": "Nuestros Servicios",
@@ -54,6 +129,12 @@
         "title": "Aprobado por Seguros",
         "description": "Trabajamos con todas las principales compañías de seguros."
       }
+    },
+    "quote": {
+      "title": "Obtenga un Estimado Gratis",
+      "description": "¿Listo para restaurar su vehículo? Obtenga un estimado gratuito sin compromiso hoy.",
+      "comingSoon": "Nuestro formulario de cotización en línea estará disponible pronto. Por ahora, contáctenos directamente.",
+      "ctaButton": "Contáctenos para Cotización"
     },
     "cta": {
       "title": "¿Listo para Comenzar?",

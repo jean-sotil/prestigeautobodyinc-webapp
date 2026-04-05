@@ -19,11 +19,86 @@
   },
   "home": {
     "hero": {
-      "title": "Prestige Auto Body Inc.",
-      "subtitle": "Your Trusted Partner in Auto Body Repair",
-      "description": "Professional collision repair, auto painting, and restoration services. We bring your vehicle back to life.",
-      "ctaPrimary": "Get a Free Estimate",
-      "ctaSecondary": "View Our Work"
+      "carouselLabel": "Featured work carousel",
+      "slideLabel": "Slide",
+      "of": "of",
+      "previousSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "slideNavigation": "Slide navigation",
+      "goToSlide": "Go to slide {number}",
+      "currentSlide": "Slide {current} of {total}",
+      "ctaPrimary": "Get a Quote",
+      "ctaSecondary": "Contact Us",
+      "slide1": {
+        "title": "Prestige Auto Body Inc.",
+        "subtitle": "Your Trusted Partner in Auto Body Repair Since 2004"
+      },
+      "slide2": {
+        "title": "Expert Collision Repair",
+        "subtitle": "Restore Your Vehicle to Pre-Accident Condition"
+      },
+      "slide3": {
+        "title": "Professional Auto Painting",
+        "subtitle": "Factory-Quality Color Matching & Finishes"
+      },
+      "slide4": {
+        "title": "State-of-the-Art Facility",
+        "subtitle": "Modern Equipment for Precision Repairs"
+      },
+      "slide5": {
+        "title": "Certified Technicians",
+        "subtitle": "I-CAR & ASE Certified Experts You Can Trust"
+      },
+      "slide6": {
+        "title": "Quality You Can See",
+        "subtitle": "Showroom-Ready Results Every Time"
+      },
+      "slide7": {
+        "title": "Customer Satisfaction",
+        "subtitle": "4.7 Star Rating from 1000+ Happy Customers"
+      }
+    },
+    "trustBadges": {
+      "title": "Certifications and Achievements",
+      "icar": {
+        "name": "I-CAR Gold Class",
+        "description": "Certified Excellence",
+        "alt": "I-CAR Gold Class certification logo"
+      },
+      "carwise": {
+        "name": "Carwise Verified",
+        "description": "Trusted Reviews",
+        "alt": "Carwise verified shop badge"
+      },
+      "lifetime": {
+        "name": "Lifetime Guarantee",
+        "description": "On All Repairs",
+        "alt": "Lifetime repair guarantee badge"
+      },
+      "rating": {
+        "name": "4.7 Star Rating",
+        "description": "From 1000+ Reviews",
+        "alt": "4.7 star customer rating badge"
+      }
+    },
+    "stats": {
+      "title": "Our Track Record",
+      "experience": {
+        "value": "20+",
+        "label": "Years of Experience"
+      },
+      "rating": {
+        "value": "4.7★",
+        "label": "Customer Rating"
+      },
+      "cars": {
+        "value": "1000+",
+        "label": "Cars Repaired"
+      },
+      "reviews": {
+        "value": "A+",
+        "label": "BBB Rating"
+      }
     },
     "services": {
       "title": "Our Services",
@@ -54,6 +129,12 @@
         "title": "Insurance Approved",
         "description": "We work with all major insurance companies."
       }
+    },
+    "quote": {
+      "title": "Get a Free Estimate",
+      "description": "Ready to restore your vehicle? Get a free, no-obligation estimate today.",
+      "comingSoon": "Our online quote form is coming soon. For now, please contact us directly.",
+      "ctaButton": "Contact Us for Quote"
     },
     "cta": {
       "title": "Ready to Get Started?",
