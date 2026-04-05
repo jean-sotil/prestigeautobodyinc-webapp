@@ -3,8 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { HeroCarousel, TrustBadges, StatsCounters } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
-import { QuoteFormDynamic } from '@/components/forms/QuoteFormDynamic';
-import { QuoteFormStyles } from '@/components/forms/QuoteForm';
+import { SimpleQuoteFormDynamic } from '@/components/forms/SimpleQuoteFormDynamic';
 import {
   CollisionIcon,
   WrenchIcon,
@@ -29,8 +28,6 @@ export default function HomePage() {
 
   return (
     <div className="font-sans min-h-screen">
-      {/* Inject QuoteForm animation styles */}
-      <QuoteFormStyles />
       {/* Hero Carousel Section */}
       <section aria-label="Hero carousel">
         <HeroCarousel />
@@ -327,8 +324,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Dynamic QuoteForm with skeleton loading state */}
-          <QuoteFormDynamic />
+          {/* Simple Quote Form with skeleton loading state */}
+          <SimpleQuoteFormDynamic />
         </div>
       </section>
 

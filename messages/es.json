@@ -347,5 +347,82 @@
         }
       }
     }
+  },
+  "simpleQuoteForm": {
+    "formLabel": "Solicitar una Cotización",
+    "stepIndicator": "Paso {current} de {total}",
+    "complete": "Completo",
+    "progressLabel": "Progreso del formulario",
+    "goToStep": "Ir al paso {step}",
+    "draftSaved": "Borrador guardado automáticamente",
+    "buttons": {
+      "back": "Atrás",
+      "next": "Siguiente",
+      "submit": "Enviar Solicitud de Cotización",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "¡Solicitud Enviada!",
+      "message": "Gracias, {name}. Nos pondremos en contacto dentro de 24 horas.",
+      "followUp": "Recibirá un correo de confirmación con su número de referencia de cotización.",
+      "requestAnother": "Solicitar Otra Cotización"
+    },
+    "services": {
+      "collision": "Reparación de Colisiones",
+      "collisionDesc": "Restaure su vehículo a su condición pre-accidente",
+      "autobody": "Trabajo de Carrocería",
+      "autobodyDesc": "Remoción de abolladuras, reparación de chasis, reemplazo de paneles",
+      "painting": "Pintura de Autos",
+      "paintingDesc": "Igualación de color y acabados premium",
+      "insurance": "Reclamo de Seguro",
+      "insuranceDesc": "Ayuda con su proceso de reclamo de seguro"
+    },
+    "step1": {
+      "title": "¿Qué servicio necesita?",
+      "subtitle": "Seleccione el tipo de servicio que busca"
+    },
+    "step2": {
+      "title": "Información del Vehículo",
+      "subtitle": "Cuéntenos sobre su vehículo",
+      "year": "Año",
+      "selectYear": "Seleccionar año",
+      "make": "Marca",
+      "selectMake": "Seleccionar marca",
+      "other": "Otra",
+      "customMake": "Otra Marca",
+      "customMakePlaceholder": "Ingrese la marca del vehículo",
+      "model": "Modelo",
+      "modelPlaceholder": "ej., Camry, F-150, Civic"
+    },
+    "step3": {
+      "title": "Detalles del Daño",
+      "subtitle": "Describa el daño a su vehículo",
+      "severityLabel": "Severidad del daño",
+      "minor": "Menor",
+      "minorDesc": "Pequeñas abolladuras, rayones o raspaduras",
+      "moderate": "Moderado",
+      "moderateDesc": "Daño visible, paneles afectados",
+      "major": "Mayor",
+      "majorDesc": "Daño significativo, múltiples áreas",
+      "unsure": "No estoy seguro",
+      "unsureDesc": "Necesita evaluación profesional",
+      "description": "Describa el daño (opcional)",
+      "descriptionPlaceholder": "Por favor describa qué sucedió y la extensión del daño...",
+      "hasPhotos": "Tengo fotos del daño para compartir"
+    },
+    "step4": {
+      "title": "Información de Contacto",
+      "subtitle": "¿Cómo podemos contactarlo?",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "phone": "Teléfono",
+      "email": "Correo Electrónico",
+      "contactMethod": "Método de contacto preferido",
+      "methods": {
+        "phone": "Llamada Telefónica",
+        "text": "Mensaje de Texto",
+        "email": "Correo Electrónico"
+      }
+    }
   }
 }

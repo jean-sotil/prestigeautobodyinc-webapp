@@ -347,5 +347,82 @@
         }
       }
     }
+  },
+  "simpleQuoteForm": {
+    "formLabel": "Request a Quote",
+    "stepIndicator": "Step {current} of {total}",
+    "complete": "Complete",
+    "progressLabel": "Form progress",
+    "goToStep": "Go to step {step}",
+    "draftSaved": "Draft auto-saved",
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit Quote Request",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Quote Request Submitted!",
+      "message": "Thank you, {name}. We will contact you within 24 hours.",
+      "followUp": "You will receive a confirmation email with your quote reference number.",
+      "requestAnother": "Request Another Quote"
+    },
+    "services": {
+      "collision": "Collision Repair",
+      "collisionDesc": "Restore your vehicle to pre-accident condition",
+      "autobody": "Auto Body Work",
+      "autobodyDesc": "Dent removal, frame repair, panel replacement",
+      "painting": "Auto Painting",
+      "paintingDesc": "Color matching and premium finishes",
+      "insurance": "Insurance Claim",
+      "insuranceDesc": "Help with your insurance claim process"
+    },
+    "step1": {
+      "title": "What service do you need?",
+      "subtitle": "Select the type of service you're looking for"
+    },
+    "step2": {
+      "title": "Vehicle Information",
+      "subtitle": "Tell us about your vehicle",
+      "year": "Year",
+      "selectYear": "Select year",
+      "make": "Make",
+      "selectMake": "Select make",
+      "other": "Other",
+      "customMake": "Other Make",
+      "customMakePlaceholder": "Enter vehicle make",
+      "model": "Model",
+      "modelPlaceholder": "e.g., Camry, F-150, Civic"
+    },
+    "step3": {
+      "title": "Damage Details",
+      "subtitle": "Describe the damage to your vehicle",
+      "severityLabel": "Damage severity",
+      "minor": "Minor",
+      "minorDesc": "Small dents, scratches, or scuffs",
+      "moderate": "Moderate",
+      "moderateDesc": "Visible damage, panels affected",
+      "major": "Major",
+      "majorDesc": "Significant damage, multiple areas",
+      "unsure": "Unsure",
+      "unsureDesc": "Need professional assessment",
+      "description": "Describe the damage (optional)",
+      "descriptionPlaceholder": "Please describe what happened and the extent of the damage...",
+      "hasPhotos": "I have photos of the damage to share"
+    },
+    "step4": {
+      "title": "Contact Information",
+      "subtitle": "How can we reach you?",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "contactMethod": "Preferred contact method",
+      "methods": {
+        "phone": "Phone Call",
+        "text": "Text Message",
+        "email": "Email"
+      }
+    }
   }
 }
