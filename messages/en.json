@@ -104,31 +104,54 @@
       "title": "Our Services",
       "collision": {
         "title": "Collision Repair",
-        "description": "Expert collision repair services to restore your vehicle to pre-accident condition."
+        "description": "Expert collision repair services to restore your vehicle to pre-accident condition with factory specifications."
+      },
+      "autoBody": {
+        "title": "Auto Body Work",
+        "description": "Complete auto body services including dent removal, frame straightening, and panel replacement."
       },
       "painting": {
         "title": "Auto Painting",
-        "description": "Professional painting services with color matching and premium finishes."
-      },
-      "towing": {
-        "title": "24/7 Towing",
-        "description": "Round-the-clock towing services when you need us most."
+        "description": "Professional painting services with precision color matching and premium, durable finishes."
       }
     },
     "whyChooseUs": {
-      "title": "Why Choose Us",
+      "title": "Why Choose Prestige?",
       "experience": {
-        "title": "Years of Experience",
-        "description": "Over 20 years of professional auto body repair experience."
+        "title": "20+ Years Experience",
+        "description": "Two decades of trusted auto body repair excellence in the Silver Spring community."
       },
       "certified": {
-        "title": "Certified Technicians",
-        "description": "Our technicians are I-CAR and ASE certified."
+        "title": "I-CAR & ASE Certified",
+        "description": "Our technicians hold the highest industry certifications and ongoing training."
       },
       "insurance": {
-        "title": "Insurance Approved",
-        "description": "We work with all major insurance companies."
+        "title": "All Insurance Accepted",
+        "description": "We work directly with all major insurance companies for hassle-free claims."
+      },
+      "quality": {
+        "title": "Lifetime Guarantee",
+        "description": "Every repair comes with our comprehensive lifetime warranty on workmanship."
+      },
+      "equipment": {
+        "title": "State-of-the-Art Facility",
+        "description": "Modern equipment and technology for precision repairs and color matching."
+      },
+      "satisfaction": {
+        "title": "4.7 Star Rating",
+        "description": "Trusted by over 1,000 satisfied customers with exceptional reviews."
       }
+    },
+    "towing": {
+      "title": "24/7 Emergency Towing",
+      "description": "Stranded? Our professional tow truck operators are available around the clock to get you and your vehicle to safety.",
+      "cta": "Call for Towing",
+      "phone": "(301) 578-8779"
+    },
+    "video": {
+      "title": "See Our Work",
+      "description": "Watch how we transform damaged vehicles back to their original condition.",
+      "playButton": "Play video: Our Shop Tour"
     },
     "quote": {
       "title": "Get a Free Estimate",

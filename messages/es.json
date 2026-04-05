@@ -104,31 +104,54 @@
       "title": "Nuestros Servicios",
       "collision": {
         "title": "Reparación de Colisiones",
-        "description": "Servicios expertos de reparación de colisiones para restaurar su vehículo a su condición pre-accidente."
+        "description": "Servicios expertos de reparación de colisiones para restaurar su vehículo a sus condiciones pre-accidente con especificaciones de fábrica."
+      },
+      "autoBody": {
+        "title": "Trabajo de Carrocería",
+        "description": "Servicios completos de carrocería incluyendo remoción de abolladuras, enderezado de chasis y reemplazo de paneles."
       },
       "painting": {
         "title": "Pintura de Autos",
-        "description": "Servicios profesionales de pintura con igualación de color y acabados premium."
-      },
-      "towing": {
-        "title": "Remolque 24/7",
-        "description": "Servicios de remolque las 24 horas, los 7 días de la semana, cuando más nos necesita."
+        "description": "Servicios profesionales de pintura con igualación precisa de color y acabados premium duraderos."
       }
     },
     "whyChooseUs": {
-      "title": "Por Qué Elegirnos",
+      "title": "¿Por Qué Elegir Prestige?",
       "experience": {
-        "title": "Años de Experiencia",
-        "description": "Más de 20 años de experiencia profesional en reparación de carrocería."
+        "title": "20+ Años de Experiencia",
+        "description": "Dos décadas de excelencia confiable en reparación de carrocería en la comunidad de Silver Spring."
       },
       "certified": {
-        "title": "Técnicos Certificados",
-        "description": "Nuestros técnicos están certificados por I-CAR y ASE."
+        "title": "Certificados I-CAR y ASE",
+        "description": "Nuestros técnicos tienen las certificaciones más altas de la industria y capacitación continua."
       },
       "insurance": {
-        "title": "Aprobado por Seguros",
-        "description": "Trabajamos con todas las principales compañías de seguros."
+        "title": "Todos los Seguros Aceptados",
+        "description": "Trabajamos directamente con todas las compañías de seguros principales para reclamos sin complicaciones."
+      },
+      "quality": {
+        "title": "Garantía de Por Vida",
+        "description": "Cada reparación viene con nuestra garantía integral de por vida en mano de obra."
+      },
+      "equipment": {
+        "title": "Instalaciones de Vanguardia",
+        "description": "Equipamiento y tecnología modernos para reparaciones precisas e igualación de color."
+      },
+      "satisfaction": {
+        "title": "Calificación 4.7 Estrellas",
+        "description": "Confiado por más de 1,000 clientes satisfechos con reseñas excepcionales."
       }
+    },
+    "towing": {
+      "title": "Remolque de Emergencia 24/7",
+      "description": "¿Varado? Nuestros operadores profesionales de grúas están disponibles las 24 horas para llevarlo a usted y su vehículo a un lugar seguro.",
+      "cta": "Llamar para Remolque",
+      "phone": "(301) 578-8779"
+    },
+    "video": {
+      "title": "Vea Nuestro Trabajo",
+      "description": "Vea cómo transformamos vehículos dañados de vuelta a su condición original.",
+      "playButton": "Reproducir video: Tour de Nuestro Taller"
     },
     "quote": {
       "title": "Obtenga un Estimado Gratis",
