@@ -128,7 +128,7 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
   return (
     <div
       ref={carouselRef}
-      className="relative w-full h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden"
+      className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden bg-gray-900"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onFocus={handleFocus}
@@ -138,26 +138,26 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
       aria-label={t('hero.carouselLabel')}
     >
       {/* Slides */}
-      <div className="relative w-full h-full">
+      <div className="absolute inset-0 w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
               index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
             aria-roledescription="slide"
             aria-label={`${t('hero.slideLabel')} ${index + 1} ${t('hero.of')} ${slides.length}`}
             aria-hidden={index !== currentSlide}
           >
-            {/* Image */}
-            <div className="absolute inset-0">
+            {/* Image with explicit dimensions */}
+            <div className="absolute inset-0 w-full h-full">
               <Image
                 src={slide.src}
                 alt={slide.alt}
                 fill
                 priority={index === 0}
                 sizes="100vw"
-                className="object-cover"
+                className="object-cover w-full h-full"
                 quality={90}
               />
               {/* Dark overlay for text readability */}
@@ -165,7 +165,7 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
             </div>
 
             {/* Content Overlay */}
-            <div className="relative z-20 h-full flex items-center justify-center">
+            <div className="relative z-20 w-full h-full flex items-center justify-center">
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 {index === 0 ? (
                   // First slide has H1 for SEO
