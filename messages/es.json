@@ -92,5 +92,11 @@
     "english": "Inglés",
     "spanish": "Español",
     "current": "Idioma actual: {locale}"
+  },
+  "header": {
+    "skipToContent": "Saltar al contenido",
+    "menu": "Menú",
+    "closeMenu": "Cerrar menú",
+    "breadcrumb": "Ruta de navegación"
   }
 }

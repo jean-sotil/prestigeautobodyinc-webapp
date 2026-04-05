@@ -92,5 +92,11 @@
     "english": "English",
     "spanish": "Spanish",
     "current": "Current language: {locale}"
+  },
+  "header": {
+    "skipToContent": "Skip to content",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "breadcrumb": "Breadcrumb"
   }
 }

@@ -46,6 +46,9 @@ export {
   ChevronRightIcon,
   MenuIcon,
   CloseIcon,
+  SunIcon,
+  MoonIcon,
+  QuoteIcon,
 } from './ui/Icons';
 
 // Form Components
@@ -57,3 +60,9 @@ export { GoogleMapEmbed } from './embeds/GoogleMapEmbed';
 
 // Performance Components
 export { WebVitals } from './performance/WebVitals';
+
+// Header Components
+export { default as Header } from './Header';
+export { default as MobileDrawer } from './MobileDrawer';
+export { default as ThemeToggle } from './ThemeToggle';
+export { default as Breadcrumbs } from './Breadcrumbs';
