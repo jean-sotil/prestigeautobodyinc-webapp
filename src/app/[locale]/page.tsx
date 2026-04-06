@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import { StatsCounters } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
 import { SimpleQuoteFormDynamic } from '@/components/forms/SimpleQuoteFormDynamic';
+import { ButtonLink } from '@/components/ui/Button';
 import {
   CollisionIcon,
   WrenchIcon,
@@ -52,12 +53,14 @@ export default function HomePage() {
                 className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] font-medium text-[#2d2d2d] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[160px]"
                 aria-label="Location"
               />
-              <Link
+              <ButtonLink
                 href="/contact"
-                className="bg-[#c62828] hover:bg-[#a82020] text-white font-bold text-[14px] px-[24px] h-[48px] rounded-[8px] transition-colors text-center whitespace-nowrap flex items-center justify-center min-w-[160px]"
+                variant="primary"
+                size="lg"
+                className="text-[14px] min-w-[160px] whitespace-nowrap"
               >
                 Get a Quote
-              </Link>
+              </ButtonLink>
             </div>
             {/* See Our Work */}
             <Link
@@ -117,12 +120,14 @@ export default function HomePage() {
               <p className="text-[#555] text-sm leading-normal">
                 {t('services.collision.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/collision-repair"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
                 {common('learnMore')} →
-              </Link>
+              </ButtonLink>
             </article>
 
             {/* Auto Body Work */}
@@ -139,12 +144,14 @@ export default function HomePage() {
               <p className="text-[#555] text-sm leading-normal">
                 {t('services.autoBody.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/about"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
                 {common('learnMore')} →
-              </Link>
+              </ButtonLink>
             </article>
 
             {/* Paint Solutions */}
@@ -161,12 +168,14 @@ export default function HomePage() {
               <p className="text-[#555] text-sm leading-normal">
                 {t('services.painting.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/auto-painting"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
                 {common('learnMore')} →
-              </Link>
+              </ButtonLink>
             </article>
 
             {/* Insurance */}
@@ -183,12 +192,14 @@ export default function HomePage() {
               <p className="text-[#555] text-sm leading-normal">
                 {t('services.insurance.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/insurance-claims"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
                 {common('learnMore')} →
-              </Link>
+              </ButtonLink>
             </article>
           </div>
         </div>
@@ -347,18 +358,17 @@ export default function HomePage() {
             companies.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
-            <Link
-              href="/contact"
-              className="bg-white text-[#c62828] font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
-            >
+            <ButtonLink href="/contact" variant="inverted" size="lg">
               Get a Quote
-            </Link>
-            <a
+            </ButtonLink>
+            <ButtonLink
               href="tel:3015788779"
-              className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors"
+              variant="outline-white"
+              size="lg"
+              aria-label="Call (301) 578-8779"
             >
               (301) 578-8779
-            </a>
+            </ButtonLink>
           </div>
         </div>
       </section>

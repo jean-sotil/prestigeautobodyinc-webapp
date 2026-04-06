@@ -116,12 +116,7 @@ export default function Header() {
 
               {/* Get a Quote CTA - visible on desktop */}
               <div className="hidden lg:block">
-                <ButtonLink
-                  href="/contact"
-                  variant="primary"
-                  size="sm"
-                  className="bg-[#c62828] hover:bg-[#a82020] text-white px-6 py-3 rounded-lg font-bold"
-                >
+                <ButtonLink href="/contact" variant="primary" size="sm">
                   {c('getQuote')}
                 </ButtonLink>
               </div>

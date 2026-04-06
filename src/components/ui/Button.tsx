@@ -1,71 +1,68 @@
-import React from 'react';
+import React, { type ComponentProps } from 'react';
+import { Link } from '@/i18n/navigation';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'ghost'
+  | 'inverted'
+  | 'outline-white';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
-interface ButtonProps {
+type AppHref = ComponentProps<typeof Link>['href'];
+
+interface ButtonBaseProps {
   children: React.ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
   className?: string;
   disabled?: boolean;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
   'aria-label'?: string;
 }
 
-interface AnchorProps extends ButtonProps {
-  href: string;
+interface ButtonProps extends ButtonBaseProps {
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-/**
- * Base styles for all button variants
- */
-const baseStyles =
-  'inline-flex items-center justify-center font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
+interface ButtonLinkProps extends ButtonBaseProps {
+  href: AppHref | string;
+  onClick?: () => void;
+}
 
-/**
- * Size styles (all meet WCAG 2.5.5 minimum 44×44px touch targets)
- */
+interface IconButtonProps extends ButtonProps {
+  icon: React.ReactNode;
+}
+
+const baseStyles =
+  'inline-flex items-center justify-center font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer';
+
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'min-h-[44px] min-w-[44px] px-3 py-2 text-sm rounded',
-  md: 'min-h-[44px] min-w-[44px] px-4 py-2 text-base rounded-md',
-  lg: 'min-h-[44px] min-w-[44px] px-6 py-3 text-lg rounded-lg',
+  sm: 'min-h-[44px] min-w-[44px] px-6 py-2 text-sm rounded-lg',
+  md: 'min-h-[44px] min-w-[44px] px-6 py-2.5 text-sm rounded-lg',
+  lg: 'min-h-[48px] min-w-[44px] px-8 py-3 text-base rounded-lg',
 };
 
-/**
- * Variant styles
- */
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-red-600 text-white hover:bg-red-700 focus-visible:outline-red-600 active:bg-red-800 dark:bg-red-500 dark:hover:bg-red-600 dark:active:bg-red-700',
+    'bg-[#c62828] text-white hover:bg-[#a82020] focus-visible:outline-[#c62828] active:bg-[#8b1c1c]',
   secondary:
-    'border-2 border-red-600 text-red-600 hover:bg-red-50 focus-visible:outline-red-600 active:bg-red-100 dark:border-red-500 dark:text-red-400 dark:hover:bg-red-950 dark:active:bg-red-900',
-  ghost:
-    'text-red-600 hover:bg-red-50 focus-visible:outline-red-600 active:bg-red-100 dark:text-red-400 dark:hover:bg-red-950 dark:active:bg-red-900',
+    'border border-gray-300 text-gray-700 hover:bg-gray-50 focus-visible:outline-gray-400 active:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:active:bg-gray-800',
+  ghost: 'text-[#c62828] hover:underline focus-visible:outline-[#c62828]',
+  inverted:
+    'bg-white text-[#c62828] hover:bg-gray-100 focus-visible:outline-white active:bg-gray-200',
+  'outline-white':
+    'border-2 border-white text-white hover:bg-white/10 focus-visible:outline-white active:bg-white/20',
 };
 
-/**
- * Get combined class names for button
- */
 function getButtonClasses(
   variant: ButtonVariant,
   size: ButtonSize,
   className: string,
 ): string {
-  return `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;
+  return `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`.trim();
 }
 
-/**
- * Button component with primary, secondary, and ghost variants
- *
- * Features:
- * - WCAG 2.5.5 compliant touch targets (≥ 44×44px)
- * - Visible focus ring with high contrast
- * - Dark mode support via Tailwind dark: variants
- *
- * For icon-only buttons, provide aria-label prop
- */
 export function Button({
   children,
   variant = 'primary',
@@ -76,12 +73,10 @@ export function Button({
   type = 'button',
   'aria-label': ariaLabel,
 }: ButtonProps) {
-  const classes = getButtonClasses(variant, size, className);
-
   return (
     <button
       type={type}
-      className={classes}
+      className={getButtonClasses(variant, size, className)}
       disabled={disabled}
       onClick={onClick}
       aria-label={ariaLabel}
@@ -91,11 +86,6 @@ export function Button({
   );
 }
 
-/**
- * ButtonLink component - renders as <a> element
- *
- * For icon-only buttons, provide aria-label prop
- */
 export function ButtonLink({
   children,
   href,
@@ -105,27 +95,40 @@ export function ButtonLink({
   disabled = false,
   onClick,
   'aria-label': ariaLabel,
-}: AnchorProps) {
-  const classes = getButtonClasses(variant, size, className);
+}: ButtonLinkProps) {
+  const hrefStr = typeof href === 'string' ? href : '';
+  const isExternal =
+    hrefStr.startsWith('http') ||
+    hrefStr.startsWith('tel:') ||
+    hrefStr.startsWith('mailto:');
+
+  if (isExternal) {
+    return (
+      <a
+        href={hrefStr}
+        className={getButtonClasses(variant, size, className)}
+        onClick={disabled ? undefined : onClick}
+        aria-disabled={disabled || undefined}
+        aria-label={ariaLabel}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <a
-      href={href}
-      className={classes}
+    <Link
+      href={href as AppHref}
+      className={getButtonClasses(variant, size, className)}
       onClick={disabled ? undefined : onClick}
       aria-disabled={disabled || undefined}
       aria-label={ariaLabel}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
-/**
- * IconButton component - button with icon and optional text
- *
- * If children is not provided, aria-label is required
- */
 export function IconButton({
   icon,
   children,
@@ -136,24 +139,13 @@ export function IconButton({
   disabled = false,
   onClick,
   type = 'button',
-}: {
-  icon: React.ReactNode;
-  children?: React.ReactNode;
-  'aria-label'?: string;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  className?: string;
-  disabled?: boolean;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-}) {
+}: IconButtonProps) {
   const isIconOnly = !children;
-  const classes = getButtonClasses(variant, size, className);
 
   return (
     <button
       type={type}
-      className={classes}
+      className={getButtonClasses(variant, size, className)}
       disabled={disabled}
       onClick={onClick}
       aria-label={isIconOnly ? ariaLabel : undefined}
