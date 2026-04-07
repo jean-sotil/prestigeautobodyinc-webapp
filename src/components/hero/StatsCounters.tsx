@@ -118,32 +118,33 @@ export function StatsCounters() {
   ];
 
   return (
-    <section className="bg-[#f5f5f5] py-8" aria-labelledby="stats-heading">
+    <section
+      className="bg-[#F5F5F5] dark:bg-[#1E1E1E] py-10 lg:py-12"
+      aria-labelledby="stats-heading"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="stats-heading" className="sr-only">
           {t('stats.title')}
         </h2>
-        <div className="flex items-center justify-center">
-          {stats.map((stat, index) => (
-            <div key={stat.id} className="flex items-center">
-              <div className="flex flex-col items-center text-center gap-1 px-6 sm:px-10 lg:px-14">
-                <div className="w-12 h-12 rounded-full border-2 border-[#c62828] flex items-center justify-center text-[#c62828] mb-2">
-                  {stat.icon}
-                </div>
-                <div className="text-2xl sm:text-3xl font-black text-[#2d2d2d]">
-                  {stat.value}
-                </div>
-                <div className="text-xs sm:text-sm text-[#555]">
-                  {stat.label}
-                </div>
-                <div className="text-[#c62828] text-xs">★★★★★</div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-[var(--border)]">
+          {stats.map((stat) => (
+            <div
+              key={stat.id}
+              className="flex flex-col items-center text-center gap-1 py-2"
+            >
+              <div className="w-12 h-12 rounded-full border-2 border-[#C62828] flex items-center justify-center text-[#C62828] mb-2">
+                {stat.icon}
               </div>
-              {index < stats.length - 1 && (
-                <div
-                  className="w-px h-20 bg-[#d4d4d4] shrink-0"
-                  aria-hidden="true"
-                />
-              )}
+              <div
+                className="text-4xl lg:text-5xl font-extrabold text-[#C62828]"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {stat.value}
+              </div>
+              <div className="text-xs sm:text-sm text-[var(--text-secondary)]">
+                {stat.label}
+              </div>
+              <div className="text-[#C62828] text-xs">★★★★★</div>
             </div>
           ))}
         </div>

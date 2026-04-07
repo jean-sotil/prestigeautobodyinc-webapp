@@ -35,22 +35,22 @@ interface IconButtonProps extends ButtonProps {
 }
 
 const baseStyles =
-  'inline-flex items-center justify-center font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer';
+  'inline-flex items-center justify-center font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer';
 
 const sizeStyles: Record<ButtonSize, string> = {
   sm: 'min-h-[44px] min-w-[44px] px-6 py-2 text-sm rounded-lg',
-  md: 'min-h-[44px] min-w-[44px] px-6 py-2.5 text-sm rounded-lg',
-  lg: 'min-h-[48px] min-w-[44px] px-8 py-3 text-base rounded-lg',
+  md: 'min-h-[44px] min-w-[44px] px-6 py-2.5 text-base rounded-lg',
+  lg: 'h-12 min-w-[44px] px-6 py-3 text-base rounded-lg',
 };
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#c62828] text-white hover:bg-[#a82020] focus-visible:outline-[#c62828] active:bg-[#8b1c1c]',
+    'bg-[#C62828] text-white hover:bg-[#B71C1C] focus-visible:outline-[#C62828] active:bg-[#8b1c1c]',
   secondary:
-    'border border-gray-300 text-gray-700 hover:bg-gray-50 focus-visible:outline-gray-400 active:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:active:bg-gray-800',
-  ghost: 'text-[#c62828] hover:underline focus-visible:outline-[#c62828]',
+    'border-2 border-[#C62828] text-[#C62828] hover:bg-[#C62828] hover:text-white focus-visible:outline-[#C62828] active:bg-[#B71C1C] active:text-white transition-colors',
+  ghost: 'text-[#C62828] hover:underline focus-visible:outline-[#C62828]',
   inverted:
-    'bg-white text-[#c62828] hover:bg-gray-100 focus-visible:outline-white active:bg-gray-200',
+    'bg-white text-[#C62828] hover:bg-gray-100 focus-visible:outline-white active:bg-gray-200',
   'outline-white':
     'border-2 border-white text-white hover:bg-white/10 focus-visible:outline-white active:bg-white/20',
 };

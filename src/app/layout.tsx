@@ -1,19 +1,21 @@
 import type { Metadata, Viewport } from 'next';
-import { Roboto, Geist_Mono } from 'next/font/google';
+import { Big_Shoulders, Instrument_Sans } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
 import './globals.css';
 
-const roboto = Roboto({
-  variable: '--font-roboto',
+const bigShoulders = Big_Shoulders({
+  variable: '--font-display',
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
+  weight: ['700', '800'],
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const instrumentSans = Instrument_Sans({
+  variable: '--font-instrument',
   subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
 });
 
 export const viewport: Viewport = {
@@ -85,7 +87,9 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
       </head>
-      <body className={`${roboto.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${bigShoulders.variable} ${instrumentSans.variable} antialiased`}
+      >
         {/* Web Vitals RUM monitoring */}
         <WebVitals />
         {children}

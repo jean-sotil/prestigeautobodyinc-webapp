@@ -24,19 +24,22 @@ export default function HomePage() {
     <div className="font-sans min-h-screen">
       {/* Hero Section */}
       <section
-        className="bg-white py-[64px] px-4 sm:px-8 lg:px-[64px]"
+        className="bg-white dark:bg-[#121212] py-[64px] px-4 sm:px-8 lg:px-[64px]"
         aria-label="Hero"
       >
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
           {/* Left: Content */}
           <div className="flex flex-col gap-[16px] w-full lg:w-[540px] shrink-0">
-            <h1 className="font-black text-[#2d2d2d] text-[36px] leading-[1.2] tracking-[-0.72px] max-w-[480px]">
+            <h1
+              className="font-extrabold text-[var(--text-primary)] text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px]"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
               Auto Body Shop &amp; Collision Repair in Silver Spring, MD
             </h1>
-            <p className="text-[#555] text-[16px] leading-[1.6]">
+            <p className="text-[var(--text-secondary)] text-base leading-[1.6]">
               For a better today &amp; tomorrow for your vehicle
             </p>
-            <p className="font-bold text-[14px] text-[#2d2d2d] leading-[1.5]">
+            <p className="font-bold text-sm text-[var(--text-primary)] leading-[1.5]">
               Get your free estimate.
             </p>
             {/* Form row */}
@@ -44,20 +47,20 @@ export default function HomePage() {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] text-[#2d2d2d] placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[200px]"
+                className="border border-[var(--input-border)] rounded-lg px-4 text-sm text-[var(--text-primary)] bg-[var(--input-bg)] placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[200px]"
                 aria-label="Email address"
               />
               <input
                 type="text"
                 defaultValue="Silver Spring"
-                className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] font-medium text-[#2d2d2d] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[160px]"
+                className="border border-[var(--input-border)] rounded-lg px-4 text-sm font-medium text-[var(--text-primary)] bg-[var(--input-bg)] focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[160px]"
                 aria-label="Location"
               />
               <ButtonLink
                 href="/contact"
                 variant="primary"
                 size="lg"
-                className="text-[14px] min-w-[160px] whitespace-nowrap"
+                className="text-sm min-w-[160px] whitespace-nowrap"
               >
                 Get a Quote
               </ButtonLink>
@@ -67,7 +70,7 @@ export default function HomePage() {
               href="/gallery"
               className="flex items-center gap-[8px] w-fit group"
             >
-              <div className="w-6 h-6 rounded-full bg-[#c62828] flex items-center justify-center flex-shrink-0 group-hover:bg-[#a82020] transition-colors">
+              <div className="w-6 h-6 rounded-full bg-[#C62828] flex items-center justify-center flex-shrink-0 group-hover:bg-[#a82020] transition-colors">
                 <svg
                   className="w-3 h-3 text-white ml-0.5"
                   fill="currentColor"
@@ -77,16 +80,16 @@ export default function HomePage() {
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <div className="flex flex-col leading-[normal] text-[14px]">
-                <span className="font-bold text-[#c62828]">See</span>
-                <span className="text-[#2d2d2d]">our work.</span>
+              <div className="flex flex-col leading-[normal] text-sm">
+                <span className="font-bold text-[#C62828]">See</span>
+                <span className="text-[var(--text-primary)]">our work.</span>
               </div>
             </Link>
           </div>
 
           {/* Right: Hero image */}
-          <div className="w-full lg:w-[560px] h-[280px] lg:h-[340px] bg-[#385438] rounded-[12px] flex items-center justify-center overflow-hidden shrink-0">
-            <span className="text-[#d9d9d9] text-[16px] font-medium">
+          <div className="w-full lg:w-[560px] h-[280px] lg:h-[340px] bg-[#385438] rounded-xl flex items-center justify-center overflow-hidden shrink-0">
+            <span className="text-[#d9d9d9] text-base font-medium">
               Professional Collision Repair
             </span>
           </div>
@@ -97,27 +100,29 @@ export default function HomePage() {
       <StatsCounters />
 
       {/* Our Services Section */}
-      <section className="py-16 bg-white" aria-labelledby="services-heading">
+      <section
+        className="py-16 bg-[#2D2D2D] dark:bg-[#1E1E1E]"
+        aria-labelledby="services-heading"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             id="services-heading"
-            className="text-2xl font-bold text-[#2d2d2d] mb-10"
+            className="text-3xl md:text-4xl font-bold text-[#C62828] mb-10"
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             {t('services.title')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Collision Repair */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <CollisionIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <CollisionIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.collision.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.collision.description')}
               </p>
               <ButtonLink
@@ -126,22 +131,20 @@ export default function HomePage() {
                 size="sm"
                 className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
+                {common('learnMore')} &gt;
               </ButtonLink>
             </article>
 
             {/* Auto Body Work */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <WrenchIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <WrenchIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.autoBody.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.autoBody.description')}
               </p>
               <ButtonLink
@@ -150,22 +153,20 @@ export default function HomePage() {
                 size="sm"
                 className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
+                {common('learnMore')} &gt;
               </ButtonLink>
             </article>
 
             {/* Paint Solutions */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <PaintbrushIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <PaintbrushIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.painting.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.painting.description')}
               </p>
               <ButtonLink
@@ -174,22 +175,20 @@ export default function HomePage() {
                 size="sm"
                 className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
+                {common('learnMore')} &gt;
               </ButtonLink>
             </article>
 
             {/* Insurance */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <ShieldIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <ShieldIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.insurance.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.insurance.description')}
               </p>
               <ButtonLink
@@ -198,7 +197,7 @@ export default function HomePage() {
                 size="sm"
                 className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
+                {common('learnMore')} &gt;
               </ButtonLink>
             </article>
           </div>
@@ -207,7 +206,7 @@ export default function HomePage() {
 
       {/* Why Choose Prestige Section - 2 column: bullets + YouTube */}
       <section
-        className="py-16 bg-[#f5f5f5]"
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
         aria-labelledby="why-choose-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
@@ -215,7 +214,8 @@ export default function HomePage() {
           <div className="flex-1 flex flex-col gap-4 max-w-[480px]">
             <h2
               id="why-choose-heading"
-              className="text-[28px] font-bold text-[#2d2d2d]"
+              className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('whyChooseUs.title')}
             </h2>
@@ -228,8 +228,10 @@ export default function HomePage() {
               'Free estimates with no obligation',
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <div className="w-5 h-5 border-2 border-[#c62828] rounded flex-shrink-0" />
-                <span className="text-[#2d2d2d] text-sm">{item}</span>
+                <div className="w-5 h-5 border-2 border-[#C62828] rounded flex-shrink-0" />
+                <span className="text-[var(--text-primary)] text-sm">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
@@ -242,39 +244,49 @@ export default function HomePage() {
       </section>
 
       {/* Get Your Free Estimate Section */}
-      <section id="get-a-quote" className="py-16 bg-[#f5f5f5]">
+      <section
+        id="get-a-quote"
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
-            <h2 className="text-[28px] font-bold text-[#2d2d2d] mb-2">
+            <h2
+              className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
               {t('quote.title')}
             </h2>
-            <div className="w-[100px] h-1 bg-[#c62828] rounded" />
+            <div className="w-[100px] h-1 bg-[#C62828] rounded" />
           </div>
-          <div className="bg-white rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)] p-8 lg:p-12">
+          <div className="bg-white dark:bg-[#252525] rounded-xl shadow-lg p-8 lg:p-12">
             <SimpleQuoteFormDynamic />
           </div>
         </div>
       </section>
 
       {/* Limited Lifetime Warranty Section */}
-      <section className="py-12 bg-white" aria-labelledby="warranty-heading">
+      <section
+        className="py-12 bg-white dark:bg-[#121212]"
+        aria-labelledby="warranty-heading"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="flex flex-col gap-3 max-w-[550px]">
             <h2
               id="warranty-heading"
-              className="text-[28px] font-bold text-[#2d2d2d]"
+              className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               Limited Lifetime Warranty
             </h2>
-            <div className="w-[326px] max-w-full h-1 bg-[#c62828] rounded" />
-            <p className="font-bold text-[#2d2d2d] text-base">
+            <div className="w-[326px] max-w-full h-1 bg-[#C62828] rounded" />
+            <p className="font-bold text-[var(--text-primary)] text-base">
               100% Satisfaction Guaranteed
             </p>
-            <p className="text-[#555] text-sm leading-relaxed">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
               Our technicians are the best in Silver Spring &amp; Montgomery
               County.
             </p>
-            <p className="text-[#555] text-sm leading-relaxed">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
               All collision repair services come with a lifetime warranty.
             </p>
           </div>
@@ -292,35 +304,33 @@ export default function HomePage() {
 
       {/* Customer Testimonials Section */}
       <section
-        className="py-16 bg-[#f5f5f5]"
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
         aria-labelledby="testimonials-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
           <h2
             id="testimonials-heading"
-            className="text-[28px] font-bold text-[#2d2d2d] text-center"
+            className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] text-center"
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             Customer Testimonials
           </h2>
-          <p className="text-[#555] text-sm text-center">
+          <p className="text-[var(--text-secondary)] text-sm text-center">
             What Our Happy Customers Are Saying
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             {[
               {
-                stars: '★★★★★',
                 text: 'Great experience! They fixed my car after a collision and it looks brand new. Highly recommended!',
                 name: '— Maria S.',
                 location: 'Silver Spring, MD',
               },
               {
-                stars: '★★★★★',
                 text: 'Professional, honest, and fast. They worked directly with my insurance company. Excellent service!',
                 name: '— James T.',
                 location: 'Bethesda, MD',
               },
               {
-                stars: '★★★★★',
                 text: 'Best auto body shop in the area. 20+ years and it shows. Lifetime warranty gives real peace of mind.',
                 name: '— Carlos R.',
                 location: 'Rockville, MD',
@@ -328,13 +338,19 @@ export default function HomePage() {
             ].map((review) => (
               <article
                 key={review.name}
-                className="bg-white p-6 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)] flex flex-col gap-3"
+                className="bg-white dark:bg-[#252525] p-6 rounded-lg shadow-sm border border-[var(--border)] flex flex-col gap-3"
               >
-                <span className="text-[#c62828] text-sm">{review.stars}</span>
-                <p className="text-[#555] text-sm leading-relaxed">
+                <span
+                  className="text-[#C62828] text-4xl leading-none"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed italic">
                   {review.text}
                 </p>
-                <p className="font-bold text-[#2d2d2d] text-sm">
+                <div className="text-[#C62828] text-sm">★★★★★</div>
+                <p className="font-bold text-[var(--text-primary)] text-sm">
                   {review.name}
                 </p>
                 <p className="text-[#808080] text-xs">{review.location}</p>
@@ -350,7 +366,11 @@ export default function HomePage() {
         aria-labelledby="cta-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4 text-center">
-          <h2 id="cta-heading" className="text-[28px] font-bold">
+          <h2
+            id="cta-heading"
+            className="text-3xl md:text-4xl font-bold"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
             {t('cta.title')}
           </h2>
           <p className="text-[#ffe0e0] text-base">
