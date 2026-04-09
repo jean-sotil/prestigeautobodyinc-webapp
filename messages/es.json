@@ -4,18 +4,19 @@
     "description": "Servicios profesionales de reparación de carrocería, reparación de colisiones y pintura de autos. Trabajamos con todas las compañías de seguros."
   },
   "nav": {
-    "home": "Inicio",
-    "collisionRepair": "Reparación de Colisiones",
-    "autoPainting": "Pintura de Autos",
-    "towing": "Remolque",
-    "insuranceClaims": "Reclamos de Seguro",
-    "rentalAssistance": "Asistencia de Alquiler",
     "about": "Acerca de Nosotros",
-    "ourTeam": "Nuestro Equipo",
+    "AutoBodyServices": "Servicios de Carrocería",
+    "autoPainting": "Pintura de Autos",
     "certifications": "Certificaciones",
+    "collisionRepair": "Reparación de Colisiones",
     "contact": "Contacto",
+    "gallery": "Galería",
+    "home": "Inicio",
+    "insuranceClaims": "Reclamos de Seguro",
     "locations": "Ubicaciones",
-    "gallery": "Galería"
+    "ourTeam": "Nuestro Equipo",
+    "rentalAssistance": "Asistencia de Alquiler",
+    "towing": "Remolque"
   },
   "home": {
     "hero": {
@@ -113,6 +114,10 @@
       "painting": {
         "title": "Pintura de Autos",
         "description": "Servicios profesionales de pintura con igualación precisa de color y acabados premium duraderos."
+      },
+      "insurance": {
+        "title": "Reclamos de Seguro",
+        "description": "Trabajamos directamente con todas las compañías de seguros para agilizar su proceso de reclamos y devolverle la carretera más rápido."
       }
     },
     "whyChooseUs": {

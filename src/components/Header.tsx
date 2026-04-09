@@ -22,7 +22,7 @@ export default function Header() {
   // Main navigation items matching Figma design
   const navItems: NavItem[] = [
     { href: '/collision-repair', label: t('collisionRepair') },
-    { href: '/about', label: 'Auto Body Services' },
+    { href: '/auto-body-services', label: t('autoBodyServices') },
     { href: '/auto-painting', label: t('autoPainting') },
     { href: '/insurance-claims', label: t('insuranceClaims') },
     { href: '/about', label: t('about') },
@@ -52,7 +52,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link
                 href="/"
                 className="hover:opacity-80 transition-opacity"
