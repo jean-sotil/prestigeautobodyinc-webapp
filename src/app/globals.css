@@ -83,6 +83,104 @@ img {
   outline-offset: 2px;
 }
 
+/* Quote form step transitions */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes progressPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(198, 40, 40, 0.08);
+  }
+}
+
+@keyframes progressShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.progress-dot-active {
+  animation: progressPulse 2s ease-in-out infinite;
+}
+
+.progress-fill-track {
+  transition: width 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: progressShimmer 3s ease-in-out infinite;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 350ms ease-out forwards;
+}
+.animate-slideInLeft {
+  animation: slideInLeft 350ms ease-out forwards;
+}
+.animate-shake {
+  animation: shake 200ms ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slideInRight,
+  .animate-slideInLeft {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .progress-dot-active {
+    animation: none;
+  }
+  .progress-fill-track {
+    animation: none;
+    transition: width 0.01ms;
+  }
+}
+
 @media (min-width: 768px) {
   .content-visibility-auto {
     content-visibility: auto;

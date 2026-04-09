@@ -1,9 +1,9 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import { StatsCounters } from '@/components/hero';
+import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
-import { SimpleQuoteFormDynamic } from '@/components/forms/SimpleQuoteFormDynamic';
+import QuoteForm from '@/components/quote-form/QuoteForm';
 import { ButtonLink } from '@/components/ui/Button';
 import {
   CollisionIcon,
@@ -22,38 +22,56 @@ export default function HomePage() {
 
   return (
     <div className="font-sans min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
-        className="bg-white dark:bg-[#121212] py-[64px] px-4 sm:px-8 lg:px-[64px]"
+        className="relative w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] overflow-hidden"
         aria-label="Hero"
       >
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
-          {/* Left: Content */}
+        {/* Full-bleed edge-to-edge background image */}
+        <div className="absolute inset-0 w-full h-full">
+          <ResponsiveHero
+            slug="homepage"
+            alt="Prestige Auto Body shop interior with dark Mercedes sedan in the foreground and professional repair equipment"
+            title="Prestige Auto Body Inc - Premium Auto Body Repair Shop in Silver Spring, MD"
+            className="h-full"
+          />
+        </div>
+        {/* Dark gradient overlay — heavy left, transparent right */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, transparent 85%)',
+          }}
+        />
+
+        {/* Content overlay — white text on dark hero */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-[64px] py-[64px] flex items-center min-h-[420px] sm:min-h-[480px] lg:min-h-[540px]">
           <div className="flex flex-col gap-[16px] w-full lg:w-[540px] shrink-0">
             <h1
-              className="font-extrabold text-[var(--text-primary)] text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px]"
+              className="font-extrabold text-white text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px] drop-shadow-lg"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Auto Body Shop &amp; Collision Repair in Silver Spring, MD
             </h1>
-            <p className="text-[var(--text-secondary)] text-base leading-[1.6]">
+            <p className="text-white/80 text-base leading-[1.6]">
               For a better today &amp; tomorrow for your vehicle
             </p>
-            <p className="font-bold text-sm text-[var(--text-primary)] leading-[1.5]">
+            <p className="font-bold text-sm text-white leading-[1.5]">
               Get your free estimate.
             </p>
-            {/* Form row */}
+            {/* Inline lead capture form over hero image */}
             <div className="flex flex-col sm:flex-row gap-[8px] items-stretch sm:items-center">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="border border-[var(--input-border)] rounded-lg px-4 text-sm text-[var(--text-primary)] bg-[var(--input-bg)] placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[200px]"
+                className="border border-white/30 rounded-lg px-4 text-sm text-white bg-white/10 backdrop-blur-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[200px]"
                 aria-label="Email address"
               />
               <input
                 type="text"
                 defaultValue="Silver Spring"
-                className="border border-[var(--input-border)] rounded-lg px-4 text-sm font-medium text-[var(--text-primary)] bg-[var(--input-bg)] focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[160px]"
+                className="border border-white/30 rounded-lg px-4 text-sm font-medium text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[160px]"
                 aria-label="Location"
               />
               <ButtonLink
@@ -65,7 +83,7 @@ export default function HomePage() {
                 Get a Quote
               </ButtonLink>
             </div>
-            {/* See Our Work */}
+            {/* Video play button — Car-O-Liner video */}
             <Link
               href="/gallery"
               className="flex items-center gap-[8px] w-fit group"
@@ -82,16 +100,9 @@ export default function HomePage() {
               </div>
               <div className="flex flex-col leading-[normal] text-sm">
                 <span className="font-bold text-[#C62828]">See</span>
-                <span className="text-[var(--text-primary)]">our work.</span>
+                <span className="text-white/90">our work.</span>
               </div>
             </Link>
-          </div>
-
-          {/* Right: Hero image */}
-          <div className="w-full lg:w-[560px] h-[280px] lg:h-[340px] bg-[#385438] rounded-xl flex items-center justify-center overflow-hidden shrink-0">
-            <span className="text-[#d9d9d9] text-base font-medium">
-              Professional Collision Repair
-            </span>
           </div>
         </div>
       </section>
@@ -245,22 +256,11 @@ export default function HomePage() {
 
       {/* Get Your Free Estimate Section */}
       <section
-        id="get-a-quote"
         className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
+        aria-labelledby="free-estimate"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <h2
-              className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-2"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t('quote.title')}
-            </h2>
-            <div className="w-[100px] h-1 bg-[#C62828] rounded" />
-          </div>
-          <div className="bg-white dark:bg-[#252525] rounded-xl shadow-lg p-8 lg:p-12">
-            <SimpleQuoteFormDynamic />
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
+          <QuoteForm />
         </div>
       </section>
 
