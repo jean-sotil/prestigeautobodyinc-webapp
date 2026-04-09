@@ -143,15 +143,72 @@ fontFamily: {
 - **Right column:** YouTube video embed (16:9 aspect ratio), `rounded-lg overflow-hidden shadow-lg`
 - **Checklist items:** 20+ years experience, I-CAR Gold Class certified, Lifetime warranty, All major insurance accepted, Computerized frame measuring & color matching, Free estimates with no obligation
 
-### 7. QuoteFormSection (5-Step Multi-Step Form)
+### 7. QuoteFormSection (Multi-Step Form)
 
-- **Wrapper:** `bg-[--bg-secondary] py-16`, inner card `bg-white dark:bg-[#252525] rounded-xl shadow-lg p-8 max-w-3xl mx-auto`
-- **Progress indicator:** 5 connected circles on a horizontal track. Completed = filled red with checkmark. Current = red outline + pulse glow. Future = gray. Track fills red progressively. Desktop: labels below circles ("Service", "Vehicle", "Damage", "Contact", "Schedule"). Mobile: circles only + current label above bar.
-- **Step 1 — Service Selection:** 4 selectable cards in a grid (Collision Repair, Auto Body Work, Auto Painting, Insurance Claim). Selected card: `border-2 border-[#C62828] bg-red-50 dark:bg-red-900/20`. Each card has icon + title + description.
-- **Navigation:** "Next" / "Back" + "Continue" / "Submit" red button full-width at bottom. `bg-[#C62828] hover:bg-[#B71C1C] text-white h-12 rounded-lg font-semibold`
-- **Step transitions:** CSS slide animations (slideInRight forward, slideInLeft backward), 250ms exit / 350ms enter, respect `prefers-reduced-motion`
-- **Trust bar below form:** Single row of 4 badges (I-CAR Gold Class, Lifetime Warranty, 4.7★ Reviews, 24/7 Towing). Mobile wraps to 2 rows.
-- **File structure:** `components/quote-form/QuoteForm.tsx` (orchestrator), `FormProgress.tsx`, `steps/ServiceStep.tsx`, `steps/VehicleStep.tsx`, `steps/DamageStep.tsx`, `steps/ContactStep.tsx`, `steps/ScheduleStep.tsx`, `QuoteConfirmation.tsx`, `FormNavigation.tsx`, `hooks/useQuoteForm.ts`, `hooks/useSubmitQuote.ts`
+#### Section Wrapper
+
+- **Outer:** `bg-gray-50 dark:bg-[#1E1E1E] py-16 px-4`, id `get-a-quote`
+- **Section title:** H2 "Get a Free Estimate" in Big Shoulders Display, `text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-[#E0E0E0]`, followed by a `w-16 h-1 bg-[#C62828] rounded-full mb-8` red underline accent
+- **Inner card:** `bg-white dark:bg-[#252525] rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] p-6 md:p-10 max-w-5xl mx-auto`
+
+#### Progress Bar & Step Dots
+
+- **Header row:** `flex justify-between text-sm` — left: "Step N of 4" (`font-medium text-gray-700`), right: "N% Complete" (`text-gray-500`)
+- **Track:** `h-[5px] bg-gray-200 dark:bg-[#333333] rounded-full` with inner fill `h-full bg-[#C62828] rounded-full transition-all duration-500 ease-out` at `width: (step/total)*100%`
+- **Step dots:** `flex justify-between mb-10` — 4 dots (Service, Vehicle, Damage, Contact). Each dot: `w-3 h-3 rounded-full border-2`. Current: `bg-[#C62828] border-[#C62828] scale-125 shadow-[0_0_0_3px_rgba(198,40,40,0.15)]`. Completed: `bg-[#C62828] border-[#C62828]`. Future: `bg-white border-gray-300 dark:border-[#444444]`
+- **Dot labels:** `text-[11px] font-medium tracking-wide hidden sm:block` — current step: `text-[#C62828]`, others: `text-gray-400`
+- **Note:** 4 steps (not 5). The PRD's Schedule step is deferred to v2 per scope.
+
+#### Step 1 — Service Selection (Reference-Approved Layout)
+
+- **No inner heading.** The section title + progress bar provide sufficient context.
+- **Grid:** `grid grid-cols-2 lg:grid-cols-4 gap-4` — **single horizontal row on desktop**, 2×2 on mobile
+- **Each card:** `<button>` element, `flex flex-col items-center text-center p-5 md:p-6 rounded-xl border-2 transition-all duration-200 cursor-pointer`, with `aria-pressed` for accessibility and `focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2`
+- **Unselected card:** `border-gray-200 dark:border-[#333333] bg-white dark:bg-[#252525] hover:border-gray-300 hover:shadow-sm`
+- **Selected card:** `border-[#C62828] bg-red-50/60 dark:bg-red-900/20 shadow-sm`
+- **Card icon:** Custom line-art SVGs (stroke-based, `currentColor`), `w-14 h-14 mb-4`. Selected: `text-[#C62828]`. Unselected: `text-gray-500 group-hover:text-gray-700 dark:text-gray-400`
+  - Collision Repair: crossed wrench icon
+  - Auto Body Work: car front-view icon
+  - Auto Painting: spray gun icon
+  - Insurance Claim: document with checkmark icon
+- **Card title:** `text-sm md:text-[15px] font-bold mb-1.5`. Selected: `text-[#C62828]`. Unselected: `text-gray-900 dark:text-[#E0E0E0]`
+- **Card description:** `text-xs md:text-[13px] leading-relaxed text-gray-500 dark:text-[#A0A0A0]`
+
+#### Navigation Button
+
+- **"Next" button:** `w-full h-12 mt-8 bg-[#C62828] hover:bg-[#B71C1C] active:bg-[#8E0000] text-white font-semibold text-base rounded-lg transition-colors duration-150 shadow-sm focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2`
+- **Back button (steps 2+):** appears left of Next as `text-gray-500 hover:text-gray-700 font-medium`
+- **Submit (final step):** same style as Next, label changes to "Submit Request"
+
+#### Draft Indicator
+
+- `text-center text-xs text-gray-400 mt-4` — "Draft auto-saved"
+
+#### Step Transitions
+
+- CSS slide animations: `slideInRight` (forward), `slideInLeft` (backward). 250ms exit, 350ms enter, `ease-out`. Disabled when `prefers-reduced-motion: reduce`.
+
+#### Trust Bar (Below Form Card)
+
+- Single row of 4 badges: I-CAR Gold Class, Lifetime Warranty, 4.7★ Reviews, 24/7 Towing. Mobile wraps to 2 rows. Centered, `gap-6`, muted styling.
+
+#### File Structure
+
+```
+components/quote-form/
+├── QuoteForm.tsx              # Orchestrator (useReducer state machine)
+├── FormProgress.tsx           # Progress bar + step dots
+├── FormNavigation.tsx         # Back / Next / Submit buttons
+├── QuoteConfirmation.tsx      # Success screen
+├── steps/
+│   ├── ServiceStep.tsx        # 4-col card selection grid
+│   ├── VehicleStep.tsx        # Make, model, year, VIN
+│   ├── DamageStep.tsx         # Severity + description
+│   └── ContactStep.tsx        # Name, email, phone, zip
+└── hooks/
+    ├── useQuoteForm.ts        # useReducer state + localStorage persistence
+    └── useSubmitQuote.ts      # TanStack Query mutation → POST /api/quote
+```
 
 ### 8. WarrantySection
 
