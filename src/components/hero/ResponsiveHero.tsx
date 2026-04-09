@@ -8,12 +8,9 @@ interface ResponsiveHeroProps {
 }
 
 /**
- * Responsive hero image using <picture> element.
- * Image is absolutely positioned and fills its container.
- * Serves pre-optimized WebP with JPG fallback at 3 breakpoints:
- * - Mobile: 768×320
- * - Tablet: 1024×427
- * - Desktop: 1920×800
+ * Responsive hero image using <picture> for art-directed breakpoints.
+ * Serves mobile (≤767px), tablet (≤1023px), and desktop images.
+ * Uses pregenerated WebP with JPG fallback for broad browser support.
  */
 export function ResponsiveHero({
   slug,
@@ -27,35 +24,44 @@ export function ResponsiveHero({
 
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>
-      <picture className="absolute inset-0 w-full h-full">
-        {/* Mobile WebP */}
+      <picture>
+        {/* Mobile: ≤767px */}
         <source
           media="(max-width: 767px)"
           srcSet={`${basePath}/mobile/${slug}-hero-mobile.webp`}
           type="image/webp"
         />
-        {/* Tablet WebP */}
+        <source
+          media="(max-width: 767px)"
+          srcSet={`${basePath}/mobile/${slug}-hero-mobile.jpg`}
+          type="image/jpeg"
+        />
+        {/* Tablet: 768px–1023px */}
         <source
           media="(max-width: 1023px)"
           srcSet={`${basePath}/tablet/${slug}-hero-tablet.webp`}
           type="image/webp"
         />
-        {/* Desktop WebP */}
+        <source
+          media="(max-width: 1023px)"
+          srcSet={`${basePath}/tablet/${slug}-hero-tablet.jpg`}
+          type="image/jpeg"
+        />
+        {/* Desktop: ≥1024px */}
         <source
           srcSet={`${basePath}/desktop/${slug}-hero-desktop.webp`}
           type="image/webp"
         />
-        {/* JPG fallback */}
+        {/* Fallback */}
+        {}
         <img
           src={`${basePath}/desktop/${slug}-hero-desktop.jpg`}
           alt={alt}
           title={title}
-          width={1920}
-          height={800}
+          className="absolute inset-0 w-full h-full object-cover"
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
           decoding={priority ? 'sync' : 'async'}
-          className="absolute inset-0 w-full h-full object-cover"
         />
       </picture>
       {children}
