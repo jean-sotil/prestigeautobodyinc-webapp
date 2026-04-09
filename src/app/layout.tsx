@@ -28,7 +28,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Prestige Auto Body | Expert Collision Repair in Silver Spring, MD',
+  metadataBase: new URL('https://www.prestigeautobodyinc.com'),
+  title: {
+    default:
+      'Prestige Auto Body | Expert Collision Repair in Silver Spring, MD',
+    template: '%s | Prestige Auto Body',
+  },
   description:
     'Trusted collision repair and auto body shop in Silver Spring, MD. 24/7 towing, insurance claims assistance, and certified professionals with 20+ years experience.',
   keywords: [
@@ -41,7 +46,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'Prestige Auto Body, Inc.' }],
   creator: 'Prestige Auto Body, Inc.',
   publisher: 'Prestige Auto Body, Inc.',
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: '/',
   },
@@ -53,12 +61,21 @@ export const metadata: Metadata = {
     siteName: 'Prestige Auto Body',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/hero/homepage/desktop/homepage-hero-desktop.webp',
+        width: 1920,
+        height: 1080,
+        alt: 'Prestige Auto Body - Premium Auto Body Repair Shop in Silver Spring, MD',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Prestige Auto Body | Expert Collision Repair',
     description:
       'Trusted collision repair in Silver Spring, MD. 24/7 towing available.',
+    images: ['/hero/homepage/desktop/homepage-hero-desktop.webp'],
   },
   other: {
     'format-detection': 'telephone=no',
