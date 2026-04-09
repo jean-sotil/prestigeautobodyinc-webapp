@@ -31,7 +31,7 @@ export default function HomePage() {
         <div className="absolute inset-0 w-full h-full">
           <ResponsiveHero
             slug="homepage"
-            alt="Prestige Auto Body shop interior with dark Mercedes sedan in the foreground and professional repair equipment"
+            alt="Prestige Auto Body - pristine luxury sedan in state-of-the-art auto body workshop with modern equipment and professional lighting"
             title="Prestige Auto Body Inc - Premium Auto Body Repair Shop in Silver Spring, MD"
             className="h-full"
           />
