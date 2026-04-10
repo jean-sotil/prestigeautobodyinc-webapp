@@ -7,7 +7,7 @@ import { MenuIcon, CloseIcon, PhoneIcon } from '@/components/ui/Icons';
 import { ButtonLink } from '@/components/ui/Button';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ThemeToggle from '@/components/ThemeToggle';
-import { useNavItems, useIsActiveLink } from './nav-links';
+import { useNavItems, useIsActiveLink } from './NavLinks';
 
 function MobileNavLink({
   href,

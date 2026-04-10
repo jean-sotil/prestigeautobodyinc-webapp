@@ -4,7 +4,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { getMessages } from 'next-intl/server';
-import Header from '@/components/layout/header';
+import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
 
 interface MessagesType {

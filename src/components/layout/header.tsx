@@ -9,9 +9,9 @@ import { ButtonLink } from '@/components/ui/Button';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ThemeToggle from '@/components/ThemeToggle';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import UtilityBar from './utility-bar';
-import MobileNav from './mobile-nav';
-import { useNavItems, NavLink } from './nav-links';
+import UtilityBar from './UtilityBar';
+import MobileNav from './MobileNav';
+import { useNavItems, NavLink } from './NavLinks';
 
 export default function Header() {
   const t = useTranslations('header');
