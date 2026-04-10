@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { Big_Shoulders, Instrument_Sans } from 'next/font/google';
+import { Big_Shoulders, Instrument_Sans, Geist } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
 import './globals.css';
+import { cn } from '@/lib/utils';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const bigShoulders = Big_Shoulders({
   variable: '--font-display',
@@ -90,7 +93,7 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={cn('font-sans', geist.variable)}>
       <head>
         {/* Preconnect to critical origins for faster resource loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
