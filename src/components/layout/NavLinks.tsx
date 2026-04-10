@@ -45,10 +45,8 @@ export function NavLink({
     <Link
       href={item.href as '/'}
       onClick={onClick}
-      className={`py-2 text-sm font-medium font-sans transition-colors duration-200 border-b-2 ${
-        isActive
-          ? 'text-[#C62828] border-[#C62828]'
-          : 'text-[#2D2D2D] hover:text-[#C62828] border-transparent dark:text-[#E0E0E0] dark:hover:text-[#C62828]'
+      className={`py-2 text-sm font-medium transition-colors duration-200 ${
+        isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'
       }`}
       aria-current={isActive ? 'page' : undefined}
     >

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { Button, ButtonLink } from '@/components/ui/Button';
+import { LegacyButton as Button, ButtonLink } from '@/components/ui/Button';
 
 interface Slide {
   id: number;

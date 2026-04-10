@@ -8,7 +8,7 @@ import React, {
   useRef,
 } from 'react';
 import { useTranslations } from 'next-intl';
-import { Button } from '@/components/ui/Button';
+import { LegacyButton as Button } from '@/components/ui/Button';
 
 // ============================================================================
 // Types & Interfaces
