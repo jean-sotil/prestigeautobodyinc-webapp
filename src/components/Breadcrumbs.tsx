@@ -117,6 +117,7 @@ function getBreadcrumbLabel(
   // Map URL segments to translation keys
   const mapping: Record<string, string> = {
     'collision-repair': 'collisionRepair',
+    'auto-body-services': 'autoBodyServices',
     'auto-painting': 'autoPainting',
     towing: 'towing',
     'insurance-claims': 'insuranceClaims',

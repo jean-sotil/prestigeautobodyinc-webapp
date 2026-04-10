@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 
-const SERVICE_KEY = 'insuranceClaims';
+const SERVICE_KEY = 'autoBodyServices';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -21,12 +21,12 @@ export async function generateMetadata({
     title: t(`pages.${SERVICE_KEY}.metaTitle`),
     description: t(`pages.${SERVICE_KEY}.metaDescription`),
     alternates: {
-      canonical: `https://prestigeautobodyinc.com/${locale}/insurance-claims`,
+      canonical: `https://prestigeautobodyinc.com/${locale}/auto-body-services`,
     },
   };
 }
 
-export default async function InsuranceClaimsPage({
+export default async function AutoBodyServicesPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -37,13 +37,13 @@ export default async function InsuranceClaimsPage({
   return (
     <>
       <ServiceJsonLd
-        serviceName="Insurance Claims Assistance"
+        serviceName="Auto Body Work Services"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url="https://prestigeautobodyinc.com/en/insurance-claims"
+        url="https://prestigeautobodyinc.com/en/auto-body-services"
       />
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
-        heroSlug="insurance-claims"
+        heroSlug="auto-body-services"
       />
     </>
   );

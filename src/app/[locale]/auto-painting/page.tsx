@@ -1,29 +1,50 @@
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import { PageHeroBanner } from '@/components/hero';
+import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
+
+const SERVICE_KEY = 'autoPainting';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function AutoPaintingPage() {
-  return (
-    <div className="font-sans min-h-screen">
-      <PageHeroBanner
-        slug="paint-solutions"
-        alt="Advanced computerized paint color matching and formulation facility with downdraft paint booth and eco-friendly refinishing technology"
-        title="Premium Paint Solutions - Computerized Color Matching & Eco-Friendly Refinishing"
-        heading="Paint Solutions"
-        subtitle="Professional auto painting with precision color matching and premium finishes"
-      />
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'services' });
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-          We use high-quality paint and clear coat to ensure a durable,
-          showroom-quality finish that lasts for years. Our computerized color
-          matching system and downdraft paint booth deliver factory-perfect
-          results with eco-friendly refinishing technology.
-        </p>
-      </main>
-    </div>
+  return {
+    title: t(`pages.${SERVICE_KEY}.metaTitle`),
+    description: t(`pages.${SERVICE_KEY}.metaDescription`),
+    alternates: {
+      canonical: `https://prestigeautobodyinc.com/${locale}/auto-painting`,
+    },
+  };
+}
+
+export default async function AutoPaintingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'services' });
+
+  return (
+    <>
+      <ServiceJsonLd
+        serviceName="Auto Painting"
+        description={t(`pages.${SERVICE_KEY}.metaDescription`)}
+        url="https://prestigeautobodyinc.com/en/auto-painting"
+      />
+      <ServicePageTemplate
+        serviceKey={SERVICE_KEY}
+        heroSlug="paint-solutions"
+      />
+    </>
   );
 }

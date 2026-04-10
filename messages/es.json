@@ -182,11 +182,11 @@
     },
     "quickLinks": {
       "title": "Enlaces Rápidos",
-      "collisionRepair": "Reparación de Colisiones",
-      "autoBodyServices": "Servicios de Carrocería",
-      "paintSolutions": "Soluciones de Pintura",
-      "insuranceClaims": "Reclamaciones de Seguro",
-      "getAQuote": "Obtener Cotización",
+      "collisionRepair": "Colisiones",
+      "autoBodyServices": "Servicios",
+      "paintSolutions": "Pintura",
+      "insuranceClaims": "Seguro",
+      "getAQuote": "Cotización",
       "about": "Acerca de Nosotros"
     },
     "hours": {
@@ -203,6 +203,170 @@
       "privacy": "Política de Privacidad",
       "terms": "Términos de Servicio",
       "sitemap": "Mapa del Sitio"
+    }
+  },
+  "services": {
+    "whatWeOffer": "Lo Que Ofrecemos",
+    "serviceAreas": "Áreas de Servicio",
+    "ctaHeadline": "¿Listo Para Reparar Su Auto?",
+    "ctaSubtitle": "Contáctenos hoy para un presupuesto gratis. Trabajamos con todas las compañías de seguros.",
+    "ctaQuote": "Solicitar Cotización",
+    "getEstimate": "Presupuesto Gratis",
+    "breadcrumbHome": "Inicio",
+    "breadcrumbServices": "Servicios",
+    "pages": {
+      "collisionRepair": {
+        "metaTitle": "Reparación de Colisiones Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Reparación experta de colisiones en Silver Spring, MD. Medición computarizada de chasis, reparación de abolladuras sin pintura y técnicos certificados I-CAR Gold Class. Presupuestos gratis — llame al (301) 578-8779.",
+        "title": "Reparación de Colisiones Silver Spring, MD",
+        "heroImageAlt": "Técnico profesional de reparación de colisiones usando equipo de medición computarizada de chasis con escáneres láser y pantallas digitales en Prestige Auto Body",
+        "heroDescription": "Reparación experta de colisiones con medición computarizada de chasis, reparación de abolladuras sin pintura y técnicos certificados I-CAR Gold Class. Restauramos su vehículo a su condición pre-accidente — rápido, económico y con garantía de por vida.",
+        "offerings": {
+          "item1": {
+            "title": "Medición Computarizada de Chasis",
+            "description": "Detecte daños estructurales con precisión láser para asegurar la alineación según especificaciones de fábrica."
+          },
+          "item2": {
+            "title": "Reparación de Abolladuras sin Pintura (PDR)",
+            "description": "Elimine abolladuras y golpes sin repintar — preserva el acabado original de fábrica."
+          },
+          "item3": {
+            "title": "Reparación Estructural Completa",
+            "description": "Restaure daños de monocasco y chasis de colisiones moderadas a severas."
+          },
+          "item4": {
+            "title": "Reemplazo de Parachoques y Paneles",
+            "description": "Reemplazo de paneles OEM y aftermarket con igualación de color perfecta."
+          },
+          "item5": {
+            "title": "Reemplazo de Vidrios",
+            "description": "Reemplazo de parabrisas y ventanas con sellado adecuado y recalibración ADAS."
+          },
+          "item6": {
+            "title": "Aceptamos Todos los Seguros",
+            "description": "Trabajamos directamente con su aseguradora para manejar reclamos y simplificar el proceso."
+          }
+        },
+        "testimonial": {
+          "quote": "Excelente servicio desde el presupuesto inicial hasta la finalización del trabajo. El equipo ordenó las piezas inmediatamente y cumplió con el calendario. Fueron razonables en precio y fáciles de trabajar.",
+          "author": "Mina Y.",
+          "location": "Silver Spring"
+        }
+      },
+      "autoBodyServices": {
+        "metaTitle": "Servicios de Carrocería Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Trabajo completo de carrocería en Silver Spring, MD — reparación de abolladuras, daño estructural, reemplazo de parachoques, restauración de rines y trabajo personalizado. Presupuestos gratis, todos los seguros aceptados.",
+        "title": "Servicios de Carrocería en Silver Spring, MD",
+        "heroImageAlt": "Instalación completa de trabajo de carrocería mostrando reparación de abolladuras, restauración de daño estructural y servicios de reemplazo de parachoques en Prestige Auto Body",
+        "heroDescription": "Servicios completos de carrocería incluyendo reparación de abolladuras, restauración de daños estructurales, reemplazo de parachoques, reparación de rines, trabajo de vidrios y modificaciones personalizadas. Más de 20 años de artesanía certificada en Silver Spring.",
+        "offerings": {
+          "item1": {
+            "title": "Reparación y Eliminación de Abolladuras",
+            "description": "Desde golpes menores hasta abolladuras grandes — reparadas con o sin pintura."
+          },
+          "item2": {
+            "title": "Reparación de Daño Estructural",
+            "description": "Enderezado de chasis y reparación de monocasco usando sistemas de medición computarizada."
+          },
+          "item3": {
+            "title": "Reemplazo de Parachoques",
+            "description": "Reparación o reemplazo completo de parachoques delanteros y traseros con piezas de fábrica."
+          },
+          "item4": {
+            "title": "Restauración de Rines",
+            "description": "Repare raspaduras, dobladuras y grietas para restaurar sus rines a condición como nuevos."
+          },
+          "item5": {
+            "title": "Reemplazo de Vidrios",
+            "description": "Reemplazo de vidrios automotrices para parabrisas, ventanas laterales y vidrio trasero."
+          },
+          "item6": {
+            "title": "Trabajo de Carrocería Personalizado",
+            "description": "Fabricación de paneles, restauración de molduras y modificaciones especializadas."
+          }
+        },
+        "testimonial": {
+          "quote": "Nunca escribo reseñas pero elegí este taller de carrocería por las reseñas y espero poder ayudar a alguien más. Carlos y su equipo fueron muy útiles guiándome en el proceso. ¡10/10 lo recomendaría!",
+          "author": "Mitch Hawkins",
+          "location": "Silver Spring"
+        }
+      },
+      "autoPainting": {
+        "metaTitle": "Pintura de Autos Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Pintura profesional de autos en Silver Spring, MD. Igualación computarizada de color, cabina de pintura downdraft y pinturas ecológicas a base de agua. Trabajos completos y parciales — presupuestos gratis.",
+        "title": "Pintura Profesional de Autos en Silver Spring, MD",
+        "heroImageAlt": "Instalación avanzada de igualación y formulación computarizada de color de pintura con cabina de pintura downdraft y tecnología de refinishing ecológica",
+        "heroDescription": "Pintura automotriz de calidad de fábrica con formulación computarizada de color, cabina de pintura downdraft de última generación y acabados ecológicos a base de agua. Desde reparaciones puntuales hasta repintados completos — resultados impecables garantizados.",
+        "offerings": {
+          "item1": {
+            "title": "Igualación Computarizada de Color",
+            "description": "Formulación digital de color que asegura una coincidencia exacta con el color original de fábrica de su vehículo."
+          },
+          "item2": {
+            "title": "Cabina de Pintura Downdraft",
+            "description": "Cabina de pintura climatizada para aplicación de pintura libre de polvo y de precisión."
+          },
+          "item3": {
+            "title": "Repintado Completo del Vehículo",
+            "description": "Repintado exterior completo con primer, capa base y capa transparente para un acabado de sala de exhibición."
+          },
+          "item4": {
+            "title": "Reparación Puntual y de Paneles",
+            "description": "Reparación de pintura dirigida para rayones, astillas y daños localizados — mezclado perfectamente."
+          },
+          "item5": {
+            "title": "Pintura Ecológica a Base de Agua",
+            "description": "Pinturas a base de agua con bajo VOC que ofrecen color superior y reducen el impacto ambiental."
+          },
+          "item6": {
+            "title": "Capa Transparente y Protección",
+            "description": "Aplicación de capa transparente resistente a UV para proteger su acabado del sol, clima y escombros."
+          }
+        },
+        "testimonial": {
+          "quote": "No podría estar más feliz con el trabajo realizado en mi vehículo. No solo el trabajo en mi auto fue excelente, sino que el servicio al cliente fue más que excelente. Carlos fue muy útil respondiendo siempre a mis preguntas.",
+          "author": "Suellen B.",
+          "location": "Silver Spring"
+        }
+      },
+      "insuranceClaims": {
+        "metaTitle": "Asistencia con Reclamos de Seguro Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Manejamos su reclamo de seguro de auto de principio a fin en Silver Spring, MD. Todos los seguros principales aceptados, garantía de por vida en reparaciones, presupuestos gratis. Llame al (301) 578-8779.",
+        "title": "Asistencia con Reclamos de Seguro — Silver Spring, MD",
+        "heroImageAlt": "Asesor profesional de reclamos de seguros revisando documentación con cliente satisfecho en el área de consulta de Prestige Auto Body",
+        "heroDescription": "Manejamos su reclamo de seguro de auto de principio a fin. Todas las compañías de seguros principales aceptadas — trabajamos directamente con su ajustador para que usted pueda enfocarse en volver a la carretera. Garantía de por vida en cada reparación.",
+        "offerings": {
+          "item1": {
+            "title": "Todos los Seguros Principales Aceptados",
+            "description": "GEICO, State Farm, Allstate, Progressive, USAA, Nationwide y muchos más."
+          },
+          "item2": {
+            "title": "Reclamos Presentados Por Usted",
+            "description": "Presentamos y gestionamos el papeleo de su reclamo para que usted no tenga que hacerlo."
+          },
+          "item3": {
+            "title": "Coordinación Directa con Ajustador",
+            "description": "Trabajamos con el ajustador de su seguro en sitio para agilizar aprobaciones."
+          },
+          "item4": {
+            "title": "Garantía de Reparación de Por Vida",
+            "description": "100% satisfacción garantizada — todas las reparaciones de colisión respaldadas con garantía de por vida."
+          },
+          "item5": {
+            "title": "Presupuestos Gratis",
+            "description": "Evaluación de daños y presupuesto de reparación sin compromiso antes de comenzar cualquier trabajo."
+          },
+          "item6": {
+            "title": "Grúa y Entrega 24/7",
+            "description": "Servicio de grúa por accidente y entrega de llaves nocturna disponible las 24 horas."
+          }
+        },
+        "testimonial": {
+          "quote": "¡El auto quedó increíble! Jorge y el equipo de Prestige fueron mucho más allá de lo que esperaba. Cuando tuve problemas con mi compañía de seguros, Prestige trabajó rápidamente para resolver el problema. ¡Altamente recomendado!",
+          "author": "Steve Rose",
+          "location": "Silver Spring"
+        }
+      }
     }
   },
   "common": {

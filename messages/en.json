@@ -182,10 +182,10 @@
     },
     "quickLinks": {
       "title": "Quick Links",
-      "collisionRepair": "Collision Repair",
-      "autoBodyServices": "Auto Body Services",
-      "paintSolutions": "Paint Solutions",
-      "insuranceClaims": "Insurance Claims",
+      "collisionRepair": "Collision",
+      "autoBodyServices": "Services",
+      "paintSolutions": "Paint",
+      "insuranceClaims": "Insurance",
       "getAQuote": "Get a Quote",
       "about": "About Us"
     },
@@ -203,6 +203,170 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "sitemap": "Sitemap"
+    }
+  },
+  "services": {
+    "whatWeOffer": "What We Offer",
+    "serviceAreas": "Service Areas",
+    "ctaHeadline": "Ready to Get Your Car Fixed?",
+    "ctaSubtitle": "Contact us today for a free estimate. We work with all insurance companies.",
+    "ctaQuote": "Get a Quote",
+    "getEstimate": "Get a Free Estimate",
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "pages": {
+      "collisionRepair": {
+        "metaTitle": "Collision Repair Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Expert collision repair in Silver Spring, MD. Computerized frame measuring, paintless dent repair & I-CAR Gold Class certified technicians. Free estimates — call (301) 578-8779.",
+        "title": "Collision Repair Silver Spring, MD",
+        "heroImageAlt": "Professional collision repair technician using computerized frame measuring equipment with laser scanners and digital displays at Prestige Auto Body",
+        "heroDescription": "Expert collision repair with computerized frame measuring, paintless dent repair, and I-CAR Gold Class certified technicians. We restore your vehicle to pre-accident condition — fast, affordable, and backed by a lifetime warranty.",
+        "offerings": {
+          "item1": {
+            "title": "Computerized Frame Measuring",
+            "description": "Pinpoint structural damage with laser-guided precision to ensure factory-spec alignment."
+          },
+          "item2": {
+            "title": "Paintless Dent Repair (PDR)",
+            "description": "Remove dents and dings without repainting — preserves your original factory finish."
+          },
+          "item3": {
+            "title": "Full Structural Repair",
+            "description": "Restore unibody and frame damage from moderate to severe collisions."
+          },
+          "item4": {
+            "title": "Bumper & Panel Replacement",
+            "description": "OEM and aftermarket panel replacement with seamless color matching."
+          },
+          "item5": {
+            "title": "Glass Replacement",
+            "description": "Windshield and window replacement with proper sealing and ADAS recalibration."
+          },
+          "item6": {
+            "title": "All Insurance Accepted",
+            "description": "We work directly with your insurer to handle claims and simplify the process."
+          }
+        },
+        "testimonial": {
+          "quote": "Great service from the initial estimate through completion of the job! The team ordered the parts immediately and kept the schedule. They were reasonably priced and easy to work with.",
+          "author": "Mina Y.",
+          "location": "Silver Spring"
+        }
+      },
+      "autoBodyServices": {
+        "metaTitle": "Auto Body Work Services Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Complete auto body work in Silver Spring, MD — dent repair, structural damage, bumper replacement, alloy wheel restoration & custom body work. Free estimates, all insurance accepted.",
+        "title": "Auto Body Work Services in Silver Spring, MD",
+        "heroImageAlt": "Complete auto body work facility showing dent repair, structural damage restoration, and bumper replacement services at Prestige Auto Body",
+        "heroDescription": "Complete auto body services including dent repair, structural damage restoration, bumper replacement, alloy wheel repair, glass work, and custom body modifications. Over 20 years of certified craftsmanship in Silver Spring.",
+        "offerings": {
+          "item1": {
+            "title": "Dent Repair & Removal",
+            "description": "From minor door dings to large panel dents — repaired with or without paint."
+          },
+          "item2": {
+            "title": "Structural Damage Repair",
+            "description": "Frame straightening and unibody repair using computerized measuring systems."
+          },
+          "item3": {
+            "title": "Bumper Replacement",
+            "description": "Front and rear bumper repair or full replacement with factory-matched parts."
+          },
+          "item4": {
+            "title": "Alloy Wheel Restoration",
+            "description": "Repair curb rash, bends, and cracks to restore your wheels to like-new condition."
+          },
+          "item5": {
+            "title": "Glass Replacement",
+            "description": "Auto glass replacement for windshields, side windows, and rear glass."
+          },
+          "item6": {
+            "title": "Custom Body Work",
+            "description": "Panel fabrication, trim restoration, and specialty body modifications."
+          }
+        },
+        "testimonial": {
+          "quote": "I never write reviews but I chose this auto body shop because I read the reviews so I hope I can help someone else out. Carlos and his team were very helpful walking me through the process. 10/10 would recommend!",
+          "author": "Mitch Hawkins",
+          "location": "Silver Spring"
+        }
+      },
+      "autoPainting": {
+        "metaTitle": "Auto Painting Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Professional auto painting in Silver Spring, MD. Computerized color matching, downdraft paint booth & eco-friendly waterborne paints. Full and partial paint jobs — free estimates.",
+        "title": "Professional Auto Painting in Silver Spring, MD",
+        "heroImageAlt": "Advanced computerized paint color matching and formulation facility with downdraft paint booth and eco-friendly refinishing technology",
+        "heroDescription": "Factory-quality auto painting with computerized color formulation, a state-of-the-art downdraft paint booth, and eco-friendly waterborne finishes. From spot repairs to full vehicle repaints — flawless results guaranteed.",
+        "offerings": {
+          "item1": {
+            "title": "Computerized Color Matching",
+            "description": "Digital color formulation ensures an exact match to your vehicle's original factory color."
+          },
+          "item2": {
+            "title": "Downdraft Paint Booth",
+            "description": "Climate-controlled spray booth for dust-free, precision paint application."
+          },
+          "item3": {
+            "title": "Full Vehicle Repaint",
+            "description": "Complete exterior repaint with primer, base coat, and clear coat for a showroom finish."
+          },
+          "item4": {
+            "title": "Spot & Panel Repair",
+            "description": "Targeted paint repair for scratches, chips, and localized damage — blended seamlessly."
+          },
+          "item5": {
+            "title": "Eco-Friendly Waterborne Paint",
+            "description": "Low-VOC waterborne paints that deliver superior color and reduce environmental impact."
+          },
+          "item6": {
+            "title": "Clear Coat & Protection",
+            "description": "UV-resistant clear coat application to protect your finish from sun, weather, and road debris."
+          }
+        },
+        "testimonial": {
+          "quote": "Couldn't be any happier with the work they performed on my vehicle. Not just the work done in my car was excellent, but the customer service was beyond excellent. Carlos was thoroughly helpful by always answering my questions.",
+          "author": "Suellen B.",
+          "location": "Silver Spring"
+        }
+      },
+      "insuranceClaims": {
+        "metaTitle": "Insurance Claims Assistance Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "We handle your auto insurance claim from start to finish in Silver Spring, MD. All major insurance accepted, lifetime warranty on repairs, free estimates. Call (301) 578-8779.",
+        "title": "Insurance Claims Assistance — Silver Spring, MD",
+        "heroImageAlt": "Professional insurance claims advisor reviewing documentation with satisfied customer at Prestige Auto Body consultation area",
+        "heroDescription": "We handle your auto insurance claim from start to finish. All major insurance companies accepted — we work directly with your adjuster so you can focus on getting back on the road. Lifetime warranty on every repair.",
+        "offerings": {
+          "item1": {
+            "title": "All Major Insurance Accepted",
+            "description": "GEICO, State Farm, Allstate, Progressive, USAA, Nationwide, and many more."
+          },
+          "item2": {
+            "title": "Claims Filed For You",
+            "description": "We submit and manage your claim paperwork so you don't have to."
+          },
+          "item3": {
+            "title": "Direct Adjuster Coordination",
+            "description": "We work with your insurance adjuster on-site to streamline approvals."
+          },
+          "item4": {
+            "title": "Lifetime Repair Warranty",
+            "description": "100% satisfaction guaranteed — all collision repairs backed by a lifetime warranty."
+          },
+          "item5": {
+            "title": "Free Estimates",
+            "description": "No-obligation damage assessment and repair estimate before any work begins."
+          },
+          "item6": {
+            "title": "24/7 Towing & Drop-Off",
+            "description": "Accident towing and overnight key drop-off available around the clock."
+          }
+        },
+        "testimonial": {
+          "quote": "Car looks dope! Jorge and the Prestige team went far and beyond what I was expecting. When I had issues with my insurance company, Prestige worked quickly to resolve the issue. Highly recommended!",
+          "author": "Steve Rose",
+          "location": "Silver Spring"
+        }
+      }
     }
   },
   "common": {

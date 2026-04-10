@@ -1,29 +1,50 @@
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import { PageHeroBanner } from '@/components/hero';
+import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
+
+const SERVICE_KEY = 'collisionRepair';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function CollisionRepairPage() {
-  return (
-    <div className="font-sans min-h-screen">
-      <PageHeroBanner
-        slug="collision-repair"
-        alt="Professional collision repair technician using computerized frame measuring equipment with laser scanners and digital displays at Prestige Auto Body"
-        title="Expert Collision Repair Services - Computerized Frame Measuring & PDR"
-        heading="Collision Repair"
-        subtitle="Professional collision repair services to restore your vehicle to pre-accident condition"
-      />
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'services' });
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-(--text-secondary) leading-relaxed">
-          Our certified technicians use the latest technology and techniques to
-          ensure your vehicle is repaired to factory specifications. From
-          computerized frame measuring to paintless dent repair, we deliver
-          results that exceed expectations.
-        </p>
-      </main>
-    </div>
+  return {
+    title: t(`pages.${SERVICE_KEY}.metaTitle`),
+    description: t(`pages.${SERVICE_KEY}.metaDescription`),
+    alternates: {
+      canonical: `https://prestigeautobodyinc.com/${locale}/collision-repair`,
+    },
+  };
+}
+
+export default async function CollisionRepairPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'services' });
+
+  return (
+    <>
+      <ServiceJsonLd
+        serviceName="Collision Repair"
+        description={t(`pages.${SERVICE_KEY}.metaDescription`)}
+        url="https://prestigeautobodyinc.com/en/collision-repair"
+      />
+      <ServicePageTemplate
+        serviceKey={SERVICE_KEY}
+        heroSlug="collision-repair"
+      />
+    </>
   );
 }
