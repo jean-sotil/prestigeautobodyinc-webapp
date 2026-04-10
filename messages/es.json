@@ -226,7 +226,13 @@
     "skipToContent": "Saltar al contenido",
     "menu": "Menú",
     "closeMenu": "Cerrar menú",
-    "breadcrumb": "Ruta de navegación"
+    "breadcrumb": "Ruta de navegación",
+    "address": "928 Philadelphia Ave, Silver Spring, MD 20910",
+    "hours": "Lun–Vie: 8AM–6PM | Sáb: 8AM–12PM",
+    "callForEstimate": "Llame para Estimado Gratis",
+    "phone": "(301) 578-8779",
+    "mainNavigation": "Navegación principal",
+    "mobileNavigation": "Navegación móvil"
   },
   "quoteForm": {
     "formLabel": "Solicitar una Cotización",

@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ButtonLink } from '@/components/ui/Button';
@@ -58,17 +59,12 @@ export default function Header() {
                 className="hover:opacity-80 transition-opacity"
                 aria-label="Prestige Auto Body Inc. - Home"
               >
-                <div className="flex flex-col leading-tight">
-                  <span
-                    className="font-extrabold text-[22px] text-[#2d2d2d] dark:text-white tracking-wide"
-                    style={{ fontFamily: 'var(--font-display)' }}
-                  >
-                    PRESTIGE
-                  </span>
-                  <span className="font-bold text-[9px] text-[#C62828] tracking-widest">
-                    AUTO BODY, INC
-                  </span>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Prestige Auto Body Inc. - Home"
+                  width={200}
+                  height={80}
+                />
               </Link>
             </div>
 
