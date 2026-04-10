@@ -17,7 +17,7 @@ export default function TowingPage() {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+        <p className="text-lg text-(--text-secondary) leading-relaxed">
           Our professional tow truck operators are ready to assist you around
           the clock, ensuring your vehicle is safely transported to our
           facility. Available 24 hours a day, 7 days a week.

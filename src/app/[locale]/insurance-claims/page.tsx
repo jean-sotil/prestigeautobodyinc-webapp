@@ -17,7 +17,7 @@ export default function InsuranceClaimsPage() {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+        <p className="text-lg text-(--text-secondary) leading-relaxed">
           Our experienced team handles the paperwork and negotiations, making
           your repair experience as smooth as possible. We accept all major
           insurance carriers and submit claims on your behalf.

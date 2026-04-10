@@ -17,7 +17,7 @@ export default function CollisionRepairPage() {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+        <p className="text-lg text-(--text-secondary) leading-relaxed">
           Our certified technicians use the latest technology and techniques to
           ensure your vehicle is repaired to factory specifications. From
           computerized frame measuring to paintless dent repair, we deliver
