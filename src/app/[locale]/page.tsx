@@ -225,7 +225,7 @@ export default function HomePage() {
           <div className="flex-1 flex flex-col gap-4 max-w-[480px]">
             <h2
               id="why-choose-heading"
-              className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+              className="text-3xl md:text-4xl font-bold text-(--text-primary)"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('whyChooseUs.title')}
@@ -240,9 +240,7 @@ export default function HomePage() {
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-[#C62828] rounded flex-shrink-0" />
-                <span className="text-[var(--text-primary)] text-sm">
-                  {item}
-                </span>
+                <span className="text-(--text-primary) text-sm">{item}</span>
               </div>
             ))}
           </div>
@@ -270,27 +268,27 @@ export default function HomePage() {
         aria-labelledby="warranty-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col gap-3 max-w-[550px]">
+          <div className="bg-[url('/public/steel-texture.jpg')] bg-cover bg-center flex flex-col gap-3 max-w-[550px]">
             <h2
               id="warranty-heading"
-              className="text-3xl md:text-4xl font-bold text-[var(--text-primary)]"
+              className="text-3xl md:text-4xl font-bold text-[--text-primary]"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Limited Lifetime Warranty
             </h2>
             <div className="w-[326px] max-w-full h-1 bg-[#C62828] rounded" />
-            <p className="font-bold text-[var(--text-primary)] text-base">
+            <p className="font-bold text-[--text-primary] text-base">
               100% Satisfaction Guaranteed
             </p>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+            <p className="text-[--text-secondary] text-sm leading-relaxed">
               Our technicians are the best in Silver Spring &amp; Montgomery
               County.
             </p>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+            <p className="text-[--text-secondary] text-sm leading-relaxed">
               All collision repair services come with a lifetime warranty.
             </p>
           </div>
-          <div className="flex-shrink-0 w-[200px] h-[76px] bg-[#8b0000] rounded-full flex flex-col items-center justify-center gap-1">
+          <div className="shrink-0 w-[200px] h-[76px] bg-[#8b0000] rounded-full flex flex-col items-center justify-center gap-1">
             <span className="text-white font-bold text-[10px] tracking-widest">
               LIFETIME
             </span>
@@ -310,12 +308,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
           <h2
             id="testimonials-heading"
-            className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] text-center"
+            className="text-3xl md:text-4xl font-bold text-(--text-primary) text-center"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             Customer Testimonials
           </h2>
-          <p className="text-[var(--text-secondary)] text-sm text-center">
+          <p className="text-(--text-secondary) text-sm text-center">
             What Our Happy Customers Are Saying
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
@@ -346,11 +344,11 @@ export default function HomePage() {
                 >
                   &ldquo;
                 </span>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed italic">
+                <p className="text-(--text-secondary) text-sm leading-relaxed italic">
                   {review.text}
                 </p>
                 <div className="text-[#C62828] text-sm">★★★★★</div>
-                <p className="font-bold text-[var(--text-primary)] text-sm">
+                <p className="font-bold text-(--text-primary) text-sm">
                   {review.name}
                 </p>
                 <p className="text-[#808080] text-xs">{review.location}</p>
