@@ -1,29 +1,48 @@
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
+import { AboutContent } from './AboutContent';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function AboutPage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'about' });
+
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    alternates: {
+      canonical: `https://prestigeautobodyinc.com/${locale}/about`,
+    },
+  };
+}
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'about' });
+
   return (
-    <div className="font-sans min-h-screen">
+    <div>
       <PageHeroBanner
         slug="auto-body-services"
-        alt="Comprehensive auto body services including dent repair, structural frame work, bumper repair, alloy wheel restoration, glass replacement and spray painting"
-        title="Full-Service Auto Body Repair - Dent Repair, Structural Work, Paint & More"
-        heading="Auto Body Services"
-        subtitle="Over 20 years of professional auto body repair services"
+        alt={t('heroImageAlt')}
+        title={t('heroTitle')}
+        heading={t('heading')}
+        subtitle={t('subtitle')}
       />
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-          Prestige Auto Body Inc. has been serving the community for over 20
-          years with professional auto body repair services. Our commitment to
-          quality workmanship and customer satisfaction has made us a trusted
-          name in the industry.
-        </p>
-      </main>
+      <AboutContent />
     </div>
   );
 }

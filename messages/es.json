@@ -166,8 +166,62 @@
     },
     "cta": {
       "title": "¿Listo para Comenzar?",
-      "description": "Contáctenos hoy para un estimado gratuito de la reparación de su vehículo.",
-      "button": "Contáctenos Ahora"
+      "description": "Contáctenos hoy para un presupuesto gratis. Trabajamos con todas las compañías de seguros.",
+      "button": "Solicitar Cotización",
+      "phone": "(301) 578-8779",
+      "phoneAriaLabel": "Llamar al (301) 578-8779"
+    },
+    "pageHero": {
+      "alt": "Prestige Auto Body — sedán de lujo impecable en taller de carrocería de última generación con equipo moderno e iluminación profesional",
+      "imgTitle": "Prestige Auto Body Inc — Taller Premium de Reparación de Carrocería en Silver Spring, MD",
+      "h1": "Taller de Carrocería y Reparación de Colisiones en Silver Spring, MD",
+      "subtitle": "Para un mejor hoy y mañana para su vehículo",
+      "estimatePrompt": "Obtenga su presupuesto gratis.",
+      "emailPlaceholder": "su@email.com",
+      "emailLabel": "Dirección de correo electrónico",
+      "locationLabel": "Ubicación",
+      "locationDefault": "Silver Spring",
+      "ctaButton": "Solicitar Cotización",
+      "seeLabel": "Vea",
+      "ourWorkLabel": "nuestro trabajo."
+    },
+    "whyChooseUsBullets": {
+      "experience": "Más de dos décadas de experiencia en reparación de colisiones",
+      "certified": "Técnicos certificados I-CAR Gold Class",
+      "warranty": "Garantía de por vida en todas las reparaciones",
+      "insurance": "Aceptamos todos los seguros principales y presentamos reclamos por usted",
+      "equipment": "Medición computarizada de chasis e igualación de color",
+      "estimates": "Presupuestos gratis sin compromiso"
+    },
+    "warranty": {
+      "title": "Garantía Limitada de Por Vida",
+      "subtitle": "100% Satisfacción Garantizada",
+      "bullet1": "Todas las reparaciones de colisión respaldadas con garantía de por vida",
+      "bullet2": "Técnicos certificados I-CAR Gold Class",
+      "bullet3": "Piezas y acabados con especificaciones de fábrica",
+      "cta": "Presupuesto Gratis",
+      "badgeAlt": "Sello de Garantía de Por Vida en Todas las Reparaciones",
+      "icarAlt": "Taller certificado I-CAR Gold Class de reparación de colisiones",
+      "saintAlt": "Certificación de seguridad SAINT PCI Tested"
+    },
+    "testimonials": {
+      "title": "Testimonios de Clientes",
+      "subtitle": "Lo Que Dicen Nuestros Clientes Satisfechos",
+      "review1": {
+        "text": "¡Excelente experiencia! Repararon mi auto después de una colisión y se ve como nuevo. ¡Muy recomendado!",
+        "name": "— Maria S.",
+        "location": "Silver Spring, MD"
+      },
+      "review2": {
+        "text": "Profesionales, honestos y rápidos. Trabajaron directamente con mi compañía de seguros. ¡Excelente servicio!",
+        "name": "— James T.",
+        "location": "Bethesda, MD"
+      },
+      "review3": {
+        "text": "El mejor taller de carrocería del área. 20+ años y se nota. La garantía de por vida da verdadera tranquilidad.",
+        "name": "— Carlos R.",
+        "location": "Rockville, MD"
+      }
     }
   },
   "footer": {
@@ -203,6 +257,44 @@
       "privacy": "Política de Privacidad",
       "terms": "Términos de Servicio",
       "sitemap": "Mapa del Sitio"
+    }
+  },
+  "about": {
+    "metaTitle": "Acerca de Nosotros — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaDescription": "Más de 20 años de reparación profesional de carrocería en Silver Spring, MD. Certificados I-CAR Gold Class, garantía de por vida en todas las reparaciones.",
+    "heroImageAlt": "Servicios completos de carrocería incluyendo reparación de abolladuras, trabajo estructural de chasis, reparación de parachoques, restauración de rines, reemplazo de vidrios y pintura",
+    "heroTitle": "Reparación Completa de Carrocería — Abolladuras, Trabajo Estructural, Pintura y Más",
+    "heading": "Acerca de Nosotros",
+    "subtitle": "Más de 20 años de servicios profesionales de reparación de carrocería",
+    "intro": "Prestige Auto Body Inc. ha servido a la comunidad de Silver Spring por más de 20 años con servicios profesionales de reparación de carrocería. Nuestro compromiso con la calidad del trabajo y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria.",
+    "missionTitle": "Nuestra Misión",
+    "mission": "Ofrecer reparación de colisiones y pintura automotriz de calidad de fábrica con integridad, transparencia y garantía de por vida — para que cada cliente se vaya confiado de que su vehículo ha sido restaurado a su condición pre-accidente.",
+    "valuesTitle": "Por Qué los Clientes Confían en Nosotros",
+    "values": {
+      "experience": {
+        "title": "20+ Años de Experiencia",
+        "description": "Dos décadas de excelencia confiable en reparación de carrocería en Silver Spring y el Condado de Montgomery."
+      },
+      "certified": {
+        "title": "Certificados I-CAR Gold Class",
+        "description": "Nuestros técnicos poseen las certificaciones más altas de la industria con requisitos de capacitación continua."
+      },
+      "warranty": {
+        "title": "Garantía de Por Vida",
+        "description": "Cada reparación está respaldada por nuestra garantía integral de por vida en mano de obra."
+      },
+      "insurance": {
+        "title": "Todos los Seguros Aceptados",
+        "description": "Trabajamos directamente con todas las compañías de seguros principales y manejamos el papeleo de su reclamo."
+      },
+      "equipment": {
+        "title": "Equipo de Última Generación",
+        "description": "Medición computarizada de chasis, cabina de pintura downdraft e igualación digital de color."
+      },
+      "community": {
+        "title": "Enfocados en la Comunidad",
+        "description": "De propiedad y operación local — sirviendo con orgullo a Silver Spring, Bethesda, Rockville y áreas circundantes."
+      }
     }
   },
   "services": {
