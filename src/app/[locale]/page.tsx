@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
@@ -10,11 +11,23 @@ import {
   WrenchIcon,
   PaintbrushIcon,
   ShieldIcon,
+  CheckCircleIcon,
 } from '@/components/ui/Icons';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+const WHY_CHOOSE_KEYS = [
+  'experience',
+  'certified',
+  'warranty',
+  'insurance',
+  'equipment',
+  'estimates',
+] as const;
+
+const REVIEW_KEYS = ['review1', 'review2', 'review3'] as const;
 
 export default function HomePage() {
   const t = useTranslations('home');
@@ -31,8 +44,8 @@ export default function HomePage() {
         <div className="absolute inset-0 w-full h-full">
           <ResponsiveHero
             slug="homepage"
-            alt="Prestige Auto Body - pristine luxury sedan in state-of-the-art auto body workshop with modern equipment and professional lighting"
-            title="Prestige Auto Body Inc - Premium Auto Body Repair Shop in Silver Spring, MD"
+            alt={t('pageHero.alt')}
+            title={t('pageHero.imgTitle')}
             className="h-full"
           />
         </div>
@@ -52,38 +65,38 @@ export default function HomePage() {
               className="font-extrabold text-white text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px] drop-shadow-lg"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              Auto Body Shop &amp; Collision Repair in Silver Spring, MD
+              {t('pageHero.h1')}
             </h1>
             <p className="text-white/80 text-base leading-[1.6]">
-              For a better today &amp; tomorrow for your vehicle
+              {t('pageHero.subtitle')}
             </p>
             <p className="font-bold text-sm text-white leading-[1.5]">
-              Get your free estimate.
+              {t('pageHero.estimatePrompt')}
             </p>
             {/* Inline lead capture form over hero image */}
             <div className="flex flex-col sm:flex-row gap-[8px] items-stretch sm:items-center">
               <input
                 type="email"
-                placeholder="your@email.com"
+                placeholder={t('pageHero.emailPlaceholder')}
                 className="border border-white/30 rounded-lg px-4 text-sm text-white bg-white/10 backdrop-blur-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[200px]"
-                aria-label="Email address"
+                aria-label={t('pageHero.emailLabel')}
               />
               <input
                 type="text"
-                defaultValue="Silver Spring"
+                defaultValue={t('pageHero.locationDefault')}
                 className="border border-white/30 rounded-lg px-4 text-sm font-medium text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[160px]"
-                aria-label="Location"
+                aria-label={t('pageHero.locationLabel')}
               />
               <ButtonLink
-                href="/contact"
+                href="/get-a-quote"
                 variant="primary"
                 size="lg"
                 className="text-sm min-w-[160px] whitespace-nowrap"
               >
-                Get a Quote
+                {t('pageHero.ctaButton')}
               </ButtonLink>
             </div>
-            {/* Video play button — Car-O-Liner video */}
+            {/* Video play button */}
             <Link
               href="/gallery"
               className="flex items-center gap-[8px] w-fit group"
@@ -99,8 +112,12 @@ export default function HomePage() {
                 </svg>
               </div>
               <div className="flex flex-col leading-[normal] text-sm">
-                <span className="font-bold text-[#C62828]">See</span>
-                <span className="text-white/90">our work.</span>
+                <span className="font-bold text-[#C62828]">
+                  {t('pageHero.seeLabel')}
+                </span>
+                <span className="text-white/90">
+                  {t('pageHero.ourWorkLabel')}
+                </span>
               </div>
             </Link>
           </div>
@@ -159,7 +176,7 @@ export default function HomePage() {
                 {t('services.autoBody.description')}
               </p>
               <ButtonLink
-                href="/about"
+                href="/auto-body-services"
                 variant="ghost"
                 size="sm"
                 className="mt-auto px-0 min-h-0 min-w-0"
@@ -230,17 +247,12 @@ export default function HomePage() {
             >
               {t('whyChooseUs.title')}
             </h2>
-            {[
-              'More than two decades of collision repair experience',
-              'I-CAR Gold Class certified technicians',
-              'Lifetime warranty guarantee on all repairs',
-              'Accept all major insurance and submit claims for you',
-              'Computerized frame measuring & color matching',
-              'Free estimates with no obligation',
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3">
+            {WHY_CHOOSE_KEYS.map((key) => (
+              <div key={key} className="flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-[#C62828] rounded flex-shrink-0" />
-                <span className="text-(--text-primary) text-sm">{item}</span>
+                <span className="text-(--text-primary) text-sm">
+                  {t(`whyChooseUsBullets.${key}`)}
+                </span>
               </div>
             ))}
           </div>
@@ -264,38 +276,89 @@ export default function HomePage() {
 
       {/* Limited Lifetime Warranty Section */}
       <section
-        className="py-12 bg-white dark:bg-[#121212]"
+        className="relative py-16 md:py-20 overflow-hidden"
         aria-labelledby="warranty-heading"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="bg-[url('/public/steel-texture.jpg')] bg-cover bg-center flex flex-col gap-3 max-w-[550px]">
-            <h2
-              id="warranty-heading"
-              className="text-3xl md:text-4xl font-bold text-[--text-primary]"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              Limited Lifetime Warranty
-            </h2>
-            <div className="w-[326px] max-w-full h-1 bg-[#C62828] rounded" />
-            <p className="font-bold text-[--text-primary] text-base">
-              100% Satisfaction Guaranteed
-            </p>
-            <p className="text-[--text-secondary] text-sm leading-relaxed">
-              Our technicians are the best in Silver Spring &amp; Montgomery
-              County.
-            </p>
-            <p className="text-[--text-secondary] text-sm leading-relaxed">
-              All collision repair services come with a lifetime warranty.
-            </p>
-          </div>
-          <div className="shrink-0 w-[200px] h-[76px] bg-[#8b0000] rounded-full flex flex-col items-center justify-center gap-1">
-            <span className="text-white font-bold text-[10px] tracking-widest">
-              LIFETIME
-            </span>
-            <span className="text-white font-bold text-[8px] tracking-widest">
-              GUARANTEE
-            </span>
-            <span className="text-white font-bold text-sm">✓ 100%</span>
+        {/* Steel texture background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/steel-texture.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-foreground/90 dark:bg-black/90" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            {/* Left: Certification badges */}
+            <div className="shrink-0 flex items-center gap-6 sm:gap-8">
+              <Image
+                src="/LIfetime-Guarantee-new.png"
+                alt={t('warranty.badgeAlt')}
+                width={200}
+                height={200}
+                className="w-[120px] h-[120px] md:w-40 md:h-40drop-shadow-[0_0_24px_rgba(198,40,40,0.3)]"
+              />
+              <Image
+                src="/gold_class_icar_logo.png"
+                alt={t('warranty.icarAlt')}
+                width={200}
+                height={200}
+                className="w-[120px] h-[120px] md:w-40 md:h-40 drop-shadow-[0_0_24px_rgba(200,180,80,0.25)]"
+              />
+              <Image
+                src="/saint_pci_tested_logo.png"
+                alt={t('warranty.saintAlt')}
+                width={200}
+                height={200}
+                className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] drop-shadow-[0_0_24px_rgba(50,120,220,0.25)]"
+              />
+            </div>
+
+            {/* Right: Content */}
+            <div className="flex flex-col gap-5 text-center lg:text-left">
+              <div>
+                <h2
+                  id="warranty-heading"
+                  className="text-3xl md:text-4xl font-bold text-white tracking-tight"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {t('warranty.title')}
+                </h2>
+                <div className="mt-3 h-1 w-20 bg-primary rounded-full mx-auto lg:mx-0" />
+              </div>
+
+              <p className="text-lg font-semibold text-white">
+                {t('warranty.subtitle')}
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {(['bullet1', 'bullet2', 'bullet3'] as const).map((key) => (
+                  <div
+                    key={key}
+                    className="flex items-center gap-3 justify-center lg:justify-start"
+                  >
+                    <CheckCircleIcon
+                      size={20}
+                      className="shrink-0 text-primary"
+                      ariaLabel=""
+                    />
+                    <span className="text-sm text-white/80">
+                      {t(`warranty.${key}`)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-2">
+                <ButtonLink
+                  href="/get-a-quote"
+                  variant="primary"
+                  size="lg"
+                  className="rounded-full shadow-lg"
+                >
+                  {t('warranty.cta')}
+                </ButtonLink>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -311,31 +374,15 @@ export default function HomePage() {
             className="text-3xl md:text-4xl font-bold text-(--text-primary) text-center"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Customer Testimonials
+            {t('testimonials.title')}
           </h2>
           <p className="text-(--text-secondary) text-sm text-center">
-            What Our Happy Customers Are Saying
+            {t('testimonials.subtitle')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            {[
-              {
-                text: 'Great experience! They fixed my car after a collision and it looks brand new. Highly recommended!',
-                name: '— Maria S.',
-                location: 'Silver Spring, MD',
-              },
-              {
-                text: 'Professional, honest, and fast. They worked directly with my insurance company. Excellent service!',
-                name: '— James T.',
-                location: 'Bethesda, MD',
-              },
-              {
-                text: 'Best auto body shop in the area. 20+ years and it shows. Lifetime warranty gives real peace of mind.',
-                name: '— Carlos R.',
-                location: 'Rockville, MD',
-              },
-            ].map((review) => (
+            {REVIEW_KEYS.map((key) => (
               <article
-                key={review.name}
+                key={key}
                 className="bg-white dark:bg-[#252525] p-6 rounded-lg shadow-sm border border-[var(--border)] flex flex-col gap-3"
               >
                 <span
@@ -345,13 +392,15 @@ export default function HomePage() {
                   &ldquo;
                 </span>
                 <p className="text-(--text-secondary) text-sm leading-relaxed italic">
-                  {review.text}
+                  {t(`testimonials.${key}.text`)}
                 </p>
                 <div className="text-[#C62828] text-sm">★★★★★</div>
                 <p className="font-bold text-(--text-primary) text-sm">
-                  {review.name}
+                  {t(`testimonials.${key}.name`)}
                 </p>
-                <p className="text-[#808080] text-xs">{review.location}</p>
+                <p className="text-[#808080] text-xs">
+                  {t(`testimonials.${key}.location`)}
+                </p>
               </article>
             ))}
           </div>
@@ -371,21 +420,18 @@ export default function HomePage() {
           >
             {t('cta.title')}
           </h2>
-          <p className="text-[#ffe0e0] text-base">
-            Contact us today for a free estimate. We work with all insurance
-            companies.
-          </p>
+          <p className="text-[#ffe0e0] text-base">{t('cta.description')}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
-            <ButtonLink href="/contact" variant="inverted" size="lg">
-              Get a Quote
+            <ButtonLink href="/get-a-quote" variant="inverted" size="lg">
+              {t('cta.button')}
             </ButtonLink>
             <ButtonLink
               href="tel:3015788779"
               variant="outline-white"
               size="lg"
-              aria-label="Call (301) 578-8779"
+              aria-label={t('cta.phoneAriaLabel')}
             >
-              (301) 578-8779
+              {t('cta.phone')}
             </ButtonLink>
           </div>
         </div>
