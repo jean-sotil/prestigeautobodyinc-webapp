@@ -991,7 +991,6 @@ function StepDamageAssessment({
 function StepInsuranceInfo({
   data,
   dispatch,
-  errors,
   t,
 }: {
   data: QuoteFormData;
@@ -1152,7 +1151,6 @@ function StepInsuranceInfo({
 function StepScheduling({
   data,
   dispatch,
-  errors,
   t,
 }: {
   data: QuoteFormData;
@@ -1166,8 +1164,6 @@ function StepScheduling({
     },
     [dispatch],
   );
-
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   // Generate next 14 business days (excluding Sundays)
   const generateBusinessDays = useCallback(() => {
@@ -1534,7 +1530,6 @@ function StepScheduling({
 
 function StepConfirmation({
   data,
-  dispatch,
   prefersReducedMotion,
   onReset,
   t,
