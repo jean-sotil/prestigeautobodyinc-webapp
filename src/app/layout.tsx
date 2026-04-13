@@ -106,6 +106,8 @@ export default async function RootLayout({
         {/* DNS prefetch for common third-party domains */}
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//elfsightcdn.com" />
+        <link rel="dns-prefetch" href="//static.elfsight.com" />
       </head>
       <body
         className={`${bigShoulders.variable} ${instrumentSans.variable} antialiased`}

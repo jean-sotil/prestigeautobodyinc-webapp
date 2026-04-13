@@ -96,15 +96,15 @@
       },
       "rating": {
         "value": "4.7★",
-        "label": "Calificación de Clientes"
+        "label": "Calificación Google"
       },
       "cars": {
         "value": "1000+",
         "label": "Autos Reparados"
       },
       "reviews": {
-        "value": "A+",
-        "label": "Calificación BBB"
+        "value": "243+",
+        "label": "Reseñas de Google"
       }
     },
     "services": {
@@ -466,6 +466,14 @@
         }
       }
     }
+  },
+  "contact": {
+    "metaTitle": "Contáctenos — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaDescription": "Contacte a Prestige Auto Body Inc. para una estimación gratuita. Llame al (301) 578-8779 o visítenos en 928 Philadelphia Ave, Silver Spring, MD.",
+    "heroImageAlt": "Fachada de Prestige Auto Body Inc. en Silver Spring, Maryland",
+    "heroTitle": "Prestige Auto Body Inc. — Taller de Carrocería en Silver Spring",
+    "heading": "Contáctenos",
+    "subtitle": "Comuníquese con nosotros para una estimación gratuita o para agendar su reparación"
   },
   "common": {
     "learnMore": "Más Información",

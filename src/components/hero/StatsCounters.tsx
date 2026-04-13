@@ -1,6 +1,4 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { type ReactNode } from 'react';
 
 interface Stat {
@@ -69,7 +67,7 @@ function CarIcon() {
   );
 }
 
-function ShieldIcon() {
+function StarClusterIcon() {
   return (
     <svg
       width="24"
@@ -80,15 +78,35 @@ function ShieldIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="m9 12 2 2 4-4" />
+      <polygon points="12 9 13.7 12.4 17.5 13 14.75 15.65 15.4 19.4 12 17.6 8.6 19.4 9.25 15.65 6.5 13 10.3 12.4 12 9" />
+      <polygon points="5 3 5.7 4.4 7.2 4.6 6.1 5.65 6.35 7.15 5 6.45 3.65 7.15 3.9 5.65 2.8 4.6 4.3 4.4 5 3" />
+      <polygon points="19 3 19.7 4.4 21.2 4.6 20.1 5.65 20.35 7.15 19 6.45 17.65 7.15 17.9 5.65 16.8 4.6 18.3 4.4 19 3" />
     </svg>
   );
 }
 
-export function StatsCounters() {
-  const t = useTranslations('home');
+interface StatsCountersProps {
+  ratingValue?: number;
+  reviewCount?: number;
+}
+
+export async function StatsCounters({
+  ratingValue,
+  reviewCount,
+}: StatsCountersProps = {}) {
+  const t = await getTranslations('home');
+
+  const ratingValueDisplay =
+    typeof ratingValue === 'number'
+      ? `${ratingValue.toFixed(1)}★`
+      : t('stats.rating.value');
+
+  const reviewCountDisplay =
+    typeof reviewCount === 'number'
+      ? `${reviewCount}+`
+      : t('stats.reviews.value');
 
   const stats: Stat[] = [
     {
@@ -100,7 +118,7 @@ export function StatsCounters() {
     {
       id: 'rating',
       icon: <StarIcon />,
-      value: t('stats.rating.value'),
+      value: ratingValueDisplay,
       label: t('stats.rating.label'),
     },
     {
@@ -111,8 +129,8 @@ export function StatsCounters() {
     },
     {
       id: 'reviews',
-      icon: <ShieldIcon />,
-      value: t('stats.reviews.value'),
+      icon: <StarClusterIcon />,
+      value: reviewCountDisplay,
       label: t('stats.reviews.label'),
     },
   ];

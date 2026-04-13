@@ -1,9 +1,12 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
+import { GoogleReviews } from '@/components/embeds/GoogleReviews';
+import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
+import { getBusinessRating } from '@/lib/google-places';
 import QuoteForm from '@/components/quote-form/QuoteForm';
 import { ButtonLink } from '@/components/ui/Button';
 import {
@@ -27,11 +30,12 @@ const WHY_CHOOSE_KEYS = [
   'estimates',
 ] as const;
 
-const REVIEW_KEYS = ['review1', 'review2', 'review3'] as const;
-
-export default function HomePage() {
-  const t = useTranslations('home');
-  const common = useTranslations('common');
+export default async function HomePage() {
+  const [t, common, rating] = await Promise.all([
+    getTranslations('home'),
+    getTranslations('common'),
+    getBusinessRating(),
+  ]);
 
   return (
     <div className="font-sans min-h-screen">
@@ -125,7 +129,10 @@ export default function HomePage() {
       </section>
 
       {/* Stats Bar */}
-      <StatsCounters />
+      <StatsCounters
+        ratingValue={rating.ratingValue}
+        reviewCount={rating.reviewCount}
+      />
 
       {/* Our Services Section */}
       <section
@@ -379,31 +386,11 @@ export default function HomePage() {
           <p className="text-(--text-secondary) text-sm text-center">
             {t('testimonials.subtitle')}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            {REVIEW_KEYS.map((key) => (
-              <article
-                key={key}
-                className="bg-white dark:bg-[#252525] p-6 rounded-lg shadow-sm border border-[var(--border)] flex flex-col gap-3"
-              >
-                <span
-                  className="text-[#C62828] text-4xl leading-none"
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <p className="text-(--text-secondary) text-sm leading-relaxed italic">
-                  {t(`testimonials.${key}.text`)}
-                </p>
-                <div className="text-[#C62828] text-sm">★★★★★</div>
-                <p className="font-bold text-(--text-primary) text-sm">
-                  {t(`testimonials.${key}.name`)}
-                </p>
-                <p className="text-[#808080] text-xs">
-                  {t(`testimonials.${key}.location`)}
-                </p>
-              </article>
-            ))}
-          </div>
+          <ReviewsJsonLd
+            ratingValue={rating.ratingValue}
+            reviewCount={rating.reviewCount}
+          />
+          <GoogleReviews />
         </div>
       </section>
 
