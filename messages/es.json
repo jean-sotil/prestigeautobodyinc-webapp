@@ -4,18 +4,24 @@
     "description": "Servicios profesionales de reparación de carrocería, reparación de colisiones y pintura de autos. Trabajamos con todas las compañías de seguros."
   },
   "nav": {
-    "about": "Acerca de Nosotros",
-    "autoBodyServices": "Servicios",
-    "autoPainting": "Pintura",
+    "about": "Nosotros",
+    "autoBodyServices": "Trabajo de Carrocería",
+    "autoBodyServicesDesc": "Abolladuras, óxido y reparación estructural",
+    "autoPainting": "Soluciones de Pintura",
+    "autoPaintingDesc": "Repintado con color a medida y pintura personalizada",
     "certifications": "Certificaciones",
-    "collisionRepair": "Colisiones",
+    "collisionRepair": "Reparación de Colisiones",
+    "collisionRepairDesc": "Reparación integral de colisiones y chasis",
     "contact": "Contacto",
     "gallery": "Galería",
     "home": "Inicio",
+    "insurance": "Seguro",
     "insuranceClaims": "Seguro",
     "locations": "Ubicaciones",
     "ourTeam": "Nuestro Equipo",
     "rentalAssistance": "Asistencia de Alquiler",
+    "services": "Servicios",
+    "servicesDescription": "Reparación de colisiones, carrocería y pintura",
     "towing": "Remolque"
   },
   "home": {
@@ -241,7 +247,7 @@
       "paintSolutions": "Pintura",
       "insuranceClaims": "Seguro",
       "getAQuote": "Cotización",
-      "about": "Acerca de Nosotros"
+      "about": "Nosotros"
     },
     "hours": {
       "title": "Horario de Atención",
@@ -260,11 +266,11 @@
     }
   },
   "about": {
-    "metaTitle": "Acerca de Nosotros — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaTitle": "Nosotros — Prestige Auto Body Inc. | Silver Spring, MD",
     "metaDescription": "Más de 20 años de reparación profesional de carrocería en Silver Spring, MD. Certificados I-CAR Gold Class, garantía de por vida en todas las reparaciones.",
     "heroImageAlt": "Servicios completos de carrocería incluyendo reparación de abolladuras, trabajo estructural de chasis, reparación de parachoques, restauración de rines, reemplazo de vidrios y pintura",
     "heroTitle": "Reparación Completa de Carrocería — Abolladuras, Trabajo Estructural, Pintura y Más",
-    "heading": "Acerca de Nosotros",
+    "heading": "Nosotros",
     "subtitle": "Más de 20 años de servicios profesionales de reparación de carrocería",
     "intro": "Prestige Auto Body Inc. ha servido a la comunidad de Silver Spring por más de 20 años con servicios profesionales de reparación de carrocería. Nuestro compromiso con la calidad del trabajo y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria.",
     "missionTitle": "Nuestra Misión",

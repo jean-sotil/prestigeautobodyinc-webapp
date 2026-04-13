@@ -4,18 +4,24 @@
     "description": "Professional auto body repair, collision repair, and auto painting services. We work with all insurance companies."
   },
   "nav": {
-    "about": "About Us",
-    "autoBodyServices": "Services",
-    "autoPainting": "Paint",
+    "about": "About",
+    "autoBodyServices": "Auto Body Work",
+    "autoBodyServicesDesc": "Dents, rust, structural and panel repair",
+    "autoPainting": "Paint Solutions",
+    "autoPaintingDesc": "Color-matched refinishing and custom paint",
     "certifications": "Certifications",
-    "collisionRepair": "Collision",
+    "collisionRepair": "Collision Repair",
+    "collisionRepairDesc": "Full-service collision and frame repair",
     "contact": "Contact",
     "gallery": "Gallery",
     "home": "Home",
+    "insurance": "Insurance",
     "insuranceClaims": "Insurance",
     "locations": "Locations",
     "ourTeam": "Our Team",
     "rentalAssistance": "Rental Assistance",
+    "services": "Services",
+    "servicesDescription": "Collision repair, body work, and paint solutions",
     "towing": "Towing"
   },
   "home": {

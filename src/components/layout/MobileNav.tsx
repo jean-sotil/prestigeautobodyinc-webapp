@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { ChevronDown } from 'lucide-react';
 import { MenuIcon, PhoneIcon } from '@/components/ui/Icons';
 import { Button, ButtonLink } from '@/components/ui/Button';
 import {
@@ -10,19 +11,31 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet';
+} from '@/components/ui/Sheet';
+import {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from '@/components/ui/Collapsible';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import { useNavItems, useIsActiveLink } from './NavLinks';
+import {
+  useNavStructure,
+  useIsActiveLink,
+  useIsGroupActive,
+  type NavItem,
+} from './NavLinks';
 
 function MobileNavLink({
   href,
   label,
   onClose,
+  nested = false,
 }: {
   href: string;
   label: string;
   onClose: () => void;
+  nested?: boolean;
 }) {
   const isActive = useIsActiveLink(href);
 
@@ -31,7 +44,7 @@ function MobileNavLink({
       <Link
         href={href as '/'}
         onClick={onClose}
-        className={`block px-4 py-3 rounded-md text-base font-medium transition-colors duration-200 ${
+        className={`block ${nested ? 'pl-8 pr-4' : 'px-4'} py-3 rounded-md text-base font-medium transition-colors duration-200 ${
           isActive
             ? 'bg-primary/10 text-primary'
             : 'text-foreground hover:bg-muted hover:text-primary'
@@ -44,11 +57,60 @@ function MobileNavLink({
   );
 }
 
+function MobileServicesGroup({
+  label,
+  items,
+  onClose,
+}: {
+  label: string;
+  items: NavItem[];
+  onClose: () => void;
+}) {
+  const groupActive = useIsGroupActive(items);
+  const [open, setOpen] = useState(groupActive);
+
+  return (
+    <li>
+      <Collapsible open={open} onOpenChange={setOpen}>
+        <CollapsibleTrigger
+          className={`flex w-full items-center justify-between px-4 py-3 rounded-md text-base font-medium transition-colors duration-200 ${
+            groupActive
+              ? 'text-primary'
+              : 'text-foreground hover:bg-muted hover:text-primary'
+          }`}
+          aria-expanded={open}
+        >
+          <span>{label}</span>
+          <ChevronDown
+            className={`h-5 w-5 transition-transform duration-200 ${
+              open ? 'rotate-180' : ''
+            }`}
+            aria-hidden="true"
+          />
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <ul className="space-y-1 py-1">
+            {items.map((item) => (
+              <MobileNavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                onClose={onClose}
+                nested
+              />
+            ))}
+          </ul>
+        </CollapsibleContent>
+      </Collapsible>
+    </li>
+  );
+}
+
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
   const t = useTranslations('header');
   const c = useTranslations('common');
-  const navItems = useNavItems();
+  const navStructure = useNavStructure();
 
   const close = () => setOpen(false);
 
@@ -62,6 +124,7 @@ export default function MobileNav() {
               size="icon"
               className="min-w-[44px] min-h-[44px]"
               aria-label={t('menu')}
+              aria-expanded={open}
             />
           }
         >
@@ -73,38 +136,48 @@ export default function MobileNav() {
             <SheetTitle>{t('menu')}</SheetTitle>
           </SheetHeader>
 
-          {/* Navigation Links */}
           <nav
             className="flex-1 overflow-y-auto"
             aria-label={t('mobileNavigation')}
           >
             <ul className="space-y-1 px-4">
-              {navItems.map((item) => (
-                <MobileNavLink
-                  key={item.href}
-                  href={item.href}
-                  label={item.label}
-                  onClose={close}
-                />
-              ))}
+              {navStructure.map((entry) => {
+                if (entry.type === 'group') {
+                  return (
+                    <MobileServicesGroup
+                      key="services"
+                      label={entry.label}
+                      items={entry.items}
+                      onClose={close}
+                    />
+                  );
+                }
+                return (
+                  <MobileNavLink
+                    key={entry.href}
+                    href={entry.href}
+                    label={entry.label}
+                    onClose={close}
+                  />
+                );
+              })}
             </ul>
           </nav>
 
-          {/* Phone CTA */}
+          <div className="mx-4 my-2 border-t border-border" role="separator" />
+
           <div className="px-4">
-            <ButtonLink
+            <a
               href="tel:3015788779"
-              variant="primary"
-              size="md"
-              className="w-full rounded-full shadow-lg"
+              onClick={close}
+              className="flex items-center gap-2 py-3 font-bold text-foreground hover:text-primary transition-colors"
               aria-label={`${c('callNow')} ${t('phone')}`}
             >
               <PhoneIcon size={20} ariaLabel="" />
               <span>{t('phone')}</span>
-            </ButtonLink>
+            </a>
           </div>
 
-          {/* Get a Quote */}
           <div className="px-4">
             <ButtonLink
               href="/contact"
@@ -117,8 +190,7 @@ export default function MobileNav() {
             </ButtonLink>
           </div>
 
-          {/* Language Toggle */}
-          <div className="px-4 pb-4 border-t border-border pt-4">
+          <div className="px-4 pb-4 border-t border-border pt-4 mt-2">
             <LanguageSwitcher />
           </div>
         </SheetContent>
