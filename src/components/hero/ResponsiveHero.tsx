@@ -90,7 +90,7 @@ export function PageHeroBanner({
   subtitle,
 }: PageHeroBannerProps) {
   return (
-    <section className="relative w-full h-[240px] sm:h-[320px] md:h-[400px] lg:h-[450px] overflow-hidden">
+    <section className="relative w-full h-60 sm:h-80 md:h-[400px] lg:h-[450px] overflow-hidden">
       {/* Full-width absolute background image */}
       <ResponsiveHero
         slug={slug}
@@ -99,9 +99,9 @@ export function PageHeroBanner({
         className="absolute inset-0 w-full h-full"
       />
       {/* Transparent gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
       {/* Content */}
-      <div className="relative z-10 flex items-end h-full pb-10 sm:pb-14 lg:pb-16">
+      <div className="absolute top-0 left-0 z-10 flex items-end h-full pb-10 sm:pb-14 lg:pb-16">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
           <h1
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg"

@@ -36,7 +36,7 @@ export default async function AboutPage({
   return (
     <div>
       <PageHeroBanner
-        slug="auto-body-services"
+        slug="prestige-auto-body-storefront-optimized"
         alt={t('heroImageAlt')}
         title={t('heroTitle')}
         heading={t('heading')}
