@@ -730,5 +730,92 @@
         "email": "Correo Electrónico"
       }
     }
+  },
+  "quotePage": {
+    "meta": {
+      "title": "Estimado Gratuito de Carrocería | Prestige Auto Body, Silver Spring MD",
+      "description": "Solicite su estimado gratuito de reparación de colisiones en 2 minutos. Servimos Silver Spring, Bethesda y el Condado de Montgomery. Se aceptan todos los seguros."
+    },
+    "hero": {
+      "breadcrumbHome": "Inicio",
+      "breadcrumbCurrent": "Obtener Cotización",
+      "badge": "✓  Estimados Gratuitos · Todos los Seguros Aceptados",
+      "h1": "Obtenga Su Estimado Gratuito",
+      "tagline": "Cuéntenos sobre su vehículo y los daños. Nuestro equipo le contacta en 2 horas hábiles — sin suposiciones, sin presión.",
+      "stats": {
+        "response": {
+          "value": "< 2 hrs",
+          "label": "tiempo de respuesta"
+        },
+        "insurance": {
+          "value": "100%",
+          "label": "seguros aceptados"
+        },
+        "reviewsLabel": "reseñas"
+      }
+    },
+    "sidebar": {
+      "callLabel": "¿Prefiere llamar?",
+      "callHours": "Lun–Vie 8AM–6PM · Sáb 8AM–12PM",
+      "addressLine1": "928 Philadelphia Avenue",
+      "addressLine2": "Silver Spring, MD 20910",
+      "hoursWeekday": "Lun–Vie: 8:00 AM – 6:00 PM",
+      "hoursSaturday": "Sáb: 8:00 AM – 12:00 PM",
+      "hoursSunday": "Dom: Cerrado",
+      "whyChooseLabel": "Por qué elegirnos",
+      "whyChoose": {
+        "icar": "Certificación I-CAR Gold Class",
+        "warranty": "Garantía Limitada de por Vida",
+        "insurance": "Se Aceptan Todos los Seguros",
+        "towing": "Grúa Disponible 24/7"
+      },
+      "mobilePreferCall": "¿Prefiere llamar?"
+    },
+    "socialProof": {
+      "ratingLabelPrefix": "Basado en",
+      "ratingLabelSuffix": "Reseñas de Google",
+      "readReviews": "Leer reseñas →",
+      "insuranceLabel": "Todos los Seguros Aceptados",
+      "insurers": {
+        "geico": "GEICO",
+        "stateFarm": "State Farm",
+        "allstate": "Allstate",
+        "progressive": "Progressive",
+        "usaa": "USAA"
+      },
+      "icarLabel": "Certificación I-CAR Gold Class",
+      "icarSubLabel": "El estándar de capacitación más alto de la industria",
+      "icarImageAlt": "Insignia de certificación I-CAR Gold Class"
+    },
+    "faq": {
+      "heading": "Preguntas Frecuentes",
+      "subheading": "¿Tiene alguna pregunta antes de comenzar?",
+      "items": {
+        "q1": {
+          "question": "¿El estimado es realmente gratuito?",
+          "answer": "Sí — siempre. Nunca cobramos por un estimado escrito. Puede traer su vehículo o describir los daños aquí y le daremos un desglose detallado sin costo."
+        },
+        "q2": {
+          "question": "¿Cuánto tarda un estimado?",
+          "answer": "La mayoría de los estimados en persona toman de 20 a 30 minutos. Si envía este formulario, le llamaremos o enviaremos un mensaje dentro de 2 horas hábiles con un estimado preliminar basado en su descripción."
+        },
+        "q3": {
+          "question": "¿Trabajan con mi compañía de seguros?",
+          "answer": "Trabajamos con todas las principales compañías incluyendo GEICO, State Farm, Allstate, Progressive, USAA, Nationwide y más. Manejamos el papeleo y nos comunicamos directamente con su ajustador."
+        },
+        "q4": {
+          "question": "¿Qué pasa si mi auto no se puede conducir?",
+          "answer": "Ofrecemos servicio de grúa 24/7 hasta nuestro taller. Solo llame al (301) 578-8779 o indíquelo en el paso de programación del formulario."
+        },
+        "q5": {
+          "question": "¿Cuánto tardarán las reparaciones?",
+          "answer": "Depende de la gravedad de los daños. Abolladuras menores: 1–3 días. Daños moderados por colisión: 1–2 semanas. Trabajos estructurales mayores: 2–4 semanas. Le daremos una línea de tiempo precisa con su estimado escrito."
+        },
+        "q6": {
+          "question": "¿Ofrecen garantía?",
+          "answer": "Sí — una garantía limitada de por vida en todas las reparaciones, mientras sea propietario del vehículo."
+        }
+      }
+    }
   }
 }

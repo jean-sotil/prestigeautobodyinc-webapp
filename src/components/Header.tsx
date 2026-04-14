@@ -115,7 +115,7 @@ export default function Header() {
 
               {/* Get a Quote CTA - visible on desktop */}
               <div className="hidden lg:block">
-                <ButtonLink href="/contact" variant="primary" size="sm">
+                <ButtonLink href="/get-a-quote" variant="primary" size="sm">
                   {c('getQuote')}
                 </ButtonLink>
               </div>

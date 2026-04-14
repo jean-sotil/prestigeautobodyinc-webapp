@@ -17,7 +17,7 @@ export default function Footer({ className = '' }: FooterProps) {
     { href: '/about', label: t('quickLinks.autoBodyServices') },
     { href: '/auto-painting', label: t('quickLinks.paintSolutions') },
     { href: '/insurance-claims', label: t('quickLinks.insuranceClaims') },
-    { href: '/contact', label: t('quickLinks.getAQuote') },
+    { href: '/get-a-quote', label: t('quickLinks.getAQuote') },
     { href: '/about', label: t('quickLinks.about') },
   ];
 

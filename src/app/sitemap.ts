@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return locales.flatMap((locale) =>
+  const standardEntries = locales.flatMap((locale) =>
     pages.map((page) => ({
       url: `${baseUrl}/${locale}${page.path}`,
       lastModified,
@@ -49,4 +49,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: page.priority,
     })),
   );
+
+  // /get-a-quote is high-priority and uses localized slugs
+  const quoteEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/en/get-a-quote`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/es/obtener-cotizacion`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+  ];
+
+  return [...standardEntries, ...quoteEntries];
 }

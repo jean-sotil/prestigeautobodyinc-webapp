@@ -59,6 +59,10 @@ export const routing = defineRouting({
       en: '/gallery',
       es: '/galeria',
     },
+    '/get-a-quote': {
+      en: '/get-a-quote',
+      es: '/obtener-cotizacion',
+    },
   },
 });
 
