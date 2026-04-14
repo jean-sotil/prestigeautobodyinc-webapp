@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
+import { PageHeroBanner } from '@/components/hero';
 import QuoteForm from '@/components/quote-form/QuoteForm';
 import { getBusinessRating } from '@/lib/google-places';
 import {
@@ -134,176 +134,121 @@ export default async function GetAQuotePage({
 
       <main id="main-content">
         {/* ─────────────── Section A — Hero Banner ─────────────── */}
-        <section
-          className="bg-[#F5F5F5] dark:bg-[#1E1E1E] border-b border-[#CCCCCC] dark:border-[#333333] py-10 lg:py-14"
-          aria-labelledby="quote-hero-heading"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav aria-label="Breadcrumb">
-              <ol className="flex items-center gap-2 text-xs text-[#555555] dark:text-[#A0A0A0] mb-5">
-                <li>
-                  <Link
-                    href="/"
-                    className="hover:text-[#C62828] transition-colors duration-150"
-                  >
-                    {t('hero.breadcrumbHome')}
-                  </Link>
-                </li>
-                <li aria-hidden="true">›</li>
-                <li
-                  aria-current="page"
-                  className="text-[#2D2D2D] dark:text-[#E0E0E0]"
-                >
-                  {t('hero.breadcrumbCurrent')}
-                </li>
-              </ol>
-            </nav>
+        <PageHeroBanner
+          slug="prestige-auto-body-storefront-optimized"
+          alt={t('hero.imageAlt')}
+          title={t('hero.imageTitle')}
+          heading={t('hero.h1')}
+          subtitle={t('hero.tagline')}
+        />
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 rounded-full bg-[#C62828]/10 border border-[#C62828]/25 text-xs font-medium text-[#C62828]">
+        {/* ─────────────── Section B — Stats + QuoteForm (sticky sidebar) ─────────────── */}
+        <div className="bg-gray-50 dark:bg-[#1E1E1E]">
+          {/* Stats strip, aligned with QuoteForm's max-w-7xl when sidebar present */}
+          <div className="max-w-7xl mx-auto px-4 pt-12 lg:pt-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-5 rounded-full bg-[#C62828]/10 border border-[#C62828]/25 text-xs font-medium text-[#C62828]">
               {t('hero.badge')}
             </div>
-
-            <h1
-              id="quote-hero-heading"
-              className="font-extrabold text-4xl sm:text-5xl text-[#2D2D2D] dark:text-[#E0E0E0] leading-tight mb-3"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t('hero.h1')}
-            </h1>
-
-            <p className="text-base text-[#555555] dark:text-[#A0A0A0] max-w-xl leading-relaxed mb-8">
-              {t('hero.tagline')}
-            </p>
-
-            <div className="flex flex-wrap items-end gap-8">
+            <div className="grid grid-cols-3 gap-4 sm:gap-8 border-b border-[#CCCCCC] dark:border-[#333333] pb-8">
               <div>
                 <p
-                  className="font-extrabold text-3xl text-[#C62828] leading-none"
+                  className="font-extrabold text-2xl sm:text-3xl text-[#C62828] leading-none"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {t('hero.stats.response.value')}
                 </p>
-                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1">
+                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1.5">
                   {t('hero.stats.response.label')}
                 </p>
               </div>
               <div>
                 <p
-                  className="font-extrabold text-3xl text-[#C62828] leading-none"
+                  className="font-extrabold text-2xl sm:text-3xl text-[#C62828] leading-none"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {t('hero.stats.insurance.value')}
                 </p>
-                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1">
+                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1.5">
                   {t('hero.stats.insurance.label')}
                 </p>
               </div>
-              <div>
-                <p
-                  className="font-extrabold text-3xl text-[#C62828] leading-none"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  {ratingDisplay} ★
-                </p>
-                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1">
-                  {reviewCount} {t('hero.stats.reviewsLabel')}
-                </p>
-              </div>
             </div>
           </div>
-        </section>
 
-        {/* ─────────────── Section B — Form + Sidebar ─────────────── */}
-        <section className="bg-white dark:bg-[#121212] py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8 lg:gap-12 items-start">
-            <div>
-              <QuoteForm />
+          <QuoteForm
+            sidebar={
+              <>
+                {/* Card 1 — Call */}
+                <div className="rounded-2xl bg-white dark:bg-[#252525] border border-[#CCCCCC] dark:border-[#333333] p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#555555] dark:text-[#A0A0A0] mb-2">
+                    {t('sidebar.callLabel')}
+                  </p>
+                  <a
+                    href="tel:3015788779"
+                    className="flex items-center gap-2 font-bold text-2xl text-[#C62828] hover:opacity-80 transition-opacity min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 rounded-sm"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    <PhoneIcon className="w-[18px] h-[18px]" />
+                    (301) 578-8779
+                  </a>
+                  <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1">
+                    {t('sidebar.callHours')}
+                  </p>
+                </div>
 
-              <p className="lg:hidden text-center text-sm text-[#555555] dark:text-[#A0A0A0] mt-6">
-                {t('sidebar.mobilePreferCall')}{' '}
-                <a
-                  href="tel:3015788779"
-                  className="text-[#C62828] font-semibold"
-                >
-                  (301) 578-8779
-                </a>
-              </p>
-            </div>
-
-            <aside
-              aria-label="Contact information"
-              className="hidden lg:block lg:sticky lg:top-[6.5rem] space-y-4"
-            >
-              {/* Card 1 — Call */}
-              <div className="rounded-2xl bg-white dark:bg-[#252525] border border-[#CCCCCC] dark:border-[#333333] p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-[#555555] dark:text-[#A0A0A0] mb-2">
-                  {t('sidebar.callLabel')}
-                </p>
-                <a
-                  href="tel:3015788779"
-                  className="flex items-center gap-2 font-bold text-2xl text-[#C62828] hover:opacity-80 transition-opacity"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  <PhoneIcon className="w-[18px] h-[18px]" />
-                  (301) 578-8779
-                </a>
-                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] mt-1">
-                  {t('sidebar.callHours')}
-                </p>
-              </div>
-
-              {/* Card 2 — Location & Hours */}
-              <div className="rounded-2xl bg-white dark:bg-[#252525] border border-[#CCCCCC] dark:border-[#333333] p-5 space-y-3.5">
-                <div className="flex items-start gap-2.5">
-                  <LocationIcon className="w-4 h-4 text-[#C62828] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium text-[#2D2D2D] dark:text-[#E0E0E0]">
-                      {t('sidebar.addressLine1')}
-                    </p>
-                    <p className="text-xs text-[#555555] dark:text-[#A0A0A0]">
-                      {t('sidebar.addressLine2')}
-                    </p>
+                {/* Card 2 — Location & Hours */}
+                <div className="rounded-2xl bg-white dark:bg-[#252525] border border-[#CCCCCC] dark:border-[#333333] p-5 space-y-3.5">
+                  <div className="flex items-start gap-2.5">
+                    <LocationIcon className="w-4 h-4 text-[#C62828] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-[#2D2D2D] dark:text-[#E0E0E0]">
+                        {t('sidebar.addressLine1')}
+                      </p>
+                      <p className="text-xs text-[#555555] dark:text-[#A0A0A0]">
+                        {t('sidebar.addressLine2')}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <ClockIcon className="w-4 h-4 text-[#C62828] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-medium text-[#2D2D2D] dark:text-[#E0E0E0]">
+                        {t('sidebar.hoursWeekday')}
+                      </p>
+                      <p className="text-xs text-[#555555] dark:text-[#A0A0A0]">
+                        {t('sidebar.hoursSaturday')}
+                      </p>
+                      <p className="text-xs text-[#555555] dark:text-[#A0A0A0]">
+                        {t('sidebar.hoursSunday')}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start gap-2.5">
-                  <ClockIcon className="w-4 h-4 text-[#C62828] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium text-[#2D2D2D] dark:text-[#E0E0E0]">
-                      {t('sidebar.hoursWeekday')}
-                    </p>
-                    <p className="text-xs text-[#555555] dark:text-[#A0A0A0]">
-                      {t('sidebar.hoursSaturday')}
-                    </p>
-                    <p className="text-xs text-[#555555] dark:text-[#A0A0A0]">
-                      {t('sidebar.hoursSunday')}
-                    </p>
-                  </div>
+
+                {/* Card 3 — Why choose us */}
+                <div className="rounded-2xl bg-white dark:bg-[#252525] border border-[#CCCCCC] dark:border-[#333333] p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#555555] dark:text-[#A0A0A0] mb-3">
+                    {t('sidebar.whyChooseLabel')}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {whyChoose.map(({ key, Icon }) => (
+                      <li key={key} className="flex items-center gap-2.5">
+                        <Icon className="w-[18px] h-[18px] text-[#C62828] flex-shrink-0" />
+                        <span className="text-sm text-[#2D2D2D] dark:text-[#E0E0E0]">
+                          {t(`sidebar.whyChoose.${key}`)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              </>
+            }
+          />
+        </div>
 
-              {/* Card 3 — Why choose us */}
-              <div className="rounded-2xl bg-white dark:bg-[#252525] border border-[#CCCCCC] dark:border-[#333333] p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-[#555555] dark:text-[#A0A0A0] mb-3">
-                  {t('sidebar.whyChooseLabel')}
-                </p>
-                <ul className="space-y-2.5">
-                  {whyChoose.map(({ key, Icon }) => (
-                    <li key={key} className="flex items-center gap-2.5">
-                      <Icon className="w-[18px] h-[18px] text-[#C62828] flex-shrink-0" />
-                      <span className="text-sm text-[#2D2D2D] dark:text-[#E0E0E0]">
-                        {t(`sidebar.whyChoose.${key}`)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        {/* ─────────────── Section C — Social Proof Strip ─────────────── */}
+        {/* ─────────────── Section D — Social Proof Strip ─────────────── */}
         <section
-          className="bg-[#F5F5F5] dark:bg-[#1E1E1E] border-t border-[#CCCCCC] dark:border-[#333333] py-10"
+          className="bg-gray-50 dark:bg-[#1E1E1E] border-y border-[#CCCCCC] dark:border-[#333333] py-12 lg:py-14"
           aria-label="Trust indicators"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -332,7 +277,7 @@ export default async function GetAQuotePage({
                   href="https://www.google.com/maps/place/Prestige+Auto+Body+Inc./"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-[#C62828] underline mt-1"
+                  className="inline-flex items-center min-h-[44px] px-2 text-xs text-[#C62828] underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 rounded-sm"
                 >
                   {t('socialProof.readReviews')}
                 </a>
@@ -347,7 +292,7 @@ export default async function GetAQuotePage({
                   {INSURERS.map((key) => (
                     <span
                       key={key}
-                      className="px-2.5 py-1 rounded-md border border-[#CCCCCC] dark:border-[#333333] text-xs font-medium text-[#555555] dark:text-[#A0A0A0]"
+                      className="px-2.5 py-1 rounded-md border border-[#CCCCCC] dark:border-[#333333] bg-white dark:bg-[#252525] text-xs font-medium text-[#555555] dark:text-[#A0A0A0]"
                     >
                       {t(`socialProof.insurers.${key}`)}
                     </span>
@@ -375,7 +320,7 @@ export default async function GetAQuotePage({
           </div>
         </section>
 
-        {/* ─────────────── Section D — FAQ ─────────────── */}
+        {/* ─────────────── Section E — FAQ ─────────────── */}
         <section
           className="bg-white dark:bg-[#121212] py-14 lg:py-16"
           aria-labelledby="faq-heading"
@@ -398,16 +343,16 @@ export default async function GetAQuotePage({
                   key={key}
                   className="group border-b border-[#CCCCCC] dark:border-[#333333]"
                 >
-                  <summary className="flex justify-between items-center py-4 cursor-pointer list-none font-semibold text-sm text-[#2D2D2D] dark:text-[#E0E0E0] hover:text-[#C62828] transition-colors duration-150 [&::-webkit-details-marker]:hidden">
+                  <summary className="flex justify-between items-center gap-4 py-4 cursor-pointer list-none font-semibold text-sm text-[#2D2D2D] dark:text-[#E0E0E0] hover:text-[#C62828] transition-colors duration-150 focus-visible:outline-none focus-visible:text-[#C62828] [&::-webkit-details-marker]:hidden">
                     <span>{t(`faq.items.${key}.question`)}</span>
                     <svg
-                      className="w-4 h-4 text-[#C62828] flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+                      className="w-4 h-4 text-[#C62828] flex-shrink-0 transition-transform duration-200 group-open:rotate-90"
                       fill="none"
                       viewBox="0 0 16 16"
                       aria-hidden="true"
                     >
                       <path
-                        d="M4 6l4 4 4-4"
+                        d="M6 4l4 4-4 4"
                         stroke="currentColor"
                         strokeWidth="1.5"
                         strokeLinecap="round"

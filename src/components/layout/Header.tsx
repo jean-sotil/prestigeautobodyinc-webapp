@@ -154,7 +154,7 @@ export default function Header() {
 
               <div className="hidden lg:block">
                 <ButtonLink
-                  href="/contact"
+                  href="/get-a-quote"
                   variant="primary"
                   size="sm"
                   className="rounded-full shadow-lg"
