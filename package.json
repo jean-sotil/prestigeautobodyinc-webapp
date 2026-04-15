@@ -11,10 +11,16 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@payloadcms/db-mongodb": "^3.82.1",
+    "@payloadcms/next": "^3.82.1",
+    "@payloadcms/richtext-lexical": "^3.82.1",
+    "@payloadcms/storage-vercel-blob": "^3.82.1",
     "next": "15.5.14",
     "next-intl": "^4.9.0",
+    "payload": "^3.82.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "sharp": "^0.34.5",
     "web-vitals": "^5.2.0"
   },
   "devDependencies": {

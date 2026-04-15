@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { withPayload } from '@payloadcms/next/withPayload';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import createNextIntlPlugin from 'next-intl/plugin';
 
@@ -134,8 +135,9 @@ const nextConfig: NextConfig = {
 const withNextIntl = createNextIntlPlugin();
 
 // Wrap with bundle analyzer (enabled via ANALYZE=true env var)
-const config = withBundleAnalyzer({
+const analyzedConfig = withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })(withNextIntl(nextConfig));
 
-export default config;
+// Wrap with Payload CMS
+export default withPayload(analyzedConfig);
