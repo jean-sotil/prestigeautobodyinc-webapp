@@ -20,6 +20,16 @@ cp .env.example .env.local
 - `PAYLOAD_SECRET` - Generate a random string (e.g., `openssl rand -hex 32`)
 - `MONGODB_URI` - Your MongoDB connection string
 - `BLOB_READ_WRITE_TOKEN` - (Optional) Vercel Blob token for media storage
+- `GOOGLE_PLACES_API_KEY` - Google Places API key for business information
+- `GOOGLE_PLACE_ID` - Your Google Place ID for reviews and location
+
+**Quote Form API (Required for quote submissions):**
+
+- `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` - Upstash Redis for rate limiting ([Get credentials](https://console.upstash.com/))
+- `RESEND_API_KEY` - Resend API key for email notifications ([Get key](https://resend.com/))
+- `FROM_EMAIL` - Sender email address for notifications (e.g., `quotes@prestigeautobody.com`)
+- `SHOP_EMAIL` - Internal shop email to receive quote notifications
+- `IP_HASH_SALT` - Secret salt for IP address hashing (`openssl rand -hex 32`)
 
 ### Development
 
@@ -64,6 +74,37 @@ On first access, you'll be prompted to create an admin user. This creates the fi
 - RBAC (Super Admin, Content Editor, Viewer roles)
 - Custom Prestige Auto Body branding
 - REST API endpoints for all collections
+
+### Quote Form API
+
+The `/api/quote` endpoint handles customer quote submissions with advanced features:
+
+**Submission Methods:**
+
+- `multipart/form-data` - With damage photos (up to 5 files, max 5MB each)
+- `application/json` - Without photos for quick submissions
+
+**Security Controls:**
+
+- Honeypot field to catch bots (silently drops spam submissions)
+- Time-based spam detection (minimum 3 seconds between form load and submission)
+- Rate limiting (3 submissions per IP per hour via Upstash Redis)
+- IP address hashing (SHA-256 with salt, never stores raw IP)
+- File validation using magic bytes to verify MIME types
+- File bomb guard (rejects payloads > 22MB)
+
+**Email Notifications:**
+
+- Bilingual support (English/Spanish)
+- Shop notification email with inline damage photos
+- Customer confirmation email with photo gallery
+- Reference ID tracking (format: `PAB-YYYYMMDD-XXXX`)
+
+**Validation:**
+
+- Zod schema validation with per-field error messages
+- File type verification (JPEG, PNG, WebP, HEIC, HEIF)
+- Size limits: 5MB per file, 20MB total upload
 
 ## Learn More
 
