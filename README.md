@@ -2,6 +2,27 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 18+ installed
+- MongoDB running locally or a MongoDB Atlas connection string
+
+### Environment Setup
+
+1. Copy `.env.example` to `.env.local`:
+
+```bash
+cp .env.example .env.local
+```
+
+2. Update the environment variables in `.env.local`:
+
+- `PAYLOAD_SECRET` - Generate a random string (e.g., `openssl rand -hex 32`)
+- `MONGODB_URI` - Your MongoDB connection string
+- `BLOB_READ_WRITE_TOKEN` - (Optional) Vercel Blob token for media storage
+
+### Development
+
 First, run the development server:
 
 ```bash
@@ -16,9 +37,33 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Payload CMS Admin Panel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Once the dev server is running, access the Payload CMS admin panel at:
+
+**[http://localhost:3000/admin](http://localhost:3000/admin)**
+
+On first access, you'll be prompted to create an admin user. This creates the first Super Admin account.
+
+**Collections configured:**
+
+- **Pages** - CMS pages with SEO fields
+- **BlogPosts** - Blog posts with author and tags
+- **Services** - Auto body services
+- **Testimonials** - Customer testimonials
+- **TeamMembers** - Staff profiles
+- **ServiceAreas** - Geographic service coverage
+- **Media** - Image uploads with required alt text (EN/ES)
+- **QuoteRequests** - Customer quote submissions
+- **Navigation** - Dynamic navigation menus
+- **SiteSettings** - Global site configuration
+
+**Features:**
+
+- Full EN/ES localization
+- RBAC (Super Admin, Content Editor, Viewer roles)
+- Custom Prestige Auto Body branding
+- REST API endpoints for all collections
 
 ## Learn More
 
