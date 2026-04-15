@@ -8,85 +8,143 @@ import type { QuoteFormData } from './useQuoteForm';
 // Types
 // ============================================================================
 
-interface QuotePayload {
-  service: string;
-  vehicle: { year: number; make: string; model: string };
-  damage: { severity: string; description: string; hasPhotos: boolean };
-  contact: {
-    firstName: string;
-    lastName: string;
-    phone: string;
-    email: string;
-    preferredMethod: string;
-  };
-  metadata: {
-    source: string;
-    page: string;
-    submittedAt: string;
-    locale: string;
-    userAgent: string;
-  };
+export interface SubmitResult {
+  referenceId: string;
+  photoCount: number;
+  status: string;
+}
+
+export interface SubmitError {
+  error: string;
+  message: string;
+  fields?: Record<string, string[]>;
 }
 
 // ============================================================================
-// Payload Builder
+// Constants
 // ============================================================================
 
-function buildPayload(state: QuoteFormData): QuotePayload {
-  return {
-    service: state.service,
-    vehicle: {
-      year: parseInt(state.year, 10),
-      make: state.make,
-      model: state.model,
-    },
-    damage: {
-      severity: state.damage,
-      description: state.description,
-      hasPhotos: state.hasPhotos,
-    },
-    contact: {
-      firstName: state.firstName.trim(),
-      lastName: state.lastName.trim(),
-      phone: state.phone,
-      email: state.email.trim().toLowerCase(),
-      preferredMethod: state.contactMethod,
-    },
-    metadata: {
-      source: 'website',
-      page: typeof window !== 'undefined' ? window.location.pathname : '/',
-      submittedAt: new Date().toISOString(),
-      locale:
-        typeof document !== 'undefined'
-          ? document.documentElement.lang || 'en'
-          : 'en',
-      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
-    },
-  };
+const MAX_TOTAL_SIZE = 20 * 1024 * 1024; // 20 MB total
+
+// ============================================================================
+// FormData Builder
+// ============================================================================
+
+function buildFormData(state: QuoteFormData): FormData {
+  const formData = new FormData();
+
+  // Honeypot field (should be empty)
+  formData.append('_gotcha', '');
+
+  // Service
+  formData.append('service', state.service);
+
+  // Vehicle
+  formData.append('vehicle.year', state.year);
+  formData.append('vehicle.make', state.make);
+  formData.append('vehicle.model', state.model);
+
+  // Damage
+  formData.append('damage.severity', state.damage);
+  formData.append('damage.description', state.description);
+  formData.append('hasPhotos', state.hasPhotos ? 'true' : 'false');
+
+  // Contact
+  formData.append('contact.firstName', state.firstName);
+  formData.append('contact.lastName', state.lastName);
+  formData.append('contact.phone', state.phone);
+  formData.append('contact.email', state.email);
+  formData.append('contact.preferredMethod', state.contactMethod);
+
+  // Appointment
+  if (state.date) {
+    formData.append('appointment.date', state.date);
+  }
+  if (state.time) {
+    formData.append('appointment.time', state.time);
+  }
+  if (state.notes) {
+    formData.append('appointment.notes', state.notes);
+  }
+
+  // Metadata
+  formData.append('metadata.locale', document.documentElement.lang || 'en');
+  formData.append('metadata.source', 'website');
+  formData.append('metadata.submittedAt', new Date().toISOString());
+  formData.append('metadata.formLoadedAt', state.formLoadedAt.toString());
+  formData.append('metadata.userAgent', navigator.userAgent);
+
+  // Files
+  state.files.forEach((file, index) => {
+    formData.append(`file-${index}`, file, file.name);
+  });
+
+  return formData;
+}
+
+function validateFiles(state: QuoteFormData): {
+  valid: boolean;
+  error?: string;
+} {
+  const totalSize = state.files.reduce((sum, file) => sum + file.size, 0);
+
+  if (totalSize > MAX_TOTAL_SIZE) {
+    return {
+      valid: false,
+      error: `Total file size exceeds 20 MB limit. Current: ${Math.round(totalSize / 1024 / 1024)} MB`,
+    };
+  }
+
+  return { valid: true };
 }
 
 // ============================================================================
 // Hook
 // ============================================================================
 
-export function useSubmitQuote(onSuccess?: () => void) {
-  return useMutation({
-    mutationFn: async (state: QuoteFormData) => {
-      const payload = buildPayload(state);
+export function useSubmitQuote(onSuccess?: (result: SubmitResult) => void) {
+  return useMutation<SubmitResult, SubmitError, QuoteFormData>({
+    mutationFn: async (state) => {
+      // Validate files before submission
+      const fileValidation = validateFiles(state);
+      if (!fileValidation.valid) {
+        throw {
+          error: 'validation',
+          message: fileValidation.error || 'File validation failed',
+        } as SubmitError;
+      }
+
+      const formData = buildFormData(state);
+
       const res = await fetch('/api/quote', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: formData,
+        // Don't set Content-Type header - browser will set it with boundary for multipart
       });
-      if (!res.ok) throw new Error(`Submission failed: ${res.status}`);
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw {
+          error: errorData.error || 'server_error',
+          message: errorData.message || `Submission failed: ${res.status}`,
+          fields: errorData.fields,
+        } as SubmitError;
+      }
+
       return res.json();
     },
-    onSuccess: () => {
-      trackEvent('quote_form_submit', { status: 'success' });
-      onSuccess?.();
+    onSuccess: (result) => {
+      trackEvent('quote_form_submit', {
+        status: 'success',
+        referenceId: result.referenceId,
+      });
+      onSuccess?.(result);
     },
-    onError: (error: Error) => {
-      trackEvent('quote_form_error', { error_type: error.message });
+    onError: (error: SubmitError) => {
+      trackEvent('quote_form_error', {
+        error_type: error.error,
+        message: error.message,
+      });
     },
   });
 }
