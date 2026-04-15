@@ -1,27 +1,100 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/**
- * Core Web Vitals Optimized Styles
- * 
- * Optimizations:
- * - System font stack (eliminates FOIT/FOUT, no render-blocking font requests)
- * - CSS custom properties for theming
- * - prefers-reduced-motion for accessibility and performance
- */
-
+/* Design tokens per DESIGN.md */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #ffffff;
+  --text-primary: #2d2d2d;
+  --text-secondary: #555555;
+  --accent-red: #c62828;
+  --border: oklch(0.922 0 0);
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
 
-  /* Roboto primary — matches Figma design spec */
+  /* Font stacks per DESIGN.md */
   --font-sans:
-    var(--font-roboto), 'Roboto', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    var(--font-instrument), 'Instrument Sans', Arial, Helvetica, sans-serif;
+  --font-display: var(--font-display), 'Big Shoulders', Impact, sans-serif;
   --font-mono:
-    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
-    monospace;
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  --background: #ffffff;
+  --foreground: #2d2d2d;
+  --card: #ffffff;
+  --card-foreground: #2d2d2d;
+  --popover: #ffffff;
+  --popover-foreground: #2d2d2d;
+  --primary: #c62828;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #2d2d2d;
+  --muted: #f5f5f5;
+  --muted-foreground: #555555;
+  --accent: #f5f5f5;
+  --accent-foreground: #2d2d2d;
+  --destructive: #b71c1c;
+  --input: #d1d5db;
+  --ring: #c62828;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #e0e0e0;
+
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-card: #252525;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border: #333333;
+  --input-bg: #1e1e1e;
+  --input-border: #444444;
+  --card: #252525;
+  --card-foreground: #e0e0e0;
+  --popover: #1e1e1e;
+  --popover-foreground: #e0e0e0;
+  --primary: #ef5350;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e1e;
+  --secondary-foreground: #e0e0e0;
+  --muted: #1e1e1e;
+  --muted-foreground: #a0a0a0;
+  --accent: #1e1e1e;
+  --accent-foreground: #e0e0e0;
+  --destructive: #ef5350;
+  --input: #444444;
+  --ring: #ef5350;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @theme inline {
@@ -29,34 +102,51 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-/**
- * Base styles with system fonts
- * Using system fonts eliminates:
- * - FOIT (Flash of Invisible Text)
- * - FOUT (Flash of Unstyled Text)
- * - Layout shifts from font loading
- * - Render-blocking font requests
- */
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-sans);
-  /* Prevent layout shifts from font loading */
   font-display: swap;
 }
 
-/**
- * Reduced motion preferences
- * Respects user preferences for motion and improves INP
- * by reducing animation overhead
- */
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -68,45 +158,137 @@ body {
   }
 }
 
-/**
- * Optimize rendering performance
- */
 html {
-  /* Enable hardware acceleration for smooth scrolling */
   scroll-behavior: smooth;
-  /* Prevent text size adjustment on orientation change */
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
-/**
- * Image optimization defaults
- * Helps prevent layout shifts from images
- */
 img {
   max-width: 100%;
   height: auto;
-  /* Prevent layout shifts while loading */
   vertical-align: middle;
 }
 
-/**
- * Focus visible for accessibility
- * Clear focus indicators without affecting CLS
- */
 :focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
-/**
- * Content visibility for off-screen content
- * Improves initial render performance
- */
+/* Quote form step transitions */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes progressPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(198, 40, 40, 0.08);
+  }
+}
+
+@keyframes progressShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.progress-dot-active {
+  animation: progressPulse 2s ease-in-out infinite;
+}
+
+.progress-fill-track {
+  transition: width 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: progressShimmer 3s ease-in-out infinite;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 350ms ease-out forwards;
+}
+.animate-slideInLeft {
+  animation: slideInLeft 350ms ease-out forwards;
+}
+.animate-shake {
+  animation: shake 200ms ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slideInRight,
+  .animate-slideInLeft {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .progress-dot-active {
+    animation: none;
+  }
+  .progress-fill-track {
+    animation: none;
+    transition: width 0.01ms;
+  }
+}
+
 @media (min-width: 768px) {
   .content-visibility-auto {
     content-visibility: auto;
     contain-intrinsic-size: 0 500px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
   }
 }

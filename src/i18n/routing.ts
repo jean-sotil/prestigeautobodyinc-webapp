@@ -37,7 +37,7 @@ export const routing = defineRouting({
     },
     '/about': {
       en: '/about',
-      es: '/acerca-de',
+      es: '/nosotros',
     },
     '/our-team': {
       en: '/our-team',
@@ -58,6 +58,10 @@ export const routing = defineRouting({
     '/gallery': {
       en: '/gallery',
       es: '/galeria',
+    },
+    '/get-a-quote': {
+      en: '/get-a-quote',
+      es: '/obtener-cotizacion',
     },
   },
 });

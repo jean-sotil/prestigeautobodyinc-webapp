@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
-import { Button, ButtonLink } from '@/components/ui/Button';
+import { LegacyButton as Button, ButtonLink } from '@/components/ui/Button';
 
 interface Slide {
   id: number;
-  src: string;
+  slug: string;
   alt: string;
+  imgTitle: string;
   title: string;
   subtitle: string;
 }
@@ -20,50 +20,63 @@ interface HeroCarouselProps {
 const defaultSlides: Slide[] = [
   {
     id: 1,
-    src: '/hero/hero-1.svg',
-    alt: 'Auto body shop exterior with modern facility',
+    slug: 'homepage',
+    alt: 'Prestige Auto Body - pristine luxury sedan in state-of-the-art auto body workshop with modern equipment and professional lighting',
+    imgTitle:
+      'Prestige Auto Body Inc - Premium Auto Body Repair Shop in Silver Spring, MD',
     title: 'hero.slide1.title',
     subtitle: 'hero.slide1.subtitle',
   },
   {
     id: 2,
-    src: '/hero/hero-2.svg',
-    alt: 'Professional collision repair in progress',
+    slug: 'collision-repair',
+    alt: 'Professional collision repair technician using computerized frame measuring equipment with laser scanners and digital displays at Prestige Auto Body',
+    imgTitle:
+      'Expert Collision Repair Services - Computerized Frame Measuring & PDR',
     title: 'hero.slide2.title',
     subtitle: 'hero.slide2.subtitle',
   },
   {
     id: 3,
-    src: '/hero/hero-3.svg',
-    alt: 'Expert auto painting and color matching',
+    slug: 'paint-solutions',
+    alt: 'Advanced computerized paint color matching and formulation facility with downdraft paint booth and eco-friendly refinishing technology',
+    imgTitle:
+      'Premium Paint Solutions - Computerized Color Matching & Eco-Friendly Refinishing',
     title: 'hero.slide3.title',
     subtitle: 'hero.slide3.subtitle',
   },
   {
     id: 4,
-    src: '/hero/hero-4.svg',
-    alt: 'State-of-the-art repair equipment and facility',
+    slug: 'auto-body-services',
+    alt: 'Comprehensive auto body services including dent repair, structural frame work, bumper repair, alloy wheel restoration, glass replacement and spray painting',
+    imgTitle:
+      'Full-Service Auto Body Repair - Dent Repair, Structural Work, Paint & More',
     title: 'hero.slide4.title',
     subtitle: 'hero.slide4.subtitle',
   },
   {
     id: 5,
-    src: '/hero/hero-5.svg',
-    alt: 'Certified technicians working on vehicle restoration',
+    slug: 'insurance-claims',
+    alt: 'Professional insurance claims advisor reviewing documentation with satisfied customer at Prestige Auto Body consultation area',
+    imgTitle: 'Insurance Claims Assistance - We Handle Your Paperwork',
     title: 'hero.slide5.title',
     subtitle: 'hero.slide5.subtitle',
   },
   {
     id: 6,
-    src: '/hero/hero-6.svg',
-    alt: 'Quality finished vehicle after repair',
+    slug: 'towing-24-7',
+    alt: 'Professional flatbed tow truck providing 24/7 emergency roadside assistance and towing services at night with amber emergency lights',
+    imgTitle:
+      '24/7 Emergency Towing & Roadside Assistance in Silver Spring, MD',
     title: 'hero.slide6.title',
     subtitle: 'hero.slide6.subtitle',
   },
   {
     id: 7,
-    src: '/hero/hero-7.svg',
-    alt: 'Customer satisfaction with completed auto body work',
+    slug: 'lifetime-warranty',
+    alt: 'Satisfied customer receiving keys to beautifully restored luxury vehicle from Prestige Auto Body service advisor with lifetime warranty',
+    imgTitle:
+      'Limited Lifetime Warranty on All Repairs - Quality You Can Trust',
     title: 'hero.slide7.title',
     subtitle: 'hero.slide7.subtitle',
   },
@@ -157,17 +170,48 @@ export function HeroCarousel({ slides = defaultSlides }: HeroCarouselProps) {
             aria-label={`${t('hero.slideLabel')} ${index + 1} ${t('hero.of')} ${slides.length}`}
             aria-hidden={index !== currentSlide}
           >
-            {/* Image with explicit dimensions */}
+            {/* Responsive hero image via <picture> for art-directed breakpoints */}
             <div className="absolute inset-0 w-full">
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                priority={index === 0}
-                sizes="100vw"
-                className="object-cover w-full h-full"
-                quality={90}
-              />
+              <picture>
+                {/* Mobile: ≤767px */}
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={`/hero/${slide.slug}/mobile/${slide.slug}-hero-mobile.webp`}
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={`/hero/${slide.slug}/mobile/${slide.slug}-hero-mobile.jpg`}
+                  type="image/jpeg"
+                />
+                {/* Tablet: 768px–1023px */}
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet={`/hero/${slide.slug}/tablet/${slide.slug}-hero-tablet.webp`}
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 1023px)"
+                  srcSet={`/hero/${slide.slug}/tablet/${slide.slug}-hero-tablet.jpg`}
+                  type="image/jpeg"
+                />
+                {/* Desktop: ≥1024px */}
+                <source
+                  srcSet={`/hero/${slide.slug}/desktop/${slide.slug}-hero-desktop.webp`}
+                  type="image/webp"
+                />
+                {/* Fallback */}
+                {}
+                <img
+                  src={`/hero/${slide.slug}/desktop/${slide.slug}-hero-desktop.jpg`}
+                  alt={slide.alt}
+                  title={slide.imgTitle}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  decoding={index === 0 ? 'sync' : 'async'}
+                />
+              </picture>
               {/* Dark overlay for text readability */}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-black/30" />
             </div>

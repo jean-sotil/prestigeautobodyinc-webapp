@@ -4,18 +4,25 @@
     "description": "Professional auto body repair, collision repair, and auto painting services. We work with all insurance companies."
   },
   "nav": {
-    "home": "Home",
-    "collisionRepair": "Collision Repair",
-    "autoPainting": "Auto Painting",
-    "towing": "Towing",
-    "insuranceClaims": "Insurance Claims",
-    "rentalAssistance": "Rental Assistance",
-    "about": "About Us",
-    "ourTeam": "Our Team",
+    "about": "About",
+    "autoBodyServices": "Auto Body Work",
+    "autoBodyServicesDesc": "Dents, rust, structural and panel repair",
+    "autoPainting": "Paint Solutions",
+    "autoPaintingDesc": "Color-matched refinishing and custom paint",
     "certifications": "Certifications",
+    "collisionRepair": "Collision Repair",
+    "collisionRepairDesc": "Full-service collision and frame repair",
     "contact": "Contact",
+    "gallery": "Gallery",
+    "home": "Home",
+    "insurance": "Insurance",
+    "insuranceClaims": "Insurance",
     "locations": "Locations",
-    "gallery": "Gallery"
+    "ourTeam": "Our Team",
+    "rentalAssistance": "Rental Assistance",
+    "services": "Services",
+    "servicesDescription": "Collision repair, body work, and paint solutions",
+    "towing": "Towing"
   },
   "home": {
     "hero": {
@@ -89,15 +96,15 @@
       },
       "rating": {
         "value": "4.7★",
-        "label": "Customer Rating"
+        "label": "Google Rating"
       },
       "cars": {
         "value": "1000+",
         "label": "Cars Repaired"
       },
       "reviews": {
-        "value": "A+",
-        "label": "BBB Rating"
+        "value": "243+",
+        "label": "Google Reviews"
       }
     },
     "services": {
@@ -113,6 +120,10 @@
       "painting": {
         "title": "Auto Painting",
         "description": "Professional painting services with precision color matching and premium, durable finishes."
+      },
+      "insurance": {
+        "title": "Insurance Claims",
+        "description": "We work directly with all insurance companies to streamline your claims process and get you back on the road faster."
       }
     },
     "whyChooseUs": {
@@ -161,8 +172,62 @@
     },
     "cta": {
       "title": "Ready to Get Started?",
-      "description": "Contact us today for a free estimate on your vehicle repair.",
-      "button": "Contact Us Now"
+      "description": "Contact us today for a free estimate. We work with all insurance companies.",
+      "button": "Get a Quote",
+      "phone": "(301) 578-8779",
+      "phoneAriaLabel": "Call (301) 578-8779"
+    },
+    "pageHero": {
+      "alt": "Prestige Auto Body — pristine luxury sedan in state-of-the-art auto body workshop with modern equipment and professional lighting",
+      "imgTitle": "Prestige Auto Body Inc — Premium Auto Body Repair Shop in Silver Spring, MD",
+      "h1": "Auto Body Shop & Collision Repair in Silver Spring, MD",
+      "subtitle": "For a better today & tomorrow for your vehicle",
+      "estimatePrompt": "Get your free estimate.",
+      "emailPlaceholder": "your@email.com",
+      "emailLabel": "Email address",
+      "locationLabel": "Location",
+      "locationDefault": "Silver Spring",
+      "ctaButton": "Get a Quote",
+      "seeLabel": "See",
+      "ourWorkLabel": "our work."
+    },
+    "whyChooseUsBullets": {
+      "experience": "More than two decades of collision repair experience",
+      "certified": "I-CAR Gold Class certified technicians",
+      "warranty": "Lifetime warranty guarantee on all repairs",
+      "insurance": "Accept all major insurance and submit claims for you",
+      "equipment": "Computerized frame measuring & color matching",
+      "estimates": "Free estimates with no obligation"
+    },
+    "warranty": {
+      "title": "Limited Lifetime Warranty",
+      "subtitle": "100% Satisfaction Guaranteed",
+      "bullet1": "All collision repairs backed by a lifetime warranty",
+      "bullet2": "I-CAR Gold Class certified technicians",
+      "bullet3": "Factory-specification parts and finishes",
+      "cta": "Get a Free Estimate",
+      "badgeAlt": "Lifetime Guarantee on All Repairs seal",
+      "icarAlt": "I-CAR Gold Class certified collision repair shop",
+      "saintAlt": "SAINT PCI Tested security certification"
+    },
+    "testimonials": {
+      "title": "Customer Testimonials",
+      "subtitle": "What Our Happy Customers Are Saying",
+      "review1": {
+        "text": "Great experience! They fixed my car after a collision and it looks brand new. Highly recommended!",
+        "name": "— Maria S.",
+        "location": "Silver Spring, MD"
+      },
+      "review2": {
+        "text": "Professional, honest, and fast. They worked directly with my insurance company. Excellent service!",
+        "name": "— James T.",
+        "location": "Bethesda, MD"
+      },
+      "review3": {
+        "text": "Best auto body shop in the area. 20+ years and it shows. Lifetime warranty gives real peace of mind.",
+        "name": "— Carlos R.",
+        "location": "Rockville, MD"
+      }
     }
   },
   "footer": {
@@ -177,10 +242,10 @@
     },
     "quickLinks": {
       "title": "Quick Links",
-      "collisionRepair": "Collision Repair",
-      "autoBodyServices": "Auto Body Services",
-      "paintSolutions": "Paint Solutions",
-      "insuranceClaims": "Insurance Claims",
+      "collisionRepair": "Collision",
+      "autoBodyServices": "Services",
+      "paintSolutions": "Paint",
+      "insuranceClaims": "Insurance",
       "getAQuote": "Get a Quote",
       "about": "About Us"
     },
@@ -199,6 +264,216 @@
       "terms": "Terms of Service",
       "sitemap": "Sitemap"
     }
+  },
+  "about": {
+    "metaTitle": "About Us — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaDescription": "Over 20 years of professional auto body repair in Silver Spring, MD. I-CAR Gold Class certified, lifetime warranty on all repairs.",
+    "heroImageAlt": "Comprehensive auto body services including dent repair, structural frame work, bumper repair, alloy wheel restoration, glass replacement and spray painting",
+    "heroTitle": "Full-Service Auto Body Repair — Dent Repair, Structural Work, Paint & More",
+    "heading": "About Us",
+    "subtitle": "Over 20 years of professional auto body repair services",
+    "intro": "Prestige Auto Body Inc. has been serving the Silver Spring community for over 20 years with professional auto body repair services. Our commitment to quality workmanship and customer satisfaction has made us a trusted name in the industry.",
+    "missionTitle": "Our Mission",
+    "mission": "To deliver factory-quality collision repair and auto painting with integrity, transparency, and a lifetime warranty — so every customer drives away confident their vehicle is restored to pre-accident condition.",
+    "valuesTitle": "Why Customers Trust Us",
+    "values": {
+      "experience": {
+        "title": "20+ Years Experience",
+        "description": "Two decades of trusted auto body repair excellence in Silver Spring and Montgomery County."
+      },
+      "certified": {
+        "title": "I-CAR Gold Class Certified",
+        "description": "Our technicians hold the highest industry certifications with ongoing training requirements."
+      },
+      "warranty": {
+        "title": "Lifetime Warranty",
+        "description": "Every repair is backed by our comprehensive lifetime warranty on workmanship."
+      },
+      "insurance": {
+        "title": "All Insurance Accepted",
+        "description": "We work directly with all major insurance companies and handle your claim paperwork."
+      },
+      "equipment": {
+        "title": "State-of-the-Art Equipment",
+        "description": "Computerized frame measuring, downdraft paint booth, and digital color matching."
+      },
+      "community": {
+        "title": "Community Focused",
+        "description": "Locally owned and operated — proudly serving Silver Spring, Bethesda, Rockville, and surrounding areas."
+      }
+    }
+  },
+  "services": {
+    "whatWeOffer": "What We Offer",
+    "serviceAreas": "Service Areas",
+    "ctaHeadline": "Ready to Get Your Car Fixed?",
+    "ctaSubtitle": "Contact us today for a free estimate. We work with all insurance companies.",
+    "ctaQuote": "Get a Quote",
+    "getEstimate": "Get a Free Estimate",
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "pages": {
+      "collisionRepair": {
+        "metaTitle": "Collision Repair Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Expert collision repair in Silver Spring, MD. Computerized frame measuring, paintless dent repair & I-CAR Gold Class certified technicians. Free estimates — call (301) 578-8779.",
+        "title": "Collision Repair Silver Spring, MD",
+        "heroImageAlt": "Professional collision repair technician using computerized frame measuring equipment with laser scanners and digital displays at Prestige Auto Body",
+        "heroDescription": "Expert collision repair with computerized frame measuring, paintless dent repair, and I-CAR Gold Class certified technicians. We restore your vehicle to pre-accident condition — fast, affordable, and backed by a lifetime warranty.",
+        "offerings": {
+          "item1": {
+            "title": "Computerized Frame Measuring",
+            "description": "Pinpoint structural damage with laser-guided precision to ensure factory-spec alignment."
+          },
+          "item2": {
+            "title": "Paintless Dent Repair (PDR)",
+            "description": "Remove dents and dings without repainting — preserves your original factory finish."
+          },
+          "item3": {
+            "title": "Full Structural Repair",
+            "description": "Restore unibody and frame damage from moderate to severe collisions."
+          },
+          "item4": {
+            "title": "Bumper & Panel Replacement",
+            "description": "OEM and aftermarket panel replacement with seamless color matching."
+          },
+          "item5": {
+            "title": "Glass Replacement",
+            "description": "Windshield and window replacement with proper sealing and ADAS recalibration."
+          },
+          "item6": {
+            "title": "All Insurance Accepted",
+            "description": "We work directly with your insurer to handle claims and simplify the process."
+          }
+        },
+        "testimonial": {
+          "quote": "Great service from the initial estimate through completion of the job! The team ordered the parts immediately and kept the schedule. They were reasonably priced and easy to work with.",
+          "author": "Mina Y.",
+          "location": "Silver Spring"
+        }
+      },
+      "autoBodyServices": {
+        "metaTitle": "Auto Body Work Services Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Complete auto body work in Silver Spring, MD — dent repair, structural damage, bumper replacement, alloy wheel restoration & custom body work. Free estimates, all insurance accepted.",
+        "title": "Auto Body Work Services in Silver Spring, MD",
+        "heroImageAlt": "Complete auto body work facility showing dent repair, structural damage restoration, and bumper replacement services at Prestige Auto Body",
+        "heroDescription": "Complete auto body services including dent repair, structural damage restoration, bumper replacement, alloy wheel repair, glass work, and custom body modifications. Over 20 years of certified craftsmanship in Silver Spring.",
+        "offerings": {
+          "item1": {
+            "title": "Dent Repair & Removal",
+            "description": "From minor door dings to large panel dents — repaired with or without paint."
+          },
+          "item2": {
+            "title": "Structural Damage Repair",
+            "description": "Frame straightening and unibody repair using computerized measuring systems."
+          },
+          "item3": {
+            "title": "Bumper Replacement",
+            "description": "Front and rear bumper repair or full replacement with factory-matched parts."
+          },
+          "item4": {
+            "title": "Alloy Wheel Restoration",
+            "description": "Repair curb rash, bends, and cracks to restore your wheels to like-new condition."
+          },
+          "item5": {
+            "title": "Glass Replacement",
+            "description": "Auto glass replacement for windshields, side windows, and rear glass."
+          },
+          "item6": {
+            "title": "Custom Body Work",
+            "description": "Panel fabrication, trim restoration, and specialty body modifications."
+          }
+        },
+        "testimonial": {
+          "quote": "I never write reviews but I chose this auto body shop because I read the reviews so I hope I can help someone else out. Carlos and his team were very helpful walking me through the process. 10/10 would recommend!",
+          "author": "Mitch Hawkins",
+          "location": "Silver Spring"
+        }
+      },
+      "autoPainting": {
+        "metaTitle": "Auto Painting Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Professional auto painting in Silver Spring, MD. Computerized color matching, downdraft paint booth & eco-friendly waterborne paints. Full and partial paint jobs — free estimates.",
+        "title": "Professional Auto Painting in Silver Spring, MD",
+        "heroImageAlt": "Advanced computerized paint color matching and formulation facility with downdraft paint booth and eco-friendly refinishing technology",
+        "heroDescription": "Factory-quality auto painting with computerized color formulation, a state-of-the-art downdraft paint booth, and eco-friendly waterborne finishes. From spot repairs to full vehicle repaints — flawless results guaranteed.",
+        "offerings": {
+          "item1": {
+            "title": "Computerized Color Matching",
+            "description": "Digital color formulation ensures an exact match to your vehicle's original factory color."
+          },
+          "item2": {
+            "title": "Downdraft Paint Booth",
+            "description": "Climate-controlled spray booth for dust-free, precision paint application."
+          },
+          "item3": {
+            "title": "Full Vehicle Repaint",
+            "description": "Complete exterior repaint with primer, base coat, and clear coat for a showroom finish."
+          },
+          "item4": {
+            "title": "Spot & Panel Repair",
+            "description": "Targeted paint repair for scratches, chips, and localized damage — blended seamlessly."
+          },
+          "item5": {
+            "title": "Eco-Friendly Waterborne Paint",
+            "description": "Low-VOC waterborne paints that deliver superior color and reduce environmental impact."
+          },
+          "item6": {
+            "title": "Clear Coat & Protection",
+            "description": "UV-resistant clear coat application to protect your finish from sun, weather, and road debris."
+          }
+        },
+        "testimonial": {
+          "quote": "Couldn't be any happier with the work they performed on my vehicle. Not just the work done in my car was excellent, but the customer service was beyond excellent. Carlos was thoroughly helpful by always answering my questions.",
+          "author": "Suellen B.",
+          "location": "Silver Spring"
+        }
+      },
+      "insuranceClaims": {
+        "metaTitle": "Insurance Claims Assistance Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "We handle your auto insurance claim from start to finish in Silver Spring, MD. All major insurance accepted, lifetime warranty on repairs, free estimates. Call (301) 578-8779.",
+        "title": "Insurance Claims Assistance — Silver Spring, MD",
+        "heroImageAlt": "Professional insurance claims advisor reviewing documentation with satisfied customer at Prestige Auto Body consultation area",
+        "heroDescription": "We handle your auto insurance claim from start to finish. All major insurance companies accepted — we work directly with your adjuster so you can focus on getting back on the road. Lifetime warranty on every repair.",
+        "offerings": {
+          "item1": {
+            "title": "All Major Insurance Accepted",
+            "description": "GEICO, State Farm, Allstate, Progressive, USAA, Nationwide, and many more."
+          },
+          "item2": {
+            "title": "Claims Filed For You",
+            "description": "We submit and manage your claim paperwork so you don't have to."
+          },
+          "item3": {
+            "title": "Direct Adjuster Coordination",
+            "description": "We work with your insurance adjuster on-site to streamline approvals."
+          },
+          "item4": {
+            "title": "Lifetime Repair Warranty",
+            "description": "100% satisfaction guaranteed — all collision repairs backed by a lifetime warranty."
+          },
+          "item5": {
+            "title": "Free Estimates",
+            "description": "No-obligation damage assessment and repair estimate before any work begins."
+          },
+          "item6": {
+            "title": "24/7 Towing & Drop-Off",
+            "description": "Accident towing and overnight key drop-off available around the clock."
+          }
+        },
+        "testimonial": {
+          "quote": "Car looks dope! Jorge and the Prestige team went far and beyond what I was expecting. When I had issues with my insurance company, Prestige worked quickly to resolve the issue. Highly recommended!",
+          "author": "Steve Rose",
+          "location": "Silver Spring"
+        }
+      }
+    }
+  },
+  "contact": {
+    "metaTitle": "Contact Us — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaDescription": "Contact Prestige Auto Body Inc. for a free estimate. Call (301) 578-8779 or visit us at 928 Philadelphia Ave, Silver Spring, MD.",
+    "heroImageAlt": "Prestige Auto Body Inc. storefront in Silver Spring, Maryland",
+    "heroTitle": "Prestige Auto Body Inc. — Silver Spring Auto Body Shop",
+    "heading": "Contact Us",
+    "subtitle": "Get in touch for a free estimate or to schedule your repair"
   },
   "common": {
     "learnMore": "Learn More",
@@ -221,7 +496,13 @@
     "skipToContent": "Skip to content",
     "menu": "Menu",
     "closeMenu": "Close menu",
-    "breadcrumb": "Breadcrumb"
+    "breadcrumb": "Breadcrumb",
+    "address": "928 Philadelphia Ave, Silver Spring, MD 20910",
+    "hours": "Mon-Fri 8:00 AM - 5:00 PM",
+    "callForEstimate": "Call for Free Estimate",
+    "phone": "(301) 578-8779",
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation"
   },
   "quoteForm": {
     "formLabel": "Request a Quote",
@@ -447,6 +728,95 @@
         "phone": "Phone Call",
         "text": "Text Message",
         "email": "Email"
+      }
+    }
+  },
+  "quotePage": {
+    "meta": {
+      "title": "Get a Free Auto Body Estimate | Prestige Auto Body, Silver Spring MD",
+      "description": "Request a free collision repair or auto body estimate in 2 minutes. Serving Silver Spring, Bethesda & Montgomery County, MD. All insurance accepted. I-CAR Gold Class certified."
+    },
+    "hero": {
+      "breadcrumbHome": "Home",
+      "breadcrumbCurrent": "Get a Quote",
+      "badge": "✓  Free Estimates · All Insurance Accepted",
+      "imageAlt": "Prestige Auto Body Inc. storefront in Silver Spring, Maryland",
+      "imageTitle": "Prestige Auto Body — Get a Free Estimate",
+      "h1": "Get Your Free Estimate",
+      "tagline": "Tell us about your vehicle and damage. Our team contacts you within 2 business hours — no guesswork, no pressure.",
+      "stats": {
+        "response": {
+          "value": "< 2 hrs",
+          "label": "avg. response time"
+        },
+        "insurance": {
+          "value": "100%",
+          "label": "insurance accepted"
+        },
+        "reviewsLabel": "customer reviews"
+      }
+    },
+    "sidebar": {
+      "callLabel": "Prefer to call?",
+      "callHours": "Mon–Fri 8AM–6PM · Sat 8AM–12PM",
+      "addressLine1": "928 Philadelphia Avenue",
+      "addressLine2": "Silver Spring, MD 20910",
+      "hoursWeekday": "Mon–Fri: 8:00 AM – 6:00 PM",
+      "hoursSaturday": "Sat: 8:00 AM – 12:00 PM",
+      "hoursSunday": "Sun: Closed",
+      "whyChooseLabel": "Why choose us",
+      "whyChoose": {
+        "icar": "Gold Class I-CAR Certified",
+        "warranty": "Limited Lifetime Warranty",
+        "insurance": "All Major Insurance Accepted",
+        "towing": "24/7 Towing Available"
+      },
+      "mobilePreferCall": "Prefer to call?"
+    },
+    "socialProof": {
+      "ratingLabelPrefix": "Based on",
+      "ratingLabelSuffix": "Google Reviews",
+      "readReviews": "Read reviews →",
+      "insuranceLabel": "All Insurance Accepted",
+      "insurers": {
+        "geico": "GEICO",
+        "stateFarm": "State Farm",
+        "allstate": "Allstate",
+        "progressive": "Progressive",
+        "usaa": "USAA"
+      },
+      "icarLabel": "I-CAR Gold Class Certified",
+      "icarSubLabel": "Industry's highest training standard",
+      "icarImageAlt": "I-CAR Gold Class certification badge"
+    },
+    "faq": {
+      "heading": "Common Questions",
+      "subheading": "Have a question before getting started?",
+      "items": {
+        "q1": {
+          "question": "Is the estimate really free?",
+          "answer": "Yes — always. We never charge for a written estimate. You can bring your vehicle in or describe the damage here and we'll give you a detailed breakdown at no cost."
+        },
+        "q2": {
+          "question": "How long does an estimate take?",
+          "answer": "Most in-person estimates take 20–30 minutes. If you submit this form, we'll call or text you within 2 business hours with a preliminary estimate based on your description."
+        },
+        "q3": {
+          "question": "Do you work with my insurance company?",
+          "answer": "We work with all major carriers including GEICO, State Farm, Allstate, Progressive, USAA, Nationwide, and more. We handle the paperwork and communicate directly with your adjuster."
+        },
+        "q4": {
+          "question": "What if my car is not drivable?",
+          "answer": "We offer 24/7 towing to our shop. Just call (301) 578-8779 or note it in the form's scheduling step."
+        },
+        "q5": {
+          "question": "How long will repairs take?",
+          "answer": "It depends on the damage severity. Minor dents: 1–3 days. Moderate collision damage: 1–2 weeks. Major structural work: 2–4 weeks. We'll give you a precise timeline with your written estimate."
+        },
+        "q6": {
+          "question": "Do you offer a warranty?",
+          "answer": "Yes — a limited lifetime warranty on all repairs, as long as you own the vehicle."
+        }
       }
     }
   }

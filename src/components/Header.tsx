@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ButtonLink } from '@/components/ui/Button';
@@ -22,7 +23,7 @@ export default function Header() {
   // Main navigation items matching Figma design
   const navItems: NavItem[] = [
     { href: '/collision-repair', label: t('collisionRepair') },
-    { href: '/about', label: 'Auto Body Services' },
+    { href: '/auto-body-services', label: t('autoBodyServices') },
     { href: '/auto-painting', label: t('autoPainting') },
     { href: '/insurance-claims', label: t('insuranceClaims') },
     { href: '/about', label: t('about') },
@@ -42,30 +43,28 @@ export default function Header() {
       </a>
 
       {/* Top Utility Bar */}
-      <div className="bg-[#121212] text-[#a6a6a6] text-xs px-16 py-2 hidden md:flex items-center justify-between">
+      <div className="bg-[#2D2D2D] dark:bg-[#0A0A0A] text-white text-xs h-10 px-4 sm:px-6 lg:px-8 hidden md:flex items-center justify-between max-w-full">
         <span>928 Philadelphia Ave, Silver Spring, MD 20910</span>
         <span>Mon-Fri: 8AM-6PM &nbsp;|&nbsp; Sat: 8AM-12PM</span>
       </div>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-40 bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800">
+      <header className="sticky top-0 z-40 bg-white dark:bg-[#121212] shadow-sm border-b border-gray-200 dark:border-[#333]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link
                 href="/"
                 className="hover:opacity-80 transition-opacity"
                 aria-label="Prestige Auto Body Inc. - Home"
               >
-                <div className="flex flex-col leading-tight">
-                  <span className="font-black text-[22px] text-[#2d2d2d] dark:text-white tracking-wide">
-                    PRESTIGE
-                  </span>
-                  <span className="font-bold text-[9px] text-[#c62828] tracking-widest">
-                    AUTO BODY, INC
-                  </span>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Prestige Auto Body Inc. - Home"
+                  width={200}
+                  height={80}
+                />
               </Link>
             </div>
 
@@ -85,10 +84,10 @@ export default function Header() {
                   <Link
                     key={item.href}
                     href={item.href as '/'}
-                    className={`py-2 text-sm font-medium transition-colors ${
+                    className={`py-2 text-sm font-medium transition-colors border-b-2 ${
                       isActive
-                        ? 'text-[#c62828]'
-                        : 'text-[#2d2d2d] hover:text-[#c62828] dark:text-gray-300 dark:hover:text-white'
+                        ? 'text-[#C62828] border-[#C62828]'
+                        : 'text-[#2d2d2d] hover:text-[#C62828] border-transparent dark:text-gray-300 dark:hover:text-white'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -116,12 +115,7 @@ export default function Header() {
 
               {/* Get a Quote CTA - visible on desktop */}
               <div className="hidden lg:block">
-                <ButtonLink
-                  href="/contact"
-                  variant="primary"
-                  size="sm"
-                  className="bg-[#c62828] hover:bg-[#a82020] text-white px-6 py-3 rounded-lg font-bold"
-                >
+                <ButtonLink href="/get-a-quote" variant="primary" size="sm">
                   {c('getQuote')}
                 </ButtonLink>
               </div>
@@ -139,7 +133,7 @@ export default function Header() {
 
         {/* Breadcrumbs - only on interior pages */}
         {!isHomePage && (
-          <div className="bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-700">
+          <div className="bg-[#F5F5F5] dark:bg-[#1E1E1E] border-t border-gray-200 dark:border-[#333]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <Breadcrumbs />
             </div>

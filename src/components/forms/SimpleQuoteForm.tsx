@@ -8,6 +8,7 @@ import React, {
   useRef,
 } from 'react';
 import { useTranslations } from 'next-intl';
+import { LegacyButton as Button } from '@/components/ui/Button';
 
 // ============================================================================
 // Types & Interfaces
@@ -1056,33 +1057,37 @@ export function SimpleQuoteForm() {
         {/* Navigation Buttons */}
         <div className="flex gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
           {state.currentStep > 1 && (
-            <button
-              type="button"
+            <Button
+              variant="secondary"
+              size="md"
               onClick={handlePrev}
-              className="flex-1 py-2.5 px-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-300 font-medium"
+              className="flex-1"
             >
               {t('buttons.back')}
-            </button>
+            </Button>
           )}
 
           {state.currentStep < TOTAL_STEPS ? (
-            <button
-              type="button"
+            <Button
+              variant="primary"
+              size="md"
               onClick={handleNext}
-              className="flex-1 py-2.5 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+              className="flex-1"
             >
               {t('buttons.next')}
-            </button>
+            </Button>
           ) : (
-            <button
+            <Button
+              variant="primary"
+              size="md"
               type="submit"
               disabled={state.isSubmitting}
-              className="flex-1 py-2.5 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+              className="flex-1 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {state.isSubmitting
                 ? t('buttons.submitting')
                 : t('buttons.submit')}
-            </button>
+            </Button>
           )}
         </div>
       </div>

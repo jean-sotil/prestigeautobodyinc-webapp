@@ -4,18 +4,25 @@
     "description": "Servicios profesionales de reparación de carrocería, reparación de colisiones y pintura de autos. Trabajamos con todas las compañías de seguros."
   },
   "nav": {
-    "home": "Inicio",
-    "collisionRepair": "Reparación de Colisiones",
-    "autoPainting": "Pintura de Autos",
-    "towing": "Remolque",
-    "insuranceClaims": "Reclamos de Seguro",
-    "rentalAssistance": "Asistencia de Alquiler",
-    "about": "Acerca de Nosotros",
-    "ourTeam": "Nuestro Equipo",
+    "about": "Nosotros",
+    "autoBodyServices": "Trabajo de Carrocería",
+    "autoBodyServicesDesc": "Abolladuras, óxido y reparación estructural",
+    "autoPainting": "Soluciones de Pintura",
+    "autoPaintingDesc": "Repintado con color a medida y pintura personalizada",
     "certifications": "Certificaciones",
+    "collisionRepair": "Reparación de Colisiones",
+    "collisionRepairDesc": "Reparación integral de colisiones y chasis",
     "contact": "Contacto",
+    "gallery": "Galería",
+    "home": "Inicio",
+    "insurance": "Seguro",
+    "insuranceClaims": "Seguro",
     "locations": "Ubicaciones",
-    "gallery": "Galería"
+    "ourTeam": "Nuestro Equipo",
+    "rentalAssistance": "Asistencia de Alquiler",
+    "services": "Servicios",
+    "servicesDescription": "Reparación de colisiones, carrocería y pintura",
+    "towing": "Remolque"
   },
   "home": {
     "hero": {
@@ -89,15 +96,15 @@
       },
       "rating": {
         "value": "4.7★",
-        "label": "Calificación de Clientes"
+        "label": "Calificación Google"
       },
       "cars": {
         "value": "1000+",
         "label": "Autos Reparados"
       },
       "reviews": {
-        "value": "A+",
-        "label": "Calificación BBB"
+        "value": "243+",
+        "label": "Reseñas de Google"
       }
     },
     "services": {
@@ -113,6 +120,10 @@
       "painting": {
         "title": "Pintura de Autos",
         "description": "Servicios profesionales de pintura con igualación precisa de color y acabados premium duraderos."
+      },
+      "insurance": {
+        "title": "Reclamos de Seguro",
+        "description": "Trabajamos directamente con todas las compañías de seguros para agilizar su proceso de reclamos y devolverle la carretera más rápido."
       }
     },
     "whyChooseUs": {
@@ -161,8 +172,62 @@
     },
     "cta": {
       "title": "¿Listo para Comenzar?",
-      "description": "Contáctenos hoy para un estimado gratuito de la reparación de su vehículo.",
-      "button": "Contáctenos Ahora"
+      "description": "Contáctenos hoy para un presupuesto gratis. Trabajamos con todas las compañías de seguros.",
+      "button": "Solicitar Cotización",
+      "phone": "(301) 578-8779",
+      "phoneAriaLabel": "Llamar al (301) 578-8779"
+    },
+    "pageHero": {
+      "alt": "Prestige Auto Body — sedán de lujo impecable en taller de carrocería de última generación con equipo moderno e iluminación profesional",
+      "imgTitle": "Prestige Auto Body Inc — Taller Premium de Reparación de Carrocería en Silver Spring, MD",
+      "h1": "Taller de Carrocería y Reparación de Colisiones en Silver Spring, MD",
+      "subtitle": "Para un mejor hoy y mañana para su vehículo",
+      "estimatePrompt": "Obtenga su presupuesto gratis.",
+      "emailPlaceholder": "su@email.com",
+      "emailLabel": "Dirección de correo electrónico",
+      "locationLabel": "Ubicación",
+      "locationDefault": "Silver Spring",
+      "ctaButton": "Solicitar Cotización",
+      "seeLabel": "Vea",
+      "ourWorkLabel": "nuestro trabajo."
+    },
+    "whyChooseUsBullets": {
+      "experience": "Más de dos décadas de experiencia en reparación de colisiones",
+      "certified": "Técnicos certificados I-CAR Gold Class",
+      "warranty": "Garantía de por vida en todas las reparaciones",
+      "insurance": "Aceptamos todos los seguros principales y presentamos reclamos por usted",
+      "equipment": "Medición computarizada de chasis e igualación de color",
+      "estimates": "Presupuestos gratis sin compromiso"
+    },
+    "warranty": {
+      "title": "Garantía Limitada de Por Vida",
+      "subtitle": "100% Satisfacción Garantizada",
+      "bullet1": "Todas las reparaciones de colisión respaldadas con garantía de por vida",
+      "bullet2": "Técnicos certificados I-CAR Gold Class",
+      "bullet3": "Piezas y acabados con especificaciones de fábrica",
+      "cta": "Presupuesto Gratis",
+      "badgeAlt": "Sello de Garantía de Por Vida en Todas las Reparaciones",
+      "icarAlt": "Taller certificado I-CAR Gold Class de reparación de colisiones",
+      "saintAlt": "Certificación de seguridad SAINT PCI Tested"
+    },
+    "testimonials": {
+      "title": "Testimonios de Clientes",
+      "subtitle": "Lo Que Dicen Nuestros Clientes Satisfechos",
+      "review1": {
+        "text": "¡Excelente experiencia! Repararon mi auto después de una colisión y se ve como nuevo. ¡Muy recomendado!",
+        "name": "— Maria S.",
+        "location": "Silver Spring, MD"
+      },
+      "review2": {
+        "text": "Profesionales, honestos y rápidos. Trabajaron directamente con mi compañía de seguros. ¡Excelente servicio!",
+        "name": "— James T.",
+        "location": "Bethesda, MD"
+      },
+      "review3": {
+        "text": "El mejor taller de carrocería del área. 20+ años y se nota. La garantía de por vida da verdadera tranquilidad.",
+        "name": "— Carlos R.",
+        "location": "Rockville, MD"
+      }
     }
   },
   "footer": {
@@ -177,12 +242,12 @@
     },
     "quickLinks": {
       "title": "Enlaces Rápidos",
-      "collisionRepair": "Reparación de Colisiones",
-      "autoBodyServices": "Servicios de Carrocería",
-      "paintSolutions": "Soluciones de Pintura",
-      "insuranceClaims": "Reclamaciones de Seguro",
-      "getAQuote": "Obtener Cotización",
-      "about": "Acerca de Nosotros"
+      "collisionRepair": "Colisiones",
+      "autoBodyServices": "Servicios",
+      "paintSolutions": "Pintura",
+      "insuranceClaims": "Seguro",
+      "getAQuote": "Cotización",
+      "about": "Nosotros"
     },
     "hours": {
       "title": "Horario de Atención",
@@ -199,6 +264,216 @@
       "terms": "Términos de Servicio",
       "sitemap": "Mapa del Sitio"
     }
+  },
+  "about": {
+    "metaTitle": "Nosotros — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaDescription": "Más de 20 años de reparación profesional de carrocería en Silver Spring, MD. Certificados I-CAR Gold Class, garantía de por vida en todas las reparaciones.",
+    "heroImageAlt": "Servicios completos de carrocería incluyendo reparación de abolladuras, trabajo estructural de chasis, reparación de parachoques, restauración de rines, reemplazo de vidrios y pintura",
+    "heroTitle": "Reparación Completa de Carrocería — Abolladuras, Trabajo Estructural, Pintura y Más",
+    "heading": "Nosotros",
+    "subtitle": "Más de 20 años de servicios profesionales de reparación de carrocería",
+    "intro": "Prestige Auto Body Inc. ha servido a la comunidad de Silver Spring por más de 20 años con servicios profesionales de reparación de carrocería. Nuestro compromiso con la calidad del trabajo y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria.",
+    "missionTitle": "Nuestra Misión",
+    "mission": "Ofrecer reparación de colisiones y pintura automotriz de calidad de fábrica con integridad, transparencia y garantía de por vida — para que cada cliente se vaya confiado de que su vehículo ha sido restaurado a su condición pre-accidente.",
+    "valuesTitle": "Por Qué los Clientes Confían en Nosotros",
+    "values": {
+      "experience": {
+        "title": "20+ Años de Experiencia",
+        "description": "Dos décadas de excelencia confiable en reparación de carrocería en Silver Spring y el Condado de Montgomery."
+      },
+      "certified": {
+        "title": "Certificados I-CAR Gold Class",
+        "description": "Nuestros técnicos poseen las certificaciones más altas de la industria con requisitos de capacitación continua."
+      },
+      "warranty": {
+        "title": "Garantía de Por Vida",
+        "description": "Cada reparación está respaldada por nuestra garantía integral de por vida en mano de obra."
+      },
+      "insurance": {
+        "title": "Todos los Seguros Aceptados",
+        "description": "Trabajamos directamente con todas las compañías de seguros principales y manejamos el papeleo de su reclamo."
+      },
+      "equipment": {
+        "title": "Equipo de Última Generación",
+        "description": "Medición computarizada de chasis, cabina de pintura downdraft e igualación digital de color."
+      },
+      "community": {
+        "title": "Enfocados en la Comunidad",
+        "description": "De propiedad y operación local — sirviendo con orgullo a Silver Spring, Bethesda, Rockville y áreas circundantes."
+      }
+    }
+  },
+  "services": {
+    "whatWeOffer": "Lo Que Ofrecemos",
+    "serviceAreas": "Áreas de Servicio",
+    "ctaHeadline": "¿Listo Para Reparar Su Auto?",
+    "ctaSubtitle": "Contáctenos hoy para un presupuesto gratis. Trabajamos con todas las compañías de seguros.",
+    "ctaQuote": "Solicitar Cotización",
+    "getEstimate": "Presupuesto Gratis",
+    "breadcrumbHome": "Inicio",
+    "breadcrumbServices": "Servicios",
+    "pages": {
+      "collisionRepair": {
+        "metaTitle": "Reparación de Colisiones Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Reparación experta de colisiones en Silver Spring, MD. Medición computarizada de chasis, reparación de abolladuras sin pintura y técnicos certificados I-CAR Gold Class. Presupuestos gratis — llame al (301) 578-8779.",
+        "title": "Reparación de Colisiones Silver Spring, MD",
+        "heroImageAlt": "Técnico profesional de reparación de colisiones usando equipo de medición computarizada de chasis con escáneres láser y pantallas digitales en Prestige Auto Body",
+        "heroDescription": "Reparación experta de colisiones con medición computarizada de chasis, reparación de abolladuras sin pintura y técnicos certificados I-CAR Gold Class. Restauramos su vehículo a su condición pre-accidente — rápido, económico y con garantía de por vida.",
+        "offerings": {
+          "item1": {
+            "title": "Medición Computarizada de Chasis",
+            "description": "Detecte daños estructurales con precisión láser para asegurar la alineación según especificaciones de fábrica."
+          },
+          "item2": {
+            "title": "Reparación de Abolladuras sin Pintura (PDR)",
+            "description": "Elimine abolladuras y golpes sin repintar — preserva el acabado original de fábrica."
+          },
+          "item3": {
+            "title": "Reparación Estructural Completa",
+            "description": "Restaure daños de monocasco y chasis de colisiones moderadas a severas."
+          },
+          "item4": {
+            "title": "Reemplazo de Parachoques y Paneles",
+            "description": "Reemplazo de paneles OEM y aftermarket con igualación de color perfecta."
+          },
+          "item5": {
+            "title": "Reemplazo de Vidrios",
+            "description": "Reemplazo de parabrisas y ventanas con sellado adecuado y recalibración ADAS."
+          },
+          "item6": {
+            "title": "Aceptamos Todos los Seguros",
+            "description": "Trabajamos directamente con su aseguradora para manejar reclamos y simplificar el proceso."
+          }
+        },
+        "testimonial": {
+          "quote": "Excelente servicio desde el presupuesto inicial hasta la finalización del trabajo. El equipo ordenó las piezas inmediatamente y cumplió con el calendario. Fueron razonables en precio y fáciles de trabajar.",
+          "author": "Mina Y.",
+          "location": "Silver Spring"
+        }
+      },
+      "autoBodyServices": {
+        "metaTitle": "Servicios de Carrocería Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Trabajo completo de carrocería en Silver Spring, MD — reparación de abolladuras, daño estructural, reemplazo de parachoques, restauración de rines y trabajo personalizado. Presupuestos gratis, todos los seguros aceptados.",
+        "title": "Servicios de Carrocería en Silver Spring, MD",
+        "heroImageAlt": "Instalación completa de trabajo de carrocería mostrando reparación de abolladuras, restauración de daño estructural y servicios de reemplazo de parachoques en Prestige Auto Body",
+        "heroDescription": "Servicios completos de carrocería incluyendo reparación de abolladuras, restauración de daños estructurales, reemplazo de parachoques, reparación de rines, trabajo de vidrios y modificaciones personalizadas. Más de 20 años de artesanía certificada en Silver Spring.",
+        "offerings": {
+          "item1": {
+            "title": "Reparación y Eliminación de Abolladuras",
+            "description": "Desde golpes menores hasta abolladuras grandes — reparadas con o sin pintura."
+          },
+          "item2": {
+            "title": "Reparación de Daño Estructural",
+            "description": "Enderezado de chasis y reparación de monocasco usando sistemas de medición computarizada."
+          },
+          "item3": {
+            "title": "Reemplazo de Parachoques",
+            "description": "Reparación o reemplazo completo de parachoques delanteros y traseros con piezas de fábrica."
+          },
+          "item4": {
+            "title": "Restauración de Rines",
+            "description": "Repare raspaduras, dobladuras y grietas para restaurar sus rines a condición como nuevos."
+          },
+          "item5": {
+            "title": "Reemplazo de Vidrios",
+            "description": "Reemplazo de vidrios automotrices para parabrisas, ventanas laterales y vidrio trasero."
+          },
+          "item6": {
+            "title": "Trabajo de Carrocería Personalizado",
+            "description": "Fabricación de paneles, restauración de molduras y modificaciones especializadas."
+          }
+        },
+        "testimonial": {
+          "quote": "Nunca escribo reseñas pero elegí este taller de carrocería por las reseñas y espero poder ayudar a alguien más. Carlos y su equipo fueron muy útiles guiándome en el proceso. ¡10/10 lo recomendaría!",
+          "author": "Mitch Hawkins",
+          "location": "Silver Spring"
+        }
+      },
+      "autoPainting": {
+        "metaTitle": "Pintura de Autos Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Pintura profesional de autos en Silver Spring, MD. Igualación computarizada de color, cabina de pintura downdraft y pinturas ecológicas a base de agua. Trabajos completos y parciales — presupuestos gratis.",
+        "title": "Pintura Profesional de Autos en Silver Spring, MD",
+        "heroImageAlt": "Instalación avanzada de igualación y formulación computarizada de color de pintura con cabina de pintura downdraft y tecnología de refinishing ecológica",
+        "heroDescription": "Pintura automotriz de calidad de fábrica con formulación computarizada de color, cabina de pintura downdraft de última generación y acabados ecológicos a base de agua. Desde reparaciones puntuales hasta repintados completos — resultados impecables garantizados.",
+        "offerings": {
+          "item1": {
+            "title": "Igualación Computarizada de Color",
+            "description": "Formulación digital de color que asegura una coincidencia exacta con el color original de fábrica de su vehículo."
+          },
+          "item2": {
+            "title": "Cabina de Pintura Downdraft",
+            "description": "Cabina de pintura climatizada para aplicación de pintura libre de polvo y de precisión."
+          },
+          "item3": {
+            "title": "Repintado Completo del Vehículo",
+            "description": "Repintado exterior completo con primer, capa base y capa transparente para un acabado de sala de exhibición."
+          },
+          "item4": {
+            "title": "Reparación Puntual y de Paneles",
+            "description": "Reparación de pintura dirigida para rayones, astillas y daños localizados — mezclado perfectamente."
+          },
+          "item5": {
+            "title": "Pintura Ecológica a Base de Agua",
+            "description": "Pinturas a base de agua con bajo VOC que ofrecen color superior y reducen el impacto ambiental."
+          },
+          "item6": {
+            "title": "Capa Transparente y Protección",
+            "description": "Aplicación de capa transparente resistente a UV para proteger su acabado del sol, clima y escombros."
+          }
+        },
+        "testimonial": {
+          "quote": "No podría estar más feliz con el trabajo realizado en mi vehículo. No solo el trabajo en mi auto fue excelente, sino que el servicio al cliente fue más que excelente. Carlos fue muy útil respondiendo siempre a mis preguntas.",
+          "author": "Suellen B.",
+          "location": "Silver Spring"
+        }
+      },
+      "insuranceClaims": {
+        "metaTitle": "Asistencia con Reclamos de Seguro Silver Spring, MD | Prestige Auto Body",
+        "metaDescription": "Manejamos su reclamo de seguro de auto de principio a fin en Silver Spring, MD. Todos los seguros principales aceptados, garantía de por vida en reparaciones, presupuestos gratis. Llame al (301) 578-8779.",
+        "title": "Asistencia con Reclamos de Seguro — Silver Spring, MD",
+        "heroImageAlt": "Asesor profesional de reclamos de seguros revisando documentación con cliente satisfecho en el área de consulta de Prestige Auto Body",
+        "heroDescription": "Manejamos su reclamo de seguro de auto de principio a fin. Todas las compañías de seguros principales aceptadas — trabajamos directamente con su ajustador para que usted pueda enfocarse en volver a la carretera. Garantía de por vida en cada reparación.",
+        "offerings": {
+          "item1": {
+            "title": "Todos los Seguros Principales Aceptados",
+            "description": "GEICO, State Farm, Allstate, Progressive, USAA, Nationwide y muchos más."
+          },
+          "item2": {
+            "title": "Reclamos Presentados Por Usted",
+            "description": "Presentamos y gestionamos el papeleo de su reclamo para que usted no tenga que hacerlo."
+          },
+          "item3": {
+            "title": "Coordinación Directa con Ajustador",
+            "description": "Trabajamos con el ajustador de su seguro en sitio para agilizar aprobaciones."
+          },
+          "item4": {
+            "title": "Garantía de Reparación de Por Vida",
+            "description": "100% satisfacción garantizada — todas las reparaciones de colisión respaldadas con garantía de por vida."
+          },
+          "item5": {
+            "title": "Presupuestos Gratis",
+            "description": "Evaluación de daños y presupuesto de reparación sin compromiso antes de comenzar cualquier trabajo."
+          },
+          "item6": {
+            "title": "Grúa y Entrega 24/7",
+            "description": "Servicio de grúa por accidente y entrega de llaves nocturna disponible las 24 horas."
+          }
+        },
+        "testimonial": {
+          "quote": "¡El auto quedó increíble! Jorge y el equipo de Prestige fueron mucho más allá de lo que esperaba. Cuando tuve problemas con mi compañía de seguros, Prestige trabajó rápidamente para resolver el problema. ¡Altamente recomendado!",
+          "author": "Steve Rose",
+          "location": "Silver Spring"
+        }
+      }
+    }
+  },
+  "contact": {
+    "metaTitle": "Contáctenos — Prestige Auto Body Inc. | Silver Spring, MD",
+    "metaDescription": "Contacte a Prestige Auto Body Inc. para una estimación gratuita. Llame al (301) 578-8779 o visítenos en 928 Philadelphia Ave, Silver Spring, MD.",
+    "heroImageAlt": "Fachada de Prestige Auto Body Inc. en Silver Spring, Maryland",
+    "heroTitle": "Prestige Auto Body Inc. — Taller de Carrocería en Silver Spring",
+    "heading": "Contáctenos",
+    "subtitle": "Comuníquese con nosotros para una estimación gratuita o para agendar su reparación"
   },
   "common": {
     "learnMore": "Más Información",
@@ -221,7 +496,13 @@
     "skipToContent": "Saltar al contenido",
     "menu": "Menú",
     "closeMenu": "Cerrar menú",
-    "breadcrumb": "Ruta de navegación"
+    "breadcrumb": "Ruta de navegación",
+    "address": "928 Philadelphia Ave, Silver Spring, MD 20910",
+    "hours": "Lun-Vie 8:00 AM - 5:00 PM",
+    "callForEstimate": "Llame para Estimado Gratis",
+    "phone": "(301) 578-8779",
+    "mainNavigation": "Navegación principal",
+    "mobileNavigation": "Navegación móvil"
   },
   "quoteForm": {
     "formLabel": "Solicitar una Cotización",
@@ -447,6 +728,95 @@
         "phone": "Llamada Telefónica",
         "text": "Mensaje de Texto",
         "email": "Correo Electrónico"
+      }
+    }
+  },
+  "quotePage": {
+    "meta": {
+      "title": "Estimado Gratuito de Carrocería | Prestige Auto Body, Silver Spring MD",
+      "description": "Solicite su estimado gratuito de reparación de colisiones en 2 minutos. Servimos Silver Spring, Bethesda y el Condado de Montgomery. Se aceptan todos los seguros."
+    },
+    "hero": {
+      "breadcrumbHome": "Inicio",
+      "breadcrumbCurrent": "Obtener Cotización",
+      "badge": "✓  Estimados Gratuitos · Todos los Seguros Aceptados",
+      "imageAlt": "Fachada de Prestige Auto Body Inc. en Silver Spring, Maryland",
+      "imageTitle": "Prestige Auto Body — Estimado Gratuito",
+      "h1": "Obtenga Su Estimado Gratuito",
+      "tagline": "Cuéntenos sobre su vehículo y los daños. Nuestro equipo le contacta en 2 horas hábiles — sin suposiciones, sin presión.",
+      "stats": {
+        "response": {
+          "value": "< 2 hrs",
+          "label": "tiempo de respuesta"
+        },
+        "insurance": {
+          "value": "100%",
+          "label": "seguros aceptados"
+        },
+        "reviewsLabel": "reseñas"
+      }
+    },
+    "sidebar": {
+      "callLabel": "¿Prefiere llamar?",
+      "callHours": "Lun–Vie 8AM–6PM · Sáb 8AM–12PM",
+      "addressLine1": "928 Philadelphia Avenue",
+      "addressLine2": "Silver Spring, MD 20910",
+      "hoursWeekday": "Lun–Vie: 8:00 AM – 6:00 PM",
+      "hoursSaturday": "Sáb: 8:00 AM – 12:00 PM",
+      "hoursSunday": "Dom: Cerrado",
+      "whyChooseLabel": "Por qué elegirnos",
+      "whyChoose": {
+        "icar": "Certificación I-CAR Gold Class",
+        "warranty": "Garantía Limitada de por Vida",
+        "insurance": "Se Aceptan Todos los Seguros",
+        "towing": "Grúa Disponible 24/7"
+      },
+      "mobilePreferCall": "¿Prefiere llamar?"
+    },
+    "socialProof": {
+      "ratingLabelPrefix": "Basado en",
+      "ratingLabelSuffix": "Reseñas de Google",
+      "readReviews": "Leer reseñas →",
+      "insuranceLabel": "Todos los Seguros Aceptados",
+      "insurers": {
+        "geico": "GEICO",
+        "stateFarm": "State Farm",
+        "allstate": "Allstate",
+        "progressive": "Progressive",
+        "usaa": "USAA"
+      },
+      "icarLabel": "Certificación I-CAR Gold Class",
+      "icarSubLabel": "El estándar de capacitación más alto de la industria",
+      "icarImageAlt": "Insignia de certificación I-CAR Gold Class"
+    },
+    "faq": {
+      "heading": "Preguntas Frecuentes",
+      "subheading": "¿Tiene alguna pregunta antes de comenzar?",
+      "items": {
+        "q1": {
+          "question": "¿El estimado es realmente gratuito?",
+          "answer": "Sí — siempre. Nunca cobramos por un estimado escrito. Puede traer su vehículo o describir los daños aquí y le daremos un desglose detallado sin costo."
+        },
+        "q2": {
+          "question": "¿Cuánto tarda un estimado?",
+          "answer": "La mayoría de los estimados en persona toman de 20 a 30 minutos. Si envía este formulario, le llamaremos o enviaremos un mensaje dentro de 2 horas hábiles con un estimado preliminar basado en su descripción."
+        },
+        "q3": {
+          "question": "¿Trabajan con mi compañía de seguros?",
+          "answer": "Trabajamos con todas las principales compañías incluyendo GEICO, State Farm, Allstate, Progressive, USAA, Nationwide y más. Manejamos el papeleo y nos comunicamos directamente con su ajustador."
+        },
+        "q4": {
+          "question": "¿Qué pasa si mi auto no se puede conducir?",
+          "answer": "Ofrecemos servicio de grúa 24/7 hasta nuestro taller. Solo llame al (301) 578-8779 o indíquelo en el paso de programación del formulario."
+        },
+        "q5": {
+          "question": "¿Cuánto tardarán las reparaciones?",
+          "answer": "Depende de la gravedad de los daños. Abolladuras menores: 1–3 días. Daños moderados por colisión: 1–2 semanas. Trabajos estructurales mayores: 2–4 semanas. Le daremos una línea de tiempo precisa con su estimado escrito."
+        },
+        "q6": {
+          "question": "¿Ofrecen garantía?",
+          "answer": "Sí — una garantía limitada de por vida en todas las reparaciones, mientras sea propietario del vehículo."
+        }
       }
     }
   }

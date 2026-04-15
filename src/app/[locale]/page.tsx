@@ -1,70 +1,111 @@
-import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import { StatsCounters } from '@/components/hero';
+import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
-import { SimpleQuoteFormDynamic } from '@/components/forms/SimpleQuoteFormDynamic';
+import { GoogleReviews } from '@/components/embeds/GoogleReviews';
+import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
+import { getBusinessRating } from '@/lib/google-places';
+import QuoteForm from '@/components/quote-form/QuoteForm';
+import { ButtonLink } from '@/components/ui/Button';
 import {
   CollisionIcon,
   WrenchIcon,
   PaintbrushIcon,
   ShieldIcon,
+  CheckCircleIcon,
 } from '@/components/ui/Icons';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function HomePage() {
-  const t = useTranslations('home');
-  const common = useTranslations('common');
+const WHY_CHOOSE_KEYS = [
+  'experience',
+  'certified',
+  'warranty',
+  'insurance',
+  'equipment',
+  'estimates',
+] as const;
+
+export default async function HomePage() {
+  const [t, common, rating] = await Promise.all([
+    getTranslations('home'),
+    getTranslations('common'),
+    getBusinessRating(),
+  ]);
 
   return (
     <div className="font-sans min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
-        className="bg-white py-[64px] px-4 sm:px-8 lg:px-[64px]"
+        className="relative w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] overflow-hidden"
         aria-label="Hero"
       >
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
-          {/* Left: Content */}
+        {/* Full-bleed edge-to-edge background image */}
+        <div className="absolute inset-0 w-full h-full">
+          <ResponsiveHero
+            slug="homepage"
+            alt={t('pageHero.alt')}
+            title={t('pageHero.imgTitle')}
+            className="h-full"
+          />
+        </div>
+        {/* Dark gradient overlay — heavy left, transparent right */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, transparent 85%)',
+          }}
+        />
+
+        {/* Content overlay — white text on dark hero */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-[64px] py-[64px] flex items-center min-h-[420px] sm:min-h-[480px] lg:min-h-[540px]">
           <div className="flex flex-col gap-[16px] w-full lg:w-[540px] shrink-0">
-            <h1 className="font-black text-[#2d2d2d] text-[36px] leading-[1.2] tracking-[-0.72px] max-w-[480px]">
-              Auto Body Shop &amp; Collision Repair in Silver Spring, MD
+            <h1
+              className="font-extrabold text-white text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px] drop-shadow-lg"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              {t('pageHero.h1')}
             </h1>
-            <p className="text-[#555] text-[16px] leading-[1.6]">
-              For a better today &amp; tomorrow for your vehicle
+            <p className="text-white/80 text-base leading-[1.6]">
+              {t('pageHero.subtitle')}
             </p>
-            <p className="font-bold text-[14px] text-[#2d2d2d] leading-[1.5]">
-              Get your free estimate.
+            <p className="font-bold text-sm text-white leading-[1.5]">
+              {t('pageHero.estimatePrompt')}
             </p>
-            {/* Form row */}
+            {/* Inline lead capture form over hero image */}
             <div className="flex flex-col sm:flex-row gap-[8px] items-stretch sm:items-center">
               <input
                 type="email"
-                placeholder="your@email.com"
-                className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] text-[#2d2d2d] placeholder-[#808080] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[200px]"
-                aria-label="Email address"
+                placeholder={t('pageHero.emailPlaceholder')}
+                className="border border-white/30 rounded-lg px-4 text-sm text-white bg-white/10 backdrop-blur-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[200px]"
+                aria-label={t('pageHero.emailLabel')}
               />
               <input
                 type="text"
-                defaultValue="Silver Spring"
-                className="border border-[#d1d5db] rounded-[8px] px-[16px] text-[14px] font-medium text-[#2d2d2d] focus:outline-none focus:ring-2 focus:ring-[#c62828] h-[44px] w-full sm:w-[160px]"
-                aria-label="Location"
+                defaultValue={t('pageHero.locationDefault')}
+                className="border border-white/30 rounded-lg px-4 text-sm font-medium text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[160px]"
+                aria-label={t('pageHero.locationLabel')}
               />
-              <Link
-                href="/contact"
-                className="bg-[#c62828] hover:bg-[#a82020] text-white font-bold text-[14px] px-[24px] h-[48px] rounded-[8px] transition-colors text-center whitespace-nowrap flex items-center justify-center min-w-[160px]"
+              <ButtonLink
+                href="/get-a-quote"
+                variant="primary"
+                size="lg"
+                className="text-sm min-w-[160px] whitespace-nowrap"
               >
-                Get a Quote
-              </Link>
+                {t('pageHero.ctaButton')}
+              </ButtonLink>
             </div>
-            {/* See Our Work */}
+            {/* Video play button */}
             <Link
               href="/gallery"
               className="flex items-center gap-[8px] w-fit group"
             >
-              <div className="w-6 h-6 rounded-full bg-[#c62828] flex items-center justify-center flex-shrink-0 group-hover:bg-[#a82020] transition-colors">
+              <div className="w-6 h-6 rounded-full bg-[#C62828] flex items-center justify-center flex-shrink-0 group-hover:bg-[#a82020] transition-colors">
                 <svg
                   className="w-3 h-3 text-white ml-0.5"
                   fill="currentColor"
@@ -74,121 +115,125 @@ export default function HomePage() {
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
-              <div className="flex flex-col leading-[normal] text-[14px]">
-                <span className="font-bold text-[#c62828]">See</span>
-                <span className="text-[#2d2d2d]">our work.</span>
+              <div className="flex flex-col leading-[normal] text-sm">
+                <span className="font-bold text-[#C62828]">
+                  {t('pageHero.seeLabel')}
+                </span>
+                <span className="text-white/90">
+                  {t('pageHero.ourWorkLabel')}
+                </span>
               </div>
             </Link>
-          </div>
-
-          {/* Right: Hero image */}
-          <div className="w-full lg:w-[560px] h-[280px] lg:h-[340px] bg-[#385438] rounded-[12px] flex items-center justify-center overflow-hidden shrink-0">
-            <span className="text-[#d9d9d9] text-[16px] font-medium">
-              Professional Collision Repair
-            </span>
           </div>
         </div>
       </section>
 
       {/* Stats Bar */}
-      <StatsCounters />
+      <StatsCounters
+        ratingValue={rating.ratingValue}
+        reviewCount={rating.reviewCount}
+      />
 
       {/* Our Services Section */}
-      <section className="py-16 bg-white" aria-labelledby="services-heading">
+      <section
+        className="py-16 bg-[#2D2D2D] dark:bg-[#1E1E1E]"
+        aria-labelledby="services-heading"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2
             id="services-heading"
-            className="text-2xl font-bold text-[#2d2d2d] mb-10"
+            className="text-3xl md:text-4xl font-bold text-[#C62828] mb-10"
+            style={{ fontFamily: 'var(--font-display)' }}
           >
             {t('services.title')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Collision Repair */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <CollisionIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <CollisionIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.collision.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.collision.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/collision-repair"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
-              </Link>
+                {common('learnMore')} &gt;
+              </ButtonLink>
             </article>
 
             {/* Auto Body Work */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <WrenchIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <WrenchIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.autoBody.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.autoBody.description')}
               </p>
-              <Link
-                href="/about"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+              <ButtonLink
+                href="/auto-body-services"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
-              </Link>
+                {common('learnMore')} &gt;
+              </ButtonLink>
             </article>
 
             {/* Paint Solutions */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <PaintbrushIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <PaintbrushIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.painting.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.painting.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/auto-painting"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
-              </Link>
+                {common('learnMore')} &gt;
+              </ButtonLink>
             </article>
 
             {/* Insurance */}
-            <article className="bg-white p-8 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.1)] flex flex-col items-center text-center gap-3 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                <ShieldIcon
-                  className="w-6 h-6 text-[#c62828]"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold text-[#2d2d2d] text-base">
+            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
+              <ShieldIcon
+                className="w-12 h-12 text-[#C62828]"
+                aria-hidden="true"
+              />
+              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
                 {t('services.insurance.title')}
               </h3>
-              <p className="text-[#555] text-sm leading-normal">
+              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
                 {t('services.insurance.description')}
               </p>
-              <Link
+              <ButtonLink
                 href="/insurance-claims"
-                className="text-[#c62828] font-bold text-sm hover:underline mt-auto"
+                variant="ghost"
+                size="sm"
+                className="mt-auto px-0 min-h-0 min-w-0"
               >
-                {common('learnMore')} →
-              </Link>
+                {common('learnMore')} &gt;
+              </ButtonLink>
             </article>
           </div>
         </div>
@@ -196,7 +241,7 @@ export default function HomePage() {
 
       {/* Why Choose Prestige Section - 2 column: bullets + YouTube */}
       <section
-        className="py-16 bg-[#f5f5f5]"
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
         aria-labelledby="why-choose-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
@@ -204,21 +249,17 @@ export default function HomePage() {
           <div className="flex-1 flex flex-col gap-4 max-w-[480px]">
             <h2
               id="why-choose-heading"
-              className="text-[28px] font-bold text-[#2d2d2d]"
+              className="text-3xl md:text-4xl font-bold text-(--text-primary)"
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {t('whyChooseUs.title')}
             </h2>
-            {[
-              'More than two decades of collision repair experience',
-              'I-CAR Gold Class certified technicians',
-              'Lifetime warranty guarantee on all repairs',
-              'Accept all major insurance and submit claims for you',
-              'Computerized frame measuring & color matching',
-              'Free estimates with no obligation',
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <div className="w-5 h-5 border-2 border-[#c62828] rounded flex-shrink-0" />
-                <span className="text-[#2d2d2d] text-sm">{item}</span>
+            {WHY_CHOOSE_KEYS.map((key) => (
+              <div key={key} className="flex items-center gap-3">
+                <div className="w-5 h-5 border-2 border-[#C62828] rounded flex-shrink-0" />
+                <span className="text-(--text-primary) text-sm">
+                  {t(`whyChooseUsBullets.${key}`)}
+                </span>
               </div>
             ))}
           </div>
@@ -231,105 +272,125 @@ export default function HomePage() {
       </section>
 
       {/* Get Your Free Estimate Section */}
-      <section id="get-a-quote" className="py-16 bg-[#f5f5f5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
-            <h2 className="text-[28px] font-bold text-[#2d2d2d] mb-2">
-              {t('quote.title')}
-            </h2>
-            <div className="w-[100px] h-1 bg-[#c62828] rounded" />
-          </div>
-          <div className="bg-white rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)] p-8 lg:p-12">
-            <SimpleQuoteFormDynamic />
-          </div>
+      <section
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
+        aria-labelledby="free-estimate"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
+          <QuoteForm />
         </div>
       </section>
 
       {/* Limited Lifetime Warranty Section */}
-      <section className="py-12 bg-white" aria-labelledby="warranty-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col gap-3 max-w-[550px]">
-            <h2
-              id="warranty-heading"
-              className="text-[28px] font-bold text-[#2d2d2d]"
-            >
-              Limited Lifetime Warranty
-            </h2>
-            <div className="w-[326px] max-w-full h-1 bg-[#c62828] rounded" />
-            <p className="font-bold text-[#2d2d2d] text-base">
-              100% Satisfaction Guaranteed
-            </p>
-            <p className="text-[#555] text-sm leading-relaxed">
-              Our technicians are the best in Silver Spring &amp; Montgomery
-              County.
-            </p>
-            <p className="text-[#555] text-sm leading-relaxed">
-              All collision repair services come with a lifetime warranty.
-            </p>
-          </div>
-          <div className="flex-shrink-0 w-[200px] h-[76px] bg-[#8b0000] rounded-full flex flex-col items-center justify-center gap-1">
-            <span className="text-white font-bold text-[10px] tracking-widest">
-              LIFETIME
-            </span>
-            <span className="text-white font-bold text-[8px] tracking-widest">
-              GUARANTEE
-            </span>
-            <span className="text-white font-bold text-sm">✓ 100%</span>
+      <section
+        className="relative py-16 md:py-20 overflow-hidden"
+        aria-labelledby="warranty-heading"
+      >
+        {/* Steel texture background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/steel-texture.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-foreground/90 dark:bg-black/90" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            {/* Left: Certification badges */}
+            <div className="shrink-0 flex items-center gap-6 sm:gap-8">
+              <Image
+                src="/LIfetime-Guarantee-new.png"
+                alt={t('warranty.badgeAlt')}
+                width={200}
+                height={200}
+                className="w-[120px] h-[120px] md:w-40 md:h-40drop-shadow-[0_0_24px_rgba(198,40,40,0.3)]"
+              />
+              <Image
+                src="/gold_class_icar_logo.png"
+                alt={t('warranty.icarAlt')}
+                width={200}
+                height={200}
+                className="w-[120px] h-[120px] md:w-40 md:h-40 drop-shadow-[0_0_24px_rgba(200,180,80,0.25)]"
+              />
+              <Image
+                src="/saint_pci_tested_logo.png"
+                alt={t('warranty.saintAlt')}
+                width={200}
+                height={200}
+                className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] drop-shadow-[0_0_24px_rgba(50,120,220,0.25)]"
+              />
+            </div>
+
+            {/* Right: Content */}
+            <div className="flex flex-col gap-5 text-center lg:text-left">
+              <div>
+                <h2
+                  id="warranty-heading"
+                  className="text-3xl md:text-4xl font-bold text-white tracking-tight"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {t('warranty.title')}
+                </h2>
+                <div className="mt-3 h-1 w-20 bg-primary rounded-full mx-auto lg:mx-0" />
+              </div>
+
+              <p className="text-lg font-semibold text-white">
+                {t('warranty.subtitle')}
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {(['bullet1', 'bullet2', 'bullet3'] as const).map((key) => (
+                  <div
+                    key={key}
+                    className="flex items-center gap-3 justify-center lg:justify-start"
+                  >
+                    <CheckCircleIcon
+                      size={20}
+                      className="shrink-0 text-primary"
+                      ariaLabel=""
+                    />
+                    <span className="text-sm text-white/80">
+                      {t(`warranty.${key}`)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-2">
+                <ButtonLink
+                  href="/get-a-quote"
+                  variant="primary"
+                  size="lg"
+                  className="rounded-full shadow-lg"
+                >
+                  {t('warranty.cta')}
+                </ButtonLink>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Customer Testimonials Section */}
       <section
-        className="py-16 bg-[#f5f5f5]"
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
         aria-labelledby="testimonials-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
           <h2
             id="testimonials-heading"
-            className="text-[28px] font-bold text-[#2d2d2d] text-center"
+            className="text-3xl md:text-4xl font-bold text-(--text-primary) text-center"
+            style={{ fontFamily: 'var(--font-display)' }}
           >
-            Customer Testimonials
+            {t('testimonials.title')}
           </h2>
-          <p className="text-[#555] text-sm text-center">
-            What Our Happy Customers Are Saying
+          <p className="text-(--text-secondary) text-sm text-center">
+            {t('testimonials.subtitle')}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            {[
-              {
-                stars: '★★★★★',
-                text: 'Great experience! They fixed my car after a collision and it looks brand new. Highly recommended!',
-                name: '— Maria S.',
-                location: 'Silver Spring, MD',
-              },
-              {
-                stars: '★★★★★',
-                text: 'Professional, honest, and fast. They worked directly with my insurance company. Excellent service!',
-                name: '— James T.',
-                location: 'Bethesda, MD',
-              },
-              {
-                stars: '★★★★★',
-                text: 'Best auto body shop in the area. 20+ years and it shows. Lifetime warranty gives real peace of mind.',
-                name: '— Carlos R.',
-                location: 'Rockville, MD',
-              },
-            ].map((review) => (
-              <article
-                key={review.name}
-                className="bg-white p-6 rounded-xl shadow-[0px_2px_8px_0px_rgba(0,0,0,0.06)] flex flex-col gap-3"
-              >
-                <span className="text-[#c62828] text-sm">{review.stars}</span>
-                <p className="text-[#555] text-sm leading-relaxed">
-                  {review.text}
-                </p>
-                <p className="font-bold text-[#2d2d2d] text-sm">
-                  {review.name}
-                </p>
-                <p className="text-[#808080] text-xs">{review.location}</p>
-              </article>
-            ))}
-          </div>
+          <ReviewsJsonLd
+            ratingValue={rating.ratingValue}
+            reviewCount={rating.reviewCount}
+          />
+          <GoogleReviews />
         </div>
       </section>
 
@@ -339,26 +400,26 @@ export default function HomePage() {
         aria-labelledby="cta-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4 text-center">
-          <h2 id="cta-heading" className="text-[28px] font-bold">
+          <h2
+            id="cta-heading"
+            className="text-3xl md:text-4xl font-bold"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
             {t('cta.title')}
           </h2>
-          <p className="text-[#ffe0e0] text-base">
-            Contact us today for a free estimate. We work with all insurance
-            companies.
-          </p>
+          <p className="text-[#ffe0e0] text-base">{t('cta.description')}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
-            <Link
-              href="/contact"
-              className="bg-white text-[#c62828] font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Get a Quote
-            </Link>
-            <a
+            <ButtonLink href="/get-a-quote" variant="inverted" size="lg">
+              {t('cta.button')}
+            </ButtonLink>
+            <ButtonLink
               href="tel:3015788779"
-              className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white/10 transition-colors"
+              variant="outline-white"
+              size="lg"
+              aria-label={t('cta.phoneAriaLabel')}
             >
-              (301) 578-8779
-            </a>
+              {t('cta.phone')}
+            </ButtonLink>
           </div>
         </div>
       </section>

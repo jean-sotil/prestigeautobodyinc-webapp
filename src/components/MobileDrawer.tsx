@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { MenuIcon, CloseIcon, PhoneIcon } from '@/components/ui/Icons';
+import { ButtonLink } from '@/components/ui/Button';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
 
@@ -174,14 +175,16 @@ export default function MobileDrawer() {
 
           {/* Click-to-Call */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-            <a
+            <ButtonLink
               href="tel:3015788779"
-              className="flex items-center justify-center w-full px-4 py-3 bg-red-600 text-white rounded-md font-medium hover:bg-red-700 transition-colors min-h-[44px]"
+              variant="primary"
+              size="md"
+              className="w-full"
               aria-label="Call (301) 578-8779"
             >
               <PhoneIcon size={20} className="mr-2" ariaLabel="" />
               <span>(301) 578-8779</span>
-            </a>
+            </ButtonLink>
           </div>
 
           {/* Toggles */}

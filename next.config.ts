@@ -122,7 +122,20 @@ const nextConfig: NextConfig = {
 
   // Redirects (if needed)
   async redirects() {
-    return [];
+    return [
+      // Route renames: paint-solutions → auto-painting
+      {
+        source: '/:locale/paint-solutions',
+        destination: '/:locale/auto-painting',
+        permanent: true,
+      },
+      // Route renames: insurance → insurance-claims
+      {
+        source: '/:locale/insurance',
+        destination: '/:locale/insurance-claims',
+        permanent: true,
+      },
+    ];
   },
 
   // Rewrites (if needed)
