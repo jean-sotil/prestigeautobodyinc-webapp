@@ -33,12 +33,8 @@ export default buildConfig({
     autoLogin: false,
     components: {
       graphics: {
-        Logo: {
-          path: '/src/payload/components/Logo.tsx',
-        },
-        Icon: {
-          path: '/src/payload/components/Icon.tsx',
-        },
+        Logo: '@/payload/components/Logo#default',
+        Icon: '@/payload/components/Icon#default',
       },
     },
     meta: {

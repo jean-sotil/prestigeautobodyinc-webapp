@@ -1,6 +1,6 @@
 import config from '@payload-config';
 import { RootPage } from '@payloadcms/next/views';
-import { importMap } from './importMap.js';
+import { importMap } from '../importMap.js';
 
 interface PageProps {
   params: Promise<{ segments: string[] }>;

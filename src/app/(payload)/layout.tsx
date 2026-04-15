@@ -2,7 +2,9 @@ import config from '@payload-config';
 import { RootLayout } from '@payloadcms/next/layouts';
 import React from 'react';
 
-import { importMap } from './admin/[[...segments]]/importMap.js';
+import { importMap } from './admin/importMap.js';
+
+import '@payloadcms/next/css';
 
 export default async function Layout({
   children,

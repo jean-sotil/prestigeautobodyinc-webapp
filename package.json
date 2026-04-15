@@ -7,6 +7,9 @@
     "build": "next build --turbopack",
     "analyze": "ANALYZE=true next build --turbopack",
     "start": "next start",
+    "payload": "tsx node_modules/payload/bin.js",
+    "generate:importmap": "tsx node_modules/payload/bin.js generate:importmap",
+    "generate:types": "tsx node_modules/payload/bin.js generate:types",
     "lint": "eslint",
     "prepare": "husky || true"
   },
@@ -44,6 +47,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^16.2.2",
+    "@swc-node/register": "^1.11.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19.2.14",
@@ -55,6 +59,7 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
