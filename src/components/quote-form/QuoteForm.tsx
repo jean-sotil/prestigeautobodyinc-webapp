@@ -49,10 +49,9 @@ const stepSchemas = {
 type StepIndex = keyof typeof stepSchemas;
 
 // ============================================================================
-// Step Components Array
+// Step Names
 // ============================================================================
 
-const stepComponents = [ServiceStep, VehicleStep, DamageStep, ContactStep];
 const stepNames = ['Service', 'Vehicle', 'Damage', 'Contact'];
 
 // ============================================================================
@@ -63,9 +62,9 @@ function QuoteFormInner() {
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const { state, dispatch, clearDraft } = useQuoteForm();
+  const { state, dispatch, addFiles, removeFile, clearDraft } = useQuoteForm();
   const formStartedRef = useRef(false);
-  const mountTimeRef = useRef(Date.now());
+  const [mountTime] = useState(() => Date.now());
 
   const { mutate, isPending, isSuccess } = useSubmitQuote(() => {
     clearDraft();
@@ -78,14 +77,14 @@ function QuoteFormInner() {
         trackEvent('quote_form_abandon', {
           last_step: currentStep,
           step_name: stepNames[currentStep],
-          time_spent: Math.round((Date.now() - mountTimeRef.current) / 1000),
+          time_spent: Math.round((Date.now() - mountTime) / 1000),
         });
       }
     }
 
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
-  }, [currentStep, isSuccess]);
+  }, [currentStep, isSuccess, mountTime]);
 
   // Track form start (first service selection)
   useEffect(() => {
@@ -178,8 +177,6 @@ function QuoteFormInner() {
     return <QuoteConfirmation data={state} onReset={handleReset} />;
   }
 
-  const StepComponent = stepComponents[currentStep];
-
   return (
     <>
       <FormProgress currentStep={currentStep} onStepClick={handleStepClick} />
@@ -193,7 +190,24 @@ function QuoteFormInner() {
             : 'animate-slideInLeft'
         }
       >
-        <StepComponent state={state} dispatch={dispatch} errors={errors} />
+        {currentStep === 0 && (
+          <ServiceStep state={state} dispatch={dispatch} errors={errors} />
+        )}
+        {currentStep === 1 && (
+          <VehicleStep state={state} dispatch={dispatch} errors={errors} />
+        )}
+        {currentStep === 2 && (
+          <DamageStep
+            state={state}
+            dispatch={dispatch}
+            errors={errors}
+            addFiles={addFiles}
+            removeFile={removeFile}
+          />
+        )}
+        {currentStep === 3 && (
+          <ContactStep state={state} dispatch={dispatch} errors={errors} />
+        )}
       </div>
 
       <FormNavigation

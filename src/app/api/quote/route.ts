@@ -6,6 +6,7 @@ import { createHash } from 'crypto';
 import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
 import { Resend } from 'resend';
+import type { Payload } from 'payload';
 
 // ============================================================================
 // Types
@@ -314,7 +315,7 @@ async function validateFiles(
 // ============================================================================
 
 async function uploadMediaToPayload(
-  payload: any,
+  payload: Payload,
   file: { filename: string; buffer: Buffer; mimetype: string; size: number },
   referenceId: string,
 ): Promise<string | null> {
@@ -335,7 +336,7 @@ async function uploadMediaToPayload(
       },
     });
 
-    return media.id;
+    return String(media.id);
   } catch (error) {
     console.error('Failed to upload media:', error);
     return null;
@@ -343,9 +344,9 @@ async function uploadMediaToPayload(
 }
 
 async function createQuoteRequest(
-  payload: any,
+  payload: Payload,
   data: QuoteRequest,
-): Promise<any> {
+): Promise<unknown> {
   try {
     return await payload.create({
       collection: 'quote-requests',
@@ -355,7 +356,7 @@ async function createQuoteRequest(
         vehicle: data.vehicle,
         damage: data.damage,
         contact: data.contact,
-        appointment: data.appointment,
+        ...(data.appointment ? { appointment: data.appointment } : {}),
         metadata: data.metadata,
         honeypotTriggered: data.honeypotTriggered,
         status: data.status,
@@ -665,7 +666,7 @@ export async function POST(request: Request) {
 
     let fields: Record<string, string> = {};
     let files: ParsedFormData['files'] = [];
-    let isMultipart = contentType.includes('multipart/form-data');
+    const isMultipart = contentType.includes('multipart/form-data');
 
     // Parse request body based on content type
     if (isMultipart) {
@@ -890,10 +891,10 @@ export async function POST(request: Request) {
       status: 'new',
     };
 
-    const createdQuote = await createQuoteRequest(payload, quoteRequest);
+    await createQuoteRequest(payload, quoteRequest);
 
     // Generate URLs for photos
-    if (mediaIds.length > 0 && createdQuote?.damage?.damagePhotos) {
+    if (mediaIds.length > 0) {
       for (const mediaId of mediaIds) {
         try {
           const mediaDoc = await payload.findByID({
