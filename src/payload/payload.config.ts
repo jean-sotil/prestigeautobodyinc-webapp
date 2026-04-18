@@ -10,6 +10,7 @@ import { en } from '@payloadcms/translations/languages/en';
 import { es } from '@payloadcms/translations/languages/es';
 
 // Collections
+import { BlogCategories } from './collections/BlogCategories';
 import { BlogPosts } from './collections/BlogPosts';
 import { Media } from './collections/Media';
 import { Navigation } from './collections/Navigation';
@@ -49,6 +50,7 @@ export default buildConfig({
   collections: [
     Users,
     Pages,
+    BlogCategories,
     BlogPosts,
     Testimonials,
     Services,
