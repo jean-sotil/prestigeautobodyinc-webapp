@@ -1,7 +1,9 @@
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
+import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+import { ServiceJsonLd } from '@/components/services';
 
 const FALLBACK_ALT =
   'Professional flatbed tow truck providing 24/7 emergency roadside assistance and towing services at night with amber emergency lights';
@@ -11,13 +13,30 @@ export function generateStaticParams() {
 }
 
 export default async function TowingPage() {
-  const [heroMedia, locale] = await Promise.all([
+  const [heroMedia, locale, nav, t] = await Promise.all([
     getHeroMedia('towing-24-7'),
     getLocale(),
+    getTranslations('nav'),
+    getTranslations('services'),
   ]);
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    nav('towing'),
+    `/${locale}/towing`,
+    nav('home'),
+    locale,
+  );
 
   return (
     <div className="font-sans min-h-screen">
+      <ServiceJsonLd
+        serviceName="24/7 Towing Service"
+        description="Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas"
+        url={`https://prestigeautobodyinc.com/${locale}/towing`}
+        serviceType="Towing Service"
+        locale={locale}
+      />
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <PageHeroBanner
         slug="towing-24-7"
         alt={pickAlt(heroMedia, locale, FALLBACK_ALT)}

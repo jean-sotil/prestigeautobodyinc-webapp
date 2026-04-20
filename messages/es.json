@@ -22,7 +22,9 @@
     "rentalAssistance": "Asistencia de Alquiler",
     "services": "Servicios",
     "servicesDescription": "Reparación de colisiones, carrocería y pintura",
-    "towing": "Remolque"
+    "towing": "Remolque",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio"
   },
   "home": {
     "hero": {

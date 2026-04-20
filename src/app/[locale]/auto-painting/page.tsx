@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
+import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
 const SERVICE_KEY = 'autoPainting';
 
@@ -33,18 +34,29 @@ export default async function AutoPaintingPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [t, heroMedia] = await Promise.all([
+  const [t, heroMedia, nav] = await Promise.all([
     getTranslations({ locale, namespace: 'services' }),
     getHeroMedia('paint-solutions'),
+    getTranslations({ locale, namespace: 'nav' }),
   ]);
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    nav('autoPainting'),
+    `/${locale}/auto-painting`,
+    nav('home'),
+    locale,
+  );
 
   return (
     <>
       <ServiceJsonLd
         serviceName="Auto Painting"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url="https://prestigeautobodyinc.com/en/auto-painting"
+        url={`https://prestigeautobodyinc.com/${locale}/auto-painting`}
+        serviceType="Auto Painting"
+        locale={locale}
       />
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="paint-solutions"

@@ -22,7 +22,9 @@
     "rentalAssistance": "Rental Assistance",
     "services": "Services",
     "servicesDescription": "Collision repair, body work, and paint solutions",
-    "towing": "Towing"
+    "towing": "Towing",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
   },
   "home": {
     "hero": {

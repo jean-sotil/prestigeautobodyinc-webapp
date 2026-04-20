@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
+import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
 const SERVICE_KEY = 'autoBodyServices';
 
@@ -33,18 +34,29 @@ export default async function AutoBodyServicesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [t, heroMedia] = await Promise.all([
+  const [t, heroMedia, nav] = await Promise.all([
     getTranslations({ locale, namespace: 'services' }),
     getHeroMedia('auto-body-services'),
+    getTranslations({ locale, namespace: 'nav' }),
   ]);
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    nav('autoBodyServices'),
+    `/${locale}/auto-body-services`,
+    nav('home'),
+    locale,
+  );
 
   return (
     <>
       <ServiceJsonLd
         serviceName="Auto Body Work Services"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url="https://prestigeautobodyinc.com/en/auto-body-services"
+        url={`https://prestigeautobodyinc.com/${locale}/auto-body-services`}
+        serviceType="Auto Body Repair"
+        locale={locale}
       />
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="auto-body-services"

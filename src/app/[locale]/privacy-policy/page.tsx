@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { LegalPage } from '@/components/legal/LegalPage';
+import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
 const BASE_URL = 'https://www.prestigeautobodyinc.com';
 
@@ -54,11 +55,23 @@ export default async function PrivacyPolicyPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'nav' });
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    t('privacyPolicy') || 'Privacy Policy',
+    `/${locale}/privacy-policy`,
+    t('home'),
+    locale,
+  );
+
   return (
-    <LegalPage
-      namespace="privacyPolicy"
-      sectionKeys={SECTION_KEYS}
-      locale={locale}
-    />
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
+      <LegalPage
+        namespace="privacyPolicy"
+        sectionKeys={SECTION_KEYS}
+        locale={locale}
+      />
+    </>
   );
 }

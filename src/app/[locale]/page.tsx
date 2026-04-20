@@ -6,7 +6,7 @@ import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
 import { GoogleReviews } from '@/components/embeds/GoogleReviews';
-import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
+import { ReviewsJsonLd, LocalBusinessJsonLd } from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
 import QuoteForm from '@/components/quote-form/QuoteForm';
 import { ButtonLink } from '@/components/ui/Button';
@@ -61,6 +61,11 @@ export default async function HomePage() {
 
   return (
     <div className="font-sans min-h-screen">
+      <LocalBusinessJsonLd
+        ratingValue={rating.ratingValue}
+        reviewCount={rating.reviewCount}
+        locale={locale}
+      />
       {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
         className="bg-foreground relative w-full min-h-105 sm:min-h-120 lg:min-h-135 overflow-hidden"

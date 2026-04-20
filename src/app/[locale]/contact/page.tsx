@@ -3,6 +3,12 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
 import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
+import {
+  LocalBusinessJsonLd,
+  BreadcrumbJsonLd,
+  generateBreadcrumbItems,
+} from '@/components/seo';
+import { getBusinessRating } from '@/lib/google-places';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -31,15 +37,30 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [t, heroMedia] = await Promise.all([
+  const [t, heroMedia, rating, nav] = await Promise.all([
     getTranslations({ locale, namespace: 'contact' }),
     getMediaByFilename(
       'prestige-auto-body-icar-gold-class-certified-collision-repair-silver-spring.jpg',
     ),
+    getBusinessRating(),
+    getTranslations({ locale, namespace: 'nav' }),
   ]);
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    nav('contact'),
+    `/${locale}/contact`,
+    nav('home'),
+    locale,
+  );
 
   return (
     <div className="font-sans min-h-screen">
+      <LocalBusinessJsonLd
+        ratingValue={rating.ratingValue}
+        reviewCount={rating.reviewCount}
+        locale={locale}
+      />
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <PageHeroBanner
         slug="homepage"
         alt={pickAlt(heroMedia, locale, t('heroImageAlt'))}

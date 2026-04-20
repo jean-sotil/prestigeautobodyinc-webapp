@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { LegalPage } from '@/components/legal/LegalPage';
+import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
 const BASE_URL = 'https://www.prestigeautobodyinc.com';
 
@@ -56,11 +57,23 @@ export default async function TermsOfServicePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'nav' });
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    t('termsOfService') || 'Terms of Service',
+    `/${locale}/terms-of-service`,
+    t('home'),
+    locale,
+  );
+
   return (
-    <LegalPage
-      namespace="termsOfService"
-      sectionKeys={SECTION_KEYS}
-      locale={locale}
-    />
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
+      <LegalPage
+        namespace="termsOfService"
+        sectionKeys={SECTION_KEYS}
+        locale={locale}
+      />
+    </>
   );
 }

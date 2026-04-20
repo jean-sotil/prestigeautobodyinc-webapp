@@ -4,6 +4,7 @@ import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
 import { AboutContent } from './AboutContent';
 import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
+import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -32,15 +33,24 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [t, heroMedia] = await Promise.all([
+  const [t, heroMedia, nav] = await Promise.all([
     getTranslations({ locale, namespace: 'about' }),
     getMediaByFilename(
       'prestige-auto-body-collision-repair-team-silver-spring-maryland.jpg',
     ),
+    getTranslations('nav'),
   ]);
+
+  const breadcrumbItems = generateBreadcrumbItems(
+    nav('about'),
+    `/${locale}/about`,
+    nav('home'),
+    locale,
+  );
 
   return (
     <div>
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <PageHeroBanner
         slug="lifetime-warranty"
         alt={pickAlt(heroMedia, locale, t('heroImageAlt'))}
