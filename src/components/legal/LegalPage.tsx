@@ -28,21 +28,17 @@ export async function LegalPage({
   const t = await getTranslations({ locale, namespace });
 
   const sections: Array<{ key: string; section: Section }> = sectionKeys.map(
-    (key) => ({
-      key,
-      section: {
-        heading: t(`sections.${key}.heading`),
-        body: t.raw(`sections.${key}.body`) as string[],
-        items: (() => {
-          try {
-            const raw = t.raw(`sections.${key}.items`);
-            return Array.isArray(raw) ? (raw as string[]) : undefined;
-          } catch {
-            return undefined;
-          }
-        })(),
-      },
-    }),
+    (key) => {
+      const itemsKey = `sections.${key}.items`;
+      return {
+        key,
+        section: {
+          heading: t(`sections.${key}.heading`),
+          body: t.raw(`sections.${key}.body`) as string[],
+          items: t.has(itemsKey) ? (t.raw(itemsKey) as string[]) : undefined,
+        },
+      };
+    },
   );
 
   return (
