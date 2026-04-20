@@ -24,7 +24,35 @@
     "servicesDescription": "Collision repair, body work, and paint solutions",
     "towing": "Towing",
     "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service"
+    "termsOfService": "Terms of Service",
+    "blog": "Blog"
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Prestige Auto Body Inc.",
+      "description": "Expert tips, industry insights, and advice on auto body repair, collision repair, and auto painting from Prestige Auto Body Inc."
+    },
+    "og": {
+      "title": "Auto Body & Collision Repair Blog",
+      "description": "Read our latest articles on collision repair, auto painting, and car care tips."
+    },
+    "overline": "Our Blog",
+    "title": "Latest Articles & Insights",
+    "subtitle": "Expert advice on auto body repair, collision repair, and maintaining your vehicle's appearance.",
+    "filterByCategory": "Filter by",
+    "allCategories": "All",
+    "noPosts": "No blog posts found. Check back soon for new articles!",
+    "page": "Page",
+    "of": "of",
+    "authorLabel": "Author",
+    "minRead": "min read",
+    "tagsLabel": "Tags",
+    "sharePost": "Share this article",
+    "backToBlog": "Back to all articles",
+    "relatedOverline": "Continue Reading",
+    "relatedTitle": "Related Articles",
+    "relatedDescription": "Explore more helpful articles about auto body repair and collision services.",
+    "viewAllPosts": "View All Posts"
   },
   "home": {
     "hero": {
@@ -486,7 +514,11 @@
     "cancel": "Cancel",
     "loading": "Loading...",
     "readMore": "Read More",
-    "viewAll": "View All"
+    "viewAll": "View All",
+    "previous": "Previous",
+    "next": "Next",
+    "noImage": "No image",
+    "home": "Home"
   },
   "language": {
     "switchTo": "Switch to {locale}",

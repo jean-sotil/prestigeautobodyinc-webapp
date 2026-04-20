@@ -24,7 +24,35 @@
     "servicesDescription": "Reparación de colisiones, carrocería y pintura",
     "towing": "Remolque",
     "privacyPolicy": "Política de Privacidad",
-    "termsOfService": "Términos de Servicio"
+    "termsOfService": "Términos de Servicio",
+    "blog": "Blog"
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Prestige Auto Body Inc.",
+      "description": "Consejos expertos, información de la industria y asesoramiento sobre reparación de carrocería, reparación de colisiones y pintura de autos de Prestige Auto Body Inc."
+    },
+    "og": {
+      "title": "Blog de Reparación de Carrocería y Colisiones",
+      "description": "Lee nuestros últimos artículos sobre reparación de colisiones, pintura de autos y consejos de cuidado del vehículo."
+    },
+    "overline": "Nuestro Blog",
+    "title": "Últimos Artículos e Información",
+    "subtitle": "Asesoramiento experto sobre reparación de carrocería, reparación de colisiones y mantenimiento de la apariencia de tu vehículo.",
+    "filterByCategory": "Filtrar por",
+    "allCategories": "Todos",
+    "noPosts": "No se encontraron artículos. ¡Vuelve pronto para nuevas publicaciones!",
+    "page": "Página",
+    "of": "de",
+    "authorLabel": "Autor",
+    "minRead": "min de lectura",
+    "tagsLabel": "Etiquetas",
+    "sharePost": "Compartir este artículo",
+    "backToBlog": "Volver a todos los artículos",
+    "relatedOverline": "Continuar Leyendo",
+    "relatedTitle": "Artículos Relacionados",
+    "relatedDescription": "Explora más artículos útiles sobre reparación de carrocería y servicios de colisiones.",
+    "viewAllPosts": "Ver Todos los Artículos"
   },
   "home": {
     "hero": {
@@ -486,7 +514,11 @@
     "cancel": "Cancelar",
     "loading": "Cargando...",
     "readMore": "Leer Más",
-    "viewAll": "Ver Todo"
+    "viewAll": "Ver Todo",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "noImage": "Sin imagen",
+    "home": "Inicio"
   },
   "language": {
     "switchTo": "Cambiar a {locale}",

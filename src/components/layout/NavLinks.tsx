@@ -56,6 +56,7 @@ export function useNavStructure(): NavEntry[] {
     },
     { type: 'link', href: '/insurance-claims', label: t('insurance') },
     { type: 'link', href: '/about', label: t('about') },
+    { type: 'link', href: '/blog', label: t('blog') },
     { type: 'link', href: '/contact', label: t('contact') },
   ];
 }

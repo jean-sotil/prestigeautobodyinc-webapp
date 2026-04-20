@@ -71,6 +71,10 @@ export const routing = defineRouting({
       en: '/terms-of-service',
       es: '/terminos-de-servicio',
     },
+    '/blog': {
+      en: '/blog',
+      es: '/blog',
+    },
   },
 });
 
