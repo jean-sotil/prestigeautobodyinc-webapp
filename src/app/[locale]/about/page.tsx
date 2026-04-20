@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
 import { AboutContent } from './AboutContent';
-import { getMediaByFilename } from '@/lib/heroMedia';
+import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -43,7 +43,7 @@ export default async function AboutPage({
     <div>
       <PageHeroBanner
         slug="lifetime-warranty"
-        alt={t('heroImageAlt')}
+        alt={pickAlt(heroMedia, locale, t('heroImageAlt'))}
         title={t('heroTitle')}
         heading={t('heading')}
         subtitle={t('subtitle')}

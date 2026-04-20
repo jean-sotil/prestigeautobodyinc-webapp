@@ -53,3 +53,18 @@ export const getMediaByFilename = cache(fetchMediaByFilename);
 /** Convenience wrapper for the `${slug}-hero.jpg` naming convention. */
 export const getHeroMedia = (slug: string) =>
   getMediaByFilename(`${slug}-hero.jpg`);
+
+/**
+ * Resolve the alt text for the current locale, preferring Payload's
+ * localized media.alt[locale] when present and non-empty; otherwise
+ * returns the page-supplied fallback (typically a next-intl translation).
+ */
+export function pickAlt(
+  media: HeroMedia | null | undefined,
+  locale: string,
+  fallback: string,
+): string {
+  const key = locale === 'es' ? 'es' : 'en';
+  const localized = media?.alt?.[key];
+  return localized && localized.trim() ? localized : fallback;
+}

@@ -5,7 +5,7 @@ import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
 import QuoteForm from '@/components/quote-form/QuoteForm';
 import { getBusinessRating } from '@/lib/google-places';
-import { getHeroMedia } from '@/lib/heroMedia';
+import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import {
   PhoneIcon,
   LocationIcon,
@@ -138,7 +138,7 @@ export default async function GetAQuotePage({
         {/* ─────────────── Section A — Hero Banner ─────────────── */}
         <PageHeroBanner
           slug="auto-body-services"
-          alt={t('hero.imageAlt')}
+          alt={pickAlt(heroMedia, locale, t('hero.imageAlt'))}
           title={t('hero.imageTitle')}
           heading={t('hero.h1')}
           subtitle={t('hero.tagline')}

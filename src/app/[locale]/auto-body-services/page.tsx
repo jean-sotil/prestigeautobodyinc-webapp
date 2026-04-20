@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
-import { getHeroMedia } from '@/lib/heroMedia';
+import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 
 const SERVICE_KEY = 'autoBodyServices';
 
@@ -49,6 +49,11 @@ export default async function AutoBodyServicesPage({
         serviceKey={SERVICE_KEY}
         heroSlug="auto-body-services"
         heroMedia={heroMedia}
+        heroAlt={pickAlt(
+          heroMedia,
+          locale,
+          t(`pages.${SERVICE_KEY}.heroImageAlt`),
+        )}
       />
     </>
   );

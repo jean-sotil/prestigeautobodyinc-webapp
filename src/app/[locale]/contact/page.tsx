@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
-import { getMediaByFilename } from '@/lib/heroMedia';
+import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -42,7 +42,7 @@ export default async function ContactPage({
     <div className="font-sans min-h-screen">
       <PageHeroBanner
         slug="homepage"
-        alt={t('heroImageAlt')}
+        alt={pickAlt(heroMedia, locale, t('heroImageAlt'))}
         title={t('heroTitle')}
         heading={t('heading')}
         subtitle={t('subtitle')}

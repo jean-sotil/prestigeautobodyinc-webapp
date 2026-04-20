@@ -24,12 +24,15 @@ interface ServicePageTemplateProps {
   heroSlug: string;
   /** Optional Payload-served hero media; falls back to static /hero/{slug}/ if absent. */
   heroMedia?: HeroMedia | null;
+  /** Pre-resolved alt text (e.g. via pickAlt). Overrides the translation lookup when provided. */
+  heroAlt?: string;
 }
 
 export function ServicePageTemplate({
   serviceKey,
   heroSlug,
   heroMedia,
+  heroAlt,
 }: ServicePageTemplateProps) {
   const t = useTranslations('services');
   const h = useTranslations('header');
@@ -52,7 +55,7 @@ export function ServicePageTemplate({
     <div>
       <ServiceHero
         slug={heroSlug}
-        imageAlt={page('heroImageAlt')}
+        imageAlt={heroAlt ?? page('heroImageAlt')}
         title={page('title')}
         description={page('heroDescription')}
         ctaEstimateLabel={t('getEstimate')}

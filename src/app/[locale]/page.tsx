@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
-import { getHeroMedia } from '@/lib/heroMedia';
+import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
 import { GoogleReviews } from '@/components/embeds/GoogleReviews';
 import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
@@ -32,11 +32,12 @@ const WHY_CHOOSE_KEYS = [
 ] as const;
 
 export default async function HomePage() {
-  const [t, common, rating, heroMedia] = await Promise.all([
+  const [t, common, rating, heroMedia, locale] = await Promise.all([
     getTranslations('home'),
     getTranslations('common'),
     getBusinessRating(),
     getHeroMedia('homepage'),
+    getLocale(),
   ]);
 
   return (
@@ -50,7 +51,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 w-full h-full">
           <ResponsiveHero
             slug="homepage"
-            alt={t('pageHero.alt')}
+            alt={pickAlt(heroMedia, locale, t('pageHero.alt'))}
             title={t('pageHero.imgTitle')}
             media={heroMedia}
             className="h-full"
