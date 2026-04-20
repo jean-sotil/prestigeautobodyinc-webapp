@@ -18,6 +18,10 @@ import {
   PaintbrushIcon,
   ShieldIcon,
   CheckCircleIcon,
+  ClockIcon,
+  AwardIcon,
+  ToolsIcon,
+  ThumbsUpIcon,
 } from '@/components/ui/Icons';
 
 export function generateStaticParams() {
@@ -33,6 +37,18 @@ const WHY_CHOOSE_KEYS = [
   'estimates',
 ] as const;
 
+const WHY_CHOOSE_ICONS: Record<
+  (typeof WHY_CHOOSE_KEYS)[number],
+  typeof CheckCircleIcon
+> = {
+  experience: ClockIcon,
+  certified: AwardIcon,
+  warranty: ShieldIcon,
+  insurance: CheckCircleIcon,
+  equipment: ToolsIcon,
+  estimates: ThumbsUpIcon,
+};
+
 export default async function HomePage() {
   const [t, common, rating, heroMedia, locale, overlines] = await Promise.all([
     getTranslations('home'),
@@ -47,7 +63,7 @@ export default async function HomePage() {
     <div className="font-sans min-h-screen">
       {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
-        className="relative w-full min-h-105 sm:min-h-120 lg:min-h-135 overflow-hidden"
+        className="bg-foreground relative w-full min-h-105 sm:min-h-120 lg:min-h-135 overflow-hidden"
         aria-label="Hero"
       >
         {/* Full-bleed edge-to-edge background image */}
@@ -131,15 +147,14 @@ export default async function HomePage() {
 
       {/* Our Services Section */}
       <section
-        className="py-16 bg-[#2D2D2D] dark:bg-[#1E1E1E]"
+        className="relative py-16 bg-[#2D2D2D] dark:bg-[#1E1E1E] z-0"
         aria-labelledby="services-heading"
       >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg bg-blend-difference bg-primary/15"
+          style={{ backgroundImage: "url('./car-repair-maintenance.avif')" }}
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            id="services-heading"
-            overline={overlines('services')}
-            heading={t('services.title')}
-          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <ServiceCard
               icon={<CollisionIcon className="w-6 h-6" aria-hidden="true" />}
@@ -174,26 +189,28 @@ export default async function HomePage() {
       </section>
 
       {/* Why Choose Prestige Section - 2 column: bullets + YouTube */}
-      <section
-        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
-        aria-labelledby="why-choose-heading"
-      >
+      <section className="py-16" aria-labelledby="why-choose-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
           {/* Left: Bullets */}
-          <div className="flex-1 flex flex-col gap-4 max-w-[480px]">
+          <div className="flex-1 flex flex-col gap-4 max-w-120">
             <SectionHeading
               id="why-choose-heading"
               overline={overlines('whyUs')}
               heading={t('whyChooseUs.title')}
             />
-            {WHY_CHOOSE_KEYS.map((key) => (
-              <div key={key} className="flex items-center gap-3">
-                <div className="w-5 h-5 border-2 border-[#C62828] rounded flex-shrink-0" />
-                <span className="text-(--text-primary) text-sm">
-                  {t(`whyChooseUsBullets.${key}`)}
-                </span>
-              </div>
-            ))}
+            {WHY_CHOOSE_KEYS.map((key) => {
+              const Icon = WHY_CHOOSE_ICONS[key];
+              return (
+                <div key={key} className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-surface border border-red-border text-red-hover flex-shrink-0">
+                    <Icon className="w-4 h-4" aria-hidden="true" />
+                  </div>
+                  <span className="text-foreground text-sm">
+                    {t(`whyChooseUsBullets.${key}`)}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
           {/* Right: YouTube Embed */}
@@ -204,10 +221,7 @@ export default async function HomePage() {
       </section>
 
       {/* Get Your Free Estimate Section */}
-      <section
-        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
-        aria-labelledby="free-estimate"
-      >
+      <section className="z-0 py-16" aria-labelledby="free-estimate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
           <QuoteForm />
         </div>
