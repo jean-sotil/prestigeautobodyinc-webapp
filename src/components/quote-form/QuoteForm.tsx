@@ -19,6 +19,8 @@ import { VehicleStep } from './steps/VehicleStep';
 import { DamageStep } from './steps/DamageStep';
 import { ContactStep } from './steps/ContactStep';
 import { trackEvent } from '@/lib/analytics';
+import { useTranslations } from 'next-intl';
+import { SectionHeading } from '../ui/SectionHeading';
 
 // ============================================================================
 // Zod Schemas (per-step validation)
@@ -234,20 +236,16 @@ interface QuoteFormProps {
 export default function QuoteForm({ sidebar }: QuoteFormProps = {}) {
   const [queryClient] = useState(() => new QueryClient());
   const hasSidebar = Boolean(sidebar);
+  const t = useTranslations('home');
 
   const formColumn = (
     <div>
-      <h2
-        className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-[#E0E0E0] mb-1"
-        style={{ fontFamily: 'var(--font-display)' }}
-      >
-        Get a Free Estimate
-      </h2>
-      <div className="w-16 h-1 bg-[#C62828] rounded-full mb-8" />
-
-      <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] p-6 md:p-10">
-        <QuoteFormInner />
-      </div>
+      <SectionHeading
+        id="get-a-free-estimate"
+        overline={t('quote.ctaButton')}
+        heading={t('quote.title')}
+      />
+      <QuoteFormInner />
     </div>
   );
 
@@ -255,14 +253,14 @@ export default function QuoteForm({ sidebar }: QuoteFormProps = {}) {
     <QueryClientProvider client={queryClient}>
       <section
         id="get-a-quote"
-        className="w-full bg-gray-50 dark:bg-[#1E1E1E] py-16 px-4"
+        className="relative z-0 w-full bg-white dark:bg-[#252525] shadow-2xl p-6 md:p-10"
       >
         {hasSidebar ? (
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
             {formColumn}
             <aside
               aria-label="Contact information"
-              className="lg:sticky lg:top-[6.5rem] space-y-4"
+              className="lg:sticky lg:top-26 space-y-4"
             >
               {sidebar}
             </aside>
