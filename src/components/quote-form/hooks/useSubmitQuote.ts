@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useCallback } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { trackEvent } from '@/lib/analytics';
 import type { QuoteFormData } from './useQuoteForm';
@@ -18,6 +19,12 @@ export interface SubmitError {
   error: string;
   message: string;
   fields?: Record<string, string[]>;
+}
+
+export interface OptimisticState {
+  isSubmitting: boolean;
+  progress: number;
+  statusMessage: string;
 }
 
 // ============================================================================
@@ -99,12 +106,47 @@ function validateFiles(state: QuoteFormData): {
 }
 
 // ============================================================================
-// Hook
+// Hook with Optimistic UI
 // ============================================================================
 
-export function useSubmitQuote(onSuccess?: (result: SubmitResult) => void) {
-  return useMutation<SubmitResult, SubmitError, QuoteFormData>({
+export interface UseSubmitQuoteReturn {
+  /** Submit the quote form */
+  submit: (data: QuoteFormData) => void;
+  /** Reset the mutation state */
+  reset: () => void;
+  /** Whether the submission is in progress */
+  isPending: boolean;
+  /** Whether the submission was successful */
+  isSuccess: boolean;
+  /** Whether the submission failed */
+  isError: boolean;
+  /** The error if submission failed */
+  error: SubmitError | null;
+  /** The result if submission succeeded */
+  data: SubmitResult | undefined;
+  /** Optimistic UI state for progress indication */
+  optimisticState: OptimisticState;
+}
+
+export function useSubmitQuote(
+  onSuccess?: (result: SubmitResult) => void,
+): UseSubmitQuoteReturn {
+  // Optimistic UI state for instant feedback
+  const [optimisticState, setOptimisticState] = useState<OptimisticState>({
+    isSubmitting: false,
+    progress: 0,
+    statusMessage: '',
+  });
+
+  const mutation = useMutation<SubmitResult, SubmitError, QuoteFormData>({
     mutationFn: async (state) => {
+      // Update optimistic state - starting validation
+      setOptimisticState({
+        isSubmitting: true,
+        progress: 10,
+        statusMessage: 'Validating your information...',
+      });
+
       // Validate files before submission
       const fileValidation = validateFiles(state);
       if (!fileValidation.valid) {
@@ -114,12 +156,36 @@ export function useSubmitQuote(onSuccess?: (result: SubmitResult) => void) {
         } as SubmitError;
       }
 
+      // Update optimistic state - building request
+      setOptimisticState({
+        isSubmitting: true,
+        progress: 25,
+        statusMessage:
+          state.files.length > 0
+            ? `Preparing ${state.files.length} photo${state.files.length > 1 ? 's' : ''}...`
+            : 'Preparing your request...',
+      });
+
       const formData = buildFormData(state);
+
+      // Update optimistic state - uploading
+      setOptimisticState({
+        isSubmitting: true,
+        progress: 50,
+        statusMessage: 'Sending to our team...',
+      });
 
       const res = await fetch('/api/quote', {
         method: 'POST',
         body: formData,
         // Don't set Content-Type header - browser will set it with boundary for multipart
+      });
+
+      // Update optimistic state - processing
+      setOptimisticState({
+        isSubmitting: true,
+        progress: 75,
+        statusMessage: 'Processing your request...',
       });
 
       if (!res.ok) {
@@ -131,7 +197,23 @@ export function useSubmitQuote(onSuccess?: (result: SubmitResult) => void) {
         } as SubmitError;
       }
 
-      return res.json();
+      // Update optimistic state - completing
+      setOptimisticState({
+        isSubmitting: true,
+        progress: 90,
+        statusMessage: 'Finalizing...',
+      });
+
+      const result = await res.json();
+
+      // Complete
+      setOptimisticState({
+        isSubmitting: false,
+        progress: 100,
+        statusMessage: 'Quote submitted successfully!',
+      });
+
+      return result;
     },
     onSuccess: (result) => {
       trackEvent('quote_form_submit', {
@@ -141,10 +223,46 @@ export function useSubmitQuote(onSuccess?: (result: SubmitResult) => void) {
       onSuccess?.(result);
     },
     onError: (error: SubmitError) => {
+      // Reset optimistic state on error
+      setOptimisticState({
+        isSubmitting: false,
+        progress: 0,
+        statusMessage: '',
+      });
+
       trackEvent('quote_form_error', {
         error_type: error.error,
         message: error.message,
       });
     },
   });
+
+  // Wrapper submit function that matches the expected interface
+  const submit = useCallback(
+    (data: QuoteFormData) => {
+      mutation.mutate(data);
+    },
+    [mutation],
+  );
+
+  // Wrapper reset function
+  const reset = useCallback(() => {
+    setOptimisticState({
+      isSubmitting: false,
+      progress: 0,
+      statusMessage: '',
+    });
+    mutation.reset();
+  }, [mutation]);
+
+  return {
+    submit,
+    reset,
+    isPending: mutation.isPending,
+    isSuccess: mutation.isSuccess,
+    isError: mutation.isError,
+    error: mutation.error || null,
+    data: mutation.data,
+    optimisticState,
+  };
 }

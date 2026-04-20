@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Big_Shoulders, Instrument_Sans, Geist } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
+import { QueryProvider } from '@/providers/QueryProvider';
 import './globals.css';
 import { cn } from '@/lib/utils';
 
@@ -114,7 +115,7 @@ export default async function RootLayout({
       >
         {/* Web Vitals RUM monitoring */}
         <WebVitals />
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
