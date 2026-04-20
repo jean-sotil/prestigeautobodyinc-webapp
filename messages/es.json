@@ -819,5 +819,191 @@
         }
       }
     }
+  },
+  "privacyPolicy": {
+    "metaTitle": "Política de Privacidad — Prestige Auto Body Inc.",
+    "metaDescription": "Cómo Prestige Auto Body Inc. recopila, usa y protege su información cuando solicita una cotización o utiliza nuestro sitio web.",
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización: 20 de abril de 2026",
+    "disclaimer": "Este documento se proporciona como texto informativo estándar para un taller local de carrocería y no constituye asesoramiento legal. Por favor, hágalo revisar por un asesor legal calificado antes de utilizarlo.",
+    "intro": "Prestige Auto Body Inc. (\"nosotros\", \"nuestro\" o \"nos\") respeta su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos la información que usted nos proporciona al visitar prestigeautobodyinc.com o al solicitar un estimado de reparación. Al utilizar nuestro sitio web, usted acepta las prácticas descritas a continuación.",
+    "sections": {
+      "informationCollected": {
+        "heading": "Información que Recopilamos",
+        "body": [
+          "Recopilamos información de dos maneras: (1) información que usted proporciona voluntariamente y (2) información técnica capturada automáticamente con fines de seguridad y análisis."
+        ],
+        "items": [
+          "Información de contacto que envía a través de nuestro formulario de cotización: nombre, número de teléfono, dirección de correo electrónico, método de contacto preferido y cualquier descripción de su vehículo y de los daños.",
+          "Fotografías que usted sube para describir los daños. Las imágenes se validan por tipo y tamaño, se almacenan en nuestro sistema de gestión de contenido y pueden adjuntarse a los correos de confirmación de cotización.",
+          "Preferencias de cita (fecha, hora, notas adicionales) cuando las proporcione.",
+          "Datos técnicos capturados automáticamente: una versión hash de su dirección IP con fines anti-spam y de limitación de velocidad, la cadena de user-agent de su navegador, métricas de tiempo de página y parámetros UTM de campaña cuando estén presentes en la URL.",
+          "Cookies y tecnologías de seguimiento similares, según se describe más abajo."
+        ]
+      },
+      "howWeUse": {
+        "heading": "Cómo Usamos Su Información",
+        "body": [
+          "Utilizamos la información que recopilamos para responder a su solicitud de cotización, programar y realizar reparaciones, enviar correos transaccionales (confirmaciones, seguimiento, estimados), prevenir fraude y abuso, mejorar nuestro sitio web y servicios, y cumplir con las leyes aplicables.",
+          "No vendemos su información personal. No compartimos su información con terceros para sus propios fines de marketing."
+        ]
+      },
+      "thirdParties": {
+        "heading": "Proveedores de Servicios Externos",
+        "body": [
+          "Utilizamos proveedores externos de reputación para operar nuestro sitio y procesar sus solicitudes. Estos proveedores actúan como procesadores de datos en nuestro nombre y están obligados contractualmente a proteger sus datos:"
+        ],
+        "items": [
+          "Entrega de correo — Resend (confirmaciones transaccionales de cotización y notificaciones al taller).",
+          "Almacenamiento de medios y activos — Vercel Blob (alojamiento de imágenes subidas y medios del sitio).",
+          "Base de datos — MongoDB Atlas (almacena solicitudes de cotización y contenido del sitio).",
+          "Limitación de velocidad — Upstash Redis (anti-spam para el formulario de cotización).",
+          "Información comercial — Google Places API (reseñas y calificaciones públicas mostradas en nuestro sitio).",
+          "Alojamiento y entrega de contenido — Vercel.",
+          "Analíticas — métricas básicas de visitas de página y Core Web Vitals, utilizadas para mejorar el rendimiento del sitio."
+        ]
+      },
+      "cookies": {
+        "heading": "Cookies y Seguimiento",
+        "body": [
+          "Nuestro sitio web utiliza un número reducido de cookies y elementos de almacenamiento local para recordar su preferencia de idioma y guardar temporalmente en su dispositivo los borradores del formulario de cotización (para que no pierda el progreso si navega a otra página). No utilizamos cookies para seguimiento entre sitios ni para publicidad."
+        ]
+      },
+      "retention": {
+        "heading": "Retención de Datos",
+        "body": [
+          "Las solicitudes de cotización y los medios asociados se conservan durante el tiempo necesario para atender su solicitud, cumplir con nuestras obligaciones legales y contables, y defendernos frente a disputas. Puede solicitar la eliminación de su información en cualquier momento contactándonos mediante los datos indicados a continuación."
+        ]
+      },
+      "rights": {
+        "heading": "Sus Derechos",
+        "body": [
+          "Dependiendo de su jurisdicción, usted puede tener derecho a acceder, corregir, eliminar o portar su información personal, o a oponerse a cierto procesamiento. Para ejercer cualquiera de estos derechos, contáctenos a través de los datos al final de esta política. Responderemos dentro de un plazo razonable."
+        ]
+      },
+      "childrensPrivacy": {
+        "heading": "Privacidad de Menores",
+        "body": [
+          "Nuestros servicios están destinados a adultos. No recopilamos intencionalmente información personal de menores de 13 años. Si cree que un menor nos ha proporcionado información personal, por favor contáctenos y la eliminaremos de inmediato."
+        ]
+      },
+      "security": {
+        "heading": "Seguridad",
+        "body": [
+          "Implementamos medidas técnicas y organizativas razonables para proteger su información, incluyendo cifrado en tránsito (HTTPS), controles de acceso y almacenamiento seguro de credenciales. Sin embargo, ningún método de transmisión por Internet es 100% seguro, y no podemos garantizar seguridad absoluta."
+        ]
+      },
+      "changes": {
+        "heading": "Cambios a Esta Política",
+        "body": [
+          "Podemos actualizar esta Política de Privacidad periódicamente. La fecha de \"Última actualización\" en la parte superior de esta página refleja la revisión más reciente. Los cambios materiales se comunicarán mediante un aviso en nuestro sitio web."
+        ]
+      },
+      "contact": {
+        "heading": "Contáctenos",
+        "body": [
+          "Si tiene preguntas sobre esta política o sobre cómo manejamos su información, contáctenos en:",
+          "Prestige Auto Body Inc., 928 Philadelphia Ave, Silver Spring, MD 20910. Teléfono: (301) 578-8779. Correo: info@prestigeautobody.com."
+        ]
+      },
+      "governingLaw": {
+        "heading": "Ley Aplicable",
+        "body": [
+          "Esta Política de Privacidad se rige por las leyes del Estado de Maryland, Estados Unidos, sin consideración a sus disposiciones sobre conflictos de leyes."
+        ]
+      }
+    }
+  },
+  "termsOfService": {
+    "metaTitle": "Términos de Servicio — Prestige Auto Body Inc.",
+    "metaDescription": "Términos que rigen el uso del sitio web de Prestige Auto Body Inc. y los servicios de solicitud de cotización.",
+    "title": "Términos de Servicio",
+    "lastUpdated": "Última actualización: 20 de abril de 2026",
+    "disclaimer": "Este documento se proporciona como texto informativo estándar para un taller local de carrocería y no constituye asesoramiento legal. Por favor, hágalo revisar por un asesor legal calificado antes de utilizarlo.",
+    "intro": "Estos Términos de Servicio (\"Términos\") rigen el uso del sitio web prestigeautobodyinc.com y los servicios proporcionados por Prestige Auto Body Inc. (\"nosotros\", \"nuestro\" o \"nos\"). Al utilizar nuestro sitio web o enviar una solicitud de cotización, usted acepta estos Términos.",
+    "sections": {
+      "acceptance": {
+        "heading": "Aceptación de los Términos",
+        "body": [
+          "El uso de este sitio web y el envío de cualquier solicitud constituye la aceptación de estos Términos y de nuestra Política de Privacidad. Si no está de acuerdo, por favor no utilice el sitio web."
+        ]
+      },
+      "useOfWebsite": {
+        "heading": "Uso del Sitio Web",
+        "body": [
+          "Usted acepta utilizar este sitio web únicamente para fines lícitos y de una manera que no infrinja los derechos de terceros ni restrinja o impida su uso por parte de ellos. El comportamiento prohibido incluye acoso, transmisión de código malicioso, intentos de acceso no autorizado o extracción automatizada (scraping) sin consentimiento."
+        ]
+      },
+      "quoteRequests": {
+        "heading": "Solicitudes de Cotización y Estimados",
+        "body": [
+          "La información enviada a través de nuestro formulario de cotización se utiliza para preparar un estimado preliminar no vinculante. El costo final de la reparación se determina solo después de la inspección presencial del vehículo. Nos reservamos el derecho de rechazar cualquier solicitud. Los estimados escritos, una vez emitidos, son válidos durante el período indicado en el estimado."
+        ]
+      },
+      "userSubmissions": {
+        "heading": "Envíos del Usuario",
+        "body": [
+          "Al subir fotografías o proporcionar descripciones a través de nuestro formulario de cotización, usted nos concede una licencia no exclusiva y libre de regalías para usar ese contenido únicamente con el fin de evaluar su solicitud, preparar estimados, comunicarnos con usted y realizar revisiones internas de calidad.",
+          "Usted declara que tiene el derecho de subir cualquier contenido que envíe y que dicho contenido no viola ninguna ley ni derechos de terceros."
+        ]
+      },
+      "intellectualProperty": {
+        "heading": "Propiedad Intelectual",
+        "body": [
+          "Todo el contenido de este sitio web — incluyendo texto, gráficos, logotipos, imágenes y software — es propiedad de Prestige Auto Body Inc. o de sus licenciantes, y está protegido por las leyes de derechos de autor, marcas comerciales y otras leyes de propiedad intelectual de los Estados Unidos e internacionales. No puede reproducir, distribuir, modificar ni crear obras derivadas sin nuestro consentimiento previo por escrito, salvo para uso incidental, personal y no comercial."
+        ]
+      },
+      "thirdPartyLinks": {
+        "heading": "Enlaces y Servicios de Terceros",
+        "body": [
+          "Nuestro sitio web puede contener enlaces a sitios web de terceros o mostrar información obtenida de servicios de terceros (como reseñas de Google). No controlamos a estos terceros y no somos responsables de su contenido, prácticas de privacidad ni disponibilidad."
+        ]
+      },
+      "disclaimers": {
+        "heading": "Exención de Garantías",
+        "body": [
+          "Este sitio web y su contenido se proporcionan \"tal cual\" y \"según disponibilidad\", sin garantías de ningún tipo, expresas o implícitas. Hasta el máximo permitido por la ley, rechazamos todas las garantías, incluidas las de comerciabilidad, idoneidad para un propósito particular y no infracción.",
+          "La cobertura de garantía del trabajo físico de reparación se rige por nuestra garantía escrita separada proporcionada en el momento del servicio, no por estos Términos."
+        ]
+      },
+      "limitation": {
+        "heading": "Limitación de Responsabilidad",
+        "body": [
+          "Hasta el máximo permitido por la ley aplicable, Prestige Auto Body Inc. y sus directivos, empleados y afiliados no serán responsables por daños indirectos, incidentales, especiales, consecuentes o punitivos derivados o relacionados con el uso del sitio web, incluyendo pérdida de datos, ingresos o reputación, incluso si hemos sido advertidos de la posibilidad de dichos daños.",
+          "Nada en estos Términos limita la responsabilidad que no pueda limitarse legalmente según las leyes de protección al consumidor aplicables."
+        ]
+      },
+      "indemnification": {
+        "heading": "Indemnización",
+        "body": [
+          "Usted acepta indemnizar, defender y eximir de responsabilidad a Prestige Auto Body Inc. frente a cualquier reclamación, pérdida, daño, responsabilidad y gasto (incluyendo honorarios razonables de abogados) derivados de su incumplimiento de estos Términos o del uso indebido del sitio web."
+        ]
+      },
+      "termination": {
+        "heading": "Terminación",
+        "body": [
+          "Podemos suspender o terminar su acceso al sitio web en cualquier momento, con o sin aviso, por cualquier conducta que consideremos que viola estos Términos o que sea perjudicial para otros usuarios, para nosotros o para terceros."
+        ]
+      },
+      "changes": {
+        "heading": "Cambios a Estos Términos",
+        "body": [
+          "Podemos modificar estos Términos en cualquier momento. Los cambios entran en vigor al momento de su publicación. La fecha de \"Última actualización\" refleja la revisión más reciente. El uso continuado del sitio web tras los cambios constituye aceptación de los Términos revisados."
+        ]
+      },
+      "governingLaw": {
+        "heading": "Ley Aplicable y Jurisdicción",
+        "body": [
+          "Estos Términos se rigen por las leyes del Estado de Maryland, Estados Unidos, sin consideración a sus disposiciones sobre conflictos de leyes. Cualquier disputa derivada de estos Términos o del uso del sitio web se resolverá exclusivamente en los tribunales estatales o federales ubicados en el Condado de Montgomery, Maryland."
+        ]
+      },
+      "contact": {
+        "heading": "Contacto",
+        "body": [
+          "Las preguntas sobre estos Términos pueden dirigirse a:",
+          "Prestige Auto Body Inc., 928 Philadelphia Ave, Silver Spring, MD 20910. Teléfono: (301) 578-8779. Correo: info@prestigeautobody.com."
+        ]
+      }
+    }
   }
 }

@@ -819,5 +819,191 @@
         }
       }
     }
+  },
+  "privacyPolicy": {
+    "metaTitle": "Privacy Policy — Prestige Auto Body Inc.",
+    "metaDescription": "How Prestige Auto Body Inc. collects, uses, and protects your information when you request a quote or use our website.",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated: April 20, 2026",
+    "disclaimer": "This document is provided as informational boilerplate for a local auto body shop and does not constitute legal advice. Please have it reviewed by qualified legal counsel before relying on it.",
+    "intro": "Prestige Auto Body Inc. (\"we\", \"our\", or \"us\") respects your privacy. This Privacy Policy explains how we collect, use, and protect information you provide when you visit prestigeautobodyinc.com or request a repair estimate from us. By using our website, you agree to the practices described below.",
+    "sections": {
+      "informationCollected": {
+        "heading": "Information We Collect",
+        "body": [
+          "We collect information in two ways: (1) information you voluntarily provide, and (2) technical information captured automatically for security and analytics."
+        ],
+        "items": [
+          "Contact information you submit through our quote form — name, phone number, email address, preferred contact method, and any description of your vehicle and damage.",
+          "Photographs you upload to describe the damage. Images are validated for type and size, stored in our content management system, and may be attached to quote confirmation emails.",
+          "Appointment preferences (date, time, additional notes) when provided.",
+          "Technical data captured automatically: a hashed form of your IP address for anti-spam and rate-limit purposes, your browser's user-agent string, page timing metrics, and UTM campaign parameters when present in the URL.",
+          "Cookies and similar tracking technologies as described below."
+        ]
+      },
+      "howWeUse": {
+        "heading": "How We Use Your Information",
+        "body": [
+          "We use the information we collect to respond to your quote request, schedule and perform repairs, send transactional emails (confirmations, follow-ups, estimates), prevent fraud and abuse, improve our website and services, and comply with applicable laws.",
+          "We do not sell your personal information. We do not share your information with third parties for their own marketing purposes."
+        ]
+      },
+      "thirdParties": {
+        "heading": "Third-Party Service Providers",
+        "body": [
+          "We use reputable third-party vendors to operate our site and process your requests. These providers act as data processors on our behalf and are contractually bound to protect your data:"
+        ],
+        "items": [
+          "Email delivery — Resend (transactional quote confirmations and shop notifications).",
+          "Media and asset storage — Vercel Blob (hosting uploaded images and site media).",
+          "Database — MongoDB Atlas (stores quote requests and site content).",
+          "Rate limiting — Upstash Redis (anti-spam for the quote form).",
+          "Business information — Google Places API (public reviews and ratings displayed on our site).",
+          "Hosting and content delivery — Vercel.",
+          "Analytics — basic page-view and Core Web Vitals metrics, used to improve site performance."
+        ]
+      },
+      "cookies": {
+        "heading": "Cookies and Tracking",
+        "body": [
+          "Our website uses a small number of cookies and local storage items to remember your language preference and to temporarily save draft quote-form data on your device (so you don't lose progress if you navigate away). We do not use cookies for cross-site tracking or advertising."
+        ]
+      },
+      "retention": {
+        "heading": "Data Retention",
+        "body": [
+          "Quote requests and associated media are retained for as long as necessary to service your request, fulfill our legal and accounting obligations, and defend against disputes. You may request deletion of your information at any time by contacting us using the details below."
+        ]
+      },
+      "rights": {
+        "heading": "Your Rights",
+        "body": [
+          "Depending on your jurisdiction, you may have rights to access, correct, delete, or port your personal information, or to object to certain processing. To exercise any of these rights, contact us using the details at the bottom of this policy. We will respond within a reasonable timeframe."
+        ]
+      },
+      "childrensPrivacy": {
+        "heading": "Children's Privacy",
+        "body": [
+          "Our services are intended for adults. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it promptly."
+        ]
+      },
+      "security": {
+        "heading": "Security",
+        "body": [
+          "We implement reasonable technical and organizational measures to protect your information, including encryption in transit (HTTPS), access controls, and secure credential storage. No method of transmission over the Internet is 100% secure, however, and we cannot guarantee absolute security."
+        ]
+      },
+      "changes": {
+        "heading": "Changes to This Policy",
+        "body": [
+          "We may update this Privacy Policy from time to time. The \"Last Updated\" date at the top of this page reflects the most recent revision. Material changes will be communicated via a notice on our website."
+        ]
+      },
+      "contact": {
+        "heading": "Contact Us",
+        "body": [
+          "If you have questions about this policy or how we handle your information, contact us at:",
+          "Prestige Auto Body Inc., 928 Philadelphia Ave, Silver Spring, MD 20910. Phone: (301) 578-8779. Email: info@prestigeautobody.com."
+        ]
+      },
+      "governingLaw": {
+        "heading": "Governing Law",
+        "body": [
+          "This Privacy Policy is governed by the laws of the State of Maryland, United States, without regard to its conflict-of-law provisions."
+        ]
+      }
+    }
+  },
+  "termsOfService": {
+    "metaTitle": "Terms of Service — Prestige Auto Body Inc.",
+    "metaDescription": "Terms governing use of the Prestige Auto Body Inc. website and quote request services.",
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated: April 20, 2026",
+    "disclaimer": "This document is provided as informational boilerplate for a local auto body shop and does not constitute legal advice. Please have it reviewed by qualified legal counsel before relying on it.",
+    "intro": "These Terms of Service (\"Terms\") govern your use of the prestigeautobodyinc.com website and the services provided by Prestige Auto Body Inc. (\"we\", \"our\", or \"us\"). By using our website or submitting a quote request, you agree to these Terms.",
+    "sections": {
+      "acceptance": {
+        "heading": "Acceptance of Terms",
+        "body": [
+          "Your use of this website and submission of any request constitutes acceptance of these Terms and of our Privacy Policy. If you do not agree, please do not use the website."
+        ]
+      },
+      "useOfWebsite": {
+        "heading": "Use of the Website",
+        "body": [
+          "You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of, or restrict or inhibit the use of, this website by any third party. Prohibited behavior includes harassment, transmitting malicious code, attempting unauthorized access, or automated scraping without consent."
+        ]
+      },
+      "quoteRequests": {
+        "heading": "Quote Requests and Estimates",
+        "body": [
+          "Information submitted through our quote form is used to prepare a preliminary, non-binding estimate. Final repair costs are determined only after in-person inspection of the vehicle. We reserve the right to decline any request. Written estimates, once issued, are valid for the period stated on the estimate."
+        ]
+      },
+      "userSubmissions": {
+        "heading": "User Submissions",
+        "body": [
+          "When you upload photographs or provide descriptions through our quote form, you grant us a non-exclusive, royalty-free license to use that content solely for the purpose of evaluating your request, preparing estimates, communicating with you, and internal quality review.",
+          "You represent that you have the right to upload any content you submit and that it does not violate any law or third-party right."
+        ]
+      },
+      "intellectualProperty": {
+        "heading": "Intellectual Property",
+        "body": [
+          "All content on this website — including text, graphics, logos, images, and software — is the property of Prestige Auto Body Inc. or its licensors and is protected by United States and international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our prior written consent, except for incidental, personal, non-commercial use."
+        ]
+      },
+      "thirdPartyLinks": {
+        "heading": "Third-Party Links and Services",
+        "body": [
+          "Our website may contain links to third-party websites or display information fetched from third-party services (such as Google reviews). We do not control these third parties and are not responsible for their content, privacy practices, or availability."
+        ]
+      },
+      "disclaimers": {
+        "heading": "Disclaimer of Warranties",
+        "body": [
+          "This website and its content are provided \"as is\" and \"as available\" without warranties of any kind, express or implied. To the fullest extent permitted by law, we disclaim all warranties including merchantability, fitness for a particular purpose, and non-infringement.",
+          "Warranty coverage on physical repair work is governed by our separate written warranty provided at the time of service, not by these Terms."
+        ]
+      },
+      "limitation": {
+        "heading": "Limitation of Liability",
+        "body": [
+          "To the fullest extent permitted by applicable law, Prestige Auto Body Inc. and its officers, employees, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website, including loss of data, loss of revenue, or loss of goodwill, even if we have been advised of the possibility of such damages.",
+          "Nothing in these Terms limits liability that cannot lawfully be limited under applicable consumer-protection laws."
+        ]
+      },
+      "indemnification": {
+        "heading": "Indemnification",
+        "body": [
+          "You agree to indemnify, defend, and hold harmless Prestige Auto Body Inc. from any claims, losses, damages, liabilities, and expenses (including reasonable attorneys' fees) arising from your breach of these Terms or your misuse of the website."
+        ]
+      },
+      "termination": {
+        "heading": "Termination",
+        "body": [
+          "We may suspend or terminate your access to the website at any time, with or without notice, for any conduct that we believe violates these Terms or is harmful to other users, to us, or to third parties."
+        ]
+      },
+      "changes": {
+        "heading": "Changes to These Terms",
+        "body": [
+          "We may modify these Terms at any time. Changes become effective upon posting. The \"Last Updated\" date reflects the most recent revision. Continued use of the website after changes constitutes acceptance of the revised Terms."
+        ]
+      },
+      "governingLaw": {
+        "heading": "Governing Law and Jurisdiction",
+        "body": [
+          "These Terms are governed by the laws of the State of Maryland, United States, without regard to its conflict-of-law provisions. Any disputes arising from these Terms or your use of the website shall be resolved exclusively in the state or federal courts located in Montgomery County, Maryland."
+        ]
+      },
+      "contact": {
+        "heading": "Contact",
+        "body": [
+          "Questions about these Terms may be directed to:",
+          "Prestige Auto Body Inc., 928 Philadelphia Ave, Silver Spring, MD 20910. Phone: (301) 578-8779. Email: info@prestigeautobody.com."
+        ]
+      }
+    }
   }
 }

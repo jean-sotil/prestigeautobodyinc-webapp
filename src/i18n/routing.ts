@@ -63,6 +63,14 @@ export const routing = defineRouting({
       en: '/get-a-quote',
       es: '/obtener-cotizacion',
     },
+    '/privacy-policy': {
+      en: '/privacy-policy',
+      es: '/politica-de-privacidad',
+    },
+    '/terms-of-service': {
+      en: '/terms-of-service',
+      es: '/terminos-de-servicio',
+    },
   },
 });
 
