@@ -10,6 +10,8 @@ import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
 import { getBusinessRating } from '@/lib/google-places';
 import QuoteForm from '@/components/quote-form/QuoteForm';
 import { ButtonLink } from '@/components/ui/Button';
+import { ServiceCard } from '@/components/ui/ServiceCard';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import {
   CollisionIcon,
   WrenchIcon,
@@ -32,12 +34,13 @@ const WHY_CHOOSE_KEYS = [
 ] as const;
 
 export default async function HomePage() {
-  const [t, common, rating, heroMedia, locale] = await Promise.all([
+  const [t, common, rating, heroMedia, locale, overlines] = await Promise.all([
     getTranslations('home'),
     getTranslations('common'),
     getBusinessRating(),
     getHeroMedia('homepage'),
     getLocale(),
+    getTranslations('overlines'),
   ]);
 
   return (
@@ -132,101 +135,40 @@ export default async function HomePage() {
         aria-labelledby="services-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
+          <SectionHeading
             id="services-heading"
-            className="text-3xl md:text-4xl font-bold text-[#C62828] mb-10"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            {t('services.title')}
-          </h2>
+            overline={overlines('services')}
+            heading={t('services.title')}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Collision Repair */}
-            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
-              <CollisionIcon
-                className="w-12 h-12 text-[#C62828]"
-                aria-hidden="true"
-              />
-              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
-                {t('services.collision.title')}
-              </h3>
-              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
-                {t('services.collision.description')}
-              </p>
-              <ButtonLink
-                href="/collision-repair"
-                variant="ghost"
-                size="sm"
-                className="mt-auto px-0 min-h-0 min-w-0"
-              >
-                {common('learnMore')} &gt;
-              </ButtonLink>
-            </article>
-
-            {/* Auto Body Work */}
-            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
-              <WrenchIcon
-                className="w-12 h-12 text-[#C62828]"
-                aria-hidden="true"
-              />
-              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
-                {t('services.autoBody.title')}
-              </h3>
-              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
-                {t('services.autoBody.description')}
-              </p>
-              <ButtonLink
-                href="/auto-body-services"
-                variant="ghost"
-                size="sm"
-                className="mt-auto px-0 min-h-0 min-w-0"
-              >
-                {common('learnMore')} &gt;
-              </ButtonLink>
-            </article>
-
-            {/* Paint Solutions */}
-            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
-              <PaintbrushIcon
-                className="w-12 h-12 text-[#C62828]"
-                aria-hidden="true"
-              />
-              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
-                {t('services.painting.title')}
-              </h3>
-              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
-                {t('services.painting.description')}
-              </p>
-              <ButtonLink
-                href="/auto-painting"
-                variant="ghost"
-                size="sm"
-                className="mt-auto px-0 min-h-0 min-w-0"
-              >
-                {common('learnMore')} &gt;
-              </ButtonLink>
-            </article>
-
-            {/* Insurance */}
-            <article className="bg-white dark:bg-[#252525] border-2 border-[#C62828] rounded-lg p-6 flex flex-col items-center text-center gap-3 hover:shadow-lg transition-shadow">
-              <ShieldIcon
-                className="w-12 h-12 text-[#C62828]"
-                aria-hidden="true"
-              />
-              <h3 className="font-bold text-[#2D2D2D] dark:text-[#E0E0E0] text-base">
-                {t('services.insurance.title')}
-              </h3>
-              <p className="text-[#555] dark:text-[#A0A0A0] text-sm leading-normal">
-                {t('services.insurance.description')}
-              </p>
-              <ButtonLink
-                href="/insurance-claims"
-                variant="ghost"
-                size="sm"
-                className="mt-auto px-0 min-h-0 min-w-0"
-              >
-                {common('learnMore')} &gt;
-              </ButtonLink>
-            </article>
+            <ServiceCard
+              icon={<CollisionIcon className="w-6 h-6" aria-hidden="true" />}
+              title={t('services.collision.title')}
+              description={t('services.collision.description')}
+              href="/collision-repair"
+              linkLabel={common('learnMore')}
+            />
+            <ServiceCard
+              icon={<WrenchIcon className="w-6 h-6" aria-hidden="true" />}
+              title={t('services.autoBody.title')}
+              description={t('services.autoBody.description')}
+              href="/auto-body-services"
+              linkLabel={common('learnMore')}
+            />
+            <ServiceCard
+              icon={<PaintbrushIcon className="w-6 h-6" aria-hidden="true" />}
+              title={t('services.painting.title')}
+              description={t('services.painting.description')}
+              href="/auto-painting"
+              linkLabel={common('learnMore')}
+            />
+            <ServiceCard
+              icon={<ShieldIcon className="w-6 h-6" aria-hidden="true" />}
+              title={t('services.insurance.title')}
+              description={t('services.insurance.description')}
+              href="/insurance-claims"
+              linkLabel={common('learnMore')}
+            />
           </div>
         </div>
       </section>
@@ -239,13 +181,11 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
           {/* Left: Bullets */}
           <div className="flex-1 flex flex-col gap-4 max-w-[480px]">
-            <h2
+            <SectionHeading
               id="why-choose-heading"
-              className="text-3xl md:text-4xl font-bold text-(--text-primary)"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              {t('whyChooseUs.title')}
-            </h2>
+              overline={overlines('whyUs')}
+              heading={t('whyChooseUs.title')}
+            />
             {WHY_CHOOSE_KEYS.map((key) => (
               <div key={key} className="flex items-center gap-3">
                 <div className="w-5 h-5 border-2 border-[#C62828] rounded flex-shrink-0" />
@@ -314,16 +254,12 @@ export default async function HomePage() {
 
             {/* Right: Content */}
             <div className="flex flex-col gap-5 text-center lg:text-left">
-              <div>
-                <h2
-                  id="warranty-heading"
-                  className="text-3xl md:text-4xl font-bold text-white tracking-tight"
-                  style={{ fontFamily: 'var(--font-display)' }}
-                >
-                  {t('warranty.title')}
-                </h2>
-                <div className="mt-3 h-1 w-20 bg-primary rounded-full mx-auto lg:mx-0" />
-              </div>
+              <SectionHeading
+                id="warranty-heading"
+                overline={overlines('warranty')}
+                heading={t('warranty.title')}
+                tone="inverted"
+              />
 
               <p className="text-lg font-semibold text-white">
                 {t('warranty.subtitle')}
@@ -368,13 +304,12 @@ export default async function HomePage() {
         aria-labelledby="testimonials-heading"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
-          <h2
+          <SectionHeading
             id="testimonials-heading"
-            className="text-3xl md:text-4xl font-bold text-(--text-primary) text-center"
-            style={{ fontFamily: 'var(--font-display)' }}
-          >
-            {t('testimonials.title')}
-          </h2>
+            overline={overlines('testimonials')}
+            heading={t('testimonials.title')}
+            centered
+          />
           <p className="text-(--text-secondary) text-sm text-center">
             {t('testimonials.subtitle')}
           </p>

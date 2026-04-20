@@ -820,6 +820,12 @@
       }
     }
   },
+  "overlines": {
+    "services": "Lo Que Hacemos",
+    "whyUs": "Nuestra Diferencia",
+    "testimonials": "Reseñas",
+    "warranty": "Nuestro Compromiso"
+  },
   "privacyPolicy": {
     "metaTitle": "Política de Privacidad — Prestige Auto Body Inc.",
     "metaDescription": "Cómo Prestige Auto Body Inc. recopila, usa y protege su información cuando solicita una cotización o utiliza nuestro sitio web.",
