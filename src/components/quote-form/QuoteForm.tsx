@@ -7,7 +7,6 @@ import {
   useRef,
   type ReactNode,
 } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { z } from 'zod';
 import { useQuoteForm } from './hooks/useQuoteForm';
 import { useSubmitQuote } from './hooks/useSubmitQuote';
@@ -68,7 +67,7 @@ function QuoteFormInner() {
   const formStartedRef = useRef(false);
   const [mountTime] = useState(() => Date.now());
 
-  const { mutate, isPending, isSuccess } = useSubmitQuote(() => {
+  const { submit, isPending, isSuccess } = useSubmitQuote(() => {
     clearDraft();
   });
 
@@ -163,7 +162,7 @@ function QuoteFormInner() {
 
   function handleSubmit() {
     if (!validateStep(3)) return;
-    mutate(state);
+    submit(state);
   }
 
   function handleReset() {
@@ -226,7 +225,7 @@ function QuoteFormInner() {
 }
 
 // ============================================================================
-// Exported Component (with QueryClientProvider)
+// Exported Component
 // ============================================================================
 
 interface QuoteFormProps {
@@ -234,7 +233,6 @@ interface QuoteFormProps {
 }
 
 export default function QuoteForm({ sidebar }: QuoteFormProps = {}) {
-  const [queryClient] = useState(() => new QueryClient());
   const hasSidebar = Boolean(sidebar);
   const t = useTranslations('home');
 
@@ -250,25 +248,23 @@ export default function QuoteForm({ sidebar }: QuoteFormProps = {}) {
   );
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <section
-        id="get-a-quote"
-        className="relative z-0 w-full bg-white dark:bg-[#252525] shadow-2xl p-6 md:p-10"
-      >
-        {hasSidebar ? (
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
-            {formColumn}
-            <aside
-              aria-label="Contact information"
-              className="lg:sticky lg:top-26 space-y-4"
-            >
-              {sidebar}
-            </aside>
-          </div>
-        ) : (
-          <div className="max-w-5xl mx-auto">{formColumn}</div>
-        )}
-      </section>
-    </QueryClientProvider>
+    <section
+      id="get-a-quote"
+      className="relative z-0 w-full bg-white dark:bg-[#252525] shadow-2xl p-6 md:p-10"
+    >
+      {hasSidebar ? (
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
+          {formColumn}
+          <aside
+            aria-label="Contact information"
+            className="lg:sticky lg:top-26 space-y-4"
+          >
+            {sidebar}
+          </aside>
+        </div>
+      ) : (
+        <div className="max-w-5xl mx-auto">{formColumn}</div>
+      )}
+    </section>
   );
 }
