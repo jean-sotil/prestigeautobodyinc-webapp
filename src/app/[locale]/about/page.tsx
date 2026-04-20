@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
 import { AboutContent } from './AboutContent';
+import { getMediaByFilename } from '@/lib/heroMedia';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -31,16 +32,22 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'about' });
+  const [t, heroMedia] = await Promise.all([
+    getTranslations({ locale, namespace: 'about' }),
+    getMediaByFilename(
+      'prestige-auto-body-collision-repair-team-silver-spring-maryland.jpg',
+    ),
+  ]);
 
   return (
     <div>
       <PageHeroBanner
-        slug="prestige-auto-body-storefront-optimized"
+        slug="lifetime-warranty"
         alt={t('heroImageAlt')}
         title={t('heroTitle')}
         heading={t('heading')}
         subtitle={t('subtitle')}
+        media={heroMedia}
       />
       <AboutContent />
     </div>

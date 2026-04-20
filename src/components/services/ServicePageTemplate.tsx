@@ -6,6 +6,7 @@ import { WhatWeOffer } from './WhatWeOffer';
 import { ServiceAreas } from './ServiceAreas';
 import { ServiceTestimonial } from './ServiceTestimonial';
 import { CTABanner } from './CTABanner';
+import type { HeroMedia } from '@/lib/heroMedia';
 
 const OFFERING_KEYS = [
   'item1',
@@ -21,11 +22,14 @@ interface ServicePageTemplateProps {
   serviceKey: string;
   /** Hero image slug for responsive <picture> paths */
   heroSlug: string;
+  /** Optional Payload-served hero media; falls back to static /hero/{slug}/ if absent. */
+  heroMedia?: HeroMedia | null;
 }
 
 export function ServicePageTemplate({
   serviceKey,
   heroSlug,
+  heroMedia,
 }: ServicePageTemplateProps) {
   const t = useTranslations('services');
   const h = useTranslations('header');
@@ -55,6 +59,7 @@ export function ServicePageTemplate({
         ctaPhoneLabel={`Call ${h('phone')}`}
         phone="3015788779"
         phoneDisplay={h('phone')}
+        media={heroMedia}
       />
 
       <WhatWeOffer heading={t('whatWeOffer')} items={offerings} />

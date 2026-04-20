@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
+import { getHeroMedia } from '@/lib/heroMedia';
 import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
 import { GoogleReviews } from '@/components/embeds/GoogleReviews';
 import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
@@ -31,17 +32,18 @@ const WHY_CHOOSE_KEYS = [
 ] as const;
 
 export default async function HomePage() {
-  const [t, common, rating] = await Promise.all([
+  const [t, common, rating, heroMedia] = await Promise.all([
     getTranslations('home'),
     getTranslations('common'),
     getBusinessRating(),
+    getHeroMedia('homepage'),
   ]);
 
   return (
     <div className="font-sans min-h-screen">
       {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
-        className="relative w-full min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] overflow-hidden"
+        className="relative w-full min-h-105 sm:min-h-120 lg:min-h-135 overflow-hidden"
         aria-label="Hero"
       >
         {/* Full-bleed edge-to-edge background image */}
@@ -50,6 +52,7 @@ export default async function HomePage() {
             slug="homepage"
             alt={t('pageHero.alt')}
             title={t('pageHero.imgTitle')}
+            media={heroMedia}
             className="h-full"
           />
         </div>
@@ -63,8 +66,8 @@ export default async function HomePage() {
         />
 
         {/* Content overlay — white text on dark hero */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-[64px] py-[64px] flex items-center min-h-[420px] sm:min-h-[480px] lg:min-h-[540px]">
-          <div className="flex flex-col gap-[16px] w-full lg:w-[540px] shrink-0">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-16 flex items-center min-h-[420px] sm:min-h-[480px] lg:min-h-[540px]">
+          <div className="flex flex-col gap-4 w-full lg:w-135 shrink-0">
             <h1
               className="font-extrabold text-white text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px] drop-shadow-lg"
               style={{ fontFamily: 'var(--font-display)' }}
@@ -74,28 +77,16 @@ export default async function HomePage() {
             <p className="text-white/80 text-base leading-[1.6]">
               {t('pageHero.subtitle')}
             </p>
-            <p className="font-bold text-sm text-white leading-[1.5]">
+            <p className="font-bold text-sm text-white leading-normal">
               {t('pageHero.estimatePrompt')}
             </p>
             {/* Inline lead capture form over hero image */}
-            <div className="flex flex-col sm:flex-row gap-[8px] items-stretch sm:items-center">
-              <input
-                type="email"
-                placeholder={t('pageHero.emailPlaceholder')}
-                className="border border-white/30 rounded-lg px-4 text-sm text-white bg-white/10 backdrop-blur-sm placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[200px]"
-                aria-label={t('pageHero.emailLabel')}
-              />
-              <input
-                type="text"
-                defaultValue={t('pageHero.locationDefault')}
-                className="border border-white/30 rounded-lg px-4 text-sm font-medium text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#C62828] h-[44px] w-full sm:w-[160px]"
-                aria-label={t('pageHero.locationLabel')}
-              />
+            <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
               <ButtonLink
                 href="/get-a-quote"
                 variant="primary"
                 size="lg"
-                className="text-sm min-w-[160px] whitespace-nowrap"
+                className="text-sm min-w-40 whitespace-nowrap"
               >
                 {t('pageHero.ctaButton')}
               </ButtonLink>

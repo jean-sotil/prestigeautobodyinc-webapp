@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
+import { getHeroMedia } from '@/lib/heroMedia';
 
 const SERVICE_KEY = 'autoBodyServices';
 
@@ -32,7 +33,10 @@ export default async function AutoBodyServicesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'services' });
+  const [t, heroMedia] = await Promise.all([
+    getTranslations({ locale, namespace: 'services' }),
+    getHeroMedia('auto-body-services'),
+  ]);
 
   return (
     <>
@@ -44,6 +48,7 @@ export default async function AutoBodyServicesPage({
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="auto-body-services"
+        heroMedia={heroMedia}
       />
     </>
   );

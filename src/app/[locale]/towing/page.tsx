@@ -1,11 +1,14 @@
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
+import { getHeroMedia } from '@/lib/heroMedia';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function TowingPage() {
+export default async function TowingPage() {
+  const heroMedia = await getHeroMedia('towing-24-7');
+
   return (
     <div className="font-sans min-h-screen">
       <PageHeroBanner
@@ -14,6 +17,7 @@ export default function TowingPage() {
         title="24/7 Emergency Towing & Roadside Assistance in Silver Spring, MD"
         heading="24/7 Towing"
         subtitle="Emergency towing services available when you need us most"
+        media={heroMedia}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

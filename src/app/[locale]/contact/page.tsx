@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
+import { getMediaByFilename } from '@/lib/heroMedia';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -30,16 +31,22 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'contact' });
+  const [t, heroMedia] = await Promise.all([
+    getTranslations({ locale, namespace: 'contact' }),
+    getMediaByFilename(
+      'prestige-auto-body-icar-gold-class-certified-collision-repair-silver-spring.jpg',
+    ),
+  ]);
 
   return (
     <div className="font-sans min-h-screen">
       <PageHeroBanner
-        slug="prestige-auto-body-storefront-optimized"
+        slug="homepage"
         alt={t('heroImageAlt')}
         title={t('heroTitle')}
         heading={t('heading')}
         subtitle={t('subtitle')}
+        media={heroMedia}
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

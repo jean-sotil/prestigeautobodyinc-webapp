@@ -1,6 +1,7 @@
 import { ResponsiveHero } from '@/components/hero';
 import { ButtonLink } from '@/components/ui/Button';
 import { PhoneIcon } from '@/components/ui/Icons';
+import type { HeroMedia } from '@/lib/heroMedia';
 
 interface ServiceHeroProps {
   slug: string;
@@ -11,6 +12,7 @@ interface ServiceHeroProps {
   ctaPhoneLabel: string;
   phone: string;
   phoneDisplay: string;
+  media?: HeroMedia | null;
 }
 
 export function ServiceHero({
@@ -22,6 +24,7 @@ export function ServiceHero({
   ctaPhoneLabel,
   phone,
   phoneDisplay,
+  media,
 }: ServiceHeroProps) {
   return (
     <section className="relative">
@@ -32,6 +35,7 @@ export function ServiceHero({
           slug={slug}
           alt={imageAlt}
           title={title}
+          media={media}
           className="absolute inset-0 w-full h-full"
         />
 

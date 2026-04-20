@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import type { HeroMedia } from '@/lib/heroMedia';
+
 interface ResponsiveHeroProps {
   slug: string;
   alt: string;
@@ -5,12 +8,15 @@ interface ResponsiveHeroProps {
   priority?: boolean;
   className?: string;
   children?: React.ReactNode;
+  /** Optional Payload-served media. When provided, renders Next Image; otherwise falls back to the static /hero/{slug}/... art-directed crops. */
+  media?: HeroMedia | null;
 }
 
 /**
- * Responsive hero image using <picture> for art-directed breakpoints.
- * Serves mobile (≤767px), tablet (≤1023px), and desktop images.
- * Uses pregenerated WebP with JPG fallback for broad browser support.
+ * Responsive hero image. Prefers a Payload media URL via Next Image
+ * (auto-generates webp/avif at standard breakpoint widths). Falls back
+ * to the legacy <picture> with art-directed static crops in /public/hero
+ * if no media doc is supplied.
  */
 export function ResponsiveHero({
   slug,
@@ -19,51 +25,62 @@ export function ResponsiveHero({
   priority = true,
   className = '',
   children,
+  media,
 }: ResponsiveHeroProps) {
-  const basePath = `/hero/${slug}`;
-
   return (
     <div className={`relative w-full overflow-hidden ${className}`}>
-      <picture>
-        {/* Mobile: ≤767px */}
-        <source
-          media="(max-width: 767px)"
-          srcSet={`${basePath}/mobile/${slug}-hero-mobile.webp`}
-          type="image/webp"
-        />
-        <source
-          media="(max-width: 767px)"
-          srcSet={`${basePath}/mobile/${slug}-hero-mobile.jpg`}
-          type="image/jpeg"
-        />
-        {/* Tablet: 768px–1023px */}
-        <source
-          media="(max-width: 1023px)"
-          srcSet={`${basePath}/tablet/${slug}-hero-tablet.webp`}
-          type="image/webp"
-        />
-        <source
-          media="(max-width: 1023px)"
-          srcSet={`${basePath}/tablet/${slug}-hero-tablet.jpg`}
-          type="image/jpeg"
-        />
-        {/* Desktop: ≥1024px */}
-        <source
-          srcSet={`${basePath}/desktop/${slug}-hero-desktop.webp`}
-          type="image/webp"
-        />
-        {/* Fallback */}
-        {}
-        <img
-          src={`${basePath}/desktop/${slug}-hero-desktop.jpg`}
+      {media?.url ? (
+        <Image
+          src={media.url}
           alt={alt}
           title={title}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading={priority ? 'eager' : 'lazy'}
+          fill
+          sizes="100vw"
+          priority={priority}
           fetchPriority={priority ? 'high' : 'auto'}
-          decoding={priority ? 'sync' : 'async'}
+          quality={90}
+          className="object-cover"
         />
-      </picture>
+      ) : (
+        <picture>
+          {/* Mobile: ≤767px */}
+          <source
+            media="(max-width: 767px)"
+            srcSet={`/hero/${slug}/mobile/${slug}-hero-mobile.webp`}
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 767px)"
+            srcSet={`/hero/${slug}/mobile/${slug}-hero-mobile.jpg`}
+            type="image/jpeg"
+          />
+          {/* Tablet: 768px–1023px */}
+          <source
+            media="(max-width: 1023px)"
+            srcSet={`/hero/${slug}/tablet/${slug}-hero-tablet.webp`}
+            type="image/webp"
+          />
+          <source
+            media="(max-width: 1023px)"
+            srcSet={`/hero/${slug}/tablet/${slug}-hero-tablet.jpg`}
+            type="image/jpeg"
+          />
+          {/* Desktop: ≥1024px */}
+          <source
+            srcSet={`/hero/${slug}/desktop/${slug}-hero-desktop.webp`}
+            type="image/webp"
+          />
+          <img
+            src={`/hero/${slug}/desktop/${slug}-hero-desktop.jpg`}
+            alt={alt}
+            title={title}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : 'auto'}
+            decoding={priority ? 'sync' : 'async'}
+          />
+        </picture>
+      )}
       {children}
     </div>
   );
@@ -80,6 +97,7 @@ interface PageHeroBannerProps {
   title: string;
   heading: string;
   subtitle?: string;
+  media?: HeroMedia | null;
 }
 
 export function PageHeroBanner({
@@ -88,6 +106,7 @@ export function PageHeroBanner({
   title,
   heading,
   subtitle,
+  media,
 }: PageHeroBannerProps) {
   return (
     <section className="relative w-full h-60 sm:h-80 md:h-[400px] lg:h-[450px] overflow-hidden">
@@ -96,6 +115,7 @@ export function PageHeroBanner({
         slug={slug}
         alt={alt}
         title={title}
+        media={media}
         className="absolute inset-0 w-full h-full"
       />
       {/* Transparent gradient overlay */}
