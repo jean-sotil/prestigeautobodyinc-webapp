@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import { getMessages } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
+import { WebsiteJsonLd } from '@/components/seo';
 
 interface MessagesType {
   metadata?: {
@@ -49,10 +50,14 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const messages = await getMessages({ locale });
+  const messages = (await getMessages({ locale })) as MessagesType;
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <WebsiteJsonLd
+        locale={locale}
+        description={messages.metadata?.description}
+      />
       <Header />
       <main id="main-content" tabIndex={-1}>
         {children}
