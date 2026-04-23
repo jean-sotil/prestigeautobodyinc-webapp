@@ -250,7 +250,7 @@ export default function QuoteForm({ sidebar }: QuoteFormProps = {}) {
   const formColumn = (
     <div>
       <SectionHeading
-        id="get-a-free-estimate"
+        id="get-a-free-quote"
         overline={t('quote.ctaButton')}
         heading={t('quote.title')}
       />

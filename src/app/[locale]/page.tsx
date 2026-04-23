@@ -227,7 +227,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Get Your Free Estimate Section */}
+      {/* Get Your Free Quote Section */}
       <section className="z-0 py-16" aria-labelledby="free-estimate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
           <QuoteForm />

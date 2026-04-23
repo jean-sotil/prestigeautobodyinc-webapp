@@ -75,7 +75,7 @@ export default async function ContactPage({
           <div>
             <h2 className="text-xl font-semibold mb-4">Get in Touch</h2>
             <p className="text-muted-foreground mb-4">
-              Ready to get started? Contact us today for a free estimate on your
+              Ready to get started? Contact us today for a free quote on your
               vehicle repair.
             </p>
             <div className="space-y-2">
