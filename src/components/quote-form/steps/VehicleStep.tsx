@@ -1,11 +1,9 @@
 'use client';
 
-import { useId } from 'react';
+import { useId, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { QuoteFormData, FormAction } from '../hooks/useQuoteForm';
-
-// ============================================================================
-// Types
-// ============================================================================
+import { useShakeOnError } from '../hooks/useShakeOnError';
 
 interface VehicleStepProps {
   state: QuoteFormData;
@@ -13,16 +11,13 @@ interface VehicleStepProps {
   errors: Record<string, string>;
 }
 
-// ============================================================================
-// Constants
-// ============================================================================
-
 const currentYear = new Date().getFullYear();
-const years = Array.from({ length: currentYear - 1990 + 1 }, (_, i) =>
-  String(currentYear - i),
+const years: readonly string[] = Array.from(
+  { length: currentYear - 1990 + 1 },
+  (_, i) => String(currentYear - i),
 );
 
-const makes = [
+const makes: readonly string[] = [
   'Toyota',
   'Honda',
   'Ford',
@@ -38,174 +33,276 @@ const makes = [
   'Audi',
   'Lexus',
   'Acura',
-  'Other',
-];
+] as const;
 
-// ============================================================================
-// Shared input classes
-// ============================================================================
+const OTHER_SENTINEL = 'Other';
 
-const inputBase =
-  'h-12 w-full rounded-lg border px-4 text-base transition-colors focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828] focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2';
-const inputNormal = `${inputBase} border-gray-300 dark:border-[#444444] bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-[#E0E0E0]`;
-const inputError = `${inputBase} border-[#DC2626] bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-[#E0E0E0] animate-shake`;
+const fieldBase =
+  'h-12 w-full rounded-lg border px-4 text-base bg-background text-foreground placeholder:text-muted-foreground transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
-// ============================================================================
-// Component
-// ============================================================================
+const selectBase = `${fieldBase} appearance-none pr-10`;
 
 export function VehicleStep({ state, dispatch, errors }: VehicleStepProps) {
-  const id = useId();
-  const yearId = `${id}-year`;
-  const makeId = `${id}-make`;
-  const modelId = `${id}-model`;
-  const customMakeId = `${id}-custom-make`;
+  const t = useTranslations('home.quote.vehicle');
+  const reactId = useId();
+  const yearId = `${reactId}-year`;
+  const makeId = `${reactId}-make`;
+  const customMakeId = `${reactId}-custom-make`;
+  const modelId = `${reactId}-model`;
 
-  const showCustomMake = state.make === 'Other';
+  const [otherMode, setOtherMode] = useState(
+    () =>
+      state.make === OTHER_SENTINEL ||
+      (state.make !== '' && !makes.includes(state.make)),
+  );
+
+  const selectMakeValue = otherMode ? OTHER_SENTINEL : state.make;
+  const customMakeValue = state.make === OTHER_SENTINEL ? '' : state.make;
+
+  const yearShake = useShakeOnError(errors.year);
+  const makeShake = useShakeOnError(errors.make);
+
+  function handleYearChange(value: string) {
+    dispatch({ type: 'UPDATE_FIELD', field: 'year', value });
+  }
+
+  function handleMakeSelect(value: string) {
+    if (value === OTHER_SENTINEL) {
+      setOtherMode(true);
+      if (makes.includes(state.make) || state.make === OTHER_SENTINEL) {
+        dispatch({ type: 'UPDATE_FIELD', field: 'make', value: '' });
+      }
+    } else {
+      setOtherMode(false);
+      dispatch({ type: 'UPDATE_FIELD', field: 'make', value });
+    }
+  }
+
+  function handleCustomMakeChange(value: string) {
+    dispatch({ type: 'UPDATE_FIELD', field: 'make', value });
+  }
+
+  function handleModelChange(value: string) {
+    dispatch({ type: 'UPDATE_FIELD', field: 'model', value });
+  }
 
   return (
-    <div className="space-y-4">
-      {/* Year + Make row */}
+    <div className="space-y-5">
+      <div className="flex items-baseline justify-between gap-4">
+        <p className="text-base md:text-lg font-medium text-foreground">
+          {t('prompt')}
+        </p>
+        <span className="text-xs text-muted-foreground" aria-hidden="true">
+          {t('required')}
+        </span>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {/* Year */}
-        <div>
-          <label
-            htmlFor={yearId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            Year <span className="text-[#DC2626]">*</span>
-          </label>
-          <select
+        <Field id={yearId} label={t('yearLabel')} required error={errors.year}>
+          <SelectWithChevron
             id={yearId}
             value={state.year}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                field: 'year',
-                value: e.target.value,
-              })
-            }
-            className={errors.year ? inputError : inputNormal}
-            aria-describedby={errors.year ? `${yearId}-error` : undefined}
-            aria-invalid={!!errors.year}
+            onChange={handleYearChange}
+            className={[
+              selectBase,
+              errors.year ? 'border-destructive' : 'border-input',
+              yearShake ? 'animate-shake' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+            ariaInvalid={Boolean(errors.year)}
+            ariaDescribedBy={errors.year ? `${yearId}-error` : undefined}
           >
-            <option value="">Select year</option>
+            <option value="">{t('yearPlaceholder')}</option>
             {years.map((y) => (
               <option key={y} value={y}>
                 {y}
               </option>
             ))}
-          </select>
-          {errors.year && (
-            <p
-              id={`${yearId}-error`}
-              className="text-sm text-[#DC2626] mt-1"
-              role="alert"
-            >
-              {errors.year}
-            </p>
-          )}
-        </div>
+          </SelectWithChevron>
+        </Field>
 
-        {/* Make */}
-        <div>
-          <label
-            htmlFor={makeId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            Make <span className="text-[#DC2626]">*</span>
-          </label>
-          <select
+        <Field id={makeId} label={t('makeLabel')} required error={errors.make}>
+          <SelectWithChevron
             id={makeId}
-            value={state.make}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                field: 'make',
-                value: e.target.value,
-              })
-            }
-            className={errors.make ? inputError : inputNormal}
-            aria-describedby={errors.make ? `${makeId}-error` : undefined}
-            aria-invalid={!!errors.make}
+            value={selectMakeValue}
+            onChange={handleMakeSelect}
+            className={[
+              selectBase,
+              errors.make ? 'border-destructive' : 'border-input',
+              makeShake ? 'animate-shake' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
+            ariaInvalid={Boolean(errors.make)}
+            ariaDescribedBy={errors.make ? `${makeId}-error` : undefined}
           >
-            <option value="">Select make</option>
+            <option value="">{t('makePlaceholder')}</option>
             {makes.map((m) => (
               <option key={m} value={m}>
                 {m}
               </option>
             ))}
-          </select>
-          {errors.make && (
-            <p
-              id={`${makeId}-error`}
-              className="text-sm text-[#DC2626] mt-1"
-              role="alert"
-            >
-              {errors.make}
-            </p>
-          )}
-        </div>
+            <option value={OTHER_SENTINEL}>{t('makeOther')}</option>
+          </SelectWithChevron>
+        </Field>
       </div>
 
-      {/* Custom make input (when "Other" selected) */}
-      {showCustomMake && (
-        <div>
-          <label
-            htmlFor={customMakeId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            Specify Make <span className="text-[#DC2626]">*</span>
-          </label>
+      {otherMode && (
+        <Field id={customMakeId} label={t('customMakeLabel')} required>
           <input
             id={customMakeId}
             type="text"
-            value={state.make === 'Other' ? '' : state.make}
-            onChange={(e) =>
-              dispatch({
-                type: 'UPDATE_FIELD',
-                field: 'make',
-                value: e.target.value || 'Other',
-              })
-            }
-            placeholder="Enter vehicle make"
+            value={customMakeValue}
+            onChange={(e) => handleCustomMakeChange(e.target.value)}
+            placeholder={t('customMakePlaceholder')}
             maxLength={50}
-            className={inputNormal}
+            autoComplete="off"
+            className={`${fieldBase} border-input`}
           />
-        </div>
+        </Field>
       )}
 
-      {/* Model */}
-      <div>
-        <label
-          htmlFor={modelId}
-          className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-        >
-          Model{' '}
-          <span className="text-gray-400 text-xs font-normal">(optional)</span>
-        </label>
+      <Field
+        id={modelId}
+        label={t('modelLabel')}
+        optionalHint={t('modelOptional')}
+      >
         <input
           id={modelId}
           type="text"
           value={state.model}
-          onChange={(e) =>
-            dispatch({
-              type: 'UPDATE_FIELD',
-              field: 'model',
-              value: e.target.value,
-            })
-          }
-          placeholder="e.g., Camry, Civic, F-150"
+          onChange={(e) => handleModelChange(e.target.value)}
+          placeholder={t('modelPlaceholder')}
           maxLength={50}
-          className={inputNormal}
+          autoComplete="off"
+          className={`${fieldBase} border-input`}
         />
-      </div>
+      </Field>
 
-      {/* Info callout */}
-      <div className="text-sm text-gray-500 dark:text-[#A0A0A0] bg-gray-50 dark:bg-[#1E1E1E] rounded-lg p-3 mt-4">
-        We service all domestic and import makes including Toyota, Honda, BMW,
-        Mercedes-Benz, Hyundai, Mazda, Subaru, and many more.
+      <div className="flex items-start gap-2.5 rounded-lg bg-muted p-3.5 text-sm text-muted-foreground">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-hover"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="8" cy="8" r="6.5" />
+          <path d="M8 7.5v3.5" />
+          <path d="M8 5h.01" />
+        </svg>
+        <p className="leading-relaxed">{t('callout')}</p>
       </div>
+    </div>
+  );
+}
+
+function Field({
+  id,
+  label,
+  required,
+  optionalHint,
+  error,
+  children,
+}: {
+  id: string;
+  label: string;
+  required?: boolean;
+  optionalHint?: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="block text-sm font-medium text-foreground mb-1.5"
+      >
+        {label}
+        {required && (
+          <span className="text-destructive ml-0.5" aria-hidden="true">
+            ∗
+          </span>
+        )}
+        {optionalHint && (
+          <span className="ml-1 text-xs font-normal text-muted-foreground">
+            {optionalHint}
+          </span>
+        )}
+      </label>
+      {children}
+      {error && (
+        <p
+          id={`${id}-error`}
+          role="alert"
+          className="mt-1.5 flex items-center gap-1.5 text-sm text-destructive"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            className="h-4 w-4 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="8" cy="8" r="6.5" />
+            <path d="M8 5v3.5" />
+            <path d="M8 11h.01" />
+          </svg>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function SelectWithChevron({
+  id,
+  value,
+  onChange,
+  className,
+  ariaInvalid,
+  ariaDescribedBy,
+  children,
+}: {
+  id: string;
+  value: string;
+  onChange: (value: string) => void;
+  className: string;
+  ariaInvalid?: boolean;
+  ariaDescribedBy?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="relative">
+      <select
+        id={id}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={className}
+        aria-invalid={ariaInvalid || undefined}
+        aria-describedby={ariaDescribedBy}
+      >
+        {children}
+      </select>
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 16 16"
+        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 6l4 4 4-4" />
+      </svg>
     </div>
   );
 }

@@ -69,10 +69,10 @@ export default async function HomePage() {
       {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
         className="bg-foreground relative w-full min-h-105 sm:min-h-120 lg:min-h-135 overflow-hidden"
-        aria-label="Hero"
+        aria-labelledby="hero-heading"
       >
-        {/* Full-bleed edge-to-edge background image */}
-        <div className="absolute inset-0 w-full h-full">
+        {/* Full-bleed edge-to-edge background image with subtle Ken Burns */}
+        <div className="absolute inset-0 w-full h-full motion-safe:animate-ken-burns">
           <ResponsiveHero
             slug="homepage"
             alt={pickAlt(heroMedia, locale, t('pageHero.alt'))}
@@ -81,65 +81,67 @@ export default async function HomePage() {
             className="h-full"
           />
         </div>
-        {/* Dark gradient overlay — heavy left, transparent right */}
+        {/* Directional gradient overlay — dark-to-red-tint across the width */}
         <div
           className="absolute inset-0"
+          aria-hidden="true"
           style={{
             background:
-              'linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, transparent 85%)',
+              'linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 45%, var(--color-red-surface) 75%, transparent 100%)',
           }}
         />
 
         {/* Content overlay — white text on dark hero */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-16 flex items-center min-h-[420px] sm:min-h-[480px] lg:min-h-[540px]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-16 flex items-center">
           <div className="flex flex-col gap-4 w-full lg:w-135 shrink-0">
             <h1
-              className="font-extrabold text-white text-[32px] md:text-[48px] leading-[1.2] tracking-[-0.72px] max-w-[480px] drop-shadow-lg"
-              style={{ fontFamily: 'var(--font-display)' }}
+              id="hero-heading"
+              className="font-display font-extrabold text-white text-3xl md:text-5xl leading-tight tracking-display max-w-[480px] drop-shadow-lg motion-safe:animate-slide-in-left motion-safe:delay-200"
             >
               {t('pageHero.h1')}
             </h1>
-            <p className="text-white/80 text-base leading-[1.6]">
+            <p className="text-white/80 text-base leading-relaxed motion-safe:animate-slide-in-left motion-safe:delay-[350ms]">
               {t('pageHero.subtitle')}
             </p>
-            <p className="font-bold text-sm text-white leading-normal">
-              {t('pageHero.estimatePrompt')}
-            </p>
-            {/* Inline lead capture form over hero image */}
-            <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
-              <ButtonLink
-                href="/get-a-quote"
-                variant="primary"
-                size="lg"
-                className="text-sm min-w-40 whitespace-nowrap"
-              >
-                {t('pageHero.ctaButton')}
-              </ButtonLink>
-            </div>
-            {/* Video play button */}
-            <Link
-              href="/gallery"
-              className="flex items-center gap-[8px] w-fit group"
-            >
-              <div className="w-6 h-6 rounded-full bg-[#C62828] flex items-center justify-center flex-shrink-0 group-hover:bg-[#a82020] transition-colors">
-                <svg
-                  className="w-3 h-3 text-white ml-0.5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+            <div className="flex flex-col gap-4 motion-safe:animate-slide-in-left motion-safe:delay-500">
+              <p className="font-bold text-sm text-white leading-normal">
+                {t('pageHero.estimatePrompt')}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
+                <ButtonLink
+                  href="/get-a-quote"
+                  variant="primary"
+                  size="lg"
+                  className="text-sm min-w-40 whitespace-nowrap"
                 >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                  {t('pageHero.ctaButton')}
+                </ButtonLink>
               </div>
-              <div className="flex flex-col leading-[normal] text-sm">
-                <span className="font-bold text-[#C62828]">
-                  {t('pageHero.seeLabel')}
+              {/* See our work — video/gallery link */}
+              <Link
+                href="/gallery"
+                className="group inline-flex items-center gap-2 w-fit rounded-md px-1 py-0.5 -ml-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground flex-shrink-0 transition-colors duration-150 group-hover:bg-red-pressed">
+                  <svg
+                    className="h-3 w-3 ml-0.5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </span>
-                <span className="text-white/90">
-                  {t('pageHero.ourWorkLabel')}
+                <span className="flex flex-col leading-normal text-sm">
+                  <span className="font-bold text-red-hover">
+                    {t('pageHero.seeLabel')}
+                  </span>
+                  <span className="text-white/90">
+                    {t('pageHero.ourWorkLabel')}
+                  </span>
                 </span>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -67,7 +67,12 @@ function QuoteFormInner() {
   const formStartedRef = useRef(false);
   const [mountTime] = useState(() => Date.now());
 
-  const { submit, isPending, isSuccess } = useSubmitQuote(() => {
+  const {
+    submit,
+    isPending,
+    isSuccess,
+    data: submitResult,
+  } = useSubmitQuote(() => {
     clearDraft();
   });
 
@@ -175,7 +180,13 @@ function QuoteFormInner() {
 
   // ---- Render ----
   if (isSuccess) {
-    return <QuoteConfirmation data={state} onReset={handleReset} />;
+    return (
+      <QuoteConfirmation
+        data={state}
+        referenceId={submitResult?.referenceId}
+        onReset={handleReset}
+      />
+    );
   }
 
   return (

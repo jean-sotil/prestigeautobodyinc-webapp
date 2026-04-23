@@ -198,7 +198,170 @@
       "title": "Get a Free Estimate",
       "description": "Ready to restore your vehicle? Get a free, no-obligation estimate today.",
       "comingSoon": "Our online quote form is coming soon. For now, please contact us directly.",
-      "ctaButton": "Contact Us for Quote"
+      "ctaButton": "Contact Us for Quote",
+      "services": {
+        "prompt": "What brings you in today?",
+        "groupLabel": "Select a service",
+        "errorRequired": "Please select a service to continue",
+        "collision": {
+          "title": "Collision Repair",
+          "description": "Restore pre-accident condition with certified technicians"
+        },
+        "bodywork": {
+          "title": "Auto Body Work",
+          "description": "Dent, frame, and panel repair — structural restoration"
+        },
+        "painting": {
+          "title": "Auto Painting",
+          "description": "Factory color matching in a climate-controlled booth"
+        },
+        "insurance": {
+          "title": "Insurance Claim",
+          "description": "We handle the paperwork with every major carrier"
+        }
+      },
+      "vehicle": {
+        "prompt": "Tell us about your vehicle",
+        "required": "∗ required",
+        "yearLabel": "Year",
+        "yearPlaceholder": "Select year",
+        "makeLabel": "Make",
+        "makePlaceholder": "Select make",
+        "makeOther": "Other",
+        "customMakeLabel": "Specify make",
+        "customMakePlaceholder": "Enter vehicle make",
+        "modelLabel": "Model",
+        "modelOptional": "(optional)",
+        "modelPlaceholder": "e.g., Camry, Civic, F-150",
+        "callout": "We service all domestic and import makes — Toyota, Honda, BMW, Mercedes-Benz, Hyundai, Mazda, Subaru, and many more."
+      },
+      "progress": {
+        "stepCount": "Step {current} of {total}",
+        "ariaLabel": "Form progress: {percent}%",
+        "steps": {
+          "service": "Service",
+          "vehicle": "Vehicle",
+          "damage": "Damage",
+          "contact": "Contact"
+        },
+        "stepAria": {
+          "completed": "{label}, completed — click to return",
+          "current": "{label}, current step",
+          "future": "{label}, not started"
+        }
+      },
+      "nav": {
+        "next": "Next",
+        "continue": "Continue",
+        "back": "Back",
+        "submit": "Submit request",
+        "submitting": "Submitting…",
+        "submittingStatus": "Submitting your request"
+      },
+      "contact": {
+        "prompt": "How can we reach you?",
+        "required": "∗ required",
+        "firstNameLabel": "First name",
+        "firstNamePlaceholder": "First name",
+        "lastNameLabel": "Last name",
+        "lastNameOptional": "(optional)",
+        "lastNamePlaceholder": "Last name",
+        "phoneLabel": "Phone",
+        "phonePlaceholder": "(301) 555-0123",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@example.com",
+        "methodLabel": "Preferred contact method",
+        "methodGroupLabel": "Preferred contact method",
+        "method": {
+          "phone": "Phone",
+          "text": "Text",
+          "email": "Email"
+        }
+      },
+      "confirmation": {
+        "title": "Quote Request Sent",
+        "thankYou": "Thank you, {name}.",
+        "referenceIdLabel": "Reference ID",
+        "copyLabel": "Copy reference ID",
+        "copiedLabel": "Copied",
+        "timelineTitle": "What happens next",
+        "timeline": {
+          "step1Title": "Request received",
+          "step1Body": "Your details and any photos are on their way.",
+          "step2Title": "Our team reviews",
+          "step2Body": "A certified estimator looks at your case.",
+          "step3Title": "We call you back",
+          "step3Body": "Within 2 business hours (Mon–Fri 8am–6pm, Sat 8am–12pm)."
+        },
+        "summaryTitle": "Request summary",
+        "summaryService": "Service",
+        "summaryVehicle": "Vehicle",
+        "summaryDamage": "Damage level",
+        "summaryContact": "Preferred contact",
+        "notSet": "—",
+        "contactMethod": {
+          "phone": "Phone",
+          "text": "Text message",
+          "email": "Email"
+        },
+        "photos": {
+          "title": "Got more photos to share?",
+          "body": "If you have additional damage photos, send them to speed up your estimate.",
+          "textTo": "Text to {phone}",
+          "emailTo": "Email to {email}"
+        },
+        "reset": "Submit another request",
+        "callUs": "Or call {phone}"
+      },
+      "damage": {
+        "severity": {
+          "prompt": "How would you describe the damage?",
+          "groupLabel": "Select damage severity",
+          "errorRequired": "Please select a damage level to continue",
+          "minor": {
+            "label": "Minor",
+            "description": "Small dents, scratches, scuffs"
+          },
+          "moderate": {
+            "label": "Moderate",
+            "description": "Panel damage, cracked bumper"
+          },
+          "major": {
+            "label": "Major",
+            "description": "Structural damage, multiple panels"
+          },
+          "unsure": {
+            "label": "Not sure",
+            "description": "Needs professional assessment"
+          }
+        },
+        "description": {
+          "label": "Describe the damage",
+          "optional": "(optional)",
+          "placeholder": "Tell us what happened — when, where, any other details..."
+        },
+        "photos": {
+          "label": "Photos of the damage",
+          "optional": "(optional)",
+          "counter": "{count}/{max}",
+          "dropzone": {
+            "idle": "Click to upload or drag & drop",
+            "active": "Drop photos to upload",
+            "full": "Photo limit reached",
+            "help": "JPG · PNG · WEBP · HEIC · up to {size} MB each · {max} photos max",
+            "ariaLabel": "Upload damage photos. Click or drag files to this area.",
+            "ariaLabelFull": "Photo limit reached"
+          },
+          "reject": {
+            "limit": "Photo limit reached",
+            "type": "Unsupported file type",
+            "size": "Exceeds {max} MB"
+          },
+          "remove": "Remove {name}",
+          "thumbAlt": "Damage photo: {name}",
+          "galleryLabel": "Uploaded damage photos"
+        }
+      }
     },
     "cta": {
       "title": "Ready to Get Started?",

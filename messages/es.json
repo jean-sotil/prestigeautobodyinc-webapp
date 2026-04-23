@@ -198,7 +198,170 @@
       "title": "Obtenga un Estimado Gratis",
       "description": "¿Listo para restaurar su vehículo? Obtenga un estimado gratuito sin compromiso hoy.",
       "comingSoon": "Nuestro formulario de cotización en línea estará disponible pronto. Por ahora, contáctenos directamente.",
-      "ctaButton": "Contáctenos para Cotización"
+      "ctaButton": "Contáctenos para Cotización",
+      "services": {
+        "prompt": "¿En qué podemos ayudarle hoy?",
+        "groupLabel": "Seleccione un servicio",
+        "errorRequired": "Por favor seleccione un servicio para continuar",
+        "collision": {
+          "title": "Reparación de Colisión",
+          "description": "Restauramos su vehículo a su estado anterior al accidente"
+        },
+        "bodywork": {
+          "title": "Trabajo de Carrocería",
+          "description": "Abolladuras, chasis y paneles — restauración estructural"
+        },
+        "painting": {
+          "title": "Pintura Automotriz",
+          "description": "Igualación de color en cabina climatizada"
+        },
+        "insurance": {
+          "title": "Reclamo de Seguro",
+          "description": "Gestionamos el trámite con todas las aseguradoras"
+        }
+      },
+      "vehicle": {
+        "prompt": "Cuéntenos sobre su vehículo",
+        "required": "∗ obligatorio",
+        "yearLabel": "Año",
+        "yearPlaceholder": "Seleccione el año",
+        "makeLabel": "Marca",
+        "makePlaceholder": "Seleccione la marca",
+        "makeOther": "Otra",
+        "customMakeLabel": "Especifique la marca",
+        "customMakePlaceholder": "Ingrese la marca del vehículo",
+        "modelLabel": "Modelo",
+        "modelOptional": "(opcional)",
+        "modelPlaceholder": "ej., Camry, Civic, F-150",
+        "callout": "Reparamos todas las marcas nacionales e importadas — Toyota, Honda, BMW, Mercedes-Benz, Hyundai, Mazda, Subaru, entre muchas más."
+      },
+      "progress": {
+        "stepCount": "Paso {current} de {total}",
+        "ariaLabel": "Progreso del formulario: {percent}%",
+        "steps": {
+          "service": "Servicio",
+          "vehicle": "Vehículo",
+          "damage": "Daño",
+          "contact": "Contacto"
+        },
+        "stepAria": {
+          "completed": "{label}, completado — haga clic para volver",
+          "current": "{label}, paso actual",
+          "future": "{label}, aún no iniciado"
+        }
+      },
+      "nav": {
+        "next": "Siguiente",
+        "continue": "Continuar",
+        "back": "Atrás",
+        "submit": "Enviar solicitud",
+        "submitting": "Enviando…",
+        "submittingStatus": "Enviando su solicitud"
+      },
+      "contact": {
+        "prompt": "¿Cómo podemos comunicarnos con usted?",
+        "required": "∗ obligatorio",
+        "firstNameLabel": "Nombre",
+        "firstNamePlaceholder": "Nombre",
+        "lastNameLabel": "Apellido",
+        "lastNameOptional": "(opcional)",
+        "lastNamePlaceholder": "Apellido",
+        "phoneLabel": "Teléfono",
+        "phonePlaceholder": "(301) 555-0123",
+        "emailLabel": "Correo electrónico",
+        "emailPlaceholder": "usted@ejemplo.com",
+        "methodLabel": "Método de contacto preferido",
+        "methodGroupLabel": "Método de contacto preferido",
+        "method": {
+          "phone": "Teléfono",
+          "text": "Texto",
+          "email": "Email"
+        }
+      },
+      "confirmation": {
+        "title": "Solicitud Enviada",
+        "thankYou": "Gracias, {name}.",
+        "referenceIdLabel": "Número de referencia",
+        "copyLabel": "Copiar número de referencia",
+        "copiedLabel": "Copiado",
+        "timelineTitle": "Qué sigue",
+        "timeline": {
+          "step1Title": "Solicitud recibida",
+          "step1Body": "Sus datos y las fotos enviadas ya están en camino.",
+          "step2Title": "Nuestro equipo revisa",
+          "step2Body": "Un estimador certificado analiza su caso.",
+          "step3Title": "Le llamamos",
+          "step3Body": "En un plazo de 2 horas hábiles (lun–vie 8am–6pm, sáb 8am–12pm)."
+        },
+        "summaryTitle": "Resumen de la solicitud",
+        "summaryService": "Servicio",
+        "summaryVehicle": "Vehículo",
+        "summaryDamage": "Nivel de daño",
+        "summaryContact": "Contacto preferido",
+        "notSet": "—",
+        "contactMethod": {
+          "phone": "Teléfono",
+          "text": "Mensaje de texto",
+          "email": "Correo electrónico"
+        },
+        "photos": {
+          "title": "¿Tiene más fotos para compartir?",
+          "body": "Si tiene fotos adicionales del daño, envíelas para agilizar su estimado.",
+          "textTo": "Enviar al {phone}",
+          "emailTo": "Correo a {email}"
+        },
+        "reset": "Enviar otra solicitud",
+        "callUs": "O llame al {phone}"
+      },
+      "damage": {
+        "severity": {
+          "prompt": "¿Cómo describiría el daño?",
+          "groupLabel": "Seleccione el nivel de daño",
+          "errorRequired": "Por favor seleccione un nivel de daño para continuar",
+          "minor": {
+            "label": "Leve",
+            "description": "Abolladuras pequeñas, rayones, raspaduras"
+          },
+          "moderate": {
+            "label": "Moderado",
+            "description": "Daño de paneles, parachoques agrietado"
+          },
+          "major": {
+            "label": "Mayor",
+            "description": "Daño estructural, múltiples paneles"
+          },
+          "unsure": {
+            "label": "No estoy seguro",
+            "description": "Requiere evaluación profesional"
+          }
+        },
+        "description": {
+          "label": "Describa el daño",
+          "optional": "(opcional)",
+          "placeholder": "Cuéntenos qué pasó — cuándo, dónde, otros detalles..."
+        },
+        "photos": {
+          "label": "Fotos del daño",
+          "optional": "(opcional)",
+          "counter": "{count}/{max}",
+          "dropzone": {
+            "idle": "Haga clic para subir o arrastre y suelte",
+            "active": "Suelte las fotos para subir",
+            "full": "Límite de fotos alcanzado",
+            "help": "JPG · PNG · WEBP · HEIC · máx. {size} MB cada una · máx. {max} fotos",
+            "ariaLabel": "Subir fotos del daño. Haga clic o arrastre archivos a esta zona.",
+            "ariaLabelFull": "Límite de fotos alcanzado"
+          },
+          "reject": {
+            "limit": "Límite de fotos alcanzado",
+            "type": "Tipo de archivo no admitido",
+            "size": "Supera {max} MB"
+          },
+          "remove": "Eliminar {name}",
+          "thumbAlt": "Foto del daño: {name}",
+          "galleryLabel": "Fotos del daño subidas"
+        }
+      }
     },
     "cta": {
       "title": "¿Listo para Comenzar?",

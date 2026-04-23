@@ -1,11 +1,9 @@
 'use client';
 
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { QuoteFormData, FormAction } from '../hooks/useQuoteForm';
-
-// ============================================================================
-// Types
-// ============================================================================
+import { useShakeOnError } from '../hooks/useShakeOnError';
 
 interface DamageStepProps {
   state: QuoteFormData;
@@ -16,18 +14,21 @@ interface DamageStepProps {
 }
 
 type SeverityId = 'minor' | 'moderate' | 'major' | 'unsure';
+type RejectReason = 'limit' | 'type' | 'size';
 
-interface SeverityOption {
-  id: SeverityId;
-  label: string;
-  description: string;
-  dotColor: string;
-  bgSelected: string;
-}
+const severityOrder: readonly SeverityId[] = [
+  'minor',
+  'moderate',
+  'major',
+  'unsure',
+] as const;
 
-// ============================================================================
-// Constants
-// ============================================================================
+const severityDot: Record<SeverityId, string> = {
+  minor: 'bg-green-500 dark:bg-green-400',
+  moderate: 'bg-amber-500 dark:bg-amber-400',
+  major: 'bg-red-600 dark:bg-red-500',
+  unsure: 'bg-gray-500 dark:bg-gray-400',
+};
 
 const MAX_FILES = 5;
 const MAX_FILE_SIZE_MB = 5;
@@ -39,46 +40,8 @@ const ACCEPTED_MIME = [
   'image/heic',
   'image/heif',
 ];
-const ACCEPTED_HELP = 'JPG · PNG · WEBP · HEIC';
-
-// ============================================================================
-// Severity Options
-// ============================================================================
-
-const severities: SeverityOption[] = [
-  {
-    id: 'minor',
-    label: 'Minor',
-    description: 'Small dents, scratches, scuffs',
-    dotColor: 'bg-[#22C55E]',
-    bgSelected: 'bg-green-50/60 dark:bg-green-900/10',
-  },
-  {
-    id: 'moderate',
-    label: 'Moderate',
-    description: 'Panel damage, cracked bumper',
-    dotColor: 'bg-[#F59E0B]',
-    bgSelected: 'bg-amber-50/60 dark:bg-amber-900/10',
-  },
-  {
-    id: 'major',
-    label: 'Major',
-    description: 'Structural damage, multiple panels',
-    dotColor: 'bg-[#DC2626]',
-    bgSelected: 'bg-red-50/60 dark:bg-red-900/10',
-  },
-  {
-    id: 'unsure',
-    label: 'Not Sure',
-    description: 'Needs professional assessment',
-    dotColor: 'bg-[#6B7280]',
-    bgSelected: 'bg-gray-50/60 dark:bg-gray-800/20',
-  },
-];
-
-// ============================================================================
-// Helpers
-// ============================================================================
+const CHAR_LIMIT = 500;
+const CHAR_WARN = 450;
 
 function formatSize(bytes: number): string {
   if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
@@ -87,7 +50,7 @@ function formatSize(bytes: number): string {
 
 interface ValidationResult {
   accepted: File[];
-  rejected: { name: string; reason: string }[];
+  rejected: { name: string; reason: RejectReason }[];
 }
 
 function validateIncoming(
@@ -95,36 +58,29 @@ function validateIncoming(
   existingCount: number,
 ): ValidationResult {
   const accepted: File[] = [];
-  const rejected: { name: string; reason: string }[] = [];
+  const rejected: { name: string; reason: RejectReason }[] = [];
   const slotsLeft = Math.max(0, MAX_FILES - existingCount);
 
   for (const file of incoming) {
     if (accepted.length >= slotsLeft) {
-      rejected.push({ name: file.name, reason: 'Photo limit reached' });
+      rejected.push({ name: file.name, reason: 'limit' });
       continue;
     }
     const typeOk =
       ACCEPTED_MIME.includes(file.type) ||
       /\.(jpe?g|png|webp|heic|heif)$/i.test(file.name);
     if (!typeOk) {
-      rejected.push({ name: file.name, reason: 'Unsupported file type' });
+      rejected.push({ name: file.name, reason: 'type' });
       continue;
     }
     if (file.size > MAX_FILE_SIZE_BYTES) {
-      rejected.push({
-        name: file.name,
-        reason: `Exceeds ${MAX_FILE_SIZE_MB} MB`,
-      });
+      rejected.push({ name: file.name, reason: 'size' });
       continue;
     }
     accepted.push(file);
   }
   return { accepted, rejected };
 }
-
-// ============================================================================
-// Component
-// ============================================================================
 
 export function DamageStep({
   state,
@@ -133,17 +89,20 @@ export function DamageStep({
   addFiles,
   removeFile,
 }: DamageStepProps) {
-  const id = useId();
-  const descId = `${id}-desc`;
-  const dropzoneHelpId = `${id}-dropzone-help`;
-  const charCount = state.description.length;
+  const t = useTranslations('home.quote.damage');
+  const reactId = useId();
+  const descId = `${reactId}-desc`;
+  const dropzoneHelpId = `${reactId}-dropzone-help`;
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const severityRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [isDragging, setIsDragging] = useState(false);
   const dragCounter = useRef(0);
-  const [rejected, setRejected] = useState<{ name: string; reason: string }[]>(
-    [],
-  );
+  const [rejected, setRejected] = useState<
+    { name: string; reason: RejectReason }[]
+  >([]);
+
+  const severityShake = useShakeOnError(errors.damage);
 
   const previews = useMemo(
     () => state.files.map((f) => URL.createObjectURL(f)),
@@ -154,6 +113,44 @@ export function DamageStep({
     () => () => previews.forEach((u) => URL.revokeObjectURL(u)),
     [previews],
   );
+
+  const selectedSeverity = state.damage as SeverityId | '';
+  const severityActiveIdx = selectedSeverity
+    ? severityOrder.indexOf(selectedSeverity as SeverityId)
+    : 0;
+
+  function selectSeverity(id: SeverityId) {
+    dispatch({ type: 'UPDATE_FIELD', field: 'damage', value: id });
+  }
+
+  function handleSeverityKey(
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    idx: number,
+  ) {
+    let nextIdx = idx;
+    switch (event.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        nextIdx = (idx + 1) % severityOrder.length;
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        nextIdx = (idx - 1 + severityOrder.length) % severityOrder.length;
+        break;
+      case 'Home':
+        nextIdx = 0;
+        break;
+      case 'End':
+        nextIdx = severityOrder.length - 1;
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+    const next = severityOrder[nextIdx];
+    selectSeverity(next);
+    severityRefs.current[nextIdx]?.focus();
+  }
 
   function handleFiles(incoming: FileList | File[]) {
     const arr = Array.from(incoming);
@@ -218,79 +215,122 @@ export function DamageStep({
   const slotsLeft = MAX_FILES - fileCount;
   const atCapacity = slotsLeft <= 0;
 
+  const charCount = state.description.length;
+  const charAtLimit = charCount >= CHAR_LIMIT;
+  const charNearLimit = charCount >= CHAR_WARN;
+  const charClass = charAtLimit
+    ? 'text-destructive'
+    : charNearLimit
+      ? 'text-red-hover'
+      : 'text-muted-foreground';
+
+  const dropzoneMessage = isDragging
+    ? t('photos.dropzone.active')
+    : atCapacity
+      ? t('photos.dropzone.full')
+      : t('photos.dropzone.idle');
+
   return (
     <div className="space-y-6">
-      {/* Severity cards */}
+      {/* Severity */}
       <div>
-        <div
-          className="grid grid-cols-2 gap-4"
-          role="radiogroup"
-          aria-label="Select damage severity"
+        <p
+          id="severity-prompt"
+          className="text-base md:text-lg font-medium text-foreground mb-4"
         >
-          {severities.map((sev) => {
-            const isSelected = state.damage === sev.id;
+          {t('severity.prompt')}
+        </p>
+
+        <div
+          role="radiogroup"
+          aria-labelledby="severity-prompt"
+          aria-invalid={errors.damage ? true : undefined}
+          aria-describedby={errors.damage ? 'severity-error' : undefined}
+          className={`grid grid-cols-2 gap-3 md:gap-4 ${
+            severityShake ? 'animate-shake' : ''
+          }`}
+        >
+          {severityOrder.map((id, idx) => {
+            const isSelected = selectedSeverity === id;
+            const isTabStop = idx === severityActiveIdx;
             return (
               <button
-                key={sev.id}
+                key={id}
+                ref={(el) => {
+                  severityRefs.current[idx] = el;
+                }}
                 type="button"
                 role="radio"
                 aria-checked={isSelected}
-                onClick={() =>
-                  dispatch({
-                    type: 'UPDATE_FIELD',
-                    field: 'damage',
-                    value: sev.id,
-                  })
-                }
-                className={`group flex items-start gap-3 p-4 rounded-xl border-2 transition-all duration-200 cursor-pointer text-left min-h-[44px] focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 ${
+                tabIndex={isTabStop ? 0 : -1}
+                onClick={() => selectSeverity(id)}
+                onKeyDown={(e) => handleSeverityKey(e, idx)}
+                className={[
+                  'group relative overflow-hidden flex items-start gap-3 p-4 md:p-5 rounded-xl border bg-card text-left',
+                  'transition-[transform,box-shadow,border-color] duration-200 ease-out',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
                   isSelected
-                    ? `border-[#C62828] ${sev.bgSelected} shadow-sm`
-                    : 'border-gray-200 dark:border-[#333333] bg-white dark:bg-[#252525] hover:border-gray-300 hover:shadow-sm'
-                }`}
+                    ? 'border-primary shadow-md'
+                    : 'border-border shadow-sm hover:-translate-y-0.5 hover:border-red-border hover:shadow-md',
+                ].join(' ')}
               >
-                <span
-                  className={`w-3 h-3 rounded-full mt-1 flex-shrink-0 ${sev.dotColor}`}
-                  aria-hidden="true"
-                />
-                <div>
+                {isSelected && (
                   <span
-                    className={`text-sm font-bold block ${
-                      isSelected
-                        ? 'text-[#C62828]'
-                        : 'text-gray-900 dark:text-[#E0E0E0]'
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-surface via-transparent to-transparent"
+                  />
+                )}
+
+                <span
+                  aria-hidden="true"
+                  className={`relative mt-1 h-3 w-3 flex-shrink-0 rounded-full ${severityDot[id]}`}
+                />
+
+                <div className="relative min-w-0">
+                  <span
+                    className={`block font-display text-base font-bold tracking-display leading-tight mb-0.5 ${
+                      isSelected ? 'text-primary' : 'text-foreground'
                     }`}
                   >
-                    {sev.label}
+                    {t(`severity.${id}.label`)}
                   </span>
-                  <span className="text-xs leading-relaxed text-gray-500 dark:text-[#A0A0A0]">
-                    {sev.description}
+                  <span className="block text-xs md:text-sm leading-relaxed text-muted-foreground">
+                    {t(`severity.${id}.description`)}
                   </span>
                 </div>
               </button>
             );
           })}
         </div>
+
         {errors.damage && (
-          <p className="text-sm text-[#DC2626] mt-3" role="alert">
+          <p
+            id="severity-error"
+            role="alert"
+            className="flex items-center gap-2 mt-3 text-sm text-destructive"
+          >
+            <AlertIcon className="h-4 w-4 flex-shrink-0" />
             {errors.damage}
           </p>
         )}
       </div>
 
-      {/* Description textarea */}
+      {/* Description */}
       <div>
         <label
           htmlFor={descId}
-          className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
+          className="block text-sm font-medium text-foreground mb-1.5"
         >
-          Describe the Damage{' '}
-          <span className="text-gray-400 text-xs font-normal">(optional)</span>
+          {t('description.label')}
+          <span className="ml-1 text-xs font-normal text-muted-foreground">
+            {t('description.optional')}
+          </span>
         </label>
         <textarea
           id={descId}
           value={state.description}
           onChange={(e) => {
-            if (e.target.value.length <= 500) {
+            if (e.target.value.length <= CHAR_LIMIT) {
               dispatch({
                 type: 'UPDATE_FIELD',
                 field: 'description',
@@ -298,31 +338,34 @@ export function DamageStep({
               });
             }
           }}
-          placeholder="Describe the damage (optional)..."
-          maxLength={500}
-          className="w-full min-h-[100px] resize-y rounded-lg border border-gray-300 dark:border-[#444444] bg-white dark:bg-[#1E1E1E] px-4 py-3 text-base text-gray-900 dark:text-[#E0E0E0] transition-colors focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828] focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2"
+          placeholder={t('description.placeholder')}
+          maxLength={CHAR_LIMIT}
+          className="w-full min-h-[112px] resize-y rounded-lg border border-input bg-background px-4 py-3 text-base text-foreground placeholder:text-muted-foreground transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         />
-        <p className="text-xs text-gray-400 text-right mt-1">{charCount}/500</p>
+        <p
+          aria-live="polite"
+          className={`mt-1 text-right text-xs tabular-nums ${charClass}`}
+        >
+          {charCount}/{CHAR_LIMIT}
+        </p>
       </div>
 
-      {/* Photo uploader */}
+      {/* Photos */}
       <div>
         <div className="flex items-baseline justify-between mb-1.5">
-          <label className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0]">
-            Photos of the Damage{' '}
-            <span className="text-gray-400 text-xs font-normal">
-              (optional)
+          <label className="block text-sm font-medium text-foreground">
+            {t('photos.label')}
+            <span className="ml-1 text-xs font-normal text-muted-foreground">
+              {t('photos.optional')}
             </span>
           </label>
           <span
             className={`text-xs font-medium tabular-nums ${
-              atCapacity
-                ? 'text-[#C62828]'
-                : 'text-gray-500 dark:text-[#A0A0A0]'
+              atCapacity ? 'text-primary' : 'text-muted-foreground'
             }`}
             aria-live="polite"
           >
-            {fileCount}/{MAX_FILES}
+            {t('photos.counter', { count: fileCount, max: MAX_FILES })}
           </span>
         </div>
 
@@ -333,8 +376,8 @@ export function DamageStep({
           aria-describedby={dropzoneHelpId}
           aria-label={
             atCapacity
-              ? 'Photo limit reached'
-              : 'Upload damage photos. Click or drag files to this area.'
+              ? t('photos.dropzone.ariaLabelFull')
+              : t('photos.dropzone.ariaLabel')
           }
           onClick={atCapacity ? undefined : openPicker}
           onKeyDown={atCapacity ? undefined : onKeyDown}
@@ -342,52 +385,39 @@ export function DamageStep({
           onDragOver={onDragOver}
           onDragLeave={onDragLeave}
           onDrop={atCapacity ? undefined : onDrop}
-          className={`group relative flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-6 py-8 text-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 ${
+          className={[
+            'group relative flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-6 py-8 text-center transition-all duration-200',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
             atCapacity
-              ? 'border-gray-200 dark:border-[#333333] bg-gray-50/60 dark:bg-[#1E1E1E]/60 cursor-not-allowed'
+              ? 'border-border bg-muted cursor-not-allowed'
               : isDragging
-                ? 'border-[#C62828] bg-red-50/70 dark:bg-red-950/20 scale-[1.01] shadow-[0_10px_30px_-12px_rgba(198,40,40,0.35)]'
-                : 'border-gray-300 dark:border-[#444444] bg-white dark:bg-[#1E1E1E] hover:border-[#C62828]/60 hover:bg-red-50/30 dark:hover:bg-red-950/10 cursor-pointer'
-          }`}
+                ? 'border-primary bg-red-surface shadow-md scale-[1.01]'
+                : 'border-input bg-background hover:border-primary hover:bg-red-surface cursor-pointer',
+          ].join(' ')}
         >
           <div
-            className={`flex h-12 w-12 items-center justify-center rounded-full transition-colors ${
-              isDragging
-                ? 'bg-[#C62828] text-white'
-                : 'bg-red-50 text-[#C62828] dark:bg-red-950/40 group-hover:bg-[#C62828] group-hover:text-white'
+            className={`flex h-12 w-12 items-center justify-center rounded-full transition-colors duration-150 ${
+              atCapacity
+                ? 'bg-muted text-muted-foreground'
+                : isDragging
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-red-surface text-red-hover group-hover:bg-primary group-hover:text-primary-foreground'
             }`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="17 8 12 3 7 8" />
-              <line x1="12" y1="3" x2="12" y2="15" />
-            </svg>
+            <UploadIcon className="h-5 w-5" />
           </div>
           <div>
-            <p className="text-sm font-semibold text-gray-900 dark:text-[#E0E0E0]">
-              {isDragging
-                ? 'Drop photos to upload'
-                : atCapacity
-                  ? 'Photo limit reached'
-                  : 'Click to upload or drag & drop'}
+            <p className="text-sm font-semibold text-foreground">
+              {dropzoneMessage}
             </p>
             <p
               id={dropzoneHelpId}
-              className="text-xs text-gray-500 dark:text-[#A0A0A0] mt-1"
+              className="text-xs text-muted-foreground mt-1"
             >
-              {ACCEPTED_HELP} · up to {MAX_FILE_SIZE_MB} MB each · {MAX_FILES}{' '}
-              photos max
+              {t('photos.dropzone.help', {
+                size: MAX_FILE_SIZE_MB,
+                max: MAX_FILES,
+              })}
             </p>
           </div>
 
@@ -404,54 +434,53 @@ export function DamageStep({
           />
         </div>
 
-        {/* Rejected files feedback */}
         {rejected.length > 0 && (
           <ul
-            className="mt-3 space-y-1 rounded-lg border border-[#DC2626]/30 bg-red-50/60 dark:bg-red-950/20 px-3 py-2"
+            className="mt-3 space-y-1 rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-2"
             role="alert"
           >
             {rejected.map((r, i) => (
               <li
                 key={`${r.name}-${i}`}
-                className="text-xs text-[#C62828] flex items-start gap-2"
+                className="flex items-start gap-2 text-xs text-destructive"
               >
-                <span aria-hidden="true" className="mt-0.5">
-                  ⚠
-                </span>
+                <AlertIcon className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" />
                 <span className="flex-1">
-                  <span className="font-medium">{r.name}</span> — {r.reason}
+                  <span className="font-medium">{r.name}</span> —{' '}
+                  {r.reason === 'size'
+                    ? t('photos.reject.size', { max: MAX_FILE_SIZE_MB })
+                    : t(`photos.reject.${r.reason}`)}
                 </span>
               </li>
             ))}
           </ul>
         )}
 
-        {/* Thumbnail grid */}
         {fileCount > 0 && (
           <ul
             className="mt-4 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3"
-            aria-label="Uploaded damage photos"
+            aria-label={t('photos.galleryLabel')}
           >
             {state.files.map((file, idx) => {
               const src = previews[idx];
               return (
                 <li
                   key={`${file.name}-${file.lastModified}-${idx}`}
-                  className="relative group/thumb aspect-square overflow-hidden rounded-lg border border-gray-200 dark:border-[#333333] bg-gray-100 dark:bg-[#1E1E1E] shadow-sm"
+                  className="relative group/thumb aspect-square overflow-hidden rounded-lg border border-border bg-muted shadow-sm"
                 >
                   {src ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={src}
-                      alt={`Damage photo: ${file.name}`}
+                      alt={t('photos.thumbAlt', { name: file.name })}
                       className="h-full w-full object-cover transition-transform duration-300 group-hover/thumb:scale-105"
                     />
                   ) : (
-                    <div className="h-full w-full animate-pulse bg-gray-200 dark:bg-[#252525]" />
+                    <div className="h-full w-full animate-pulse bg-muted" />
                   )}
 
                   <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-2 py-1.5">
-                    <span className="truncate text-[10px] font-medium text-white/90">
+                    <span className="truncate text-[10px] font-medium text-white/90 tabular-nums">
                       {formatSize(file.size)}
                     </span>
                   </div>
@@ -462,14 +491,13 @@ export function DamageStep({
                       removeFile(idx);
                       setRejected([]);
                     }}
-                    aria-label={`Remove ${file.name}`}
-                    className="absolute top-1.5 right-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#C62828] text-white shadow-md transition-transform hover:scale-110 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-[#C62828]"
+                    aria-label={t('photos.remove', { name: file.name })}
+                    className="absolute top-1.5 right-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md transition-transform duration-150 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                   >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
                       width="14"
                       height="14"
-                      viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2.5"
@@ -488,5 +516,43 @@ export function DamageStep({
         )}
       </div>
     </div>
+  );
+}
+
+function AlertIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="8" cy="8" r="6.5" />
+      <path d="M8 5v3.5" />
+      <path d="M8 11h.01" />
+    </svg>
+  );
+}
+
+function UploadIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="17 8 12 3 7 8" />
+      <line x1="12" y1="3" x2="12" y2="15" />
+    </svg>
   );
 }

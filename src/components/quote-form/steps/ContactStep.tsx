@@ -1,11 +1,9 @@
 'use client';
 
-import { useId } from 'react';
+import { useId, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import type { QuoteFormData, FormAction } from '../hooks/useQuoteForm';
-
-// ============================================================================
-// Types
-// ============================================================================
+import { useShakeOnError } from '../hooks/useShakeOnError';
 
 interface ContactStepProps {
   state: QuoteFormData;
@@ -13,9 +11,12 @@ interface ContactStepProps {
   errors: Record<string, string>;
 }
 
-// ============================================================================
-// Phone Formatter
-// ============================================================================
+type ContactMethod = 'phone' | 'text' | 'email';
+const methodOrder: readonly ContactMethod[] = [
+  'phone',
+  'text',
+  'email',
+] as const;
 
 function formatPhone(raw: string): string {
   const digits = raw.replace(/\D/g, '').slice(0, 10);
@@ -26,35 +27,58 @@ function formatPhone(raw: string): string {
   return '';
 }
 
-// ============================================================================
-// Shared input classes
-// ============================================================================
-
-const inputBase =
-  'h-12 w-full rounded-lg border px-4 text-base transition-colors focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828] focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2';
-const inputNormal = `${inputBase} border-gray-300 dark:border-[#444444] bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-[#E0E0E0]`;
-const inputError = `${inputBase} border-[#DC2626] bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-[#E0E0E0] animate-shake`;
-
-// ============================================================================
-// Contact Method Options
-// ============================================================================
-
-const contactMethods: { id: 'phone' | 'text' | 'email'; label: string }[] = [
-  { id: 'phone', label: 'Phone' },
-  { id: 'text', label: 'Text' },
-  { id: 'email', label: 'Email' },
-];
-
-// ============================================================================
-// Component
-// ============================================================================
+const fieldBase =
+  'h-12 w-full rounded-lg border px-4 text-base bg-background text-foreground placeholder:text-muted-foreground transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
 export function ContactStep({ state, dispatch, errors }: ContactStepProps) {
-  const id = useId();
-  const firstNameId = `${id}-firstName`;
-  const lastNameId = `${id}-lastName`;
-  const phoneId = `${id}-phone`;
-  const emailId = `${id}-email`;
+  const t = useTranslations('home.quote.contact');
+  const reactId = useId();
+  const firstNameId = `${reactId}-firstName`;
+  const lastNameId = `${reactId}-lastName`;
+  const phoneId = `${reactId}-phone`;
+  const emailId = `${reactId}-email`;
+
+  const firstNameShake = useShakeOnError(errors.firstName);
+  const phoneShake = useShakeOnError(errors.phone);
+  const emailShake = useShakeOnError(errors.email);
+
+  const methodRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const activeMethodIdx = methodOrder.indexOf(
+    state.contactMethod as ContactMethod,
+  );
+
+  function setMethod(id: ContactMethod) {
+    dispatch({ type: 'UPDATE_FIELD', field: 'contactMethod', value: id });
+  }
+
+  function handleMethodKey(
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    idx: number,
+  ) {
+    let nextIdx = idx;
+    switch (event.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        nextIdx = (idx + 1) % methodOrder.length;
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        nextIdx = (idx - 1 + methodOrder.length) % methodOrder.length;
+        break;
+      case 'Home':
+        nextIdx = 0;
+        break;
+      case 'End':
+        nextIdx = methodOrder.length - 1;
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+    const next = methodOrder[nextIdx];
+    setMethod(next);
+    methodRefs.current[nextIdx]?.focus();
+  }
 
   function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
     const raw = e.target.value.replace(/\D/g, '').slice(0, 10);
@@ -62,16 +86,23 @@ export function ContactStep({ state, dispatch, errors }: ContactStepProps) {
   }
 
   return (
-    <div className="space-y-4">
-      {/* First + Last Name */}
+    <div className="space-y-5">
+      <div className="flex items-baseline justify-between gap-4">
+        <p className="text-base md:text-lg font-medium text-foreground">
+          {t('prompt')}
+        </p>
+        <span className="text-xs text-muted-foreground" aria-hidden="true">
+          {t('required')}
+        </span>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label
-            htmlFor={firstNameId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            First Name <span className="text-[#DC2626]">*</span>
-          </label>
+        <Field
+          id={firstNameId}
+          label={t('firstNameLabel')}
+          required
+          error={errors.firstName}
+        >
           <input
             id={firstNameId}
             type="text"
@@ -83,36 +114,28 @@ export function ContactStep({ state, dispatch, errors }: ContactStepProps) {
                 value: e.target.value,
               })
             }
-            placeholder="First name"
+            placeholder={t('firstNamePlaceholder')}
             maxLength={50}
-            className={errors.firstName ? inputError : inputNormal}
+            autoComplete="given-name"
+            aria-invalid={errors.firstName ? true : undefined}
             aria-describedby={
               errors.firstName ? `${firstNameId}-error` : undefined
             }
-            aria-invalid={!!errors.firstName}
-            autoComplete="given-name"
+            className={[
+              fieldBase,
+              errors.firstName ? 'border-destructive' : 'border-input',
+              firstNameShake ? 'animate-shake' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           />
-          {errors.firstName && (
-            <p
-              id={`${firstNameId}-error`}
-              className="text-sm text-[#DC2626] mt-1"
-              role="alert"
-            >
-              {errors.firstName}
-            </p>
-          )}
-        </div>
+        </Field>
 
-        <div>
-          <label
-            htmlFor={lastNameId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            Last Name{' '}
-            <span className="text-gray-400 text-xs font-normal">
-              (optional)
-            </span>
-          </label>
+        <Field
+          id={lastNameId}
+          label={t('lastNameLabel')}
+          optionalHint={t('lastNameOptional')}
+        >
           <input
             id={lastNameId}
             type="text"
@@ -124,53 +147,48 @@ export function ContactStep({ state, dispatch, errors }: ContactStepProps) {
                 value: e.target.value,
               })
             }
-            placeholder="Last name"
+            placeholder={t('lastNamePlaceholder')}
             maxLength={50}
-            className={inputNormal}
             autoComplete="family-name"
+            className={`${fieldBase} border-input`}
           />
-        </div>
+        </Field>
       </div>
 
-      {/* Phone + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label
-            htmlFor={phoneId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            Phone <span className="text-[#DC2626]">*</span>
-          </label>
+        <Field
+          id={phoneId}
+          label={t('phoneLabel')}
+          required
+          error={errors.phone}
+        >
           <input
             id={phoneId}
             type="tel"
             inputMode="numeric"
             value={formatPhone(state.phone)}
             onChange={handlePhoneChange}
-            placeholder="(301) 555-0123"
-            className={errors.phone ? inputError : inputNormal}
-            aria-describedby={errors.phone ? `${phoneId}-error` : undefined}
-            aria-invalid={!!errors.phone}
+            placeholder={t('phonePlaceholder')}
             autoComplete="tel"
+            aria-invalid={errors.phone ? true : undefined}
+            aria-describedby={errors.phone ? `${phoneId}-error` : undefined}
+            className={[
+              fieldBase,
+              'tabular-nums',
+              errors.phone ? 'border-destructive' : 'border-input',
+              phoneShake ? 'animate-shake' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           />
-          {errors.phone && (
-            <p
-              id={`${phoneId}-error`}
-              className="text-sm text-[#DC2626] mt-1"
-              role="alert"
-            >
-              {errors.phone}
-            </p>
-          )}
-        </div>
+        </Field>
 
-        <div>
-          <label
-            htmlFor={emailId}
-            className="block text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-1.5"
-          >
-            Email <span className="text-[#DC2626]">*</span>
-          </label>
+        <Field
+          id={emailId}
+          label={t('emailLabel')}
+          required
+          error={errors.email}
+        >
           <input
             id={emailId}
             type="email"
@@ -183,61 +201,128 @@ export function ContactStep({ state, dispatch, errors }: ContactStepProps) {
                 value: e.target.value,
               })
             }
-            placeholder="you@example.com"
-            className={errors.email ? inputError : inputNormal}
-            aria-describedby={errors.email ? `${emailId}-error` : undefined}
-            aria-invalid={!!errors.email}
+            placeholder={t('emailPlaceholder')}
             autoComplete="email"
+            aria-invalid={errors.email ? true : undefined}
+            aria-describedby={errors.email ? `${emailId}-error` : undefined}
+            className={[
+              fieldBase,
+              errors.email ? 'border-destructive' : 'border-input',
+              emailShake ? 'animate-shake' : '',
+            ]
+              .filter(Boolean)
+              .join(' ')}
           />
-          {errors.email && (
-            <p
-              id={`${emailId}-error`}
-              className="text-sm text-[#DC2626] mt-1"
-              role="alert"
-            >
-              {errors.email}
-            </p>
-          )}
-        </div>
+        </Field>
       </div>
 
-      {/* Contact Method Toggle */}
       <div>
-        <p className="text-sm font-medium text-gray-900 dark:text-[#E0E0E0] mb-2">
-          Preferred Contact Method
+        <p
+          id="contact-method-label"
+          className="text-sm font-medium text-foreground mb-2"
+        >
+          {t('methodLabel')}
         </p>
         <div
-          className="flex rounded-lg border border-gray-300 dark:border-[#444444] overflow-hidden"
           role="radiogroup"
-          aria-label="Preferred contact method"
+          aria-labelledby="contact-method-label"
+          className="flex overflow-hidden rounded-lg border border-border bg-card"
         >
-          {contactMethods.map((method) => {
-            const isActive = state.contactMethod === method.id;
+          {methodOrder.map((id, idx) => {
+            const isActive = state.contactMethod === id;
+            const isLast = idx === methodOrder.length - 1;
+            const isTabStop =
+              idx === (activeMethodIdx >= 0 ? activeMethodIdx : 0);
             return (
               <button
-                key={method.id}
+                key={id}
+                ref={(el) => {
+                  methodRefs.current[idx] = el;
+                }}
                 type="button"
                 role="radio"
                 aria-checked={isActive}
-                onClick={() =>
-                  dispatch({
-                    type: 'UPDATE_FIELD',
-                    field: 'contactMethod',
-                    value: method.id,
-                  })
-                }
-                className={`flex-1 h-10 text-sm font-medium transition-colors min-h-[44px] focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 ${
+                tabIndex={isTabStop ? 0 : -1}
+                onClick={() => setMethod(id)}
+                onKeyDown={(e) => handleMethodKey(e, idx)}
+                className={[
+                  'flex-1 h-11 text-sm font-medium transition-colors duration-150 relative',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:z-10',
+                  !isLast ? 'border-r border-border' : '',
                   isActive
-                    ? 'bg-[#C62828] text-white'
-                    : 'bg-white dark:bg-[#1E1E1E] text-gray-700 dark:text-[#A0A0A0] hover:bg-gray-50 dark:hover:bg-[#252525]'
-                }`}
+                    ? 'bg-primary text-primary-foreground shadow-inner'
+                    : 'text-muted-foreground hover:bg-muted hover:text-foreground',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
               >
-                {method.label}
+                {t(`method.${id}`)}
               </button>
             );
           })}
         </div>
       </div>
+    </div>
+  );
+}
+
+function Field({
+  id,
+  label,
+  required,
+  optionalHint,
+  error,
+  children,
+}: {
+  id: string;
+  label: string;
+  required?: boolean;
+  optionalHint?: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="block text-sm font-medium text-foreground mb-1.5"
+      >
+        {label}
+        {required && (
+          <span className="text-destructive ml-0.5" aria-hidden="true">
+            ∗
+          </span>
+        )}
+        {optionalHint && (
+          <span className="ml-1 text-xs font-normal text-muted-foreground">
+            {optionalHint}
+          </span>
+        )}
+      </label>
+      {children}
+      {error && (
+        <p
+          id={`${id}-error`}
+          role="alert"
+          className="mt-1.5 flex items-center gap-1.5 text-sm text-destructive"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            className="h-4 w-4 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="8" cy="8" r="6.5" />
+            <path d="M8 5v3.5" />
+            <path d="M8 11h.01" />
+          </svg>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

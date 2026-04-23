@@ -1,169 +1,119 @@
 'use client';
 
-// ============================================================================
-// Types
-// ============================================================================
+import { useTranslations } from 'next-intl';
 
 interface FormProgressProps {
   currentStep: number;
   onStepClick: (step: number) => void;
 }
 
-// ============================================================================
-// Constants
-// ============================================================================
-
-const stepLabels = ['Service', 'Vehicle', 'Damage', 'Contact'];
-const totalSteps = 4;
-
-// ============================================================================
-// Checkmark SVG
-// ============================================================================
-
-function CheckIcon() {
-  return (
-    <svg
-      className="w-3.5 h-3.5 animate-[scaleIn_300ms_ease-out]"
-      viewBox="0 0 14 14"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M3 7.5L5.5 10L11 4"
-        stroke="white"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-// ============================================================================
-// Component
-// ============================================================================
+const stepKeys = ['service', 'vehicle', 'damage', 'contact'] as const;
+const totalSteps = stepKeys.length;
 
 export function FormProgress({ currentStep, onStepClick }: FormProgressProps) {
+  const t = useTranslations('home.quote.progress');
   const percent = Math.round(((currentStep + 1) / totalSteps) * 100);
   const fillPercent = (currentStep / (totalSteps - 1)) * 100;
 
   return (
     <div className="mb-10">
-      {/* Header row */}
-      <div className="flex justify-between items-baseline text-sm mb-6">
-        <span className="font-semibold text-gray-800 dark:text-[#E0E0E0]">
-          Step {currentStep + 1} of {totalSteps}
+      <div className="flex items-baseline justify-between mb-6 text-sm">
+        <span className="font-semibold text-foreground">
+          {t('stepCount', { current: currentStep + 1, total: totalSteps })}
         </span>
-        <span className="text-gray-400 dark:text-[#A0A0A0] tabular-nums">
-          {percent}%
-        </span>
+        <span className="text-muted-foreground tabular-nums">{percent}%</span>
       </div>
 
-      {/* ── Track + dots ── */}
-      <div style={{ position: 'relative', marginBottom: 4 }}>
-        {/* Flex row for dots — establishes layout positions */}
-        <div
-          style={{
-            position: 'relative',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            height: 32,
-          }}
-        >
-          {/* Track background — full-width gray line connecting all dots */}
-          <div
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              height: 3,
-              borderRadius: 9999,
-              backgroundColor: '#E5E7EB',
-              zIndex: 0,
-            }}
-            className="dark:!bg-[#333333]"
-          />
+      <div className="relative h-8">
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-muted"
+        />
 
-          {/* Track fill — red animated line */}
-          <div
-            className="progress-fill-track"
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              height: 3,
-              borderRadius: 9999,
-              width: `${fillPercent}%`,
-              background:
-                'linear-gradient(90deg, #C62828 0%, #EF5350 50%, #C62828 100%)',
-              backgroundSize: '200% 100%',
-              zIndex: 1,
-            }}
-            role="progressbar"
-            aria-valuenow={percent}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-label={`Form progress: ${percent}%`}
-          />
+        <span
+          role="progressbar"
+          aria-valuenow={percent}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={t('ariaLabel', { percent })}
+          style={{ width: `${fillPercent}%` }}
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-[3px] rounded-full bg-primary transition-[width] duration-500 ease-out"
+        />
 
-          {/* Step dots */}
-          {stepLabels.map((label, index) => {
+        <ol className="absolute inset-0 flex items-center justify-between list-none m-0 p-0">
+          {stepKeys.map((key, index) => {
+            const label = t(`steps.${key}`);
             const isCompleted = index < currentStep;
             const isCurrent = index === currentStep;
             const isClickable = isCompleted;
+            const ariaLabel = isCompleted
+              ? t('stepAria.completed', { label })
+              : isCurrent
+                ? t('stepAria.current', { label })
+                : t('stepAria.future', { label });
 
             return (
-              <div
-                key={label}
-                style={{
-                  position: 'relative',
-                  zIndex: 10,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
+              <li
+                key={key}
+                className="relative z-10 flex flex-col items-center"
               >
-                {/* Dot button */}
                 <button
                   type="button"
                   disabled={!isClickable}
                   onClick={() => isClickable && onStepClick(index)}
-                  className={`flex items-center justify-center rounded-full transition-all duration-300 ease-out ${
+                  aria-label={ariaLabel}
+                  aria-current={isCurrent ? 'step' : undefined}
+                  className={[
+                    'flex h-7 w-7 items-center justify-center rounded-full transition-all duration-300 ease-out',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
                     isCurrent
-                      ? 'w-8 h-8 bg-[#C62828] shadow-[0_0_0_4px_rgba(198,40,40,0.15)] progress-dot-active'
+                      ? 'bg-primary scale-110 shadow-[0_0_0_4px_var(--color-red-surface)]'
                       : isCompleted
-                        ? 'w-7 h-7 bg-[#C62828] cursor-pointer hover:scale-110 hover:shadow-md'
-                        : 'w-7 h-7 bg-white dark:bg-[#252525] border-2 border-gray-300 dark:border-[#444444]'
-                  }`}
-                  aria-label={`Step ${index + 1} of ${totalSteps}: ${label}${isCurrent ? ' (current)' : ''}${isCompleted ? ' (completed)' : ''}`}
+                        ? 'bg-primary cursor-pointer hover:scale-110'
+                        : 'bg-background border-2 border-border',
+                  ].join(' ')}
                 >
                   {isCompleted && <CheckIcon />}
                   {isCurrent && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-white animate-[scaleIn_300ms_ease-out]" />
+                    <span
+                      aria-hidden="true"
+                      className="h-2.5 w-2.5 rounded-full bg-primary-foreground"
+                    />
                   )}
                 </button>
 
-                {/* Label below dot */}
                 <span
-                  className={`absolute top-full mt-2.5 text-[11px] font-semibold tracking-wide hidden sm:block select-none whitespace-nowrap transition-colors duration-300 ${
-                    isCurrent
-                      ? 'text-[#C62828]'
-                      : isCompleted
-                        ? 'text-gray-500 dark:text-gray-400'
-                        : 'text-gray-400 dark:text-gray-500'
-                  }`}
+                  aria-hidden="true"
+                  className={[
+                    'absolute top-full mt-2.5 text-[11px] font-semibold tracking-wide whitespace-nowrap transition-colors duration-300',
+                    'hidden sm:block',
+                    isCurrent ? 'text-primary' : 'text-muted-foreground',
+                  ].join(' ')}
                 >
                   {label}
                 </span>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ol>
       </div>
     </div>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      viewBox="0 0 14 14"
+      className="h-3.5 w-3.5 text-primary-foreground animate-[scaleIn_300ms_ease-out]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3 7.5L5.5 10L11 4" />
+    </svg>
   );
 }
