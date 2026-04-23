@@ -222,7 +222,7 @@ export default async function HomePage() {
 
           {/* Right: YouTube Embed */}
           <div className="flex-1 w-full max-w-[520px]">
-            <YouTubeEmbed videoId="dQw4w9WgXcQ" title={t('video.playButton')} />
+            <YouTubeEmbed videoId="8DM-Ej56Xf8" title={t('video.playButton')} />
           </div>
         </div>
       </section>
