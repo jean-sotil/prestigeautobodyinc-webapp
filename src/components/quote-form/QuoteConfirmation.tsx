@@ -23,9 +23,12 @@ export function QuoteConfirmation({
   const tServices = useTranslations('home.quote.services');
   const tSeverity = useTranslations('home.quote.damage.severity');
 
-  const vehicleStr = [data.year, data.make, data.model]
+  const vehicleBase = [data.year, data.make, data.model]
     .filter(Boolean)
     .join(' ');
+  const vehicleStr = data.vin
+    ? `${vehicleBase} · ${t('summaryVinPrefix')}${data.vin}`
+    : vehicleBase;
 
   const serviceLabel = data.service
     ? tServices(`${data.service}.title`)

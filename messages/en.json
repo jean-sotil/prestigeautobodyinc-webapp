@@ -233,6 +233,14 @@
         "modelLabel": "Model",
         "modelOptional": "(optional)",
         "modelPlaceholder": "e.g., Camry, Civic, F-150",
+        "vinLabel": "VIN (optional — improves quote accuracy)",
+        "vinPlaceholder": "e.g. 1HGBH41JXMN109186",
+        "vinHelperTrigger": "Where do I find my VIN? →",
+        "vinHelperTitle": "Your VIN is in 3 common places:",
+        "vinHelperDashboard": "Driver's side dashboard (visible through windshield)",
+        "vinHelperDoorJamb": "Driver's side door jamb sticker",
+        "vinHelperRegistration": "Vehicle registration or insurance card",
+        "vinWarning": "VIN should be 17 characters (letters and numbers). Leave blank to continue.",
         "callout": "We service all domestic and import makes — Toyota, Honda, BMW, Mercedes-Benz, Hyundai, Mazda, Subaru, and many more."
       },
       "progress": {
@@ -296,6 +304,7 @@
         "summaryTitle": "Request summary",
         "summaryService": "Service",
         "summaryVehicle": "Vehicle",
+        "summaryVinPrefix": "VIN: ",
         "summaryDamage": "Damage level",
         "summaryContact": "Preferred contact",
         "notSet": "—",

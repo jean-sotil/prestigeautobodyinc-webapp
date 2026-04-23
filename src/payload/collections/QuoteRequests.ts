@@ -67,6 +67,14 @@ export const QuoteRequests: CollectionConfig = {
           name: 'model',
           type: 'text',
         },
+        {
+          name: 'vin',
+          type: 'text',
+          label: 'VIN (optional)',
+          admin: {
+            description: '17-character Vehicle Identification Number',
+          },
+        },
       ],
     },
     // Damage Information

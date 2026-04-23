@@ -42,6 +42,8 @@ const fieldBase =
 
 const selectBase = `${fieldBase} appearance-none pr-10`;
 
+const VIN_REGEX = /^[A-HJ-NPR-Z0-9]{17}$/i;
+
 export function VehicleStep({ state, dispatch, errors }: VehicleStepProps) {
   const t = useTranslations('home.quote.vehicle');
   const reactId = useId();
@@ -49,6 +51,14 @@ export function VehicleStep({ state, dispatch, errors }: VehicleStepProps) {
   const makeId = `${reactId}-make`;
   const customMakeId = `${reactId}-custom-make`;
   const modelId = `${reactId}-model`;
+  const vinId = `${reactId}-vin`;
+  const vinHelperId = `${reactId}-vin-helper`;
+  const vinWarningId = `${reactId}-vin-warning`;
+
+  const [vinHelperOpen, setVinHelperOpen] = useState(false);
+  const [vinTouched, setVinTouched] = useState(false);
+  const vinInvalid =
+    vinTouched && state.vin.length > 0 && !VIN_REGEX.test(state.vin);
 
   const [otherMode, setOtherMode] = useState(
     () =>
@@ -84,6 +94,11 @@ export function VehicleStep({ state, dispatch, errors }: VehicleStepProps) {
 
   function handleModelChange(value: string) {
     dispatch({ type: 'UPDATE_FIELD', field: 'model', value });
+  }
+
+  function handleVinChange(value: string) {
+    const normalized = value.toUpperCase().replace(/\s+/g, '').slice(0, 17);
+    dispatch({ type: 'UPDATE_FIELD', field: 'vin', value: normalized });
   }
 
   return (
@@ -179,6 +194,82 @@ export function VehicleStep({ state, dispatch, errors }: VehicleStepProps) {
           className={`${fieldBase} border-input`}
         />
       </Field>
+
+      <div className="border-t border-border pt-5">
+        <Field id={vinId} label={t('vinLabel')}>
+          <input
+            id={vinId}
+            type="text"
+            inputMode="text"
+            value={state.vin}
+            onChange={(e) => handleVinChange(e.target.value)}
+            onBlur={() => setVinTouched(true)}
+            placeholder={t('vinPlaceholder')}
+            maxLength={17}
+            autoComplete="off"
+            autoCapitalize="characters"
+            spellCheck={false}
+            aria-invalid={vinInvalid || undefined}
+            aria-describedby={vinInvalid ? vinWarningId : undefined}
+            className={`${fieldBase} font-mono uppercase tracking-wider ${
+              vinInvalid ? 'border-amber-500' : 'border-input'
+            }`}
+          />
+        </Field>
+
+        {vinInvalid && (
+          <p
+            id={vinWarningId}
+            role="status"
+            className="mt-1.5 flex items-center gap-1.5 text-sm text-amber-600 dark:text-amber-500"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              className="h-4 w-4 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M8 1.5l7 12.5H1z" />
+              <path d="M8 6.5v3.5" />
+              <path d="M8 12h.01" />
+            </svg>
+            {t('vinWarning')}
+          </p>
+        )}
+
+        <button
+          type="button"
+          onClick={() => setVinHelperOpen((v) => !v)}
+          aria-expanded={vinHelperOpen}
+          aria-controls={vinHelperId}
+          className="mt-2 text-sm font-medium text-red-hover hover:text-primary underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+        >
+          {t('vinHelperTrigger')}
+        </button>
+
+        <div
+          id={vinHelperId}
+          role="region"
+          aria-label={t('vinHelperTitle')}
+          style={{ maxHeight: vinHelperOpen ? 400 : 0 }}
+          className="overflow-hidden transition-[max-height] duration-[350ms] ease-out"
+        >
+          <div className="mt-3 rounded-lg border border-border bg-muted/50 p-4">
+            <p className="text-sm font-medium text-foreground mb-2">
+              {t('vinHelperTitle')}
+            </p>
+            <ul className="space-y-1.5 text-sm text-muted-foreground list-disc pl-5">
+              <li>{t('vinHelperDashboard')}</li>
+              <li>{t('vinHelperDoorJamb')}</li>
+              <li>{t('vinHelperRegistration')}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <div className="flex items-start gap-2.5 rounded-lg bg-muted p-3.5 text-sm text-muted-foreground">
         <svg

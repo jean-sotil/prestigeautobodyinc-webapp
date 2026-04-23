@@ -29,6 +29,7 @@ interface QuoteRequest {
     year: number;
     make: string;
     model?: string;
+    vin?: string;
   };
   damage: {
     severity: string;
@@ -94,6 +95,11 @@ const quoteSchema = z.object({
       .max(new Date().getFullYear() + 2),
     make: z.string().min(1).max(50),
     model: z.string().max(50).optional(),
+    vin: z
+      .string()
+      .regex(/^[A-HJ-NPR-Z0-9]{17}$/i, 'Invalid VIN format')
+      .optional()
+      .or(z.literal('')),
   }),
   damage: z.object({
     severity: z.enum(['minor', 'moderate', 'major', 'unsure']),
@@ -418,8 +424,9 @@ function generateShopEmailHtml(
     <div class="section">
       <p class="label">${isSpanish ? 'Vehículo' : 'Vehicle'}:</p>
       <p>${quote.vehicle.year} ${quote.vehicle.make} ${quote.vehicle.model || ''}</p>
+      ${quote.vehicle.vin ? `<p>VIN: ${quote.vehicle.vin}</p>` : ''}
     </div>
-    
+
     <div class="section">
       <p class="label">${isSpanish ? 'Daño' : 'Damage'}:</p>
       <p>${isSpanish ? 'Severidad' : 'Severity'}: ${quote.damage.severity}</p>
@@ -522,7 +529,7 @@ function generateCustomerEmailHtml(
     <div class="section">
       <p><strong>${isSpanish ? 'Resumen de su solicitud:' : 'Your request summary:'}</strong></p>
       <p>${isSpanish ? 'Servicio' : 'Service'}: ${quote.service}</p>
-      <p>${isSpanish ? 'Vehículo' : 'Vehicle'}: ${quote.vehicle.year} ${quote.vehicle.make} ${quote.vehicle.model || ''}</p>
+      <p>${isSpanish ? 'Vehículo' : 'Vehicle'}: ${quote.vehicle.year} ${quote.vehicle.make} ${quote.vehicle.model || ''}${quote.vehicle.vin ? ` · VIN: ${quote.vehicle.vin}` : ''}</p>
       <p>${isSpanish ? 'Daño' : 'Damage'}: ${quote.damage.severity}</p>
     </div>
     
@@ -732,6 +739,9 @@ export async function POST(request: Request) {
     const vehicleModel = sanitizeInput(
       fields['vehicle.model'] || fields.vehicleModel || '',
     );
+    const vehicleVin = sanitizeInput(fields['vehicle.vin'] || '')
+      .toUpperCase()
+      .replace(/\s+/g, '');
     const damageSeverity = sanitizeInput(
       fields['damage.severity'] || fields.damageSeverity || '',
     );
@@ -804,6 +814,7 @@ export async function POST(request: Request) {
         year: vehicleYear,
         make: vehicleMake,
         model: vehicleModel,
+        ...(vehicleVin ? { vin: vehicleVin } : {}),
       },
       damage: {
         severity: damageSeverity,

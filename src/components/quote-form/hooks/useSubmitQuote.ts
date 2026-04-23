@@ -50,6 +50,9 @@ function buildFormData(state: QuoteFormData): FormData {
   formData.append('vehicle.year', state.year);
   formData.append('vehicle.make', state.make);
   formData.append('vehicle.model', state.model);
+  if (state.vin) {
+    formData.append('vehicle.vin', state.vin);
+  }
 
   // Damage
   formData.append('damage.severity', state.damage);

@@ -233,6 +233,14 @@
         "modelLabel": "Modelo",
         "modelOptional": "(opcional)",
         "modelPlaceholder": "ej., Camry, Civic, F-150",
+        "vinLabel": "VIN (opcional — mejora la precisión de tu cotización)",
+        "vinPlaceholder": "ej. 1HGBH41JXMN109186",
+        "vinHelperTrigger": "¿Dónde encuentro mi VIN? →",
+        "vinHelperTitle": "Tu VIN se encuentra en 3 lugares comunes:",
+        "vinHelperDashboard": "Tablero del lado del conductor (visible a través del parabrisas)",
+        "vinHelperDoorJamb": "Pegatina en el marco de la puerta del conductor",
+        "vinHelperRegistration": "Tarjeta de registro o seguro del vehículo",
+        "vinWarning": "El VIN debe tener 17 caracteres (letras y números). Puedes dejarlo en blanco para continuar.",
         "callout": "Reparamos todas las marcas nacionales e importadas — Toyota, Honda, BMW, Mercedes-Benz, Hyundai, Mazda, Subaru, entre muchas más."
       },
       "progress": {
@@ -296,6 +304,7 @@
         "summaryTitle": "Resumen de la solicitud",
         "summaryService": "Servicio",
         "summaryVehicle": "Vehículo",
+        "summaryVinPrefix": "VIN: ",
         "summaryDamage": "Nivel de daño",
         "summaryContact": "Contacto preferido",
         "notSet": "—",

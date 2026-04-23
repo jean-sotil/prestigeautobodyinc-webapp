@@ -11,6 +11,7 @@ export interface QuoteFormData {
   year: string;
   make: string;
   model: string;
+  vin: string;
   damage: 'minor' | 'moderate' | 'major' | 'unsure' | '';
   description: string;
   hasPhotos: boolean;
@@ -46,6 +47,7 @@ export const initialFormData: QuoteFormData = {
   year: '',
   make: '',
   model: '',
+  vin: '',
   damage: '',
   description: '',
   hasPhotos: false,
