@@ -1,11 +1,11 @@
 /**
- * Server-side blog query utilities for React Server Components
- * These functions run on the server and fetch data directly from Payload CMS
+ * Server-side blog query utilities for React Server Components.
+ * Uses Payload's Local API — direct DB access, no HTTP hop, safe at build time.
  */
 
+import 'server-only';
 import type { BlogPost, BlogPostsResponse } from './types';
 
-// Default pagination values
 const DEFAULT_PAGE = 1;
 const DEFAULT_LIMIT = 10;
 
@@ -16,10 +16,23 @@ interface FetchBlogPostsOptions {
   category?: string;
 }
 
-/**
- * Server-side function to fetch blog posts
- * Uses Payload's local API for server components
- */
+async function getPayloadClient() {
+  const { getPayload } = await import('payload');
+  const config = await import('@/payload/payload.config');
+  return getPayload({ config: config.default });
+}
+
+const EMPTY_RESPONSE: BlogPostsResponse = {
+  docs: [],
+  totalDocs: 0,
+  totalPages: 0,
+  page: 1,
+  hasNextPage: false,
+  hasPrevPage: false,
+  nextPage: null,
+  prevPage: null,
+};
+
 export async function fetchBlogPosts({
   locale,
   page = DEFAULT_PAGE,
@@ -27,104 +40,62 @@ export async function fetchBlogPosts({
   category,
 }: FetchBlogPostsOptions): Promise<BlogPostsResponse> {
   try {
-    // Use the Payload REST API
-    const params = new URLSearchParams({
-      depth: '2', // Include relationships (author, categories, featuredImage)
-      page: page.toString(),
-      limit: limit.toString(),
-      sort: '-publishedAt', // Newest first
-      locale,
+    const payload = await getPayloadClient();
+    const result = await payload.find({
+      collection: 'blog-posts',
+      depth: 2,
+      page,
+      limit,
+      sort: '-publishedAt',
+      locale: locale as 'en' | 'es',
+      where: {
+        and: [
+          { status: { equals: 'published' } },
+          ...(category ? [{ 'categories.slug': { equals: category } }] : []),
+        ],
+      },
     });
 
-    // Add status filter
-    params.append('where[status][equals]', 'published');
-
-    // Add category filter if provided
-    if (category) {
-      params.append('where[categories][in]', category);
-    }
-
-    const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3000';
-    const response = await fetch(
-      `${apiUrl}/api/blog-posts?${params.toString()}`,
-      {
-        headers: {
-          Accept: 'application/json',
-        },
-        // Cache for 60 seconds in production, no cache in dev
-        next: { revalidate: process.env.NODE_ENV === 'production' ? 60 : 0 },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch blog posts: ${response.status}`);
-    }
-
-    return response.json();
+    return {
+      docs: result.docs as unknown as BlogPost[],
+      totalDocs: result.totalDocs,
+      totalPages: result.totalPages,
+      page: result.page ?? 1,
+      hasNextPage: result.hasNextPage,
+      hasPrevPage: result.hasPrevPage,
+      nextPage: result.nextPage ?? null,
+      prevPage: result.prevPage ?? null,
+    };
   } catch (error) {
     console.error('Error fetching blog posts:', error);
-    // Return empty response on error
-    return {
-      docs: [],
-      totalDocs: 0,
-      totalPages: 0,
-      page: 1,
-      hasNextPage: false,
-      hasPrevPage: false,
-      nextPage: null,
-      prevPage: null,
-    };
+    return EMPTY_RESPONSE;
   }
 }
 
-/**
- * Server-side function to fetch a single blog post by slug
- */
 export async function fetchBlogPostBySlug(
   slug: string,
   locale: string,
 ): Promise<BlogPost | null> {
   try {
-    const params = new URLSearchParams({
-      depth: '2',
-      'where[slug][equals]': slug,
-      'where[status][equals]': 'published',
-      locale,
+    const payload = await getPayloadClient();
+    const result = await payload.find({
+      collection: 'blog-posts',
+      depth: 2,
+      limit: 1,
+      locale: locale as 'en' | 'es',
+      where: {
+        and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }],
+      },
     });
 
-    const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3000';
-    const response = await fetch(
-      `${apiUrl}/api/blog-posts?${params.toString()}`,
-      {
-        headers: {
-          Accept: 'application/json',
-        },
-        // Cache for 60 seconds in production
-        next: { revalidate: process.env.NODE_ENV === 'production' ? 60 : 0 },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch blog post: ${response.status}`);
-    }
-
-    const data: BlogPostsResponse = await response.json();
-
-    // Return first result or null if not found
-    if (!data.docs || data.docs.length === 0) {
-      return null;
-    }
-
-    return data.docs[0];
+    if (!result.docs || result.docs.length === 0) return null;
+    return result.docs[0] as unknown as BlogPost;
   } catch (error) {
     console.error('Error fetching blog post by slug:', error);
     return null;
   }
 }
 
-/**
- * Server-side function to fetch all blog categories
- */
 export async function fetchBlogCategories(locale: string): Promise<
   Array<{
     id: string;
@@ -134,30 +105,24 @@ export async function fetchBlogCategories(locale: string): Promise<
   }>
 > {
   try {
-    const params = new URLSearchParams({
-      depth: '1',
-      'where[isActive][equals]': 'true',
+    const payload = await getPayloadClient();
+    const result = await payload.find({
+      collection: 'blog-categories',
+      depth: 1,
+      limit: 100,
       sort: 'sortOrder',
-      locale,
+      locale: locale as 'en' | 'es',
+      where: {
+        isActive: { equals: true },
+      },
     });
 
-    const apiUrl = process.env.PAYLOAD_API_URL || 'http://localhost:3000';
-    const response = await fetch(
-      `${apiUrl}/api/blog-categories?${params.toString()}`,
-      {
-        headers: {
-          Accept: 'application/json',
-        },
-        next: { revalidate: process.env.NODE_ENV === 'production' ? 300 : 0 },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch categories: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data.docs || [];
+    return (result.docs ?? []).map((doc) => ({
+      id: String(doc.id),
+      slug: doc.slug,
+      name: doc.name,
+      description: doc.description ?? undefined,
+    }));
   } catch (error) {
     console.error('Error fetching blog categories:', error);
     return [];
