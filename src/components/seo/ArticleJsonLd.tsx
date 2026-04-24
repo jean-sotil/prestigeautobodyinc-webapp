@@ -44,7 +44,7 @@ export function ArticleJsonLd({ post, locale = 'en' }: ArticleJsonLdProps) {
       '@id': post.author?.id
         ? `${siteUrl}/#author-${post.author.id}`
         : undefined,
-      name: post.author?.name || 'Prestige Auto Body',
+      name: post.author?.fullName || 'Prestige Auto Body',
       url: post.author?.id ? `${siteUrl}/our-team` : undefined,
     },
     publisher: {
