@@ -21,6 +21,11 @@ interface LexicalElementNode {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   listType?: 'bullet' | 'number';
   url?: string;
+  fields?: {
+    url?: string;
+    newTab?: boolean;
+    linkType?: 'custom' | 'reference';
+  };
   direction?: 'ltr' | 'rtl' | null;
   format?: string;
   indent?: number;
@@ -184,13 +189,16 @@ function renderNode(node: LexicalNode, key: string): React.ReactNode {
       return <li key={key}>{children}</li>;
 
     case 'link':
+      const url = node.fields?.url || node.url || '#';
+      const isExternal = url.startsWith('http');
+
       return (
         <a
           key={key}
-          href={node.url || '#'}
+          href={url}
           className="text-primary hover:underline"
-          target={node.url?.startsWith('http') ? '_blank' : undefined}
-          rel={node.url?.startsWith('http') ? 'noopener noreferrer' : undefined}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
         >
           {children}
         </a>
