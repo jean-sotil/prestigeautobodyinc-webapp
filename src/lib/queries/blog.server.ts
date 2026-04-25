@@ -96,6 +96,77 @@ export async function fetchBlogPostBySlug(
   }
 }
 
+interface FetchRelatedPostsOptions {
+  locale: string;
+  excludeSlug: string;
+  categorySlugs: string[];
+  limit?: number;
+}
+
+/**
+ * Posts in the same category as the current article, excluding it. Falls back
+ * to the most recent posts in this locale if no category match is available so
+ * the section never renders empty.
+ */
+export async function fetchRelatedPosts({
+  locale,
+  excludeSlug,
+  categorySlugs,
+  limit = 3,
+}: FetchRelatedPostsOptions): Promise<BlogPost[]> {
+  try {
+    const payload = await getPayloadClient();
+
+    const sameCategory =
+      categorySlugs.length > 0
+        ? await payload.find({
+            collection: 'blog-posts',
+            depth: 2,
+            limit,
+            sort: '-publishedAt',
+            locale: locale as 'en' | 'es',
+            where: {
+              and: [
+                { status: { equals: 'published' } },
+                { 'categories.slug': { in: categorySlugs } },
+                { slug: { not_equals: excludeSlug } },
+              ],
+            },
+          })
+        : { docs: [] as unknown[] };
+
+    const related = sameCategory.docs as unknown as BlogPost[];
+
+    // Top up with most-recent posts if the category alone didn't yield enough.
+    if (related.length < limit) {
+      const fillerNeeded = limit - related.length;
+      const filler = await payload.find({
+        collection: 'blog-posts',
+        depth: 2,
+        limit: fillerNeeded + 1, // +1 in case the excluded slug shows up
+        sort: '-publishedAt',
+        locale: locale as 'en' | 'es',
+        where: {
+          and: [
+            { status: { equals: 'published' } },
+            { slug: { not_equals: excludeSlug } },
+          ],
+        },
+      });
+      const existing = new Set(related.map((p) => p.id));
+      for (const doc of filler.docs as unknown as BlogPost[]) {
+        if (related.length >= limit) break;
+        if (!existing.has(doc.id)) related.push(doc);
+      }
+    }
+
+    return related.slice(0, limit);
+  } catch (error) {
+    console.error('Error fetching related posts:', error);
+    return [];
+  }
+}
+
 /**
  * Returns the published slug of a blog post in every supported locale.
  *

@@ -7,7 +7,9 @@ import {
   fetchBlogPostBySlug,
   fetchBlogPosts,
   fetchPostLocalizedSlugs,
+  fetchRelatedPosts,
 } from '@/lib/queries/blog.server';
+import type { BlogPost } from '@/lib/queries/types';
 import { routing } from '@/i18n/routing';
 import {
   ArticleJsonLd,
@@ -128,12 +130,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const relatedPosts = await fetchRelatedPosts({
+    locale,
+    excludeSlug: post.slug,
+    categorySlugs: post.categories?.map((c) => c.slug) ?? [],
+    limit: 3,
+  });
+
   // Format dates
   const publishDate = post.publishedAt
     ? new Date(post.publishedAt)
     : new Date(post.createdAt);
   const formattedDate = publishDate.toLocaleDateString(
-    locale === 'es' ? 'es-ES' : 'en-US',
+    locale === 'es' ? 'es-US' : 'en-US',
     {
       year: 'numeric',
       month: 'long',
@@ -340,7 +349,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Back to Blog */}
-          <div className="border-t border-border pt-8">
+          <div className="mt-12 border-t border-border pt-10 pb-4">
             <ButtonLink href={`/${locale}/blog`} variant="secondary" size="sm">
               ← {t('backToBlog')}
             </ButtonLink>
@@ -348,24 +357,35 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </article>
 
-      {/* Related Posts Section - Could be expanded in future */}
-      <section className="bg-muted py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionHeading
-            overline={t('relatedOverline')}
-            heading={t('relatedTitle')}
-            centered
-          />
-          <p className="text-muted-foreground mt-4">
-            {t('relatedDescription')}
-          </p>
-          <div className="mt-8">
-            <ButtonLink href={`/${locale}/blog`} variant="primary">
-              {t('viewAllPosts')}
-            </ButtonLink>
+      {/* Related Posts */}
+      {relatedPosts.length > 0 && (
+        <section className="bg-muted py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <SectionHeading
+                overline={t('relatedOverline')}
+                heading={t('relatedTitle')}
+                centered
+              />
+              <p className="mt-4 text-muted-foreground">
+                {t('relatedDescription')}
+              </p>
+            </div>
+            <ul className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+              {relatedPosts.map((rp) => (
+                <li key={rp.id}>
+                  <RelatedCard post={rp} locale={locale} />
+                </li>
+              ))}
+            </ul>
+            <div className="mt-12 text-center">
+              <ButtonLink href={`/${locale}/blog`} variant="primary">
+                {t('viewAllPosts')}
+              </ButtonLink>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── CTA banner ───────────────────────────────────────── */}
       <section
@@ -398,6 +418,54 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
       </section>
     </div>
+  );
+}
+
+interface RelatedCardProps {
+  post: BlogPost;
+  locale: string;
+}
+
+function RelatedCard({ post, locale }: RelatedCardProps) {
+  const primaryCategory = post.categories?.[0];
+  return (
+    <article className="group h-full">
+      <Link
+        href={`/${locale}/blog/${post.slug}`}
+        className="block h-full overflow-hidden rounded-sm transition-all duration-300 ease-out hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+      >
+        <div className="relative mb-4 aspect-[3/2] overflow-hidden bg-secondary">
+          {post.featuredImage ? (
+            <Image
+              src={post.featuredImage.url}
+              alt={post.featuredImage.alt || post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-red-surface">
+              <span className="font-display text-2xl font-bold text-primary/60">
+                {primaryCategory?.name ?? 'Prestige'}
+              </span>
+            </div>
+          )}
+        </div>
+        {primaryCategory && (
+          <span className="mb-2 inline-block text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-primary">
+            {primaryCategory.name}
+          </span>
+        )}
+        <h3 className="font-display text-lg md:text-xl font-bold tracking-tight text-foreground transition-colors duration-200 group-hover:text-primary line-clamp-2">
+          {post.title}
+        </h3>
+        {post.excerpt && (
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+            {post.excerpt}
+          </p>
+        )}
+      </Link>
+    </article>
   );
 }
 
