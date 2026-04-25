@@ -28,6 +28,7 @@ export const BlogPosts: CollectionConfig = {
       type: 'text',
       required: true,
       unique: true,
+      localized: true,
     },
     {
       name: 'excerpt',
