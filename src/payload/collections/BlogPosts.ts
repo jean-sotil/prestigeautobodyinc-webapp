@@ -193,14 +193,17 @@ export const BlogPosts: CollectionConfig = {
   hooks: {
     afterChange: [
       async ({ doc, req, previousDoc }) => {
-        // Trigger ISR revalidation when a post is published
         if (doc.status === 'published' && previousDoc?.status !== 'published') {
           try {
-            // Only run on server
             if (typeof window !== 'undefined') return doc;
 
+            const locale = req.locale || doc.locale || 'en';
+            const slug = typeof doc.slug === 'string' ? doc.slug : doc.slug?.[locale] || doc.slug?.en || '';
+
+            if (!slug) return doc;
+
             const { revalidateBlogPost } = await import('@/lib/revalidation');
-            await revalidateBlogPost(doc.slug, doc.locale || 'en');
+            await revalidateBlogPost(slug, locale);
           } catch (error) {
             console.error('Failed to revalidate blog post:', error);
           }
