@@ -3,7 +3,12 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { fetchBlogPostBySlug, fetchBlogPosts } from '@/lib/queries/blog.server';
+import {
+  fetchBlogPostBySlug,
+  fetchBlogPosts,
+  fetchPostLocalizedSlugs,
+} from '@/lib/queries/blog.server';
+import { routing } from '@/i18n/routing';
 import {
   ArticleJsonLd,
   BlogBreadcrumbJsonLd,
@@ -56,15 +61,26 @@ export async function generateMetadata({
   const description = post.meta?.description || post.excerpt;
   const imageUrl = post.meta?.ogImage?.url || post.featuredImage?.url;
 
+  const localizedSlugs = await fetchPostLocalizedSlugs(post.id);
+  const languages: Record<string, string> = {};
+  for (const l of routing.locales) {
+    const s = localizedSlugs[l];
+    if (s) languages[l] = `/${l}/blog/${s}`;
+  }
+  const defaultSlug = localizedSlugs[routing.defaultLocale] ?? post.slug;
+  languages['x-default'] = `/${routing.defaultLocale}/blog/${defaultSlug}`;
+
+  const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
+  const alternateOgLocales = routing.locales
+    .filter((l) => l !== locale)
+    .map((l) => (l === 'es' ? 'es_US' : 'en_US'));
+
   return {
     title,
     description,
     alternates: {
       canonical: `/${locale}/blog/${post.slug}`,
-      languages: {
-        en: `/en/blog/${post.slug}`,
-        es: `/es/blog/${post.slug}`,
-      },
+      languages,
     },
     openGraph: {
       title,
@@ -75,15 +91,15 @@ export async function generateMetadata({
       authors: post.author?.fullName,
       section: post.categories?.[0]?.name,
       tags: post.categories?.map((cat) => cat.name),
-      locale,
-      alternateLocale: locale === 'en' ? 'es' : 'en',
+      locale: ogLocale,
+      alternateLocale: alternateOgLocales,
       images: imageUrl
         ? [
             {
               url: imageUrl,
               width: 1200,
               height: 630,
-              alt: post.title,
+              alt: post.featuredImage?.alt || post.title,
             },
           ]
         : undefined,
@@ -134,7 +150,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         locale={locale}
       />
       <ArticleJsonLd post={post} locale={locale} />
-      <BlogBreadcrumbJsonLd post={post} locale={locale} />
+      <BlogBreadcrumbJsonLd
+        post={post}
+        locale={locale}
+        homeLabel={common('home')}
+        blogLabel={overlinesT('blog')}
+      />
 
       {/* Article Header */}
       <article className="bg-background">

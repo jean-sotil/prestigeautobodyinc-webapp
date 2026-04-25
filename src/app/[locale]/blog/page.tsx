@@ -110,8 +110,12 @@ export default async function BlogIndexPage({
       />
 
       {/* ── Masthead ─────────────────────────────────────────── */}
-      <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <section className="relative overflow-hidden border-b border-border bg-muted dark:bg-[#1A1A1A]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+        />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="max-w-3xl">
             <span
               className="overline motion-safe:animate-fade-in-up"

@@ -96,6 +96,42 @@ export async function fetchBlogPostBySlug(
   }
 }
 
+/**
+ * Returns the published slug of a blog post in every supported locale.
+ *
+ * Payload stores `slug` as a localized field, so a single `find` with
+ * `locale: 'all'` returns the slug as `{ en, es, … }`. We use this to power
+ * the locale switcher and the page's `hreflang` alternates so cross-locale
+ * navigation lands on the correct slug instead of 404'ing.
+ */
+export async function fetchPostLocalizedSlugs(
+  postId: string,
+): Promise<Record<string, string>> {
+  try {
+    const payload = await getPayloadClient();
+    const doc = await payload.findByID({
+      collection: 'blog-posts',
+      id: postId,
+      depth: 0,
+      // 'all' tells Payload to return localized fields as { localeCode: value }
+      locale: 'all',
+    });
+
+    const slug = (doc as { slug?: unknown }).slug;
+    if (slug && typeof slug === 'object') {
+      return Object.fromEntries(
+        Object.entries(slug as Record<string, unknown>).filter(
+          ([, v]) => typeof v === 'string' && v.length > 0,
+        ) as Array<[string, string]>,
+      );
+    }
+    return {};
+  } catch (error) {
+    console.error('Error fetching localized slugs:', error);
+    return {};
+  }
+}
+
 export async function fetchBlogCategories(locale: string): Promise<
   Array<{
     id: string;
