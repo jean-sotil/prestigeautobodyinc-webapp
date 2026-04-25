@@ -26,20 +26,20 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'group',
       label: 'Alt Text',
+      admin: {
+        description:
+          'Describe the image for screen readers and SEO. Fill in both languages when possible — leaving blank is allowed but hurts accessibility.',
+      },
       fields: [
         {
           name: 'en',
           type: 'text',
           label: 'English',
-          required: true,
-          localized: true,
         },
         {
           name: 'es',
           type: 'text',
           label: 'Spanish',
-          required: true,
-          localized: true,
         },
       ],
     },

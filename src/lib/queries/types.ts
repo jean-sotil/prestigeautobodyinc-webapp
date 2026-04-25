@@ -55,10 +55,12 @@ export interface BlogPost {
   };
   author: {
     id: string;
-    name: string;
+    fullName: string;
+    position?: string;
     photo?: {
       id: string;
       url: string;
+      alt?: string;
     };
   };
   categories: {

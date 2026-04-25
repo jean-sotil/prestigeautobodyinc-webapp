@@ -24,7 +24,7 @@ interface ParsedFormData {
 
 interface QuoteRequest {
   referenceId: string;
-  service: string;
+  service: 'collision' | 'bodywork' | 'painting' | 'insurance';
   vehicle: {
     year: number;
     make: string;
@@ -32,7 +32,7 @@ interface QuoteRequest {
     vin?: string;
   };
   damage: {
-    severity: string;
+    severity: 'minor' | 'moderate' | 'major' | 'unsure';
     description?: string;
     hasPhotos: boolean;
     damagePhotos?: string[];
@@ -42,7 +42,7 @@ interface QuoteRequest {
     lastName?: string;
     phone: string;
     email: string;
-    preferredMethod: string;
+    preferredMethod: 'phone' | 'text' | 'email';
   };
   appointment?: {
     date?: string;
@@ -50,7 +50,7 @@ interface QuoteRequest {
     notes?: string;
   } | null;
   metadata: {
-    locale: string;
+    locale: 'en' | 'es';
     source: string;
     submittedAt: string;
     formLoadedAt: number;

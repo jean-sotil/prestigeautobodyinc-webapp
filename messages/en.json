@@ -36,14 +36,34 @@
       "title": "Auto Body & Collision Repair Blog",
       "description": "Read our latest articles on collision repair, auto painting, and car care tips."
     },
-    "overline": "Our Blog",
-    "title": "Latest Articles & Insights",
-    "subtitle": "Expert advice on auto body repair, collision repair, and maintaining your vehicle's appearance.",
-    "filterByCategory": "Filter by",
-    "allCategories": "All",
-    "noPosts": "No blog posts found. Check back soon for new articles!",
-    "page": "Page",
-    "of": "of",
+    "hero": {
+      "title": "Field Notes from the Shop",
+      "credential": "Written by the I-CAR Gold Class technicians at Prestige Auto Body.",
+      "authorsOverline": "Contributors"
+    },
+    "filter": {
+      "label": "Browse",
+      "all": "All"
+    },
+    "feed": {
+      "featured": "Latest",
+      "recentHeading": "Recent articles",
+      "archiveHeading": "Earlier articles"
+    },
+    "empty": {
+      "filtered": "No posts yet in {category}.",
+      "filteredReset": "See all posts",
+      "none": "We're writing our first articles. Check back soon."
+    },
+    "pager": {
+      "prev": "Prev",
+      "next": "Next",
+      "page": "Page",
+      "of": "of"
+    },
+    "meta_row": {
+      "by": "By"
+    },
     "authorLabel": "Author",
     "minRead": "min read",
     "tagsLabel": "Tags",
@@ -52,7 +72,15 @@
     "relatedOverline": "Continue Reading",
     "relatedTitle": "Related Articles",
     "relatedDescription": "Explore more helpful articles about auto body repair and collision services.",
-    "viewAllPosts": "View All Posts"
+    "viewAllPosts": "View All Posts",
+    "cta": {
+      "title": "Still have questions? Get a free quote.",
+      "description": "Text a photo of the damage or call the shop. I-CAR Gold Class techs, Lifetime Warranty, 20+ years in Silver Spring.",
+      "button": "Get a free quote",
+      "phone": "(301) 578-8779",
+      "phoneAriaLabel": "Call Prestige Auto Body at (301) 578-8779"
+    },
+    "title": "Our Blog"
   },
   "home": {
     "hero": {
@@ -1036,7 +1064,8 @@
     "services": "What We Do",
     "whyUs": "Our Difference",
     "testimonials": "Reviews",
-    "warranty": "Our Promise"
+    "warranty": "Our Promise",
+    "blog": "Our Blog"
   },
   "privacyPolicy": {
     "metaTitle": "Privacy Policy — Prestige Auto Body Inc.",

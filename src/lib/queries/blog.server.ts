@@ -128,3 +128,109 @@ export async function fetchBlogCategories(locale: string): Promise<
     return [];
   }
 }
+
+/**
+ * Count published posts per category slug. Single query, ~50 posts/yr expected,
+ * so pulling up to 500 here is cheap and avoids N queries per category.
+ */
+export async function fetchCategoryPostCounts(
+  locale: string,
+): Promise<Record<string, number>> {
+  try {
+    const payload = await getPayloadClient();
+    const posts = await payload.find({
+      collection: 'blog-posts',
+      depth: 1,
+      limit: 500,
+      pagination: false,
+      locale: locale as 'en' | 'es',
+      where: { status: { equals: 'published' } },
+    });
+
+    const counts: Record<string, number> = {};
+    for (const post of posts.docs as Array<{
+      categories?: Array<{ slug?: string } | string>;
+    }>) {
+      for (const cat of post.categories ?? []) {
+        const slug = typeof cat === 'string' ? null : cat?.slug;
+        if (slug) counts[slug] = (counts[slug] ?? 0) + 1;
+      }
+    }
+    return counts;
+  } catch (error) {
+    console.error('Error fetching category counts:', error);
+    return {};
+  }
+}
+
+/**
+ * Team members with at least one published post, ranked by post count.
+ * Capped at 8 for the contributor strip.
+ */
+export async function fetchBlogContributors(locale: string): Promise<
+  Array<{
+    id: string;
+    fullName: string;
+    position: string;
+    photoUrl?: string;
+    photoAlt?: string;
+    postCount: number;
+  }>
+> {
+  try {
+    const payload = await getPayloadClient();
+    const posts = await payload.find({
+      collection: 'blog-posts',
+      depth: 0,
+      limit: 500,
+      pagination: false,
+      locale: locale as 'en' | 'es',
+      where: { status: { equals: 'published' } },
+    });
+
+    const counts = new Map<string, number>();
+    for (const post of posts.docs as Array<{ author?: unknown }>) {
+      const authorId =
+        post.author != null ? String(post.author as string | number) : null;
+      if (authorId) counts.set(authorId, (counts.get(authorId) ?? 0) + 1);
+    }
+
+    if (counts.size === 0) return [];
+
+    const team = await payload.find({
+      collection: 'team-members',
+      depth: 1,
+      limit: counts.size,
+      pagination: false,
+      locale: locale as 'en' | 'es',
+      where: {
+        and: [
+          { id: { in: Array.from(counts.keys()) } },
+          { status: { equals: 'active' } },
+        ],
+      },
+    });
+
+    return (
+      team.docs as Array<{
+        id: string | number;
+        fullName: string;
+        position: string;
+        photo?: { url?: string; alt?: string };
+      }>
+    )
+      .map((doc) => ({
+        id: String(doc.id),
+        fullName: doc.fullName,
+        position: doc.position,
+        photoUrl: doc.photo?.url,
+        photoAlt: doc.photo?.alt,
+        postCount: counts.get(String(doc.id)) ?? 0,
+      }))
+      .sort((a, b) => b.postCount - a.postCount)
+      .slice(0, 8);
+  } catch (error) {
+    console.error('Error fetching blog contributors:', error);
+    return [];
+  }
+}

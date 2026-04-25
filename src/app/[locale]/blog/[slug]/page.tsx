@@ -13,6 +13,7 @@ import { RichTextRenderer } from '@/components/RichTextRenderer';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ButtonLink } from '@/components/ui/Button';
 import { getBusinessRating } from '@/lib/google-places';
+import { computeReadingTime } from '@/lib/reading-time';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -71,7 +72,7 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
-      authors: post.author?.name,
+      authors: post.author?.fullName,
       section: post.categories?.[0]?.name,
       tags: post.categories?.map((cat) => cat.name),
       locale,
@@ -99,9 +100,10 @@ export async function generateMetadata({
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { locale, slug } = await params;
 
-  const [t, common, post, rating] = await Promise.all([
+  const [t, common, overlinesT, post, rating] = await Promise.all([
     getTranslations({ locale, namespace: 'blog' }),
     getTranslations({ locale, namespace: 'common' }),
+    getTranslations({ locale, namespace: 'overlines' }),
     fetchBlogPostBySlug(slug, locale),
     getBusinessRating(),
   ]);
@@ -170,7 +172,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   href={`/${locale}/blog`}
                   className="hover:text-primary transition-colors"
                 >
-                  {t('title')}
+                  {overlinesT('blog')}
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
@@ -187,7 +189,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={cat.id}
                   href={`/${locale}/blog?category=${cat.slug}`}
-                  className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full hover:bg-primary/20 transition-colors"
+                  className="inline-flex items-center rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground transition-colors duration-150 hover:border-primary/40 hover:bg-red-surface hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {cat.name}
                 </Link>
@@ -196,19 +198,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-display mb-6 leading-tight">
             {post.title}
           </h1>
 
           {/* Meta Info */}
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-8 pb-8 border-b border-border">
             {/* Author */}
-            {post.author?.name && (
+            {post.author?.fullName && (
               <div className="flex items-center gap-2">
                 {post.author.photo && (
                   <Image
                     src={post.author.photo.url}
-                    alt={post.author.name}
+                    alt={post.author.photo.alt || post.author.fullName}
                     width={40}
                     height={40}
                     className="rounded-full object-cover"
@@ -216,7 +218,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 )}
                 <div>
                   <span className="font-medium text-foreground">
-                    {post.author.name}
+                    {post.author.fullName}
                   </span>
                   <p className="text-xs">{t('authorLabel')}</p>
                 </div>
@@ -233,7 +235,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Reading Time Estimate */}
             <div className="flex items-center gap-2">
               <span>
-                {Math.ceil((post.excerpt?.length || 0) / 1000)} {t('minRead')}
+                {computeReadingTime(post.content)} {t('minRead')}
               </span>
             </div>
           </div>
@@ -264,38 +266,55 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Share Section */}
           <div className="border-t border-border pt-8 mb-12">
-            <h3 className="text-lg font-semibold mb-4">{t('sharePost')}</h3>
-            <div className="flex gap-3">
-              <a
+            <p className="overline mb-3" aria-hidden="true">
+              {t('sharePost')}
+            </p>
+            <div className="flex gap-2">
+              <ShareLink
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                   `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
                 )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#1877F2] text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+                label="Facebook"
               >
-                Facebook
-              </a>
-              <a
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </ShareLink>
+              <ShareLink
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
                   `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
                 )}&text=${encodeURIComponent(post.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#1DA1F2] text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+                label="X"
               >
-                Twitter
-              </a>
-              <a
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </ShareLink>
+              <ShareLink
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
                   `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
                 )}&title=${encodeURIComponent(post.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#0A66C2] text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+                label="LinkedIn"
               >
-                LinkedIn
-              </a>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </ShareLink>
             </div>
           </div>
 
@@ -326,6 +345,57 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </section>
+
+      {/* ── CTA banner ───────────────────────────────────────── */}
+      <section
+        className="bg-[#c62828] py-16 text-white"
+        aria-labelledby="post-cta-heading"
+      >
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center sm:px-6 lg:px-8">
+          <h2
+            id="post-cta-heading"
+            className="font-display text-3xl md:text-4xl font-bold tracking-display"
+          >
+            {t('cta.title')}
+          </h2>
+          <p className="max-w-2xl text-base text-[#ffe0e0]">
+            {t('cta.description')}
+          </p>
+          <div className="mt-2 flex flex-col gap-4 sm:flex-row">
+            <ButtonLink href="/get-a-quote" variant="inverted" size="lg">
+              {t('cta.button')}
+            </ButtonLink>
+            <ButtonLink
+              href="tel:3015788779"
+              variant="outline-white"
+              size="lg"
+              aria-label={t('cta.phoneAriaLabel')}
+            >
+              {t('cta.phone')}
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
     </div>
+  );
+}
+
+interface ShareLinkProps {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+}
+
+function ShareLink({ href, label, children }: ShareLinkProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Share on ${label}`}
+      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors duration-150 hover:border-primary/40 hover:bg-red-surface hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
+      {children}
+    </a>
   );
 }

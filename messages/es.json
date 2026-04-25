@@ -36,14 +36,34 @@
       "title": "Blog de Reparación de Carrocería y Colisiones",
       "description": "Lee nuestros últimos artículos sobre reparación de colisiones, pintura de autos y consejos de cuidado del vehículo."
     },
-    "overline": "Nuestro Blog",
-    "title": "Últimos Artículos e Información",
-    "subtitle": "Asesoramiento experto sobre reparación de carrocería, reparación de colisiones y mantenimiento de la apariencia de tu vehículo.",
-    "filterByCategory": "Filtrar por",
-    "allCategories": "Todos",
-    "noPosts": "No se encontraron artículos. ¡Vuelve pronto para nuevas publicaciones!",
-    "page": "Página",
-    "of": "de",
+    "hero": {
+      "title": "Notas del Taller",
+      "credential": "Escrito por los técnicos con certificación I-CAR Gold Class de Prestige Auto Body.",
+      "authorsOverline": "Colaboradores"
+    },
+    "filter": {
+      "label": "Explorar",
+      "all": "Todos"
+    },
+    "feed": {
+      "featured": "Más reciente",
+      "recentHeading": "Artículos recientes",
+      "archiveHeading": "Artículos anteriores"
+    },
+    "empty": {
+      "filtered": "Aún no hay artículos en {category}.",
+      "filteredReset": "Ver todos los artículos",
+      "none": "Estamos escribiendo nuestros primeros artículos. Vuelve pronto."
+    },
+    "pager": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "page": "Página",
+      "of": "de"
+    },
+    "meta_row": {
+      "by": "Por"
+    },
     "authorLabel": "Autor",
     "minRead": "min de lectura",
     "tagsLabel": "Etiquetas",
@@ -52,7 +72,15 @@
     "relatedOverline": "Continuar Leyendo",
     "relatedTitle": "Artículos Relacionados",
     "relatedDescription": "Explora más artículos útiles sobre reparación de carrocería y servicios de colisiones.",
-    "viewAllPosts": "Ver Todos los Artículos"
+    "viewAllPosts": "Ver Todos los Artículos",
+    "cta": {
+      "title": "¿Aún tienes preguntas? Obtén una cotización gratis.",
+      "description": "Envía una foto del daño por mensaje o llama al taller. Técnicos I-CAR Gold Class, Garantía de por Vida, más de 20 años en Silver Spring.",
+      "button": "Obtener cotización gratis",
+      "phone": "(301) 578-8779",
+      "phoneAriaLabel": "Llamar a Prestige Auto Body al (301) 578-8779"
+    },
+    "title": "Nuestro Blog"
   },
   "home": {
     "hero": {
@@ -1036,7 +1064,8 @@
     "services": "Lo Que Hacemos",
     "whyUs": "Nuestra Diferencia",
     "testimonials": "Reseñas",
-    "warranty": "Nuestro Compromiso"
+    "warranty": "Nuestro Compromiso",
+    "blog": "Nuestro Blog"
   },
   "privacyPolicy": {
     "metaTitle": "Política de Privacidad — Prestige Auto Body Inc.",

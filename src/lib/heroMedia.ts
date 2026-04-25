@@ -58,6 +58,9 @@ export const getHeroMedia = (slug: string) =>
  * Resolve the alt text for the current locale, preferring Payload's
  * localized media.alt[locale] when present and non-empty; otherwise
  * returns the page-supplied fallback (typically a next-intl translation).
+ *
+ * Tolerant of legacy docs that stored alt double-wrapped as
+ * { en: { en, es }, es: { en, es } } under the old schema.
  */
 export function pickAlt(
   media: HeroMedia | null | undefined,
@@ -65,6 +68,13 @@ export function pickAlt(
   fallback: string,
 ): string {
   const key = locale === 'es' ? 'es' : 'en';
-  const localized = media?.alt?.[key];
-  return localized && localized.trim() ? localized : fallback;
+  const raw = media?.alt?.[key] as unknown;
+  const resolved =
+    typeof raw === 'string'
+      ? raw
+      : typeof (raw as { [k: string]: unknown } | null | undefined)?.[key] ===
+          'string'
+        ? ((raw as { [k: string]: string })[key] as string)
+        : '';
+  return resolved.trim() ? resolved : fallback;
 }
