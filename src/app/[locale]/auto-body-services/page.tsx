@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { getPathname } from '@/i18n/navigation';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
 const SERVICE_KEY = 'autoBodyServices';
+const PATHNAME = '/auto-body-services' as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -23,7 +25,7 @@ export async function generateMetadata({
     title: t(`pages.${SERVICE_KEY}.metaTitle`),
     description: t(`pages.${SERVICE_KEY}.metaDescription`),
     alternates: {
-      canonical: `https://prestigeautobodyinc.com/${locale}/auto-body-services`,
+      canonical: `https://prestigeautobodyinc.com/${locale}${getPathname({ locale: locale as 'en' | 'es', href: PATHNAME })}`,
     },
   };
 }
@@ -40,9 +42,11 @@ export default async function AutoBodyServicesPage({
     getTranslations({ locale, namespace: 'nav' }),
   ]);
 
+  const localizedPath = getPathname({ locale: locale as 'en' | 'es', href: PATHNAME });
+
   const breadcrumbItems = generateBreadcrumbItems(
     nav('autoBodyServices'),
-    `/${locale}/auto-body-services`,
+    `/${locale}${localizedPath}`,
     nav('home'),
     locale,
   );
@@ -52,7 +56,7 @@ export default async function AutoBodyServicesPage({
       <ServiceJsonLd
         serviceName="Auto Body Work Services"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url={`https://prestigeautobodyinc.com/${locale}/auto-body-services`}
+        url={`https://prestigeautobodyinc.com/${locale}${localizedPath}`}
         serviceType="Auto Body Repair"
         locale={locale}
       />

@@ -138,9 +138,25 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Rewrites (if needed)
+  // Rewrites: map localized Spanish slugs to internal English paths
   async rewrites() {
-    return [];
+    return [
+      { source: '/es/servicios-de-carroceria', destination: '/es/auto-body-services' },
+      { source: '/es/reparacion-de-colisiones', destination: '/es/collision-repair' },
+      { source: '/es/pintura-de-autos', destination: '/es/auto-painting' },
+      { source: '/es/remolque', destination: '/es/towing' },
+      { source: '/es/reclamos-de-seguro', destination: '/es/insurance-claims' },
+      { source: '/es/asistencia-de-alquiler', destination: '/es/rental-assistance' },
+      { source: '/es/nosotros', destination: '/es/about' },
+      { source: '/es/nuestro-equipo', destination: '/es/our-team' },
+      { source: '/es/certificaciones', destination: '/es/certifications' },
+      { source: '/es/contacto', destination: '/es/contact' },
+      { source: '/es/ubicaciones', destination: '/es/locations' },
+      { source: '/es/galeria', destination: '/es/gallery' },
+      { source: '/es/obtener-cotizacion', destination: '/es/get-a-quote' },
+      { source: '/es/politica-de-privacidad', destination: '/es/privacy-policy' },
+      { source: '/es/terminos-de-servicio', destination: '/es/terms-of-service' },
+    ];
   },
 };
 

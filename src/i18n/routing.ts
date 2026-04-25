@@ -19,6 +19,10 @@ export const routing = defineRouting({
       en: '/collision-repair',
       es: '/reparacion-de-colisiones',
     },
+    '/auto-body-services': {
+      en: '/auto-body-services',
+      es: '/servicios-de-carroceria',
+    },
     '/auto-painting': {
       en: '/auto-painting',
       es: '/pintura-de-autos',
