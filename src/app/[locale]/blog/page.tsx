@@ -26,25 +26,58 @@ interface BlogIndexPageProps {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams?: Promise<{ page?: string; category?: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const sp = (await searchParams) ?? {};
   const t = await getTranslations({ locale, namespace: 'blog' });
+
+  // Filtered/paginated views collapse onto the base canonical and are
+  // marked noindex so crawl budget isn't spent on permutations.
+  const isFiltered = Boolean(sp.category);
+  const isPaginated = Boolean(sp.page) && sp.page !== '1';
+
+  const ogImage = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+  const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
 
   return {
     title: t('meta.title'),
     description: t('meta.description'),
     alternates: {
       canonical: `/${locale}/blog`,
-      languages: { en: '/en/blog', es: '/es/blog' },
+      languages: {
+        en: '/en/blog',
+        es: '/es/blog',
+        'x-default': '/en/blog',
+      },
     },
+    robots:
+      isFiltered || isPaginated
+        ? { index: false, follow: true }
+        : { index: true, follow: true },
     openGraph: {
       title: t('og.title'),
       description: t('og.description'),
       type: 'website',
-      locale,
-      alternateLocale: locale === 'en' ? 'es' : 'en',
+      locale: ogLocale,
+      alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
+      images: [
+        {
+          url: ogImage,
+          width: 1920,
+          height: 1080,
+          alt: t('og.title'),
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('og.title'),
+      description: t('og.description'),
+      images: [ogImage],
     },
   };
 }
@@ -85,7 +118,7 @@ export default async function BlogIndexPage({
   const archivePosts = rest.slice(GRID_COUNT);
 
   const dateFormatter = new Intl.DateTimeFormat(
-    locale === 'es' ? 'es-ES' : 'en-US',
+    locale === 'es' ? 'es-US' : 'en-US',
     { year: 'numeric', month: 'short', day: 'numeric' },
   );
 
@@ -110,8 +143,12 @@ export default async function BlogIndexPage({
       />
 
       {/* ── Masthead ─────────────────────────────────────────── */}
-      <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <section className="relative overflow-hidden border-b border-border bg-muted dark:bg-[#1A1A1A]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+        />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="max-w-3xl">
             <span
               className="overline motion-safe:animate-fade-in-up"
@@ -426,15 +463,15 @@ function FeaturedPost({
   const readingTime = computeReadingTime(post.content);
   const primaryCategory = post.categories?.[0];
   return (
-    <section className="border-b border-border">
+    <section className="border-b border-border bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <span className="overline" aria-hidden="true">
+        <span className="overline mb-6 inline-block" aria-hidden="true">
           {labels.featured}
         </span>
-        <article>
+        <article className="overflow-hidden rounded-xl border border-border bg-background shadow-sm transition-shadow duration-300 hover:shadow-md">
           <Link
             href={`/${locale}/blog/${post.slug}`}
-            className="group grid items-start gap-8 md:grid-cols-5 md:gap-10 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-primary"
+            className="group grid items-start gap-0 md:grid-cols-5 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           >
             <div className="relative aspect-[4/3] overflow-hidden bg-secondary md:col-span-2">
               {post.featuredImage ? (
@@ -453,7 +490,11 @@ function FeaturedPost({
                 />
               )}
             </div>
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 p-6 md:p-8 lg:p-10">
+              <div
+                aria-hidden="true"
+                className="mb-4 h-[3px] w-12 bg-primary"
+              />
               {primaryCategory && (
                 <span className="mb-3 inline-block text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-primary">
                   {primaryCategory.name}
@@ -493,10 +534,10 @@ interface GridCardProps {
 function GridCard({ post, locale, dateFormatter, byLabel }: GridCardProps) {
   const primaryCategory = post.categories?.[0];
   return (
-    <article>
+    <article className="h-full">
       <Link
         href={`/${locale}/blog/${post.slug}`}
-        className="group block rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        className="group block h-full rounded-sm border-b-2 border-transparent pb-2 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
       >
         <div className="relative mb-5 aspect-[3/2] overflow-hidden bg-secondary">
           {post.featuredImage ? (

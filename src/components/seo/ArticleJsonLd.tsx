@@ -6,30 +6,36 @@ interface ArticleJsonLdProps {
   locale?: string;
 }
 
+// Map next-intl locales to BCP-47 tags Google expects in inLanguage / og:locale.
+function bcp47(locale: string): string {
+  if (locale === 'es') return 'es-US';
+  if (locale === 'en') return 'en-US';
+  return locale;
+}
+
 /**
- * Generate Article schema.org JSON-LD for blog posts
- * Includes all required fields for Google Rich Results
+ * BlogPosting JSON-LD for blog posts. Uses the more specific schema.org
+ * `BlogPosting` type (Google rich results recognise both Article and
+ * BlogPosting; the latter signals the post is part of a blog).
  */
 export function ArticleJsonLd({ post, locale = 'en' }: ArticleJsonLdProps) {
   const siteUrl = BUSINESS_INFO.url;
   const postUrl = `${siteUrl}/${locale}/blog/${post.slug}`;
   const imageUrl = post.featuredImage?.url || BUSINESS_INFO.image;
 
-  // Convert publishedAt to ISO string if available
   const datePublished = post.publishedAt
     ? new Date(post.publishedAt).toISOString()
     : new Date(post.createdAt).toISOString();
 
   const dateModified = new Date(post.updatedAt).toISOString();
 
-  // Build keywords from categories and tags
   const categoryNames = post.categories?.map((cat) => cat.name) || [];
   const tagNames = post.tags?.map((tagObj) => tagObj.tag) || [];
   const keywords = [...categoryNames, ...tagNames].join(', ');
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     '@id': `${postUrl}/#article`,
     headline: post.title,
     description: post.excerpt,
@@ -66,11 +72,10 @@ export function ArticleJsonLd({ post, locale = 'en' }: ArticleJsonLdProps) {
     },
     url: postUrl,
     keywords: keywords || undefined,
-    inLanguage: locale,
+    inLanguage: bcp47(locale),
     articleSection: categoryNames[0] || 'Blog',
   };
 
-  // Remove undefined values
   const cleanSchema = JSON.parse(JSON.stringify(schema));
 
   return (
@@ -81,16 +86,23 @@ export function ArticleJsonLd({ post, locale = 'en' }: ArticleJsonLdProps) {
   );
 }
 
+interface BlogBreadcrumbJsonLdProps {
+  post: BlogPost;
+  locale?: string;
+  homeLabel?: string;
+  blogLabel?: string;
+}
+
 /**
- * Generate BreadcrumbList schema.org JSON-LD for blog posts
+ * BreadcrumbList JSON-LD. Accepts localized labels — fall back to English
+ * defaults so existing call-sites keep working.
  */
 export function BlogBreadcrumbJsonLd({
   post,
   locale = 'en',
-}: {
-  post: BlogPost;
-  locale?: string;
-}) {
+  homeLabel = 'Home',
+  blogLabel = 'Blog',
+}: BlogBreadcrumbJsonLdProps) {
   const siteUrl = BUSINESS_INFO.url;
   const blogUrl = `${siteUrl}/${locale}/blog`;
   const postUrl = `${blogUrl}/${post.slug}`;
@@ -102,13 +114,13 @@ export function BlogBreadcrumbJsonLd({
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Home',
-        item: siteUrl,
+        name: homeLabel,
+        item: `${siteUrl}/${locale}`,
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Blog',
+        name: blogLabel,
         item: blogUrl,
       },
       {
