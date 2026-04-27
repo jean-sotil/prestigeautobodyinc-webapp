@@ -51,9 +51,8 @@ export {
   QuoteIcon,
 } from './ui/Icons';
 
-// Embed Components
-export { YouTubeEmbed } from './embeds/YouTubeEmbed';
-export { GoogleMapEmbed } from './embeds/GoogleMapEmbed';
+// Embed Components — use dynamic imports from @/components/dynamic/ instead
+// Direct re-exports removed to improve tree-shaking
 
 // Performance Components
 export { WebVitals } from './performance/WebVitals';

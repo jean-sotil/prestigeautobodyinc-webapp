@@ -15,40 +15,18 @@ const nextConfig: NextConfig = {
   // Enable experimental features for Core Web Vitals optimization
   experimental: {
     // Optimize package imports for common libraries (reduces bundle size)
-    optimizePackageImports: ['react', 'react-dom'],
+    optimizePackageImports: ['react', 'react-dom', 'lucide-react', 'zod'],
   },
 
-  // Webpack optimization
-  webpack: (config, { isServer }) => {
+  // Webpack optimization — rely on Next.js built-in chunk splitting
+  // (custom splitChunks overrides can inflate first-load JS per route)
+  webpack: (config) => {
     // Tree shaking: ensure unused exports are removed
     config.optimization = {
       ...config.optimization,
       usedExports: true,
       sideEffects: false,
     };
-
-    // Split chunks configuration for better caching
-    if (!isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          // Vendor chunk for node_modules
-          vendor: {
-            name: 'vendor',
-            test: /[\\/]node_modules[\\/]/,
-            priority: 10,
-            reuseExistingChunk: true,
-          },
-          // Common chunk for shared code
-          common: {
-            name: 'common',
-            minChunks: 2,
-            priority: 5,
-            reuseExistingChunk: true,
-          },
-        },
-      };
-    }
 
     return config;
   },

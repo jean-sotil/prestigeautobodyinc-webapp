@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { PageHeroBanner } from '@/components/hero';
-import QuoteForm from '@/components/quote-form/QuoteForm';
+import LazyQuoteForm from '@/components/dynamic/LazyQuoteForm';
 import { getBusinessRating } from '@/lib/google-places';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import {
@@ -188,7 +188,7 @@ export default async function GetAQuotePage({
             </div>
           </div>
 
-          <QuoteForm
+          <LazyQuoteForm
             sidebar={
               <>
                 {/* Card 1 — Call */}
