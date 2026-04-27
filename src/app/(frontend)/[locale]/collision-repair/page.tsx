@@ -11,6 +11,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const BASE_URL = 'https://www.prestigeautobodyinc.com';
+const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+
 export async function generateMetadata({
   params,
 }: {
@@ -19,11 +22,37 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'services' });
 
+  const title = t(`pages.${SERVICE_KEY}.metaTitle`);
+  const description = t(`pages.${SERVICE_KEY}.metaDescription`);
+  const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
+  const currentPath =
+    locale === 'es' ? '/reparacion-de-colisiones' : '/collision-repair';
+
   return {
-    title: t(`pages.${SERVICE_KEY}.metaTitle`),
-    description: t(`pages.${SERVICE_KEY}.metaDescription`),
+    title,
+    description,
     alternates: {
-      canonical: `https://prestigeautobodyinc.com/${locale}/collision-repair`,
+      canonical: `${BASE_URL}/${locale}${currentPath}`,
+      languages: {
+        en: `${BASE_URL}/en/collision-repair`,
+        es: `${BASE_URL}/es/reparacion-de-colisiones`,
+        'x-default': `${BASE_URL}/en/collision-repair`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${BASE_URL}/${locale}${currentPath}`,
+      locale: ogLocale,
+      alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
+      type: 'website',
+      images: [{ url: OG_IMAGE, width: 1920, height: 1080, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [OG_IMAGE],
     },
   };
 }
