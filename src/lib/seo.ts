@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { routing } from '@/i18n/routing';
 
 export const BASE_URL = 'https://www.prestigeautobodyinc.com';
-export const DEFAULT_OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+export const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
 /**
  * Build a complete Metadata object with OG, Twitter, hreflang alternates, and canonical.
