@@ -207,20 +207,20 @@ export default function Footer({ className = '' }: FooterProps) {
               aria-label="Legal links"
               className="flex items-center gap-4 sm:gap-6"
             >
-              <NextLink
+              <Link
                 href="/privacy-policy"
                 className="text-xs text-[#808080] hover:text-[#c62828] transition-colors"
               >
                 {t('legal.privacy')}
-              </NextLink>
-              <NextLink
+              </Link>
+              <Link
                 href="/terms-of-service"
                 className="text-xs text-[#808080] hover:text-[#c62828] transition-colors"
               >
                 {t('legal.terms')}
-              </NextLink>
+              </Link>
               <NextLink
-                href="/sitemap"
+                href="/sitemap.xml"
                 className="text-xs text-[#808080] hover:text-[#c62828] transition-colors"
               >
                 {t('legal.sitemap')}
