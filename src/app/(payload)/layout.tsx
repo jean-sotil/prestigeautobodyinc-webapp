@@ -1,5 +1,5 @@
 import config from '@payload-config';
-import { RootLayout } from '@payloadcms/next/layouts';
+import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts';
 import React from 'react';
 
 import { importMap } from './admin/importMap.js';
@@ -15,9 +15,16 @@ export default async function Layout({
     config,
     children,
     importMap,
-    serverFunction: async () => {
+    serverFunction: async function serverFunction(args: {
+      name: string;
+      args: Record<string, unknown>;
+    }) {
       'use server';
-      return {};
+      return handleServerFunctions({
+        ...args,
+        config,
+        importMap,
+      });
     },
   });
 }

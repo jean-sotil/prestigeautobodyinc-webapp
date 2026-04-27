@@ -42,7 +42,10 @@ export default async function AutoBodyServicesPage({
     getTranslations({ locale, namespace: 'nav' }),
   ]);
 
-  const localizedPath = getPathname({ locale: locale as 'en' | 'es', href: PATHNAME });
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
 
   const breadcrumbItems = generateBreadcrumbItems(
     nav('autoBodyServices'),

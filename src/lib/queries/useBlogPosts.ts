@@ -61,7 +61,7 @@ async function fetchBlogPosts({
   });
 
   // Payload CMS where clause for status
-  params.append('where[status][equals]', 'published');
+  params.append('where[publishStatus][equals]', 'published');
 
   // Category filter using Payload where clause
   if (category) {
@@ -190,7 +190,7 @@ export function useBlogPostBySlug(
         locale,
         depth: '2',
         'where[slug][equals]': slug,
-        'where[status][equals]': 'published',
+        'where[publishStatus][equals]': 'published',
       });
       const response = await fetch(`/api/blog-posts?${params.toString()}`, {
         headers: {

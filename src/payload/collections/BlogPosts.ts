@@ -5,7 +5,13 @@ export const BlogPosts: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     group: 'Content',
-    defaultColumns: ['title', 'author', 'status', 'publishedAt', 'updatedAt'],
+    defaultColumns: [
+      'title',
+      'author',
+      'publishStatus',
+      'publishedAt',
+      'updatedAt',
+    ],
   },
   access: {
     read: () => true,
@@ -13,9 +19,7 @@ export const BlogPosts: CollectionConfig = {
     update: ({ req: { user } }) => Boolean(user),
     delete: ({ req: { user } }) => Boolean(user),
   },
-  versions: {
-    drafts: true,
-  },
+  versions: true,
   fields: [
     {
       name: 'title',
@@ -101,17 +105,15 @@ export const BlogPosts: CollectionConfig = {
       ],
     },
     {
-      name: 'status',
+      name: 'publishStatus',
       type: 'select',
+      label: 'Status',
       options: [
         { label: 'Draft', value: 'draft' },
         { label: 'Published', value: 'published' },
         { label: 'Archived', value: 'archived' },
       ],
       defaultValue: 'draft',
-      admin: {
-        position: 'sidebar',
-      },
     },
     {
       name: 'publishedAt',
@@ -198,7 +200,10 @@ export const BlogPosts: CollectionConfig = {
             if (typeof window !== 'undefined') return doc;
 
             const locale = req.locale || doc.locale || 'en';
-            const slug = typeof doc.slug === 'string' ? doc.slug : doc.slug?.[locale] || doc.slug?.en || '';
+            const slug =
+              typeof doc.slug === 'string'
+                ? doc.slug
+                : doc.slug?.[locale] || doc.slug?.en || '';
 
             if (!slug) return doc;
 

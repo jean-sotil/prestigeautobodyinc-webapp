@@ -77,7 +77,7 @@ export interface BlogPost {
     };
     focusKeyword?: string;
   };
-  status: 'draft' | 'published' | 'archived';
+  publishStatus: 'draft' | 'published' | 'archived';
   publishedAt?: string;
   tags?: { tag: string }[];
   locale: 'en' | 'es';

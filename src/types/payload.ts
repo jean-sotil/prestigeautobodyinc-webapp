@@ -29,7 +29,7 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
-  status: 'draft' | 'published' | 'archived';
+  status: 'draft' | 'published' | 'archived'; // maps to publishStatus in DB, kept as status in API response
   locale: string;
 }
 

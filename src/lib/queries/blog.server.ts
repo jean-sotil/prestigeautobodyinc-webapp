@@ -50,7 +50,7 @@ export async function fetchBlogPosts({
       locale: locale as 'en' | 'es',
       where: {
         and: [
-          { status: { equals: 'published' } },
+          { publishStatus: { equals: 'published' } },
           ...(category ? [{ 'categories.slug': { equals: category } }] : []),
         ],
       },
@@ -84,7 +84,10 @@ export async function fetchBlogPostBySlug(
       limit: 1,
       locale: locale as 'en' | 'es',
       where: {
-        and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }],
+        and: [
+          { slug: { equals: slug } },
+          { publishStatus: { equals: 'published' } },
+        ],
       },
     });
 
@@ -144,7 +147,7 @@ export async function fetchCategoryPostCounts(
       limit: 500,
       pagination: false,
       locale: locale as 'en' | 'es',
-      where: { status: { equals: 'published' } },
+      where: { publishStatus: { equals: 'published' } },
     });
 
     const counts: Record<string, number> = {};
@@ -185,7 +188,7 @@ export async function fetchBlogContributors(locale: string): Promise<
       limit: 500,
       pagination: false,
       locale: locale as 'en' | 'es',
-      where: { status: { equals: 'published' } },
+      where: { publishStatus: { equals: 'published' } },
     });
 
     const counts = new Map<string, number>();

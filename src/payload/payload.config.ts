@@ -34,8 +34,8 @@ export default buildConfig({
     autoLogin: false,
     components: {
       graphics: {
-        Logo: '@/payload/components/Logo#default',
-        Icon: '@/payload/components/Icon#default',
+        Logo: '@/payload/components/Logo#Logo',
+        Icon: '@/payload/components/Icon#Icon',
       },
     },
     meta: {

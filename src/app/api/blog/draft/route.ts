@@ -189,7 +189,7 @@ async function createBlogDraft(
       categories: categoryIds,
       author: authorId,
       locale: data.locale,
-      status: data.status,
+      publishStatus: data.status,
       meta: {
         title: data.metaTitle,
         description: data.metaDescription,
