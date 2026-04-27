@@ -10,6 +10,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+const BASE_URL = 'https://www.prestigeautobodyinc.com';
+const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,11 +21,36 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });
 
+  const title = t('metaTitle');
+  const description = t('metaDescription');
+  const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
+  const currentPath = locale === 'es' ? '/nosotros' : '/about';
+
   return {
-    title: t('metaTitle'),
-    description: t('metaDescription'),
+    title,
+    description,
     alternates: {
-      canonical: `https://prestigeautobodyinc.com/${locale}/about`,
+      canonical: `${BASE_URL}/${locale}${currentPath}`,
+      languages: {
+        en: `${BASE_URL}/en/about`,
+        es: `${BASE_URL}/es/nosotros`,
+        'x-default': `${BASE_URL}/en/about`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${BASE_URL}/${locale}${currentPath}`,
+      locale: ogLocale,
+      alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
+      type: 'website',
+      images: [{ url: OG_IMAGE, width: 1920, height: 1080, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [OG_IMAGE],
     },
   };
 }

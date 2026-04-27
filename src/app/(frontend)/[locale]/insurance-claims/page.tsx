@@ -19,11 +19,40 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'services' });
 
+  const title = t(`pages.${SERVICE_KEY}.metaTitle`);
+  const description = t(`pages.${SERVICE_KEY}.metaDescription`);
+  const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
+  const BASE_URL = 'https://www.prestigeautobodyinc.com';
+  const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+  const enPath = '/en/insurance-claims';
+  const esPath = '/es/reclamos-de-seguro';
+  const currentPath = locale === 'es' ? esPath : enPath;
+
   return {
-    title: t(`pages.${SERVICE_KEY}.metaTitle`),
-    description: t(`pages.${SERVICE_KEY}.metaDescription`),
+    title,
+    description,
     alternates: {
-      canonical: `https://prestigeautobodyinc.com/${locale}/insurance-claims`,
+      canonical: `${BASE_URL}${currentPath}`,
+      languages: {
+        en: `${BASE_URL}${enPath}`,
+        es: `${BASE_URL}${esPath}`,
+        'x-default': `${BASE_URL}${enPath}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${BASE_URL}${currentPath}`,
+      locale: ogLocale,
+      alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
+      type: 'website',
+      images: [{ url: OG_IMAGE, width: 1920, height: 1080, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [OG_IMAGE],
     },
   };
 }
