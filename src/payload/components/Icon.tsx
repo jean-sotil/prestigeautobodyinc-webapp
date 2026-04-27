@@ -14,7 +14,7 @@ export const Icon: React.FC = () => {
       <img
         src="/logo_symbol.png"
         alt="Prestige"
-        style={{ height: '32px', width: 'auto' }}
+        style={{ height: 'auto', width: 'auto' }}
       />
     </div>
   );
