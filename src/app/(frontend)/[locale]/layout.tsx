@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
 import { WebsiteJsonLd } from '@/components/seo';
+import { BreadcrumbProvider } from '@/components/BreadcrumbContext';
 
 interface MessagesType {
   metadata?: {
@@ -54,6 +55,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <BreadcrumbProvider>
       <WebsiteJsonLd
         locale={locale}
         description={messages.metadata?.description}
@@ -63,6 +65,7 @@ export default async function LocaleLayout({
         {children}
       </main>
       <Footer />
+      </BreadcrumbProvider>
     </NextIntlClientProvider>
   );
 }

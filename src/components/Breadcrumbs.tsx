@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ChevronRightIcon } from '@/components/ui/Icons';
+import { usePageTitle } from '@/components/BreadcrumbContext';
 
 interface BreadcrumbItem {
   href: string;
@@ -39,6 +40,7 @@ export default function Breadcrumbs() {
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations('nav');
+  const { pageTitle } = usePageTitle();
 
   // Don't show breadcrumbs on homepage
   if (pathname === `/${locale}` || pathname === '/') {
@@ -63,7 +65,9 @@ export default function Breadcrumbs() {
     const isLast = index === segments.length - 1;
 
     // Map segment to translation key
-    const label = getBreadcrumbLabel(segment, t);
+    const label = isLast && pageTitle
+      ? pageTitle
+      : getBreadcrumbLabel(segment, t);
 
     items.push({
       href: currentPath as '/',
@@ -122,6 +126,7 @@ function getBreadcrumbLabel(
     towing: 'towing',
     'insurance-claims': 'insuranceClaims',
     'rental-assistance': 'rentalAssistance',
+    blog: 'blog',
     about: 'about',
     'our-team': 'ourTeam',
     certifications: 'certifications',

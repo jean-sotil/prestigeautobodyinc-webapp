@@ -21,6 +21,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ButtonLink } from '@/components/ui/Button';
 import { getBusinessRating } from '@/lib/google-places';
 import { computeReadingTime } from '@/lib/reading-time';
+import BreadcrumbTitleSetter from '@/components/BreadcrumbTitleSetter';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -152,6 +153,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen">
+      <BreadcrumbTitleSetter title={post.title} />
       {/* JSON-LD Schemas */}
       <LocalBusinessJsonLd
         ratingValue={rating.ratingValue}
