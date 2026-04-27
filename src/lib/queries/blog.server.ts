@@ -130,7 +130,7 @@ export async function fetchRelatedPosts({
             locale: locale as 'en' | 'es',
             where: {
               and: [
-                { status: { equals: 'published' } },
+                { publishStatus: { equals: 'published' } },
                 { 'categories.slug': { in: categorySlugs } },
                 { slug: { not_equals: excludeSlug } },
               ],
@@ -151,7 +151,7 @@ export async function fetchRelatedPosts({
         locale: locale as 'en' | 'es',
         where: {
           and: [
-            { status: { equals: 'published' } },
+            { publishStatus: { equals: 'published' } },
             { slug: { not_equals: excludeSlug } },
           ],
         },
