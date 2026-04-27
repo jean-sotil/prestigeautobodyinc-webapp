@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React from 'react';
 
 interface GoogleMapEmbedProps {
@@ -43,10 +44,12 @@ export function GoogleMapEmbed({
       >
         {hasApiKey ? (
           <>
-            <img
+            <Image
               src={staticMapUrl}
               alt={`Map showing ${address}`}
-              className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+              fill
+              sizes="(max-width: 768px) 100vw, 600px"
+              className="object-cover group-hover:opacity-90 transition-opacity"
               loading="lazy"
             />
 
