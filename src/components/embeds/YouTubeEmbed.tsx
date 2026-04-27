@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface YouTubeEmbedProps {
@@ -25,12 +26,14 @@ export function YouTubeEmbed({
         className="relative w-full aspect-video bg-gray-900 rounded-lg overflow-hidden group cursor-pointer"
         aria-label={`Play ${title}`}
       >
-        {/* Thumbnail */}
-        <img
+        {/* Thumbnail - Next.js Image for optimization */}
+        <Image
           src={thumbnailUrl}
           alt={title}
-          className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity"
+          fill
+          className="object-cover opacity-80 group-hover:opacity-60 transition-opacity"
           loading="lazy"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
 
         {/* Play button overlay */}

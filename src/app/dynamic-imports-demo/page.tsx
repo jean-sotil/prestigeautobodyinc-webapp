@@ -14,7 +14,7 @@ import { Suspense } from 'react';
 import { FormSkeleton, EmbedSkeleton } from '@/components/ui/Skeleton';
 
 // Eager-loaded components (in initial bundle)
-import { CardSkeleton } from '@/components/ui/Skeleton';
+// Note: CardSkeleton is available for eager loading if needed
 
 // Dynamically imported components (lazy loaded)
 const QuoteForm = dynamic(
