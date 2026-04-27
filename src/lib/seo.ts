@@ -46,7 +46,7 @@ export function buildPageMetadata({
       url: `${BASE_URL}${currentPath}`,
       siteName: 'Prestige Auto Body Inc.',
       locale: ogLocale,
-      alternateLocales: alternateOgLocales,
+      alternateLocale: alternateOgLocales,
       type: 'website',
       images: [
         {
