@@ -5,11 +5,11 @@ import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
-import { YouTubeEmbed } from '@/components/embeds/YouTubeEmbed';
 import { GoogleReviews } from '@/components/embeds/GoogleReviews';
 import { ReviewsJsonLd, LocalBusinessJsonLd } from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
-import QuoteForm from '@/components/quote-form/QuoteForm';
+import LazyYouTubeEmbed from '@/components/dynamic/LazyYouTubeEmbed';
+import LazyQuoteForm from '@/components/dynamic/LazyQuoteForm';
 import { ButtonLink } from '@/components/ui/Button';
 import { ServiceCard } from '@/components/ui/ServiceCard';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -273,7 +273,7 @@ export default async function HomePage() {
 
           {/* Right: YouTube Embed */}
           <div className="flex-1 w-full max-w-[520px]">
-            <YouTubeEmbed videoId="8DM-Ej56Xf8" title={t('video.playButton')} />
+            <LazyYouTubeEmbed videoId="8DM-Ej56Xf8" title={t('video.playButton')} />
           </div>
         </div>
       </section>
@@ -281,7 +281,7 @@ export default async function HomePage() {
       {/* Get Your Free Quote Section */}
       <section className="z-0 py-16" aria-labelledby="free-estimate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
-          <QuoteForm />
+          <LazyQuoteForm />
         </div>
       </section>
 
