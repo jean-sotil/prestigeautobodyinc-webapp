@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export function generateStaticParams() {
@@ -16,12 +16,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const title = locale === 'es'
-    ? 'Certificaciones I-CAR y ASE | Prestige Auto Body Inc.'
-    : 'I-CAR & ASE Certifications | Prestige Auto Body Inc.';
-  const description = locale === 'es'
-    ? 'Nuestros técnicos poseen certificaciones I-CAR y ASE, garantizando reparaciones profesionales según los estándares de la industria.'
-    : 'Our technicians hold I-CAR and ASE certifications, ensuring professional repairs that follow industry best practices and safety standards.';
+  const title =
+    locale === 'es'
+      ? 'Certificaciones I-CAR y ASE | Prestige Auto Body Inc.'
+      : 'I-CAR & ASE Certifications | Prestige Auto Body Inc.';
+  const description =
+    locale === 'es'
+      ? 'Nuestros técnicos poseen certificaciones I-CAR y ASE, garantizando reparaciones profesionales según los estándares de la industria.'
+      : 'Our technicians hold I-CAR and ASE certifications, ensuring professional repairs that follow industry best practices and safety standards.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const enPath = '/en/certifications';
   const esPath = '/es/certificaciones';

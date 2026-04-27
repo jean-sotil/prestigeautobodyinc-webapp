@@ -3,6 +3,7 @@ import '../../globals.css';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
@@ -16,7 +17,6 @@ interface MessagesType {
   };
 }
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export async function generateMetadata({
@@ -78,15 +78,15 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <BreadcrumbProvider>
-      <WebsiteJsonLd
-        locale={locale}
-        description={messages.metadata?.description}
-      />
-      <Header />
-      <main id="main-content" tabIndex={-1}>
-        {children}
-      </main>
-      <Footer />
+        <WebsiteJsonLd
+          locale={locale}
+          description={messages.metadata?.description}
+        />
+        <Header />
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer />
       </BreadcrumbProvider>
     </NextIntlClientProvider>
   );

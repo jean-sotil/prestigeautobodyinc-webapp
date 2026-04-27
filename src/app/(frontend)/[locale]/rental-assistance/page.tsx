@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 import { ServiceJsonLd } from '@/components/services';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export function generateStaticParams() {
@@ -17,12 +17,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const title = locale === 'es'
-    ? 'Asistencia de Alquiler de Autos | Prestige Auto Body Inc.'
-    : 'Rental Car Assistance | Prestige Auto Body Inc.';
-  const description = locale === 'es'
-    ? 'Servicios de asistencia de alquiler para mantenerlo en la carretera mientras su vehículo está en reparación.'
-    : 'Rental assistance services to keep you on the road while your vehicle is being repaired at our Silver Spring, MD facility.';
+  const title =
+    locale === 'es'
+      ? 'Asistencia de Alquiler de Autos | Prestige Auto Body Inc.'
+      : 'Rental Car Assistance | Prestige Auto Body Inc.';
+  const description =
+    locale === 'es'
+      ? 'Servicios de asistencia de alquiler para mantenerlo en la carretera mientras su vehículo está en reparación.'
+      : 'Rental assistance services to keep you on the road while your vehicle is being repaired at our Silver Spring, MD facility.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const enPath = '/en/rental-assistance';
   const esPath = '/es/asistencia-de-alquiler';

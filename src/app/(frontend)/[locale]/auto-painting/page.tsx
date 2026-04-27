@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
@@ -22,7 +23,6 @@ export async function generateMetadata({
   const title = t(`pages.${SERVICE_KEY}.metaTitle`);
   const description = t(`pages.${SERVICE_KEY}.metaDescription`);
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
-  const BASE_URL = 'https://www.prestigeautobodyinc.com';
   const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
   const enPath = '/en/auto-painting';
   const esPath = '/es/pintura-de-autos';

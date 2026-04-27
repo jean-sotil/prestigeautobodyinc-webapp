@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { LegalPage } from '@/components/legal/LegalPage';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
-
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 
 const SECTION_KEYS = [
   'acceptance',

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export function generateStaticParams() {
@@ -16,12 +16,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const title = locale === 'es'
-    ? 'Ubicaciones | Prestige Auto Body Inc.'
-    : 'Our Locations | Prestige Auto Body Inc.';
-  const description = locale === 'es'
-    ? 'Visite nuestras instalaciones equipadas con tecnología de punta para todas sus necesidades de reparación de carrocería en Silver Spring, MD.'
-    : 'Visit our state-of-the-art facility in Silver Spring, MD equipped to handle all your auto body repair needs.';
+  const title =
+    locale === 'es'
+      ? 'Ubicaciones | Prestige Auto Body Inc.'
+      : 'Our Locations | Prestige Auto Body Inc.';
+  const description =
+    locale === 'es'
+      ? 'Visite nuestras instalaciones equipadas con tecnología de punta para todas sus necesidades de reparación de carrocería en Silver Spring, MD.'
+      : 'Visit our state-of-the-art facility in Silver Spring, MD equipped to handle all your auto body repair needs.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const enPath = '/en/locations';
   const esPath = '/es/ubicaciones';

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { PageHeroBanner } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
@@ -9,7 +10,6 @@ import { ServiceJsonLd } from '@/components/services';
 const FALLBACK_ALT =
   'Professional flatbed tow truck providing 24/7 emergency roadside assistance and towing services at night with amber emergency lights';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export function generateStaticParams() {
@@ -23,12 +23,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'services' });
-  const title = locale === 'es'
-    ? 'Servicio de Remolque 24/7 | Prestige Auto Body Inc.'
-    : '24/7 Towing & Roadside Assistance | Prestige Auto Body Inc.';
-  const description = locale === 'es'
-    ? 'Servicio de remolque de emergencia disponible las 24 horas en Silver Spring, MD y áreas circundantes.'
-    : 'Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas.';
+  const title =
+    locale === 'es'
+      ? 'Servicio de Remolque 24/7 | Prestige Auto Body Inc.'
+      : '24/7 Towing & Roadside Assistance | Prestige Auto Body Inc.';
+  const description =
+    locale === 'es'
+      ? 'Servicio de remolque de emergencia disponible las 24 horas en Silver Spring, MD y áreas circundantes.'
+      : 'Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const enPath = '/en/towing';
   const esPath = '/es/remolque';

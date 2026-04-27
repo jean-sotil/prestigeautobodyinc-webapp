@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { PageHeroBanner } from '@/components/hero';
 import LazyQuoteForm from '@/components/dynamic/LazyQuoteForm';
 import { getBusinessRating } from '@/lib/google-places';
@@ -25,7 +26,6 @@ const INSURERS = [
   'progressive',
   'usaa',
 ] as const;
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

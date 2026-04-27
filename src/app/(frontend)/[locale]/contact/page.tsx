@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { PageHeroBanner } from '@/components/hero';
 import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
 import {
@@ -25,7 +26,6 @@ export async function generateMetadata({
   const title = t('metaTitle');
   const description = t('metaDescription');
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
-  const BASE_URL = 'https://www.prestigeautobodyinc.com';
   const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
   const enPath = '/en/contact';
   const esPath = '/es/contacto';

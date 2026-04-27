@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
@@ -11,7 +12,6 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export async function generateMetadata({

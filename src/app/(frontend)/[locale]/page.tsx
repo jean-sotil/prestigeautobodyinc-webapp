@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { GoogleReviews } from '@/components/embeds/GoogleReviews';
@@ -25,7 +26,6 @@ import {
   ThumbsUpIcon,
 } from '@/components/ui/Icons';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 interface HomeMessagesType {
@@ -273,7 +273,10 @@ export default async function HomePage() {
 
           {/* Right: YouTube Embed */}
           <div className="flex-1 w-full max-w-[520px]">
-            <LazyYouTubeEmbed videoId="8DM-Ej56Xf8" title={t('video.playButton')} />
+            <LazyYouTubeEmbed
+              videoId="8DM-Ej56Xf8"
+              title={t('video.playButton')}
+            />
           </div>
         </div>
       </section>

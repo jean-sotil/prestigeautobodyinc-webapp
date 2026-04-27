@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
 export function generateStaticParams() {
@@ -16,12 +16,14 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const title = locale === 'es'
-    ? 'Nuestro Equipo | Prestige Auto Body Inc.'
-    : 'Our Team | Prestige Auto Body Inc.';
-  const description = locale === 'es'
-    ? 'Conozca a nuestro equipo de técnicos certificados y profesionales de carrocería con décadas de experiencia combinada.'
-    : 'Meet our team of certified technicians and auto body professionals with decades of combined experience in Silver Spring, MD.';
+  const title =
+    locale === 'es'
+      ? 'Nuestro Equipo | Prestige Auto Body Inc.'
+      : 'Our Team | Prestige Auto Body Inc.';
+  const description =
+    locale === 'es'
+      ? 'Conozca a nuestro equipo de técnicos certificados y profesionales de carrocería con décadas de experiencia combinada.'
+      : 'Meet our team of certified technicians and auto body professionals with decades of combined experience in Silver Spring, MD.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const enPath = '/en/our-team';
   const esPath = '/es/nuestro-equipo';
