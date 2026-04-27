@@ -101,7 +101,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       pagination: false,
       // 'all' returns localized fields as { en, es, … }
       locale: 'all',
-      where: { status: { equals: 'published' } },
+      where: { publishStatus: { equals: 'published' } },
     });
 
     for (const doc of result.docs as Array<{
