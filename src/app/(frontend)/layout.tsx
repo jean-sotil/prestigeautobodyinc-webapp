@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   creator: 'Prestige Auto Body, Inc.',
   publisher: 'Prestige Auto Body, Inc.',
   robots: {
-    index: true,
-    follow: true,
+    index: process.env.VERCEL_ENV === 'production',
+    follow: process.env.VERCEL_ENV === 'production',
   },
   alternates: {
     canonical: '/',
