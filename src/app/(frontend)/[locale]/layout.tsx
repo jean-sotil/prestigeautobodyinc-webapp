@@ -9,6 +9,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
 import { WebsiteJsonLd } from '@/components/seo';
 import { BreadcrumbProvider } from '@/components/BreadcrumbContext';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
+import AnalyticsUserProperties from '@/components/analytics/AnalyticsUserProperties';
+import ConsentBanner from '@/components/analytics/ConsentBanner';
 
 interface MessagesType {
   metadata?: {
@@ -78,6 +81,8 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <BreadcrumbProvider>
+        <GoogleAnalytics />
+        <AnalyticsUserProperties />
         <WebsiteJsonLd
           locale={locale}
           description={messages.metadata?.description}
@@ -87,6 +92,7 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer />
+        <ConsentBanner />
       </BreadcrumbProvider>
     </NextIntlClientProvider>
   );
