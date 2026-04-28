@@ -14,7 +14,7 @@
   --accent-red: #c62828;
   --border: oklch(0.922 0 0);
   --input-bg: #ffffff;
-  --input-border: #d1d5db;
+  --input-border: #767676;
 
   /* Font stacks per DESIGN.md */
   --font-sans:
@@ -37,7 +37,7 @@
   --accent: #f5f5f5;
   --accent-foreground: #2d2d2d;
   --destructive: #b71c1c;
-  --input: #d1d5db;
+  --input: #767676;
   --ring: #c62828;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
@@ -66,12 +66,12 @@
   --text-secondary: #a0a0a0;
   --border: #333333;
   --input-bg: #1e1e1e;
-  --input-border: #444444;
+  --input-border: #8a8a8a;
   --card: #252525;
   --card-foreground: #e0e0e0;
   --popover: #1e1e1e;
   --popover-foreground: #e0e0e0;
-  --primary: #ef5350;
+  --primary: #d32f2f;
   --primary-foreground: #ffffff;
   --secondary: #1e1e1e;
   --secondary-foreground: #e0e0e0;
@@ -80,7 +80,7 @@
   --accent: #1e1e1e;
   --accent-foreground: #e0e0e0;
   --destructive: #ef5350;
-  --input: #444444;
+  --input: #8a8a8a;
   --ring: #ef5350;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
@@ -198,7 +198,7 @@ img {
 }
 
 :focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
@@ -371,16 +371,22 @@ img {
 
 /* ─── Design Upgrade v2 utilities ─────────────────────────────── */
 
-/* Overline — eyebrow text above section headings (10px intentional, below text-xs) */
+/* Overline — eyebrow text above section headings (10px intentional, below text-xs).
+ * At 10px (7.5pt) the WCAG normal-text 4.5:1 bar applies. Use the deeper
+ * --color-red-pressed in light mode (≥7:1 on white) and the brighter --ring
+ * in dark mode (≥5.3:1 on #121212). */
 .overline {
   font-family: var(--font-sans);
   font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--color-red-hover);
+  color: var(--color-red-pressed);
   display: block;
   margin-bottom: 0.5rem;
+}
+.dark .overline {
+  color: var(--ring);
 }
 
 /* Nav link — slide-in underline on hover / active */

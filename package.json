@@ -11,6 +11,8 @@
     "generate:importmap": "tsx node_modules/payload/bin.js generate:importmap",
     "generate:types": "tsx node_modules/payload/bin.js generate:types",
     "lint": "eslint",
+    "a11y": "node scripts/a11y-audit.mjs",
+    "contrast": "node scripts/contrast-audit.mjs",
     "prepare": "husky || true"
   },
   "trustedDependencies": [
@@ -50,6 +52,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.2",
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^16.2.2",
     "@swc-node/register": "^1.11.1",
@@ -63,6 +66,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
+    "playwright": "^1.59.1",
     "prettier": "^3.8.1",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",

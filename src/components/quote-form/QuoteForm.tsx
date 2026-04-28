@@ -193,8 +193,14 @@ function QuoteFormInner() {
     <>
       <FormProgress currentStep={currentStep} onStepClick={handleStepClick} />
 
+      {/* Concise step-change announcer for screen readers. The full step
+          content below is intentionally NOT a live region — re-announcing the
+          entire form on every step would be punishing for SR users. */}
+      <p role="status" aria-live="polite" className="sr-only">
+        {`Step ${currentStep + 1} of ${stepNames.length}: ${stepNames[currentStep]}`}
+      </p>
+
       <div
-        aria-live="polite"
         key={currentStep}
         className={
           direction === 'forward'
@@ -230,7 +236,9 @@ function QuoteFormInner() {
         isPending={isPending}
       />
 
-      <p className="text-center text-xs text-gray-400 mt-4">Draft auto-saved</p>
+      <p className="text-center text-xs text-muted-foreground mt-4">
+        Draft auto-saved
+      </p>
     </>
   );
 }

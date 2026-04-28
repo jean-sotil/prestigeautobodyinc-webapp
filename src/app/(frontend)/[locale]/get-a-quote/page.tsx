@@ -144,7 +144,7 @@ export default async function GetAQuotePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <main id="main-content">
+      <div>
         {/* ─────────────── Section A — Hero Banner ─────────────── */}
         <PageHeroBanner
           slug="auto-body-services"
@@ -325,7 +325,7 @@ export default async function GetAQuotePage({
                 <p className="text-sm text-[#555555] dark:text-[#A0A0A0]">
                   {t('socialProof.icarLabel')}
                 </p>
-                <p className="text-xs text-[#555555] dark:text-[#A0A0A0] opacity-70">
+                <p className="text-xs text-muted-foreground">
                   {t('socialProof.icarSubLabel')}
                 </p>
               </div>
@@ -381,7 +381,7 @@ export default async function GetAQuotePage({
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

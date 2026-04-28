@@ -1,0 +1,173 @@
+[
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/about",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/nosotros",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/auto-body-services",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/servicios-de-carroceria",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/auto-painting",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/pintura-de-autos",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/blog",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/blog",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/certifications",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/certificaciones",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/collision-repair",
+    "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"http://localhost:3001/en/collision-repair\", waiting until \"domcontentloaded\"\n",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/reparacion-de-colisiones",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/contact",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/contacto",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/gallery",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/galeria",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/get-a-quote",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/obtener-cotizacion",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/insurance-claims",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/reclamos-de-seguro",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/locations",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/ubicaciones",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/our-team",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/nuestro-equipo",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/privacy-policy",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/politica-de-privacidad",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/rental-assistance",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/asistencia-de-alquiler",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/terms-of-service",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/terminos-de-servicio",
+    "violations": []
+  },
+  {
+    "locale": "en",
+    "url": "http://localhost:3001/en/towing",
+    "violations": []
+  },
+  {
+    "locale": "es",
+    "url": "http://localhost:3001/es/remolque",
+    "violations": []
+  }
+]
