@@ -18,8 +18,11 @@
 
   /* Font stacks per DESIGN.md */
   --font-sans:
-    var(--font-instrument), 'Instrument Sans', Arial, Helvetica, sans-serif;
-  --font-display: var(--font-display), 'Big Shoulders', Impact, sans-serif;
+    var(--font-sans), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  --font-display:
+    var(--font-display), 'Poppins', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
   --font-mono:
     ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
   --background: #ffffff;

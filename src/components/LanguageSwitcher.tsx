@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import NextLink from 'next/link';
-import { Link, usePathname } from '@/i18n/navigation';
-import { Button } from '@/components/ui/Button';
+import { usePathname } from '@/i18n/navigation';
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
@@ -12,10 +10,23 @@ export default function LanguageSwitcher() {
   const t = useTranslations('language');
   const otherLocale = locale === 'en' ? 'es' : 'en';
 
-  // For routes with dynamic localized segments (e.g. /[locale]/blog/[slug]),
-  // next-intl can't resolve the cross-locale URL from the static pathname map.
-  // The page emits <link rel="alternate" hreflang="…"> via Next metadata; we
-  // read that to navigate to the correct localized slug instead of 404'ing.
+  const scrollToTop = () => {
+    if (typeof window === 'undefined') return;
+
+    const forceScroll = () => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    forceScroll();
+    requestAnimationFrame(forceScroll);
+    [50, 100, 150, 200, 250, 300, 400, 500].forEach((delay) =>
+      setTimeout(forceScroll, delay),
+    );
+  };
+
+  // For dynamic routes (e.g. blog/[slug]), read the hreflang alternate
   const [hreflangHref, setHreflangHref] = useState<string | null>(null);
 
   useEffect(() => {
@@ -25,15 +36,12 @@ export default function LanguageSwitcher() {
     let next: string | null = null;
     if (link?.href) {
       try {
-        // Strip the origin so we can route via Next's client-side navigation.
         const url = new URL(link.href);
         next = `${url.pathname}${url.search}${url.hash}`;
       } catch {
         next = null;
       }
     }
-    // Reading the document head after mount is the entire point of this effect;
-    // the rule is overzealous here. Mirrors the pattern in ThemeToggle / HeroCarousel.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setHreflangHref(next);
   }, [otherLocale, pathname]);
@@ -43,29 +51,31 @@ export default function LanguageSwitcher() {
   });
   const visibleLabel = locale === 'en' ? 'ES' : 'EN';
 
-  // Override path: respect the page-supplied alternate.
-  if (hreflangHref) {
-    return (
-      <Button
-        variant="outline"
-        size="sm"
-        render={<NextLink href={hreflangHref} aria-label={ariaLabel} />}
-      >
-        {visibleLabel}
-      </Button>
-    );
-  }
+  const buttonStyles =
+    'inline-flex shrink-0 items-center justify-center border bg-clip-padding font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 border-border bg-background hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem]';
 
-  // Default path: next-intl's static pathname remap.
+  const handleSwitch = () => {
+    scrollToTop();
+
+    if (hreflangHref) {
+      // Dynamic route: use the hreflang alternate URL
+      window.location.href = hreflangHref;
+    } else {
+      // Static route: swap locale prefix in the current URL
+      const currentPath = window.location.pathname;
+      const newPath = currentPath.replace(`/${locale}`, `/${otherLocale}`);
+      window.location.href = newPath;
+    }
+  };
+
   return (
-    <Button
-      variant="outline"
-      size="sm"
-      render={
-        <Link href={pathname} locale={otherLocale} aria-label={ariaLabel} />
-      }
+    <button
+      type="button"
+      aria-label={ariaLabel}
+      className={buttonStyles}
+      onClick={handleSwitch}
     >
       {visibleLabel}
-    </Button>
+    </button>
   );
 }

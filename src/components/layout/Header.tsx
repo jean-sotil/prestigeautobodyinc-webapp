@@ -71,7 +71,35 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isHomePage = pathname === `/${locale}` || pathname === '/';
+  useEffect(() => {
+    const handleLogoClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest('a[aria-label="Prestige Auto Body Inc. - Home"]');
+      if (!target) return;
+
+      const currentPath = window.location.pathname;
+      const onHome = currentPath === `/${locale}` || currentPath === '/' || currentPath === `/${locale}/`;
+
+      if (onHome) {
+        e.preventDefault();
+        e.stopPropagation();
+        const forceScroll = () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        };
+        forceScroll();
+        requestAnimationFrame(forceScroll);
+        [50, 100, 150, 200, 250, 300, 400, 500].forEach(delay =>
+          setTimeout(forceScroll, delay)
+        );
+      }
+    };
+
+    document.addEventListener('click', handleLogoClick, true);
+    return () => document.removeEventListener('click', handleLogoClick, true);
+  }, [locale]);
+
+  const isHomePage = pathname === `/${locale}` || pathname === '/' || pathname === `/${locale}/`;
 
   return (
     <>

@@ -352,7 +352,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Back to Blog */}
           <div className="mt-12 border-t border-border pt-10 pb-4">
-            <ButtonLink href={`/${locale}/blog`} variant="secondary" size="sm">
+            <ButtonLink href="/blog" variant="secondary" size="sm">
               ← {t('backToBlog')}
             </ButtonLink>
           </div>
@@ -381,7 +381,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </ul>
             <div className="mt-12 text-center">
-              <ButtonLink href={`/${locale}/blog`} variant="primary">
+              <ButtonLink href="/blog" variant="primary">
                 {t('viewAllPosts')}
               </ButtonLink>
             </div>
