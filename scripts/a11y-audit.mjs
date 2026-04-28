@@ -43,6 +43,18 @@ const URLS = ROUTES.flatMap(([en, es]) => [
   { locale: 'es', url: `${BASE_URL}/es${es === '/' ? '' : es}` },
 ]);
 
+// Optional dynamic-route sampling. Pass via env so CI without a DB still works.
+//   BLOG_SAMPLE_SLUGS="en:my-post,es:mi-articulo"
+// Each tuple is appended to the scan list. Useful coverage for /blog/[slug]
+// templates whose layout differs from the index.
+if (process.env.BLOG_SAMPLE_SLUGS) {
+  for (const entry of process.env.BLOG_SAMPLE_SLUGS.split(',')) {
+    const [locale, slug] = entry.split(':').map((s) => s.trim());
+    if (!locale || !slug) continue;
+    URLS.push({ locale, url: `${BASE_URL}/${locale}/blog/${slug}` });
+  }
+}
+
 const SEVERITY_ORDER = { critical: 0, serious: 1, moderate: 2, minor: 3 };
 
 async function auditUrl(page, { locale, url }) {

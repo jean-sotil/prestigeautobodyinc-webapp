@@ -258,7 +258,7 @@ export default async function BlogIndexPage({
                     className={pillClass(active)}
                   >
                     <span>{cat.name}</span>
-                    <span className="tabular-nums opacity-70">({count})</span>
+                    <span className="tabular-nums">({count})</span>
                   </Link>
                 );
               })}
@@ -659,7 +659,7 @@ function MetaRow({
     >
       {post.author?.fullName && (
         <span className="inline-flex items-center gap-1.5">
-          <span className="text-muted-foreground/70">{byLabel}</span>
+          <span className="text-muted-foreground">{byLabel}</span>
           <span className="font-semibold text-foreground">
             {post.author.fullName}
           </span>

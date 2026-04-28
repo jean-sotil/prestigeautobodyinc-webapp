@@ -65,9 +65,8 @@ export default function Breadcrumbs() {
     const isLast = index === segments.length - 1;
 
     // Map segment to translation key
-    const label = isLast && pageTitle
-      ? pageTitle
-      : getBreadcrumbLabel(segment, t);
+    const label =
+      isLast && pageTitle ? pageTitle : getBreadcrumbLabel(segment, t);
 
     items.push({
       href: currentPath as '/',
@@ -168,8 +167,9 @@ function HomeIcon({
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
-      aria-label={ariaLabel}
-      role="img"
+      {...(ariaLabel
+        ? { 'aria-label': ariaLabel, role: 'img' }
+        : { 'aria-hidden': true })}
     >
       <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
       <polyline points="9 22 9 12 15 12 15 22" />

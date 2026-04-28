@@ -99,7 +99,7 @@ export default async function ContactPage({
         media={heroMedia}
       />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-xl font-semibold mb-4">Get in Touch</h2>
@@ -129,7 +129,7 @@ export default async function ContactPage({
             </div>
           </div>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

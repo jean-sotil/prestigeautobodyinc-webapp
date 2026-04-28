@@ -17,6 +17,7 @@ export function ServiceTestimonial({ testimonial }: ServiceTestimonialProps) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Star rating */}
         <div
+          role="img"
           className="flex items-center justify-center gap-1"
           aria-label={`${testimonial.rating} out of 5 stars`}
         >

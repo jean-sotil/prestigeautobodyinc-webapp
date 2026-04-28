@@ -12,6 +12,7 @@
     "generate:types": "tsx node_modules/payload/bin.js generate:types",
     "lint": "eslint",
     "a11y": "node scripts/a11y-audit.mjs",
+    "contrast": "node scripts/contrast-audit.mjs",
     "prepare": "husky || true"
   },
   "trustedDependencies": [
