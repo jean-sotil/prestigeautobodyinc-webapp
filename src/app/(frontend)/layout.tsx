@@ -3,6 +3,7 @@ import { Big_Shoulders, Instrument_Sans, Geist } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
 import { QueryProvider } from '@/providers/QueryProvider';
+import { BASE_URL } from '@/lib/seo';
 import '../globals.css';
 import { cn } from '@/lib/utils';
 
@@ -32,7 +33,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.prestigeautobodyinc.com'),
+  metadataBase: new URL(BASE_URL),
   title: {
     default:
       'Prestige Auto Body | Expert Collision Repair in Silver Spring, MD',
@@ -51,8 +52,10 @@ export const metadata: Metadata = {
   creator: 'Prestige Auto Body, Inc.',
   publisher: 'Prestige Auto Body, Inc.',
   robots: {
-    index: process.env.VERCEL_ENV === 'production',
-    follow: process.env.VERCEL_ENV === 'production',
+    // Block crawlers only on Vercel preview deployments. Localhost can't be
+    // crawled, and Lighthouse on localhost otherwise reports a noindex tag.
+    index: process.env.VERCEL_ENV !== 'preview',
+    follow: process.env.VERCEL_ENV !== 'preview',
   },
   alternates: {
     canonical: '/',

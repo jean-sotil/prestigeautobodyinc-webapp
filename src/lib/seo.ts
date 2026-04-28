@@ -3,13 +3,18 @@ import { routing } from '@/i18n/routing';
 
 export const PRODUCTION_URL = 'https://www.prestigeautobodyinc.com';
 
-// On preview deployments, point canonicals/hreflangs at the actual deployment
-// host so they are self-referential. Lighthouse otherwise flags a canonical
-// pointing at a different host that also appears in hreflang.
+// Self-referential canonicals/hreflangs everywhere except production:
+// - production:        PRODUCTION_URL
+// - Vercel preview:    https://<VERCEL_URL>      (preview host)
+// - local development: NEXT_PUBLIC_SITE_URL or   http://localhost:3000
+// Lighthouse otherwise flags a canonical pointing at a different host that
+// also appears in hreflang.
 export const BASE_URL =
-  process.env.VERCEL_ENV !== 'production' && process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : PRODUCTION_URL;
+  process.env.VERCEL_ENV === 'production'
+    ? PRODUCTION_URL
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
