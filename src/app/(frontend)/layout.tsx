@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Big_Shoulders, Instrument_Sans, Geist } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import { WebVitals } from '@/components/performance/WebVitals';
 import { QueryProvider } from '@/providers/QueryProvider';
@@ -7,19 +7,16 @@ import { BASE_URL } from '@/lib/seo';
 import '../globals.css';
 import { cn } from '@/lib/utils';
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
-
-const bigShoulders = Big_Shoulders({
-  variable: '--font-display',
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['700', '800'],
+  variable: '--font-sans',
   display: 'swap',
 });
 
-const instrumentSans = Instrument_Sans({
-  variable: '--font-instrument',
+const poppins = Poppins({
+  variable: '--font-display',
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
+  weight: ['600', '700', '800'],
   display: 'swap',
 });
 
@@ -97,7 +94,7 @@ export default async function FrontendLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className={cn('font-sans', geist.variable)}>
+    <html lang={locale} className={cn('font-sans', inter.variable)}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -110,9 +107,7 @@ export default async function FrontendLayout({
         <link rel="dns-prefetch" href="//elfsightcdn.com" />
         <link rel="dns-prefetch" href="//static.elfsight.com" />
       </head>
-      <body
-        className={`${bigShoulders.variable} ${instrumentSans.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         <WebVitals />
         <QueryProvider>{children}</QueryProvider>
       </body>
