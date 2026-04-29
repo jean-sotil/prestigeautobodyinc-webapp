@@ -1260,5 +1260,15 @@
     "learnMore": "Read our Privacy Policy",
     "accept": "Accept all",
     "reject": "Reject all"
+  },
+  "reviews": {
+    "listLabel": "Customer reviews from Google",
+    "previous": "Previous review",
+    "next": "Next review",
+    "readMore": "Read full review on Google",
+    "viewAll": "View all reviews on Google",
+    "starsLabel": "{count} out of {total} stars",
+    "sectionOverline": "Customer Reviews",
+    "sectionHeading": "What Our Customers Say"
   }
 }

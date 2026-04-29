@@ -1,11 +1,10 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { ServiceHero } from './ServiceHero';
 import { WhatWeOffer } from './WhatWeOffer';
 import { ServiceAreas } from './ServiceAreas';
-import { ServiceTestimonial } from './ServiceTestimonial';
 import { CTABanner } from './CTABanner';
+import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import type { HeroMedia } from '@/lib/heroMedia';
 
 const OFFERING_KEYS = [
@@ -28,14 +27,17 @@ interface ServicePageTemplateProps {
   heroAlt?: string;
 }
 
-export function ServicePageTemplate({
+export async function ServicePageTemplate({
   serviceKey,
   heroSlug,
   heroMedia,
   heroAlt,
 }: ServicePageTemplateProps) {
-  const t = useTranslations('services');
-  const h = useTranslations('header');
+  const [t, h, r] = await Promise.all([
+    getTranslations('services'),
+    getTranslations('header'),
+    getTranslations('reviews'),
+  ]);
 
   const page = (key: string) => t(`pages.${serviceKey}.${key}`);
 
@@ -43,13 +45,6 @@ export function ServicePageTemplate({
     title: t(`pages.${serviceKey}.offerings.${item}.title`),
     description: t(`pages.${serviceKey}.offerings.${item}.description`),
   }));
-
-  const testimonial = {
-    quote: page('testimonial.quote'),
-    author: page('testimonial.author'),
-    location: page('testimonial.location'),
-    rating: 5,
-  };
 
   return (
     <div>
@@ -69,7 +64,20 @@ export function ServicePageTemplate({
 
       <ServiceAreas heading={t('serviceAreas')} />
 
-      <ServiceTestimonial testimonial={testimonial} />
+      <section
+        className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
+        aria-labelledby={`reviews-${serviceKey}`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
+          <SectionHeading
+            id={`reviews-${serviceKey}`}
+            overline={r('sectionOverline')}
+            heading={r('sectionHeading')}
+            centered
+          />
+          <GoogleReviewsCarousel />
+        </div>
+      </section>
 
       <CTABanner
         headline={t('ctaHeadline')}

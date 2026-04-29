@@ -1260,5 +1260,15 @@
     "learnMore": "Lee nuestra Política de Privacidad",
     "accept": "Aceptar todo",
     "reject": "Rechazar todo"
+  },
+  "reviews": {
+    "listLabel": "Reseñas de clientes desde Google",
+    "previous": "Reseña anterior",
+    "next": "Siguiente reseña",
+    "readMore": "Leer reseña completa en Google",
+    "viewAll": "Ver todas las reseñas en Google",
+    "starsLabel": "{count} de {total} estrellas",
+    "sectionOverline": "Reseñas de Clientes",
+    "sectionHeading": "Lo Que Dicen Nuestros Clientes"
   }
 }

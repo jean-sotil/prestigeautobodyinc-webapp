@@ -6,7 +6,7 @@ import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
-import { GoogleReviews } from '@/components/embeds/GoogleReviews';
+import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
 import { ReviewsJsonLd, LocalBusinessJsonLd } from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
 import LazyYouTubeEmbed from '@/components/dynamic/LazyYouTubeEmbed';
@@ -397,7 +397,7 @@ export default async function HomePage() {
             ratingValue={rating.ratingValue}
             reviewCount={rating.reviewCount}
           />
-          <GoogleReviews />
+          <GoogleReviewsCarousel />
         </div>
       </section>
 
