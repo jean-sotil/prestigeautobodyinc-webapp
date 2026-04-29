@@ -3,6 +3,11 @@
 import { useState, useCallback } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { trackEvent } from '@/lib/analytics';
+import type {
+  ServiceType,
+  DamageSeverity,
+  FormErrorType,
+} from '@/lib/analytics-events';
 import type { QuoteFormData } from './useQuoteForm';
 
 // ============================================================================
@@ -32,6 +37,23 @@ export interface OptimisticState {
 // ============================================================================
 
 const MAX_TOTAL_SIZE = 20 * 1024 * 1024; // 20 MB total
+
+function mapErrorType(error: unknown): FormErrorType {
+  if (error && typeof error === 'object' && 'error' in error) {
+    const code = (error as { error: string }).error;
+    if (code === 'rate_limit') return 'rate_limit';
+    if (
+      code === 'validation' ||
+      code === 'invalid_multipart' ||
+      code === 'invalid_json' ||
+      code === 'payload_too_large'
+    ) {
+      return 'validation';
+    }
+    return 'server';
+  }
+  return 'network';
+}
 
 // ============================================================================
 // FormData Builder
@@ -218,10 +240,10 @@ export function useSubmitQuote(
 
       return result;
     },
-    onSuccess: (result) => {
+    onSuccess: (result, variables) => {
       trackEvent('quote_form_submit', {
-        status: 'success',
-        referenceId: result.referenceId,
+        service_type: variables.service as ServiceType,
+        damage_severity: variables.damage as DamageSeverity,
       });
       onSuccess?.(result);
     },
@@ -234,8 +256,8 @@ export function useSubmitQuote(
       });
 
       trackEvent('quote_form_error', {
-        error_type: error.error,
-        message: error.message,
+        step: 4,
+        error_type: mapErrorType(error),
       });
     },
   });

@@ -3,15 +3,19 @@ import { routing } from '@/i18n/routing';
 
 export const PRODUCTION_URL = 'https://www.prestigeautobodyinc.com';
 
-// Self-referential canonicals/hreflangs everywhere except production:
-// - production:        PRODUCTION_URL
-// - Vercel preview:    https://<VERCEL_URL>      (preview host)
-// - local development: NEXT_PUBLIC_SITE_URL or   http://localhost:3000
-// Lighthouse otherwise flags a canonical pointing at a different host that
-// also appears in hreflang.
+// Self-referential canonicals/hreflangs everywhere — the canonical must match
+// the host the page is actually served on, otherwise Lighthouse flags
+// "canonical points to another hreflang location".
+//
+// On Vercel production we read VERCEL_PROJECT_PRODUCTION_URL: it returns the
+// custom domain when one is connected, otherwise the project's *.vercel.app
+// default. So this works pre-launch (only .vercel.app) and stays correct the
+// moment the custom domain is wired up — no code change needed.
 export const BASE_URL =
   process.env.VERCEL_ENV === 'production'
-    ? PRODUCTION_URL
+    ? process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : PRODUCTION_URL
     : process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';

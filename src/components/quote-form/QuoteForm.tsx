@@ -18,6 +18,11 @@ import { VehicleStep } from './steps/VehicleStep';
 import { DamageStep } from './steps/DamageStep';
 import { ContactStep } from './steps/ContactStep';
 import { trackEvent } from '@/lib/analytics';
+import type {
+  FormStep,
+  FormStepWithSubmit,
+  ServiceType,
+} from '@/lib/analytics-events';
 import { useTranslations } from 'next-intl';
 import { SectionHeading } from '../ui/SectionHeading';
 
@@ -81,9 +86,8 @@ function QuoteFormInner() {
     function handleBeforeUnload() {
       if (currentStep > 0 && !isSuccess) {
         trackEvent('quote_form_abandon', {
-          last_step: currentStep,
-          step_name: stepNames[currentStep],
-          time_spent: Math.round((Date.now() - mountTime) / 1000),
+          last_step: (currentStep + 1) as FormStep,
+          time_spent_seconds: Math.round((Date.now() - mountTime) / 1000),
         });
       }
     }
@@ -96,7 +100,9 @@ function QuoteFormInner() {
   useEffect(() => {
     if (state.service && !formStartedRef.current) {
       formStartedRef.current = true;
-      trackEvent('quote_form_start', { service_selected: state.service });
+      trackEvent('quote_form_start', {
+        service: state.service as ServiceType,
+      });
     }
   }, [state.service]);
 
@@ -136,12 +142,17 @@ function QuoteFormInner() {
 
   // ---- Navigation ----
   function handleNext() {
-    if (!validateStep(currentStep as StepIndex)) return;
+    if (!validateStep(currentStep as StepIndex)) {
+      trackEvent('quote_form_error', {
+        step: (currentStep + 1) as FormStep,
+        error_type: 'validation',
+      });
+      return;
+    }
     setDirection('forward');
     setCurrentStep((prev) => Math.min(prev + 1, 3));
     trackEvent('quote_form_step', {
-      step_number: currentStep + 2,
-      step_name: stepNames[currentStep + 1],
+      step_number: (currentStep + 2) as FormStepWithSubmit,
       direction: 'forward',
     });
   }
@@ -151,8 +162,7 @@ function QuoteFormInner() {
     setDirection('backward');
     setCurrentStep((prev) => Math.max(prev - 1, 0));
     trackEvent('quote_form_step', {
-      step_number: currentStep,
-      step_name: stepNames[currentStep - 1],
+      step_number: currentStep as FormStepWithSubmit,
       direction: 'backward',
     });
   }
@@ -166,7 +176,17 @@ function QuoteFormInner() {
   }
 
   function handleSubmit() {
-    if (!validateStep(3)) return;
+    if (!validateStep(3)) {
+      trackEvent('quote_form_error', {
+        step: 4,
+        error_type: 'validation',
+      });
+      return;
+    }
+    trackEvent('quote_form_step', {
+      step_number: 5,
+      direction: 'forward',
+    });
     submit(state);
   }
 

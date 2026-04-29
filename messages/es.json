@@ -1252,5 +1252,13 @@
         ]
       }
     }
+  },
+  "consentBanner": {
+    "label": "Consentimiento de cookies",
+    "heading": "Usamos cookies para análisis",
+    "body": "Usamos Google Analytics para entender cómo los visitantes encuentran y utilizan nuestro sitio para mejorarlo. No se comparte información personal de los formularios.",
+    "learnMore": "Lee nuestra Política de Privacidad",
+    "accept": "Aceptar todo",
+    "reject": "Rechazar todo"
   }
 }
