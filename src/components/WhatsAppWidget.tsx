@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 const PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '';
@@ -34,29 +34,72 @@ function CloseIcon() {
 export default function WhatsAppWidget() {
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
+  const [mobileTooltip, setMobileTooltip] = useState(false);
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const mobileTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const t = useTranslations('whatsappWidget');
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(t('defaultMessage'))}`;
+
+  // Detect mobile (no hover support)
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
+
+  // Show tooltip on mobile when page loads
+  useEffect(() => {
+    if (!isMobile) return;
+    setMobileTooltip(true);
+    mobileTimerRef.current = setTimeout(() => setMobileTooltip(false), 5000);
+    return () => { if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current); };
+  }, [isMobile]);
+
+  // Auto-hide mobile tooltip after 5 seconds whenever it becomes visible
+  useEffect(() => {
+    if (!isMobile || !mobileTooltip) return;
+    if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current);
+    mobileTimerRef.current = setTimeout(() => setMobileTooltip(false), 5000);
+    return () => { if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current); };
+  }, [isMobile, mobileTooltip]);
+
+  // Close popup when clicking outside
+  useEffect(() => {
+    if (!open) return;
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (widgetRef.current && !widgetRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [open]);
+
+  const tooltipVisible = !open && (isMobile ? mobileTooltip : hover);
 
   if (!PHONE) return null;
 
   return (
     <div
+      ref={widgetRef}
       style={{
         position: 'fixed',
-        bottom: 24,
-        right: 24,
+        bottom: 16,
+        right: 16,
         zIndex: 50,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
         gap: 12,
+        maxWidth: 'calc(100vw - 32px)',
       }}
     >
       {/* Popup */}
       {open && (
         <div
           style={{
-            width: 320,
+            width: '100%',
+            maxWidth: 320,
             borderRadius: 12,
             overflow: 'hidden',
             boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
@@ -143,8 +186,8 @@ export default function WhatsAppWidget() {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        {/* Tooltip on hover (hidden when popup is open) */}
-        {!open && hover && (
+        {/* Tooltip: hover on desktop, auto-show/hide on mobile */}
+        {tooltipVisible && (
           <div
             style={{
               background: '#fff',
