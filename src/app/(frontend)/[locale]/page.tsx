@@ -294,9 +294,14 @@ export default async function HomePage() {
         aria-labelledby="warranty-heading"
       >
         {/* Steel texture background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/steel-texture.jpg')" }}
+        <Image
+          src="/steel-texture.jpg"
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="100vw"
+          quality={70}
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-foreground/90 dark:bg-black/90" />
 
