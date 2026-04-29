@@ -7,6 +7,7 @@ import { BASE_URL } from '@/lib/seo';
 import { getMessages } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
+import WhatsAppWidget from '@/components/WhatsAppWidget';
 import { WebsiteJsonLd } from '@/components/seo';
 import { BreadcrumbProvider } from '@/components/BreadcrumbContext';
 
@@ -87,6 +88,7 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppWidget />
       </BreadcrumbProvider>
     </NextIntlClientProvider>
   );
