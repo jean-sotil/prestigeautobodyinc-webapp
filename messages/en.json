@@ -729,6 +729,18 @@
       "ratingShort": "{rating}★ · {count} Google reviews"
     }
   },
+  "notFound": {
+    "metaTitle": "Page Not Found — Prestige Auto Body Inc.",
+    "code": "404",
+    "heading": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has moved. Here are a few ways to keep going.",
+    "actions": {
+      "quote": "Get a free quote",
+      "home": "Back to home"
+    },
+    "shortcutsLabel": "Or jump to",
+    "helpLine": "Need help? Call us at"
+  },
   "common": {
     "learnMore": "Learn More",
     "contactUs": "Contact Us",

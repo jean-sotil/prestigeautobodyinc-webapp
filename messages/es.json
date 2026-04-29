@@ -729,6 +729,18 @@
       "ratingShort": "{rating}★ · {count} reseñas en Google"
     }
   },
+  "notFound": {
+    "metaTitle": "Página no encontrada — Prestige Auto Body Inc.",
+    "code": "404",
+    "heading": "Página No Encontrada",
+    "description": "La página que busca no existe o se ha movido. Aquí hay algunas formas de continuar.",
+    "actions": {
+      "quote": "Cotización gratis",
+      "home": "Volver al inicio"
+    },
+    "shortcutsLabel": "O vaya a",
+    "helpLine": "¿Necesita ayuda? Llámenos al"
+  },
   "common": {
     "learnMore": "Más Información",
     "contactUs": "Contáctenos",
