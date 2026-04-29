@@ -15,6 +15,20 @@ export const Media: CollectionConfig = {
   admin: {
     group: 'Content',
   },
+  hooks: {
+    afterRead: [
+      ({ doc }) => {
+        // Fix thumbnailURL to use the Vercel Blob URL instead of local path
+        if (
+          doc?.sizes?.thumbnail?.url &&
+          doc.thumbnailURL?.startsWith('/api/media/file/')
+        ) {
+          doc.thumbnailURL = doc.sizes.thumbnail.url;
+        }
+        return doc;
+      },
+    ],
+  },
   access: {
     read: () => true,
     create: ({ req: { user } }) => Boolean(user),
