@@ -1270,5 +1270,17 @@
     "starsLabel": "{count} de {total} estrellas",
     "sectionOverline": "Reseñas de Clientes",
     "sectionHeading": "Lo Que Dicen Nuestros Clientes"
+  },
+  "whatsappWidget": {
+    "ariaLabel": "Abrir chat de WhatsApp",
+    "ariaLabelClose": "Cerrar chat de WhatsApp",
+    "popupTitle": "Iniciar una Conversación",
+    "popupIntro": "¡Hola! Haz clic abajo para chatear por",
+    "notice": "El equipo suele responder en unos minutos.",
+    "bubbleQuestion": "¿Necesitas ayuda?",
+    "bubbleCta": "Chatea con nosotros",
+    "defaultMessage": "Hola, estoy visitando su sitio web y me gustaría más información.",
+    "agentName": "Prestige Auto Body",
+    "agentRole": "Servicio al Cliente"
   }
 }

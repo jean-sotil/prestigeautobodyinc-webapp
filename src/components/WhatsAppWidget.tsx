@@ -1,34 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 const PHONE = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || '';
-
-const i18n = {
-  en: {
-    popupTitle: 'Start a Conversation',
-    popupIntro: 'Hi! Click below to chat on',
-    notice: 'The team typically replies in a few minutes.',
-    bubbleQuestion: 'Need help?',
-    bubbleCta: 'Chat with us',
-    defaultMessage:
-      "Hi, I'm visiting your website and I'd like more information.",
-    agentName: 'Prestige Auto Body',
-    agentRole: 'Customer Service',
-  },
-  es: {
-    popupTitle: 'Iniciar una Conversación',
-    popupIntro: 'Hola! Haz clic abajo para chatear por',
-    notice: 'El equipo suele responder en unos minutos.',
-    bubbleQuestion: '¿Necesitas ayuda?',
-    bubbleCta: 'Chatea con nosotros',
-    defaultMessage:
-      'Hola, estoy visitando su sitio web y me gustaría más información.',
-    agentName: 'Prestige Auto Body',
-    agentRole: 'Servicio al Cliente',
-  },
-} as const;
 
 function WhatsAppIcon({ size = 28 }: { size?: number }) {
   return (
@@ -59,9 +34,8 @@ function CloseIcon() {
 export default function WhatsAppWidget() {
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  const locale = useLocale();
-  const t = locale === 'es' ? i18n.es : i18n.en;
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(t.defaultMessage)}`;
+  const t = useTranslations('whatsappWidget');
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(t('defaultMessage'))}`;
 
   if (!PHONE) return null;
 
@@ -71,7 +45,7 @@ export default function WhatsAppWidget() {
         position: 'fixed',
         bottom: 24,
         right: 24,
-        zIndex: 9999,
+        zIndex: 50,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
@@ -91,15 +65,15 @@ export default function WhatsAppWidget() {
         >
           <div style={{ background: '#2db742', padding: '16px 20px' }}>
             <div style={{ color: '#fff', fontWeight: 700, fontSize: 18 }}>
-              {t.popupTitle}
+              {t('popupTitle')}
             </div>
             <div style={{ color: '#d9ebc6', fontSize: 12, marginTop: 4 }}>
-              {t.popupIntro} <strong>WhatsApp</strong>
+              {t('popupIntro')} <strong>WhatsApp</strong>
             </div>
           </div>
           <div style={{ background: '#fff', padding: 16 }}>
             <div style={{ color: '#888', fontSize: 11, marginBottom: 12 }}>
-              {t.notice}
+              {t('notice')}
             </div>
             <a
               href={whatsappUrl}
@@ -152,9 +126,11 @@ export default function WhatsAppWidget() {
               </div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#333' }}>
-                  {t.agentName}
+                  {t('agentName')}
                 </div>
-                <div style={{ fontSize: 11, color: '#888' }}>{t.agentRole}</div>
+                <div style={{ fontSize: 11, color: '#888' }}>
+                  {t('agentRole')}
+                </div>
               </div>
             </a>
           </div>
@@ -181,14 +157,16 @@ export default function WhatsAppWidget() {
               whiteSpace: 'nowrap',
             }}
           >
-            <span>{t.bubbleQuestion} </span>
-            <strong>{t.bubbleCta}</strong>
+            <span>{t('bubbleQuestion')} </span>
+            <strong>{t('bubbleCta')}</strong>
           </div>
         )}
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          aria-label="WhatsApp"
+          aria-label={open ? t('ariaLabelClose') : t('ariaLabel')}
+          aria-expanded={open}
+          aria-haspopup="dialog"
           style={{
             width: 56,
             height: 56,
