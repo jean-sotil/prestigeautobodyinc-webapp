@@ -709,7 +709,25 @@
     "heroImageAlt": "Fachada de Prestige Auto Body Inc. en Silver Spring, Maryland",
     "heroTitle": "Prestige Auto Body Inc. — Taller de Carrocería en Silver Spring",
     "heading": "Contáctenos",
-    "subtitle": "Comuníquese con nosotros para una cotización gratuita o para agendar su reparación"
+    "subtitle": "Comuníquese con nosotros para una cotización gratuita o para agendar su reparación",
+    "body": {
+      "visitUsTitle": "Visítenos"
+    },
+    "actions": {
+      "callTheShop": "Llame al taller",
+      "callAriaLabel": "Llame a Prestige Auto Body al {phone}",
+      "getDirections": "Cómo llegar",
+      "directionsAriaLabel": "Obtenga indicaciones a {address}",
+      "openInMaps": "Abrir en Google Maps"
+    },
+    "status": {
+      "openUntil": "Abierto hasta las {time}",
+      "closedOpens": "Cerrado · Abre {day} a las {time}"
+    },
+    "hoursToday": "Hoy",
+    "reviews": {
+      "ratingShort": "{rating}★ · {count} reseñas en Google"
+    }
   },
   "common": {
     "learnMore": "Más Información",

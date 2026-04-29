@@ -709,7 +709,25 @@
     "heroImageAlt": "Prestige Auto Body Inc. storefront in Silver Spring, Maryland",
     "heroTitle": "Prestige Auto Body Inc. — Silver Spring Auto Body Shop",
     "heading": "Contact Us",
-    "subtitle": "Get in touch for a free quote or to schedule your repair"
+    "subtitle": "Get in touch for a free quote or to schedule your repair",
+    "body": {
+      "visitUsTitle": "Visit Us"
+    },
+    "actions": {
+      "callTheShop": "Call the shop",
+      "callAriaLabel": "Call Prestige Auto Body at {phone}",
+      "getDirections": "Get directions",
+      "directionsAriaLabel": "Get driving directions to {address}",
+      "openInMaps": "Open in Google Maps"
+    },
+    "status": {
+      "openUntil": "Open until {time}",
+      "closedOpens": "Closed · Opens {day} at {time}"
+    },
+    "hoursToday": "Today",
+    "reviews": {
+      "ratingShort": "{rating}★ · {count} Google reviews"
+    }
   },
   "common": {
     "learnMore": "Learn More",

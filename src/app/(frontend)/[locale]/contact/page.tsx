@@ -10,6 +10,10 @@ import {
   generateBreadcrumbItems,
 } from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
+import { PhoneIcon, LocationIcon, EmailIcon } from '@/components/ui/Icons';
+import { BusinessHours } from '@/components/contact/BusinessHours';
+import { MapEmbed } from '@/components/contact/MapEmbed';
+import { OpenStatus } from '@/components/contact/OpenStatus';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -66,13 +70,14 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [t, heroMedia, rating, nav] = await Promise.all([
+  const [t, heroMedia, rating, nav, tFooter] = await Promise.all([
     getTranslations({ locale, namespace: 'contact' }),
     getMediaByFilename(
       'prestige-auto-body-icar-gold-class-certified-collision-repair-silver-spring.jpg',
     ),
     getBusinessRating(),
     getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'footer' }),
   ]);
 
   const breadcrumbItems = generateBreadcrumbItems(
@@ -81,6 +86,15 @@ export default async function ContactPage({
     nav('home'),
     locale,
   );
+
+  const phoneDisplay = tFooter('company.phone');
+  const phoneRaw = phoneDisplay.replace(/\D/g, '');
+  const addressLine1 = tFooter('company.address');
+  const addressLine2 = tFooter('company.address2');
+  const fullAddress = `${addressLine1}, ${addressLine2}`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    fullAddress,
+  )}`;
 
   return (
     <div className="font-sans min-h-screen">
@@ -99,37 +113,119 @@ export default async function ContactPage({
         media={heroMedia}
       />
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
+        <div aria-hidden className="mb-6 flex items-center gap-1.5">
+          <span className="block h-0.5 w-8 bg-primary" />
+          <span className="block h-0.5 w-14 bg-primary" />
+          <span className="block h-0.5 w-3 bg-primary" />
+        </div>
+
+        <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <OpenStatus locale={locale} />
+          {rating.ratingValue > 0 && (
+            <span className="inline-flex items-center gap-1.5 text-foreground">
+              <span
+                aria-hidden
+                className="text-base leading-none text-(--color-gold-badge)"
+              >
+                ★
+              </span>
+              <span className="text-muted-foreground">
+                {t('reviews.ratingShort', {
+                  rating: rating.ratingValue.toFixed(1),
+                  count: String(rating.reviewCount),
+                })}
+              </span>
+            </span>
+          )}
+        </div>
+
+        <div className="mb-14 grid grid-cols-1 gap-3 animate-fade-in-up sm:grid-cols-2">
+          <a
+            href={`tel:${phoneRaw}`}
+            aria-label={t('actions.callAriaLabel', { phone: phoneDisplay })}
+            className="group flex items-center gap-4 rounded-xl bg-primary px-6 py-5 text-primary-foreground transition hover:bg-(--color-red-hover) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <PhoneIcon size={28} ariaLabel="" className="shrink-0" />
+            <span className="flex flex-col items-start leading-tight">
+              <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] opacity-90">
+                {t('actions.callTheShop')}
+              </span>
+              <span className="text-2xl font-bold tabular-nums">
+                {phoneDisplay}
+              </span>
+            </span>
+          </a>
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t('actions.directionsAriaLabel', {
+              address: fullAddress,
+            })}
+            className="group flex items-center gap-4 rounded-xl border-2 border-foreground/15 bg-background px-6 py-5 text-foreground transition hover:border-foreground/40 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <LocationIcon size={28} ariaLabel="" className="shrink-0" />
+            <span className="flex flex-col items-start leading-tight">
+              <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                {t('actions.getDirections')}
+              </span>
+              <span className="text-base font-semibold">{addressLine1}</span>
+            </span>
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
+          <BusinessHours locale={locale} />
+
           <div>
-            <h2 className="text-xl font-semibold mb-4">Get in Touch</h2>
-            <p className="text-muted-foreground mb-4">
-              Ready to get started? Contact us today for a free quote on your
-              vehicle repair.
-            </p>
-            <div className="space-y-2">
-              <p>
-                <strong>Phone:</strong> (301) 578-8779
+            <h2 className="mb-5 flex items-center gap-2 text-2xl font-bold uppercase tracking-tight">
+              <LocationIcon
+                size={22}
+                ariaLabel=""
+                className="text-muted-foreground"
+              />
+              {t('body.visitUsTitle')}
+            </h2>
+            <address className="space-y-4 not-italic">
+              <p className="leading-relaxed text-foreground">
+                <span className="block">{addressLine1}</span>
+                <span className="block">{addressLine2}</span>
               </p>
-              <p>
-                <strong>Email:</strong> info@prestigeautobody.com
-              </p>
-              <p>
-                <strong>Address:</strong> 928 Philadelphia Ave, Silver Spring,
-                MD 20910
-              </p>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Business Hours</h2>
-            <div className="space-y-2">
-              <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-              <p>Saturday: 8:00 AM - 12:00 PM</p>
-              <p>Sunday: Closed</p>
-            </div>
+              <div className="flex flex-col gap-2 pt-1">
+                <a
+                  href={`tel:${phoneRaw}`}
+                  className="inline-flex w-fit items-center gap-2 rounded-sm text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  <PhoneIcon
+                    size={16}
+                    ariaLabel=""
+                    className="text-muted-foreground"
+                  />
+                  <span className="tabular-nums">{phoneDisplay}</span>
+                </a>
+                <a
+                  href={`mailto:${tFooter('company.email')}`}
+                  className="inline-flex w-fit items-center gap-2 rounded-sm text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  <EmailIcon
+                    size={16}
+                    ariaLabel=""
+                    className="text-muted-foreground"
+                  />
+                  <span>{tFooter('company.email')}</span>
+                </a>
+              </div>
+            </address>
           </div>
         </div>
       </section>
+
+      <MapEmbed
+        query={fullAddress}
+        title={tFooter('findUs.mapTitle')}
+        openInMapsLabel={t('actions.openInMaps')}
+      />
     </div>
   );
 }
