@@ -210,7 +210,10 @@ export default async function HomePage() {
       >
         <div
           className="absolute inset-0 bg-cover bg-center bg bg-blend-difference bg-primary/15"
-          style={{ backgroundImage: "url('./car-repair-maintenance.avif')" }}
+          style={{
+            backgroundImage:
+              "url('./blog-what-to-do-in-the-first-24-hours-after-a-car-accident-1777244994544.jpg')",
+          }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -73,11 +73,16 @@ export default function Header() {
 
   useEffect(() => {
     const handleLogoClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('a[aria-label="Prestige Auto Body Inc. - Home"]');
+      const target = (e.target as HTMLElement).closest(
+        'a[aria-label="Prestige Auto Body Inc. - Home"]',
+      );
       if (!target) return;
 
       const currentPath = window.location.pathname;
-      const onHome = currentPath === `/${locale}` || currentPath === '/' || currentPath === `/${locale}/`;
+      const onHome =
+        currentPath === `/${locale}` ||
+        currentPath === '/' ||
+        currentPath === `/${locale}/`;
 
       if (onHome) {
         e.preventDefault();
@@ -89,8 +94,8 @@ export default function Header() {
         };
         forceScroll();
         requestAnimationFrame(forceScroll);
-        [50, 100, 150, 200, 250, 300, 400, 500].forEach(delay =>
-          setTimeout(forceScroll, delay)
+        [50, 100, 150, 200, 250, 300, 400, 500].forEach((delay) =>
+          setTimeout(forceScroll, delay),
         );
       }
     };
@@ -99,7 +104,8 @@ export default function Header() {
     return () => document.removeEventListener('click', handleLogoClick, true);
   }, [locale]);
 
-  const isHomePage = pathname === `/${locale}` || pathname === '/' || pathname === `/${locale}/`;
+  const isHomePage =
+    pathname === `/${locale}` || pathname === '/' || pathname === `/${locale}/`;
 
   return (
     <>
@@ -113,7 +119,7 @@ export default function Header() {
       <UtilityBar />
 
       <header
-        className={`sticky lg:top-10 top-0 z-40 h-14 bg-background/90 backdrop-blur-md transition-shadow duration-200 ${
+        className={`sticky lg:top-10 top-0 z-40 h-16 bg-background/90 backdrop-blur-md transition-shadow duration-200 ${
           scrolled ? 'shadow-md' : 'shadow-none'
         }`}
       >
@@ -128,7 +134,7 @@ export default function Header() {
                 <Image
                   src="/logo.png"
                   alt="Prestige Auto Body Inc. Logo"
-                  width={140}
+                  width={220}
                   height={40}
                   priority
                 />
