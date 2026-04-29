@@ -22,6 +22,7 @@ import { ButtonLink } from '@/components/ui/Button';
 import { getBusinessRating } from '@/lib/google-places';
 import { computeReadingTime } from '@/lib/reading-time';
 import BreadcrumbTitleSetter from '@/components/BreadcrumbTitleSetter';
+import { BASE_URL } from '@/lib/seo';
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -150,6 +151,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       day: 'numeric',
     },
   );
+
+  const shareUrl = `${BASE_URL}/${locale}/blog/${post.slug}`;
+  const shareTitle = post.title;
+  const encodedShareUrl = encodeURIComponent(shareUrl);
+  const encodedShareTitle = encodeURIComponent(shareTitle);
 
   return (
     <div className="min-h-screen">
@@ -303,9 +309,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </p>
             <div className="flex gap-2">
               <ShareLink
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-                  `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
-                )}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareUrl}`}
                 label="Facebook"
               >
                 <svg
@@ -318,9 +322,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </svg>
               </ShareLink>
               <ShareLink
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
-                  `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
-                )}&text=${encodeURIComponent(post.title)}`}
+                href={`https://twitter.com/intent/tweet?url=${encodedShareUrl}&text=${encodedShareTitle}`}
                 label="X"
               >
                 <svg
@@ -333,9 +335,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </svg>
               </ShareLink>
               <ShareLink
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-                  `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/blog/${post.slug}`,
-                )}&title=${encodeURIComponent(post.title)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedShareUrl}`}
                 label="LinkedIn"
               >
                 <svg
