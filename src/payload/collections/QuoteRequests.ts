@@ -104,9 +104,10 @@ export const QuoteRequests: CollectionConfig = {
         },
         {
           name: 'damagePhotos',
-          type: 'relationship',
+          type: 'upload',
           relationTo: 'media',
           hasMany: true,
+          label: 'Damage Photos',
           admin: {
             condition: (data) => data?.damage?.hasPhotos === true,
           },
