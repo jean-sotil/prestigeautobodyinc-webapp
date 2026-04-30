@@ -946,18 +946,34 @@ export async function POST(request: Request) {
   const ipHash = hashIp(ip);
 
   try {
-    // Check rate limit
+    // Check rate limit — fail open: a rate-limiter outage (Upstash down,
+    // missing permissions, network blip) must not block real submissions.
     const rateLimiter = getRatelimit();
     if (rateLimiter) {
-      const { success, limit, reset } = await rateLimiter.limit(ipHash);
-      if (!success) {
-        const retryAfter = Math.ceil((reset - Date.now()) / 1000);
-        return errorResponse(
-          429,
-          'rate_limit',
-          'Too many submissions. Please try again later.',
-          undefined,
-          retryAfter,
+      try {
+        const { success, reset } = await rateLimiter.limit(ipHash);
+        if (!success) {
+          const retryAfter = Math.ceil((reset - Date.now()) / 1000);
+          return errorResponse(
+            429,
+            'rate_limit',
+            'Too many submissions. Please try again later.',
+            undefined,
+            retryAfter,
+          );
+        }
+      } catch (error) {
+        const err = error instanceof Error ? error : new Error(String(error));
+        console.warn(
+          JSON.stringify({
+            event: 'rate_limiter_degraded',
+            level: 'warn',
+            route: 'api/quote',
+            ipHash,
+            errorName: err.name,
+            errorMessage: err.message,
+            timestamp: new Date().toISOString(),
+          }),
         );
       }
     }
