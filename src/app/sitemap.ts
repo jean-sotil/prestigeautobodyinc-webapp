@@ -33,7 +33,12 @@ const pages: PageEntry[] = [
   },
   { path: '/towing', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.7 },
-  { path: '/gallery', changeFrequency: 'weekly', priority: 0.6 },
+  {
+    path: '/gallery',
+    changeFrequency: 'weekly',
+    priority: 0.6,
+    paths: { en: '/gallery', es: '/galeria' },
+  },
   {
     path: '/certifications',
     changeFrequency: 'monthly',

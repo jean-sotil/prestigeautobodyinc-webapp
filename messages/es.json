@@ -1312,5 +1312,74 @@
     "defaultMessage": "Hola, estoy visitando su sitio web y me gustaría más información.",
     "agentName": "Prestige Auto Body",
     "agentRole": "Servicio al Cliente"
+  },
+  "gallery": {
+    "metaTitle": "Galería de Fotos | Prestige Auto Body Inc. — Silver Spring, MD",
+    "metaDescription": "Vea fotos de Prestige Auto Body en Silver Spring, MD: trabajos de reparación de colisiones, pintura, eventos del taller y momentos del equipo en nuestro centro certificado I-CAR Gold Class.",
+    "heroTitle": "Galería de Fotos — Prestige Auto Body Inc., Silver Spring, MD",
+    "heroAlt": "Prestige Auto Body — taller de reparación de colisiones en Silver Spring, MD",
+    "heading": "Galería de Fotos",
+    "subtitle": "Una mirada al interior de Prestige Auto Body — reparaciones de colisiones, pintura, eventos del taller y las personas detrás de cada trabajo.",
+    "overline": "Nuestro Trabajo",
+    "intro": "Cada foto fue tomada en nuestro centro certificado I-CAR Gold Class en Silver Spring, MD. Explore reparaciones de colisiones, pintura personalizada y momentos del equipo detrás de escena.",
+    "openImage": "Ver foto en grande",
+    "imageAriaLabel": "Ver {title}, foto {index} de {total}",
+    "albumPhotoCount": "{count, plural, =1 {1 foto} other {# fotos}}",
+    "lightbox": {
+      "label": "Visor de fotos",
+      "close": "Cerrar el visor de fotos",
+      "previous": "Foto anterior",
+      "next": "Foto siguiente",
+      "counter": "Foto {current} de {total}",
+      "instructions": "Use las teclas de flecha para navegar entre fotos y la tecla Escape para cerrar."
+    },
+    "empty": {
+      "heading": "Fotos próximamente",
+      "body": "Estamos seleccionando las últimas fotos del taller. Por favor, vuelva pronto."
+    },
+    "albums": {
+      "prestige-auto-body-shop-tour": {
+        "title": "Por Dentro de Nuestro Taller en Silver Spring",
+        "description": "Un recorrido por el taller de reparación de colisiones I-CAR Gold Class de Prestige Auto Body en Silver Spring, MD — el equipo, la pared de certificaciones, la cabina de pintura y una reciente restauración de pintura de un Mercedes-Benz SL clásico.",
+        "imageAlt": "Taller de Prestige Auto Body en Silver Spring, MD — foto {index}",
+        "alts": {
+          "01-prestige-auto-body-shop-exterior-928-philadelphia-ave-silver-spring-md": "Frente del taller Prestige Auto Body Inc. en 928 Philadelphia Avenue, Silver Spring, Maryland.",
+          "02-prestige-auto-body-team-collision-repair-specialists-silver-spring-md": "El equipo de Prestige Auto Body detrás de la recepción de nuestro taller de reparación de colisiones en Silver Spring, Maryland.",
+          "03-icar-gold-class-collision-repair-certifications-wall-prestige-auto-body": "Pared de certificaciones I-CAR y Gold Class dentro del taller Prestige Auto Body en Silver Spring.",
+          "04-classic-mercedes-benz-sl-convertible-paint-restoration-prestige-auto-body": "Mercedes-Benz SL convertible burdeos restaurado frente a Prestige Auto Body en Silver Spring, MD.",
+          "05-prestige-auto-body-inc-reception-logo-silver-spring-md": "Letrero del logotipo de Prestige Auto Body Inc. montado sobre el mostrador de recepción.",
+          "06-prestige-auto-body-customer-lobby-icar-certified-shop-silver-spring-md": "Sala de espera para clientes con sillones de cuero y pared de certificaciones I-CAR en Prestige Auto Body.",
+          "07-icar-gold-class-collision-repair-business-2019-2025-plaque": "Placa I-CAR Gold Class Collision Repair Business, reconocida de 2019 a 2025.",
+          "08-icar-collision-repair-training-certificates-prestige-auto-body": "Detalle de certificados de capacitación I-CAR en reparación de colisiones y placa Gold Class en la pared.",
+          "09-prestige-auto-body-team-member-front-office-silver-spring-md": "Miembro del equipo de oficina en la recepción de Prestige Auto Body, Silver Spring, MD.",
+          "10-prestige-auto-body-team-office-staff-silver-spring-md": "Miembro del equipo de oficina en el área de servicio al cliente de Prestige Auto Body, Silver Spring, MD.",
+          "11-prestige-auto-body-team-customer-service-silver-spring-md": "Miembro del equipo de servicio al cliente en la recepción de Prestige Auto Body.",
+          "12-prestige-auto-body-team-front-desk-silver-spring-md": "Miembro del equipo de recepción en Prestige Auto Body, Silver Spring, MD.",
+          "13-prestige-auto-body-team-collision-repair-estimator-silver-spring-md": "Estimador de reparación de colisiones en la oficina de Prestige Auto Body.",
+          "14-prestige-auto-body-collision-paint-repair-shop-front-silver-spring-md": "Frente del taller de reparación de colisiones y pintura Prestige Auto Body en Silver Spring, MD, con vehículos de clientes estacionados afuera.",
+          "15-prestige-auto-body-shop-silver-spring-maryland-collision-repair": "Taller de reparación de colisiones Prestige Auto Body en Silver Spring, Maryland, fotografiado desde el otro lado de la calle.",
+          "16-classic-mercedes-benz-sl-convertible-burgundy-restoration": "Perfil lateral de Mercedes-Benz SL convertible burdeos tras una restauración de pintura en Prestige Auto Body.",
+          "17-mercedes-benz-sl-convertible-paint-restoration-silver-spring-md": "Vista frontal tres cuartos de Mercedes-Benz SL convertible tras la reparación de colisión y pintura.",
+          "18-classic-mercedes-benz-sl-collision-paint-job-prestige-auto-body": "Mercedes-Benz SL clásico con trabajo de pintura completado en el taller Prestige Auto Body de Silver Spring.",
+          "19-vintage-mercedes-benz-restoration-prestige-auto-body-silver-spring": "Mercedes-Benz SL convertible vintage tras la restauración fuera de Prestige Auto Body.",
+          "20-classic-car-collision-restoration-prestige-auto-body-silver-spring-md": "Mercedes-Benz SL clásico tras una restauración de colisión en Prestige Auto Body, Silver Spring, MD.",
+          "21-classic-mercedes-benz-sl-interior-restoration-detail": "Interior restaurado de un Mercedes-Benz SL clásico con volante y asientos de cuero beige.",
+          "22-mercedes-benz-hood-emblem-paint-restoration-detail": "Detalle del emblema del capó Mercedes-Benz tras una restauración con capa transparente.",
+          "23-mercedes-benz-sl-headlight-chrome-restoration-detail": "Primer plano del faro cromado restaurado y la parrilla de un Mercedes-Benz SL.",
+          "24-prestige-auto-body-paint-booth-technician-collision-repair-silver-spring": "Técnico de cabina de pintura con respirador preparando un panel del vehículo en Prestige Auto Body.",
+          "25-icar-certified-paint-technician-prestige-auto-body-silver-spring-md": "Técnico de pintura certificado I-CAR dentro de la cabina de pintura de Prestige Auto Body.",
+          "26-prestige-auto-body-master-painter-spray-gun-silver-spring-md": "Maestro pintor sosteniendo una pistola de pintura dentro de la cabina de pintura de Prestige Auto Body.",
+          "27-prestige-auto-body-paint-technician-spray-booth-silver-spring-md": "Técnico de pintura aplicando capa a un panel dentro de la cabina de pintura Prestige Auto Body en Silver Spring.",
+          "28-prestige-auto-body-paint-mixing-room-color-matching-silver-spring-md": "Sala de mezcla de pintura con estantes de colores y estación computarizada de igualación en Prestige Auto Body."
+        }
+      },
+      "fallbackImageAlt": "Prestige Auto Body — {album}, foto {index}"
+    },
+    "cta": {
+      "heading": "¿Le gusta lo que ve?",
+      "body": "Cada auto en nuestra galería comenzó con una cotización gratuita y sin compromiso. Tráiganos el suyo — o envíenos una foto del daño y nosotros nos encargamos.",
+      "primary": "Solicitar Cotización Gratis",
+      "secondary": "Contactar al Taller"
+    }
   }
 }

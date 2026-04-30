@@ -1312,5 +1312,74 @@
     "defaultMessage": "Hi, I'm visiting your website and I'd like more information.",
     "agentName": "Prestige Auto Body",
     "agentRole": "Customer Service"
+  },
+  "gallery": {
+    "metaTitle": "Photo Gallery | Prestige Auto Body Inc. — Silver Spring, MD",
+    "metaDescription": "Browse photos from Prestige Auto Body in Silver Spring, MD: collision repair work, paintwork, shop events, and team milestones from our I-CAR Gold Class facility.",
+    "heroTitle": "Photo Gallery — Prestige Auto Body Inc., Silver Spring, MD",
+    "heroAlt": "Prestige Auto Body — collision repair shop in Silver Spring, MD",
+    "heading": "Photo Gallery",
+    "subtitle": "A look inside Prestige Auto Body — collision repairs, paintwork, shop events, and the people behind every job.",
+    "overline": "Our Work",
+    "intro": "Every photo here was taken at our I-CAR Gold Class facility in Silver Spring, MD. Browse before-and-after collision repairs, custom paintwork, and behind-the-scenes moments from the team.",
+    "openImage": "View larger photo",
+    "imageAriaLabel": "View {title}, photo {index} of {total}",
+    "albumPhotoCount": "{count, plural, =1 {1 photo} other {# photos}}",
+    "lightbox": {
+      "label": "Photo viewer",
+      "close": "Close photo viewer",
+      "previous": "Previous photo",
+      "next": "Next photo",
+      "counter": "Photo {current} of {total}",
+      "instructions": "Use the arrow keys to navigate between photos and the Escape key to close."
+    },
+    "empty": {
+      "heading": "Photos coming soon",
+      "body": "We're sorting through our latest shop photos. Please check back shortly."
+    },
+    "albums": {
+      "prestige-auto-body-shop-tour": {
+        "title": "Inside Our Silver Spring Shop",
+        "description": "A walk through Prestige Auto Body's I-CAR Gold Class collision repair shop in Silver Spring, MD — the team, the certifications wall, the paint booth, and a recent vintage Mercedes-Benz SL paint restoration.",
+        "imageAlt": "Prestige Auto Body shop in Silver Spring, MD — photo {index}",
+        "alts": {
+          "01-prestige-auto-body-shop-exterior-928-philadelphia-ave-silver-spring-md": "Prestige Auto Body Inc. shop exterior at 928 Philadelphia Avenue in Silver Spring, Maryland.",
+          "02-prestige-auto-body-team-collision-repair-specialists-silver-spring-md": "The Prestige Auto Body team behind the front desk at our Silver Spring, Maryland collision repair shop.",
+          "03-icar-gold-class-collision-repair-certifications-wall-prestige-auto-body": "Wall of I-CAR and Gold Class certifications inside Prestige Auto Body's Silver Spring shop.",
+          "04-classic-mercedes-benz-sl-convertible-paint-restoration-prestige-auto-body": "Restored burgundy Mercedes-Benz SL convertible parked in front of Prestige Auto Body in Silver Spring, MD.",
+          "05-prestige-auto-body-inc-reception-logo-silver-spring-md": "Prestige Auto Body Inc. logo sign mounted above the reception desk.",
+          "06-prestige-auto-body-customer-lobby-icar-certified-shop-silver-spring-md": "Customer waiting area with leather chairs and the I-CAR certifications wall at Prestige Auto Body.",
+          "07-icar-gold-class-collision-repair-business-2019-2025-plaque": "I-CAR Gold Class Collision Repair Business plaque, recognized 2019 through 2025.",
+          "08-icar-collision-repair-training-certificates-prestige-auto-body": "Close-up of I-CAR collision repair training certificates and the Gold Class plaque on the wall.",
+          "09-prestige-auto-body-team-member-front-office-silver-spring-md": "Front-office team member at the Prestige Auto Body reception desk in Silver Spring, MD.",
+          "10-prestige-auto-body-team-office-staff-silver-spring-md": "Office team member at Prestige Auto Body's customer service desk in Silver Spring, MD.",
+          "11-prestige-auto-body-team-customer-service-silver-spring-md": "Customer service team member at the Prestige Auto Body front desk.",
+          "12-prestige-auto-body-team-front-desk-silver-spring-md": "Front-desk team member at Prestige Auto Body in Silver Spring, MD.",
+          "13-prestige-auto-body-team-collision-repair-estimator-silver-spring-md": "Collision repair estimator at the Prestige Auto Body front office.",
+          "14-prestige-auto-body-collision-paint-repair-shop-front-silver-spring-md": "Prestige Auto Body collision and paint repair shop front in Silver Spring, MD with customer vehicles parked outside.",
+          "15-prestige-auto-body-shop-silver-spring-maryland-collision-repair": "Prestige Auto Body collision repair shop in Silver Spring, Maryland, photographed from across the street.",
+          "16-classic-mercedes-benz-sl-convertible-burgundy-restoration": "Burgundy Mercedes-Benz SL convertible side profile after a paint restoration at Prestige Auto Body.",
+          "17-mercedes-benz-sl-convertible-paint-restoration-silver-spring-md": "Mercedes-Benz SL convertible front three-quarter view after collision and paint restoration.",
+          "18-classic-mercedes-benz-sl-collision-paint-job-prestige-auto-body": "Classic Mercedes-Benz SL with completed paint job at Prestige Auto Body's Silver Spring shop.",
+          "19-vintage-mercedes-benz-restoration-prestige-auto-body-silver-spring": "Vintage Mercedes-Benz SL convertible after restoration outside Prestige Auto Body.",
+          "20-classic-car-collision-restoration-prestige-auto-body-silver-spring-md": "Classic Mercedes-Benz SL after collision restoration at Prestige Auto Body in Silver Spring, MD.",
+          "21-classic-mercedes-benz-sl-interior-restoration-detail": "Restored interior of a classic Mercedes-Benz SL with steering wheel and tan leather seats.",
+          "22-mercedes-benz-hood-emblem-paint-restoration-detail": "Detail of a Mercedes-Benz hood emblem after a clear-coat paint restoration.",
+          "23-mercedes-benz-sl-headlight-chrome-restoration-detail": "Close-up of a restored Mercedes-Benz SL chrome headlight cluster and grille.",
+          "24-prestige-auto-body-paint-booth-technician-collision-repair-silver-spring": "Paint booth technician in a respirator preparing a vehicle panel at Prestige Auto Body.",
+          "25-icar-certified-paint-technician-prestige-auto-body-silver-spring-md": "I-CAR certified paint technician inside the Prestige Auto Body spray booth.",
+          "26-prestige-auto-body-master-painter-spray-gun-silver-spring-md": "Master painter holding a spray gun inside the Prestige Auto Body paint booth.",
+          "27-prestige-auto-body-paint-technician-spray-booth-silver-spring-md": "Paint technician spraying a panel inside the Prestige Auto Body Silver Spring spray booth.",
+          "28-prestige-auto-body-paint-mixing-room-color-matching-silver-spring-md": "Paint mixing room with color shelves and a computerized color-matching station at Prestige Auto Body."
+        }
+      },
+      "fallbackImageAlt": "Prestige Auto Body — {album}, photo {index}"
+    },
+    "cta": {
+      "heading": "Like what you see?",
+      "body": "Every car in our gallery started with a free, no-obligation quote. Bring yours in — or send us a photo of the damage and we'll take it from there.",
+      "primary": "Get a Free Quote",
+      "secondary": "Contact the Shop"
+    }
   }
 }
