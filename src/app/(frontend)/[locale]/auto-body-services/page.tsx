@@ -100,6 +100,7 @@ export default async function AutoBodyServicesPage({
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="auto-body-services"
+        locale={locale}
         heroMedia={heroMedia}
         heroAlt={pickAlt(
           heroMedia,

@@ -21,6 +21,8 @@ interface ServicePageTemplateProps {
   serviceKey: string;
   /** Hero image slug for responsive <picture> paths */
   heroSlug: string;
+  /** Current locale */
+  locale: string;
   /** Optional Payload-served hero media; falls back to static /hero/{slug}/ if absent. */
   heroMedia?: HeroMedia | null;
   /** Pre-resolved alt text (e.g. via pickAlt). Overrides the translation lookup when provided. */
@@ -30,13 +32,14 @@ interface ServicePageTemplateProps {
 export async function ServicePageTemplate({
   serviceKey,
   heroSlug,
+  locale,
   heroMedia,
   heroAlt,
 }: ServicePageTemplateProps) {
   const [t, h, r] = await Promise.all([
-    getTranslations('services'),
-    getTranslations('header'),
-    getTranslations('reviews'),
+    getTranslations({ locale, namespace: 'services' }),
+    getTranslations({ locale, namespace: 'header' }),
+    getTranslations({ locale, namespace: 'reviews' }),
   ]);
 
   const page = (key: string) => t(`pages.${serviceKey}.${key}`);
@@ -57,12 +60,13 @@ export async function ServicePageTemplate({
         ctaPhoneLabel={`Call ${h('phone')}`}
         phone="3015788779"
         phoneDisplay={h('phone')}
+        locale={locale}
         media={heroMedia}
       />
 
       <WhatWeOffer heading={t('whatWeOffer')} items={offerings} />
 
-      <ServiceAreas heading={t('serviceAreas')} />
+      <ServiceAreas heading={t('serviceAreas')} locale={locale} />
 
       <section
         className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
@@ -75,7 +79,7 @@ export async function ServicePageTemplate({
             heading={r('sectionHeading')}
             centered
           />
-          <GoogleReviewsCarousel />
+          <GoogleReviewsCarousel locale={locale} />
         </div>
       </section>
 
@@ -86,6 +90,7 @@ export async function ServicePageTemplate({
         ctaPhoneLabel={`Call ${h('phone')}`}
         phone="3015788779"
         phoneDisplay={h('phone')}
+        locale={locale}
       />
     </div>
   );

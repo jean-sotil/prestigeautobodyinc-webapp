@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
 import { PageHeroBanner } from '@/components/hero';
@@ -65,12 +65,16 @@ export async function generateMetadata({
   };
 }
 
-export default async function TowingPage() {
-  const [heroMedia, locale, nav, t] = await Promise.all([
+export default async function TowingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const [heroMedia, nav, t] = await Promise.all([
     getHeroMedia('towing-24-7'),
-    getLocale(),
-    getTranslations('nav'),
-    getTranslations('services'),
+    getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'services' }),
   ]);
 
   const breadcrumbItems = generateBreadcrumbItems(

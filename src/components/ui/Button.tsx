@@ -2,6 +2,7 @@ import React, { type ComponentProps } from 'react';
 import { Button as ButtonPrimitive } from '@base-ui/react/button';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Link } from '@/i18n/navigation';
+import NextLink from 'next/link';
 
 import { cn } from '@/lib/utils';
 
@@ -84,6 +85,7 @@ interface LegacyButtonProps extends LegacyButtonBaseProps {
 
 interface ButtonLinkProps extends LegacyButtonBaseProps {
   href: AppHref | string;
+  locale?: string;
   onClick?: () => void;
 }
 
@@ -146,6 +148,7 @@ function LegacyButton({
 function ButtonLink({
   children,
   href,
+  locale,
   variant = 'primary',
   size = 'md',
   className = '',
@@ -170,6 +173,21 @@ function ButtonLink({
       >
         {children}
       </a>
+    );
+  }
+
+  // When locale is provided, use NextLink with explicit locale prefix
+  if (locale) {
+    return (
+      <NextLink
+        href={`/${locale}${hrefStr.startsWith('/') ? hrefStr : `/${hrefStr}`}`}
+        className={getLegacyButtonClasses(variant, size, className)}
+        onClick={disabled ? undefined : onClick}
+        aria-disabled={disabled || undefined}
+        aria-label={ariaLabel}
+      >
+        {children}
+      </NextLink>
     );
   }
 

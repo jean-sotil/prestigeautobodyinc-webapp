@@ -103,10 +103,12 @@ function ReviewCard({
   );
 }
 
-export async function GoogleReviewsCarousel() {
+export async function GoogleReviewsCarousel({
+  locale,
+}: { locale?: string } = {}) {
   const [reviews, t] = await Promise.all([
     getBusinessReviews(),
-    getTranslations('reviews'),
+    getTranslations({ locale: locale || 'en', namespace: 'reviews' }),
   ]);
   const allReviewsUrl = getReviewsPageUrl();
 

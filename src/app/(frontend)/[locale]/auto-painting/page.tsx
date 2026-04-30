@@ -89,6 +89,7 @@ export default async function AutoPaintingPage({
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="paint-solutions"
+        locale={locale}
         heroMedia={heroMedia}
         heroAlt={pickAlt(
           heroMedia,

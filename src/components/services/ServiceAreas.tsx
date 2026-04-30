@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import NextLink from 'next/link';
 
 const SERVICE_AREAS = [
   { name: 'Silver Spring', slug: 'silver-spring' },
@@ -13,9 +13,10 @@ const SERVICE_AREAS = [
 
 interface ServiceAreasProps {
   heading: string;
+  locale: string;
 }
 
-export function ServiceAreas({ heading }: ServiceAreasProps) {
+export function ServiceAreas({ heading, locale }: ServiceAreasProps) {
   return (
     <section className="py-16 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,13 +28,13 @@ export function ServiceAreas({ heading }: ServiceAreasProps) {
         </h2>
         <div className="mt-8 flex flex-wrap gap-3">
           {SERVICE_AREAS.map((area) => (
-            <Link
+            <NextLink
               key={area.slug}
-              href={`/areas/${area.slug}` as '/'}
+              href={`/${locale}/areas/${area.slug}`}
               className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-background text-foreground border border-border hover:border-primary hover:text-primary transition-colors"
             >
               {area.name}
-            </Link>
+            </NextLink>
           ))}
         </div>
       </div>

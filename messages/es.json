@@ -25,7 +25,8 @@
     "towing": "Remolque",
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio",
-    "blog": "Blog"
+    "blog": "Blog",
+    "getAQuote": "Obtener Cotización"
   },
   "blog": {
     "meta": {
@@ -419,7 +420,8 @@
       "locationDefault": "Silver Spring",
       "ctaButton": "Solicitar Cotización",
       "seeLabel": "Vea",
-      "ourWorkLabel": "nuestro trabajo."
+      "ourWorkLabel": "nuestro trabajo.",
+      "galleryLink": "Mira nuestra Galería"
     },
     "whyChooseUsBullets": {
       "experience": "Más de dos décadas de experiencia en reparación de colisiones",

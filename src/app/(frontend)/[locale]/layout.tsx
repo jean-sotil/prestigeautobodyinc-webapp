@@ -8,6 +8,7 @@ import { getMessages } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/Footer';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import HtmlLangSync from '@/components/HtmlLangSync';
 import { WebsiteJsonLd } from '@/components/seo';
 import { BreadcrumbProvider } from '@/components/BreadcrumbContext';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
@@ -81,6 +82,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
+      <HtmlLangSync />
       <BreadcrumbProvider>
         <GoogleAnalytics />
         <AnalyticsUserProperties />

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { getLocale, getMessages, getTranslations } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
@@ -100,14 +100,18 @@ const WHY_CHOOSE_ICONS: Record<
   estimates: ThumbsUpIcon,
 };
 
-export default async function HomePage() {
-  const [t, common, rating, heroMedia, locale, overlines] = await Promise.all([
-    getTranslations('home'),
-    getTranslations('common'),
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const [t, common, rating, heroMedia, overlines] = await Promise.all([
+    getTranslations({ locale, namespace: 'home' }),
+    getTranslations({ locale, namespace: 'common' }),
     getBusinessRating(),
     getHeroMedia('homepage'),
-    getLocale(),
-    getTranslations('overlines'),
+    getTranslations({ locale, namespace: 'overlines' }),
   ]);
 
   return (
@@ -163,34 +167,64 @@ export default async function HomePage() {
                   href="/get-a-quote"
                   variant="primary"
                   size="lg"
+                  locale={locale}
                   className="text-sm min-w-40 whitespace-nowrap"
                 >
                   {t('pageHero.ctaButton')}
                 </ButtonLink>
               </div>
-              {/* See our work — video/gallery link */}
+              {/* See our work — gallery link */}
               <Link
                 href="/gallery"
-                className="group inline-flex items-center gap-2 w-fit rounded-md px-1 py-0.5 -ml-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="group inline-flex items-center gap-3 w-fit rounded-full bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2.5 hover:bg-white/20 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground flex-shrink-0 transition-colors duration-150 group-hover:bg-red-pressed">
+                <span
+                  className="relative flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground flex-shrink-0"
+                  style={{ animation: 'galleryPulse 2s ease-in-out infinite' }}
+                >
                   <svg
-                    className="h-3 w-3 ml-0.5"
-                    fill="currentColor"
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path d="M8 5v14l11-7z" />
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
                   </svg>
                 </span>
-                <span className="flex flex-col leading-normal text-sm">
-                  <span className="font-bold text-red-hover">
-                    {t('pageHero.seeLabel')}
-                  </span>
-                  <span className="text-white/90">
-                    {t('pageHero.ourWorkLabel')}
-                  </span>
+                <style>{`
+                  @keyframes galleryPulse {
+                    0%, 100% { box-shadow: 0 0 0 0 rgba(198, 40, 40, 0.4); }
+                    50% { box-shadow: 0 0 0 8px rgba(198, 40, 40, 0); }
+                  }
+                `}</style>
+                <span className="text-sm font-semibold text-white group-hover:text-white/90 transition-colors">
+                  {t('pageHero.galleryLink')}
                 </span>
+                <svg
+                  className="h-4 w-4 text-white/80"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  style={{ animation: 'nudgeRight 1.5s ease-in-out infinite' }}
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+                <style>{`
+                  @keyframes nudgeRight {
+                    0%, 100% { transform: translateX(0); }
+                    50% { transform: translateX(4px); }
+                  }
+                `}</style>
               </Link>
             </div>
           </div>
@@ -201,6 +235,7 @@ export default async function HomePage() {
       <StatsCounters
         ratingValue={rating.ratingValue}
         reviewCount={rating.reviewCount}
+        locale={locale}
       />
 
       {/* Our Services Section */}
@@ -371,6 +406,7 @@ export default async function HomePage() {
                   href="/get-a-quote"
                   variant="primary"
                   size="lg"
+                  locale={locale}
                   className="rounded-full shadow-lg"
                 >
                   {t('warranty.cta')}
@@ -400,7 +436,7 @@ export default async function HomePage() {
             ratingValue={rating.ratingValue}
             reviewCount={rating.reviewCount}
           />
-          <GoogleReviewsCarousel />
+          <GoogleReviewsCarousel locale={locale} />
         </div>
       </section>
 
@@ -419,7 +455,12 @@ export default async function HomePage() {
           </h2>
           <p className="text-[#ffe0e0] text-base">{t('cta.description')}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
-            <ButtonLink href="/get-a-quote" variant="inverted" size="lg">
+            <ButtonLink
+              href="/get-a-quote"
+              variant="inverted"
+              size="lg"
+              locale={locale}
+            >
               {t('cta.button')}
             </ButtonLink>
             <ButtonLink

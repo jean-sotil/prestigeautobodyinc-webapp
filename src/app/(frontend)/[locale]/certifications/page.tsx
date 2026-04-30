@@ -64,7 +64,7 @@ export default async function CertificationsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations('nav');
+  const t = await getTranslations({ locale, namespace: 'nav' });
 
   const breadcrumbItems = generateBreadcrumbItems(
     t('certifications'),

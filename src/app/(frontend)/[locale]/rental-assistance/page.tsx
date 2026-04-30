@@ -66,8 +66,8 @@ export default async function RentalAssistancePage({
 }) {
   const { locale } = await params;
   const [nav, t] = await Promise.all([
-    getTranslations('nav'),
-    getTranslations('rental'),
+    getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'rental' }),
   ]);
 
   const breadcrumbItems = generateBreadcrumbItems(

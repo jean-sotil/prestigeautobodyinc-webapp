@@ -132,6 +132,9 @@ function getBreadcrumbLabel(
     contact: 'contact',
     locations: 'locations',
     gallery: 'gallery',
+    'get-a-quote': 'getAQuote',
+    'privacy-policy': 'privacyPolicy',
+    'terms-of-service': 'termsOfService',
   };
 
   const key = mapping[segment];

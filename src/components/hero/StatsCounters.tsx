@@ -90,13 +90,18 @@ function StarClusterIcon() {
 interface StatsCountersProps {
   ratingValue?: number;
   reviewCount?: number;
+  locale?: string;
 }
 
 export async function StatsCounters({
   ratingValue,
   reviewCount,
+  locale,
 }: StatsCountersProps = {}) {
-  const t = await getTranslations('home');
+  const t = await getTranslations({
+    locale: locale || 'en',
+    namespace: 'home',
+  });
 
   const ratingValueDisplay =
     typeof ratingValue === 'number'

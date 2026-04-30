@@ -64,7 +64,7 @@ export default async function OurTeamPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations('nav');
+  const t = await getTranslations({ locale, namespace: 'nav' });
 
   const breadcrumbItems = generateBreadcrumbItems(
     t('ourTeam'),

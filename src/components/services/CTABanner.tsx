@@ -8,6 +8,7 @@ interface CTABannerProps {
   ctaPhoneLabel: string;
   phone: string;
   phoneDisplay: string;
+  locale?: string;
 }
 
 export function CTABanner({
@@ -17,6 +18,7 @@ export function CTABanner({
   ctaPhoneLabel,
   phone,
   phoneDisplay,
+  locale,
 }: CTABannerProps) {
   return (
     <section className="bg-primary py-12 md:py-16">
@@ -35,6 +37,7 @@ export function CTABanner({
             href="/get-a-quote"
             variant="inverted"
             size="lg"
+            locale={locale}
             className="rounded-full shadow-lg"
           >
             {ctaQuoteLabel}

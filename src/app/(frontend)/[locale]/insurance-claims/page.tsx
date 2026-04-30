@@ -89,6 +89,7 @@ export default async function InsuranceClaimsPage({
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="insurance-claims"
+        locale={locale}
         heroMedia={heroMedia}
         heroAlt={pickAlt(
           heroMedia,

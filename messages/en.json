@@ -25,7 +25,8 @@
     "towing": "Towing",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
-    "blog": "Blog"
+    "blog": "Blog",
+    "getAQuote": "Get a Quote"
   },
   "blog": {
     "meta": {
@@ -419,7 +420,8 @@
       "locationDefault": "Silver Spring",
       "ctaButton": "Get a Quote",
       "seeLabel": "See",
-      "ourWorkLabel": "our work."
+      "ourWorkLabel": "our work.",
+      "galleryLink": "Check our Gallery"
     },
     "whyChooseUsBullets": {
       "experience": "More than two decades of collision repair experience",

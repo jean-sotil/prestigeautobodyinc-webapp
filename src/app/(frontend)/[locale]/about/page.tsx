@@ -66,7 +66,7 @@ export default async function AboutPage({
     getMediaByFilename(
       'prestige-auto-body-collision-repair-team-silver-spring-maryland.jpg',
     ),
-    getTranslations('nav'),
+    getTranslations({ locale, namespace: 'nav' }),
   ]);
 
   const breadcrumbItems = generateBreadcrumbItems(

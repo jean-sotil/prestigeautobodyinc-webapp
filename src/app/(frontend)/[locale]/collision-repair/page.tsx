@@ -89,6 +89,7 @@ export default async function CollisionRepairPage({
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
         heroSlug="collision-repair"
+        locale={locale}
         heroMedia={heroMedia}
         heroAlt={pickAlt(
           heroMedia,
