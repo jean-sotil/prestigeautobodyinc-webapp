@@ -445,3 +445,31 @@ img {
   position: relative;
   z-index: 1;
 }
+
+/* Header bottom edge — asymmetric 3-segment red accent (per .impeccable.md) */
+.header-edge-accent {
+  position: relative;
+}
+.header-edge-accent::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to right,
+    var(--primary) 0%,
+    var(--primary) 38%,
+    transparent 38%,
+    transparent 42%,
+    var(--primary) 42%,
+    var(--primary) 60%,
+    transparent 60%,
+    transparent 64%,
+    var(--primary) 64%,
+    var(--primary) 78%,
+    transparent 78%
+  );
+  opacity: 0.85;
+}

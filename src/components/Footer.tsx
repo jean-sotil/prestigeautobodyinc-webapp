@@ -227,6 +227,17 @@ export default function Footer({ className = '' }: FooterProps) {
               </NextLink>
             </nav>
           </div>
+          <p className="mt-4 text-center text-[10px] text-[#666] tracking-wide">
+            {t('builtBy')}{' '}
+            <a
+              href="https://ibudi.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#888] hover:text-[#c62828] transition-colors"
+            >
+              ibudi.dev
+            </a>
+          </p>
         </div>
       </div>
     </footer>

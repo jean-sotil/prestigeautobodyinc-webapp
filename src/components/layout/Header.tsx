@@ -6,10 +6,15 @@ import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { ButtonLink } from '@/components/ui/Button';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Caption } from '@/components/ui/Typography';
-import { PhoneIcon } from '@/components/ui/Icons';
+import {
+  PhoneIcon,
+  CarIcon,
+  WrenchIcon,
+  PaintbrushIcon,
+  ChevronRightIcon,
+} from '@/components/ui/Icons';
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -28,8 +33,22 @@ import {
   type NavItem,
 } from './NavLinks';
 
+type ServiceIcon = (props: {
+  size?: number;
+  className?: string;
+  ariaLabel?: string;
+}) => React.ReactElement;
+
+const SERVICE_ICONS: Record<string, ServiceIcon> = {
+  '/collision-repair': CarIcon,
+  '/auto-body-services': WrenchIcon,
+  '/auto-painting': PaintbrushIcon,
+};
+
 function ServiceLinkCard({ item }: { item: NavItem }) {
   const isActive = useIsActiveLink(item.href);
+  const Icon = SERVICE_ICONS[item.href];
+
   return (
     <NavigationMenuLink
       render={
@@ -38,20 +57,52 @@ function ServiceLinkCard({ item }: { item: NavItem }) {
           aria-current={isActive ? 'page' : undefined}
         />
       }
-      className="flex flex-col gap-1 rounded-md p-3 hover:bg-muted focus:bg-muted"
+      className={`group/service relative flex items-start gap-3 rounded-md p-3 transition-colors ${
+        isActive ? 'bg-primary/5' : 'hover:bg-muted focus:bg-muted'
+      }`}
     >
       <span
-        className={`text-sm font-medium ${
-          isActive ? 'text-primary' : 'text-foreground'
+        aria-hidden="true"
+        className={`absolute left-0 top-3 bottom-3 w-[2px] rounded-full transition-opacity ${
+          isActive
+            ? 'bg-primary opacity-100'
+            : 'bg-primary opacity-0 group-hover/service:opacity-100 group-focus/service:opacity-100'
         }`}
-      >
-        {item.label}
-      </span>
-      {item.description && (
-        <span className="text-xs text-muted-foreground line-clamp-2">
-          {item.description}
+      />
+      {Icon && (
+        <span
+          className={`mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-md transition-colors ${
+            isActive
+              ? 'bg-primary/10 text-primary'
+              : 'bg-muted text-muted-foreground group-hover/service:bg-primary/10 group-hover/service:text-primary group-focus/service:bg-primary/10 group-focus/service:text-primary'
+          }`}
+        >
+          <Icon size={18} ariaLabel="" />
         </span>
       )}
+      <span className="flex min-w-0 flex-col gap-0.5 text-left">
+        <span
+          className={`text-sm font-semibold leading-tight ${
+            isActive ? 'text-primary' : 'text-foreground'
+          }`}
+        >
+          {item.label}
+        </span>
+        {item.description && (
+          <span className="text-xs leading-snug text-muted-foreground line-clamp-2">
+            {item.description}
+          </span>
+        )}
+      </span>
+      <ChevronRightIcon
+        size={14}
+        ariaLabel=""
+        className={`mt-2 ml-auto shrink-0 self-start transition-all ${
+          isActive
+            ? 'text-primary opacity-100 translate-x-0'
+            : 'text-muted-foreground/40 opacity-0 -translate-x-1 group-hover/service:opacity-100 group-hover/service:translate-x-0 group-focus/service:opacity-100 group-focus/service:translate-x-0'
+        }`}
+      />
     </NavigationMenuLink>
   );
 }
@@ -119,12 +170,12 @@ export default function Header() {
       <UtilityBar />
 
       <header
-        className={`sticky lg:top-10 top-0 z-40 h-16 bg-background/90 backdrop-blur-md transition-shadow duration-200 ${
-          scrolled ? 'shadow-md' : 'shadow-none'
+        className={`header-edge-accent sticky overflow-hidden z-40 h-16 bg-background/90 backdrop-blur-md border-b border-border/60 transition-shadow duration-200 ${
+          scrolled ? 'shadow-md' : 'shadow-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex items-center justify-between h-full gap-4">
+          <div className="flex items-center justify-between h-full gap-3 lg:gap-4 xl:gap-6">
             <div className="shrink-0">
               <Link
                 href="/"
@@ -137,6 +188,7 @@ export default function Header() {
                   width={220}
                   height={40}
                   priority
+                  className="h-9 w-auto xl:h-10"
                 />
               </Link>
             </div>
@@ -145,7 +197,7 @@ export default function Header() {
               className="hidden lg:flex"
               aria-label={t('mainNavigation')}
             >
-              <NavigationMenuList className="gap-6">
+              <NavigationMenuList className="gap-4 xl:gap-6">
                 {navStructure.map((entry) => {
                   if (entry.type === 'link') {
                     return (
@@ -166,17 +218,22 @@ export default function Header() {
             </NavigationMenu>
 
             <div className="flex items-center gap-2 lg:gap-3">
-              <div className="hidden lg:flex flex-col items-end leading-tight">
-                <a
-                  href="tel:3015788779"
-                  className="inline-flex items-center gap-1.5 font-bold text-sm text-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
-                  aria-label={`${c('callNow')} ${t('phone')}`}
-                >
-                  <PhoneIcon size={16} ariaLabel="" />
-                  {t('phone')}
-                </a>
-                <Caption color="muted">{t('callForEstimate')}</Caption>
-              </div>
+              <a
+                href="tel:3015788779"
+                className="hidden lg:inline-flex items-center gap-2 font-bold text-sm text-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm whitespace-nowrap"
+                aria-label={`${c('callNow')} ${t('phone')}`}
+              >
+                <PhoneIcon size={16} ariaLabel="" />
+                <span className="flex flex-col items-start leading-tight">
+                  <span>{t('phone')}</span>
+                  <Caption
+                    color="muted"
+                    className="hidden xl:inline-block font-normal"
+                  >
+                    {t('callForEstimate')}
+                  </Caption>
+                </span>
+              </a>
 
               <a
                 href="tel:3015788779"
@@ -191,14 +248,10 @@ export default function Header() {
                   href="/get-a-quote"
                   variant="primary"
                   size="sm"
-                  className="rounded-full shadow-lg"
+                  className="rounded-full shadow-lg whitespace-nowrap"
                 >
                   {c('getQuote')}
                 </ButtonLink>
-              </div>
-
-              <div className="hidden lg:block">
-                <LanguageSwitcher />
               </div>
 
               <MobileNav />
@@ -232,7 +285,7 @@ function ServicesMenu({ label, items }: { label: string; items: NavItem[] }) {
         {label}
       </NavigationMenuTrigger>
       <NavigationMenuContent>
-        <ul className="grid w-[360px] gap-1 p-2">
+        <ul className="grid w-[420px] gap-0.5 p-2">
           {items.map((item) => (
             <li key={item.href}>
               <ServiceLinkCard item={item} />
