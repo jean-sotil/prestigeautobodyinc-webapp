@@ -12,7 +12,6 @@ interface ServiceHeroProps {
   ctaPhoneLabel: string;
   phone: string;
   phoneDisplay: string;
-  locale?: string;
   media?: HeroMedia | null;
 }
 
@@ -25,7 +24,6 @@ export function ServiceHero({
   ctaPhoneLabel,
   phone,
   phoneDisplay,
-  locale,
   media,
 }: ServiceHeroProps) {
   return (
@@ -63,7 +61,6 @@ export function ServiceHero({
                 href="/get-a-quote"
                 variant="primary"
                 size="lg"
-                locale={locale}
                 className="rounded-full shadow-lg"
               >
                 {ctaEstimateLabel}

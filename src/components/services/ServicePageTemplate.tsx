@@ -60,13 +60,12 @@ export async function ServicePageTemplate({
         ctaPhoneLabel={`Call ${h('phone')}`}
         phone="3015788779"
         phoneDisplay={h('phone')}
-        locale={locale}
         media={heroMedia}
       />
 
       <WhatWeOffer heading={t('whatWeOffer')} items={offerings} />
 
-      <ServiceAreas heading={t('serviceAreas')} locale={locale} />
+      <ServiceAreas heading={t('serviceAreas')} />
 
       <section
         className="py-16 bg-[#F5F5F5] dark:bg-[#1E1E1E]"
@@ -90,7 +89,6 @@ export async function ServicePageTemplate({
         ctaPhoneLabel={`Call ${h('phone')}`}
         phone="3015788779"
         phoneDisplay={h('phone')}
-        locale={locale}
       />
     </div>
   );

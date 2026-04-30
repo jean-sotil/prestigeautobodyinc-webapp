@@ -352,12 +352,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Back to Blog */}
           <div className="mt-12 border-t border-border pt-10 pb-4">
-            <Link
-              href={`/${locale}/blog`}
-              className="inline-flex items-center justify-center font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer min-h-[44px] min-w-[44px] px-6 py-2 text-sm rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-primary active:bg-primary/90 active:text-primary-foreground"
-            >
+            <ButtonLink href="/blog" variant="secondary" size="sm">
               ← {t('backToBlog')}
-            </Link>
+            </ButtonLink>
           </div>
         </div>
       </article>
@@ -384,12 +381,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </ul>
             <div className="mt-12 text-center">
-              <Link
-                href={`/${locale}/blog`}
-                className="inline-flex items-center justify-center font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer min-h-[44px] min-w-[44px] px-6 py-2.5 text-base rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-primary active:bg-primary/80"
-              >
+              <ButtonLink href="/blog" variant="primary">
                 {t('viewAllPosts')}
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </section>

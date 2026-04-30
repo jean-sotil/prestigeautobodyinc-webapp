@@ -167,7 +167,6 @@ export default async function HomePage({
                   href="/get-a-quote"
                   variant="primary"
                   size="lg"
-                  locale={locale}
                   className="text-sm min-w-40 whitespace-nowrap"
                 >
                   {t('pageHero.ctaButton')}
@@ -359,7 +358,6 @@ export default async function HomePage({
                   href="/get-a-quote"
                   variant="primary"
                   size="lg"
-                  locale={locale}
                   className="rounded-full shadow-lg"
                 >
                   {t('warranty.cta')}
@@ -408,12 +406,7 @@ export default async function HomePage({
           </h2>
           <p className="text-[#ffe0e0] text-base">{t('cta.description')}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
-            <ButtonLink
-              href="/get-a-quote"
-              variant="inverted"
-              size="lg"
-              locale={locale}
-            >
+            <ButtonLink href="/get-a-quote" variant="inverted" size="lg">
               {t('cta.button')}
             </ButtonLink>
             <ButtonLink
