@@ -299,19 +299,21 @@ export default async function HomePage({
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             {/* Left: Certification badges */}
-            <div className="shrink-0 flex items-center gap-6 sm:gap-8">
+            <div className="shrink-0 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
               <Image
                 src="/LIfetime-Guarantee-new.png"
                 alt={t('warranty.badgeAlt')}
                 width={200}
                 height={200}
-                className="w-[120px] h-[120px] md:w-40 md:h-40drop-shadow-[0_0_24px_rgba(198,40,40,0.3)]"
+                sizes="(min-width: 768px) 160px, 120px"
+                className="w-[120px] h-[120px] md:w-40 md:h-40 drop-shadow-[0_0_24px_rgba(198,40,40,0.3)]"
               />
               <Image
                 src="/gold_class_icar_logo.png"
                 alt={t('warranty.icarAlt')}
                 width={200}
                 height={200}
+                sizes="(min-width: 768px) 160px, 120px"
                 className="w-[120px] h-[120px] md:w-40 md:h-40 drop-shadow-[0_0_24px_rgba(200,180,80,0.25)]"
               />
               <Image
@@ -319,6 +321,7 @@ export default async function HomePage({
                 alt={t('warranty.saintAlt')}
                 width={200}
                 height={200}
+                sizes="(min-width: 768px) 140px, 100px"
                 className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] drop-shadow-[0_0_24px_rgba(50,120,220,0.25)]"
               />
             </div>
