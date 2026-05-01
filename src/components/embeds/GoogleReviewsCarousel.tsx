@@ -65,6 +65,7 @@ function ReviewCard({
             alt=""
             width={40}
             height={40}
+            loading="lazy"
             className="rounded-full object-cover"
             referrerPolicy="no-referrer"
             unoptimized
