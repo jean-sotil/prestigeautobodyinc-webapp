@@ -472,4 +472,16 @@ img {
     transparent 78%
   );
   opacity: 0.85;
+  transition:
+    opacity 300ms ease-out,
+    height 300ms ease-out;
+}
+.header-edge-accent[data-scrolled='true']::after {
+  height: 3px;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-edge-accent::after {
+    transition: none;
+  }
 }

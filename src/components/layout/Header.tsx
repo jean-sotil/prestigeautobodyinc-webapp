@@ -171,9 +171,8 @@ export default function Header() {
       <UtilityBar />
 
       <header
-        className={`header-edge-accent sticky overflow-hidden z-40 h-16 bg-background/90 backdrop-blur-md border-b border-border/60 transition-shadow duration-200 ${
-          scrolled ? 'shadow-md' : 'shadow-sm'
-        }`}
+        data-scrolled={scrolled ? 'true' : 'false'}
+        className="header-edge-accent group/header sticky top-9 lg:top-10 overflow-hidden z-40 h-16 data-[scrolled=true]:h-14 bg-background/85 data-[scrolled=true]:bg-background/95 backdrop-blur-md data-[scrolled=true]:backdrop-blur-xl border-b border-border/60 data-[scrolled=true]:border-border shadow-sm data-[scrolled=true]:shadow-[0_8px_24px_-12px_rgba(198,40,40,0.25)] transition-[height,background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out motion-reduce:transition-none"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex items-center justify-between h-full gap-3 lg:gap-4 xl:gap-6">
@@ -190,7 +189,7 @@ export default function Header() {
                   height={40}
                   priority
                   sizes="220px"
-                  className="h-9 w-auto xl:h-10"
+                  className="h-8 sm:h-9 xl:h-10 w-auto group-data-[scrolled=true]/header:h-7 sm:group-data-[scrolled=true]/header:h-8 xl:group-data-[scrolled=true]/header:h-9 transition-[height] duration-300 ease-out motion-reduce:transition-none"
                 />
               </Link>
             </div>
