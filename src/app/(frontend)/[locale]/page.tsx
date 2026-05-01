@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Image from 'next/image';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -391,7 +392,16 @@ export default async function HomePage({
             ratingValue={rating.ratingValue}
             reviewCount={rating.reviewCount}
           />
-          <GoogleReviewsCarousel locale={locale} />
+          <Suspense
+            fallback={
+              <div
+                className="w-full h-72 animate-pulse rounded-2xl bg-muted"
+                aria-hidden="true"
+              />
+            }
+          >
+            <GoogleReviewsCarousel locale={locale} />
+          </Suspense>
         </div>
       </section>
 
