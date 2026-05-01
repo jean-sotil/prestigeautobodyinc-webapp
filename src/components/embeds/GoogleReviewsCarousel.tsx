@@ -95,6 +95,7 @@ function ReviewCard({
           href={review.reviewUrl}
           target="_blank"
           rel="noopener noreferrer nofollow"
+          aria-label={`${readMoreLabel} — ${review.authorName}`}
           className="text-xs font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm self-start"
         >
           {readMoreLabel}
@@ -120,7 +121,7 @@ export async function GoogleReviewsCarousel({ locale }: { locale: string }) {
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
       >
-        {t('viewAll')} →
+        {t('viewAll')} <span aria-hidden="true">→</span>
       </a>
     );
   }

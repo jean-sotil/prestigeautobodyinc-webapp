@@ -164,7 +164,9 @@ export async function StatsCounters({
               <div className="text-xs sm:text-sm text-[var(--text-secondary)]">
                 {stat.label}
               </div>
-              <div className="text-[#C62828] text-xs">★★★★★</div>
+              <div aria-hidden="true" className="text-[#C62828] text-xs">
+                ★★★★★
+              </div>
             </div>
           ))}
         </div>
