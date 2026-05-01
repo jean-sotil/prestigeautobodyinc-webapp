@@ -35,10 +35,10 @@ export function ResponsiveHero({
           alt={alt}
           title={title}
           fill
-          sizes="100vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1600px"
           priority={priority}
           fetchPriority={priority ? 'high' : 'auto'}
-          quality={90}
+          quality={75}
           className="object-cover"
         />
       ) : (

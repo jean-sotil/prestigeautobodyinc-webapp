@@ -42,6 +42,9 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+    // Cap responsive variants at 1920 — 2048/3840 cost real bytes on mobile
+    // and the largest design surface on this site is ~1600px wide.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1600, 1920],
     // Minimum cache TTL (30 days)
     minimumCacheTTL: 2592000,
     qualities: [75, 90],
@@ -119,12 +122,21 @@ const nextConfig: NextConfig = {
   // Rewrites: map localized Spanish slugs to internal English paths
   async rewrites() {
     return [
-      { source: '/es/servicios-de-carroceria', destination: '/es/auto-body-services' },
-      { source: '/es/reparacion-de-colisiones', destination: '/es/collision-repair' },
+      {
+        source: '/es/servicios-de-carroceria',
+        destination: '/es/auto-body-services',
+      },
+      {
+        source: '/es/reparacion-de-colisiones',
+        destination: '/es/collision-repair',
+      },
       { source: '/es/pintura-de-autos', destination: '/es/auto-painting' },
       { source: '/es/remolque', destination: '/es/towing' },
       { source: '/es/reclamos-de-seguro', destination: '/es/insurance-claims' },
-      { source: '/es/asistencia-de-alquiler', destination: '/es/rental-assistance' },
+      {
+        source: '/es/asistencia-de-alquiler',
+        destination: '/es/rental-assistance',
+      },
       { source: '/es/nosotros', destination: '/es/about' },
       { source: '/es/nuestro-equipo', destination: '/es/our-team' },
       { source: '/es/certificaciones', destination: '/es/certifications' },
@@ -132,8 +144,14 @@ const nextConfig: NextConfig = {
       { source: '/es/ubicaciones', destination: '/es/locations' },
       { source: '/es/galeria', destination: '/es/gallery' },
       { source: '/es/obtener-cotizacion', destination: '/es/get-a-quote' },
-      { source: '/es/politica-de-privacidad', destination: '/es/privacy-policy' },
-      { source: '/es/terminos-de-servicio', destination: '/es/terms-of-service' },
+      {
+        source: '/es/politica-de-privacidad',
+        destination: '/es/privacy-policy',
+      },
+      {
+        source: '/es/terminos-de-servicio',
+        destination: '/es/terms-of-service',
+      },
     ];
   },
 };
