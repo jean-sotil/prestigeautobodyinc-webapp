@@ -476,7 +476,7 @@ img {
     opacity 300ms ease-out,
     height 300ms ease-out;
 }
-.header-edge-accent[data-scrolled='true']::after {
+[data-scrolled='true'] .header-edge-accent::after {
   height: 3px;
   opacity: 1;
 }

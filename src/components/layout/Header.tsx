@@ -168,106 +168,108 @@ export default function Header() {
         {t('skipToContent')}
       </a>
 
-      <UtilityBar />
-
-      <header
+      <div
         data-scrolled={scrolled ? 'true' : 'false'}
-        className="header-edge-accent group/header sticky top-9 lg:top-10 overflow-hidden z-40 h-16 data-[scrolled=true]:h-14 bg-background/85 data-[scrolled=true]:bg-background/95 backdrop-blur-md data-[scrolled=true]:backdrop-blur-xl border-b border-border/60 data-[scrolled=true]:border-border shadow-sm data-[scrolled=true]:shadow-[0_8px_24px_-12px_rgba(198,40,40,0.25)] transition-[height,background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out motion-reduce:transition-none"
+        className="group/header sticky top-0 z-50 data-[scrolled=true]:shadow-[0_8px_24px_-12px_rgba(198,40,40,0.25)] transition-shadow duration-300 ease-out motion-reduce:transition-none"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex items-center justify-between h-full gap-3 lg:gap-4 xl:gap-6">
-            <div className="shrink-0">
-              <Link
-                href="/"
-                className="inline-flex hover:opacity-80 transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
-                aria-label="Prestige Auto Body Inc. - Home"
-              >
-                <Image
-                  src="/logo.png"
-                  alt="Prestige Auto Body Inc. Logo"
-                  width={220}
-                  height={40}
-                  priority
-                  sizes="220px"
-                  className="h-8 sm:h-9 xl:h-10 w-auto group-data-[scrolled=true]/header:h-7 sm:group-data-[scrolled=true]/header:h-8 xl:group-data-[scrolled=true]/header:h-9 transition-[height] duration-300 ease-out motion-reduce:transition-none"
-                />
-              </Link>
-            </div>
+        <UtilityBar />
 
-            <NavigationMenu
-              className="hidden lg:flex"
-              aria-label={t('mainNavigation')}
-            >
-              <NavigationMenuList className="gap-4 xl:gap-6">
-                {navStructure.map((entry) => {
-                  if (entry.type === 'link') {
-                    return (
-                      <NavigationMenuItem key={entry.href}>
-                        <NavLink item={entry} />
-                      </NavigationMenuItem>
-                    );
-                  }
-                  return (
-                    <ServicesMenu
-                      key="services"
-                      label={entry.label}
-                      items={entry.items}
-                    />
-                  );
-                })}
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            <div className="flex items-center gap-2 lg:gap-3">
-              <a
-                href={`tel:${SHOP_PHONE_TEL}`}
-                className="hidden lg:inline-flex items-center gap-2 font-bold text-sm text-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm whitespace-nowrap"
-                aria-label={`${c('callNow')} ${t('phone')}`}
-              >
-                <PhoneIcon size={16} ariaLabel="" />
-                <span className="flex flex-col items-start leading-tight">
-                  <span>{t('phone')}</span>
-                  <Caption
-                    color="muted"
-                    className="hidden xl:inline-block font-normal overflow-hidden max-h-4 group-data-[scrolled=true]/header:max-h-0 transition-[max-height] duration-300 ease-out motion-reduce:transition-none"
-                  >
-                    {t('callForEstimate')}
-                  </Caption>
-                </span>
-              </a>
-
-              <a
-                href={`tel:${SHOP_PHONE_TEL}`}
-                className="lg:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-md text-foreground hover:text-primary hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                aria-label={`${c('callNow')} ${t('phone')}`}
-              >
-                <PhoneIcon size={22} ariaLabel="" />
-              </a>
-
-              <div className="hidden lg:block">
-                <ButtonLink
-                  href="/get-a-quote"
-                  variant="primary"
-                  size="sm"
-                  className="rounded-full shadow-lg whitespace-nowrap group-data-[scrolled=true]/header:shadow-md group-data-[scrolled=true]/header:scale-95 transition-transform duration-300 ease-out motion-reduce:transition-none"
+        <header className="header-edge-accent overflow-hidden h-16 group-data-[scrolled=true]/header:h-14 bg-background/85 group-data-[scrolled=true]/header:bg-background/95 backdrop-blur-md group-data-[scrolled=true]/header:backdrop-blur-xl border-b border-border/60 group-data-[scrolled=true]/header:border-border transition-[height,background-color,backdrop-filter,border-color] duration-300 ease-out motion-reduce:transition-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div className="flex items-center justify-between h-full gap-3 lg:gap-4 xl:gap-6">
+              <div className="shrink-0">
+                <Link
+                  href="/"
+                  className="inline-flex hover:opacity-80 transition-opacity duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+                  aria-label="Prestige Auto Body Inc. - Home"
                 >
-                  {c('getQuote')}
-                </ButtonLink>
+                  <Image
+                    src="/logo.png"
+                    alt="Prestige Auto Body Inc. Logo"
+                    width={220}
+                    height={40}
+                    priority
+                    sizes="220px"
+                    className="h-8 sm:h-9 xl:h-10 w-auto group-data-[scrolled=true]/header:h-7 sm:group-data-[scrolled=true]/header:h-8 xl:group-data-[scrolled=true]/header:h-9 transition-[height] duration-300 ease-out motion-reduce:transition-none"
+                  />
+                </Link>
               </div>
 
-              <MobileNav />
-            </div>
-          </div>
-        </div>
+              <NavigationMenu
+                className="hidden lg:flex"
+                aria-label={t('mainNavigation')}
+              >
+                <NavigationMenuList className="gap-4 xl:gap-6">
+                  {navStructure.map((entry) => {
+                    if (entry.type === 'link') {
+                      return (
+                        <NavigationMenuItem key={entry.href}>
+                          <NavLink item={entry} />
+                        </NavigationMenuItem>
+                      );
+                    }
+                    return (
+                      <ServicesMenu
+                        key="services"
+                        label={entry.label}
+                        items={entry.items}
+                      />
+                    );
+                  })}
+                </NavigationMenuList>
+              </NavigationMenu>
 
-        {!isHomePage && (
-          <div className="bg-muted border-t border-border py-1 group-data-[scrolled=true]/header:py-0.5 transition-[padding] duration-300 ease-out motion-reduce:transition-none">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <Breadcrumbs />
+              <div className="flex items-center gap-2 lg:gap-3">
+                <a
+                  href={`tel:${SHOP_PHONE_TEL}`}
+                  className="hidden lg:inline-flex items-center gap-2 font-bold text-sm text-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm whitespace-nowrap"
+                  aria-label={`${c('callNow')} ${t('phone')}`}
+                >
+                  <PhoneIcon size={16} ariaLabel="" />
+                  <span className="flex flex-col items-start leading-tight">
+                    <span>{t('phone')}</span>
+                    <Caption
+                      color="muted"
+                      className="hidden xl:inline-block font-normal overflow-hidden max-h-4 group-data-[scrolled=true]/header:max-h-0 transition-[max-height] duration-300 ease-out motion-reduce:transition-none"
+                    >
+                      {t('callForEstimate')}
+                    </Caption>
+                  </span>
+                </a>
+
+                <a
+                  href={`tel:${SHOP_PHONE_TEL}`}
+                  className="lg:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-md text-foreground hover:text-primary hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label={`${c('callNow')} ${t('phone')}`}
+                >
+                  <PhoneIcon size={22} ariaLabel="" />
+                </a>
+
+                <div className="hidden lg:block">
+                  <ButtonLink
+                    href="/get-a-quote"
+                    variant="primary"
+                    size="sm"
+                    className="rounded-full shadow-lg whitespace-nowrap group-data-[scrolled=true]/header:shadow-md group-data-[scrolled=true]/header:scale-95 transition-transform duration-300 ease-out motion-reduce:transition-none"
+                  >
+                    {c('getQuote')}
+                  </ButtonLink>
+                </div>
+
+                <MobileNav />
+              </div>
             </div>
           </div>
-        )}
-      </header>
+
+          {!isHomePage && (
+            <div className="bg-muted border-t border-border py-1 group-data-[scrolled=true]/header:py-0.5 transition-[padding] duration-300 ease-out motion-reduce:transition-none">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Breadcrumbs />
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function UtilityBar() {
   const t = useTranslations('header');
 
   return (
-    <div className="bg-foreground text-background h-9 lg:h-10 flex items-center sticky top-0 z-50">
+    <div className="bg-foreground text-background h-9 lg:h-10 flex items-center">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-3 sm:gap-6">
         <Caption
           color="inverse"
