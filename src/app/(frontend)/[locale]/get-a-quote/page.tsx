@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { SHOP_PHONE_TEL } from '@/lib/business';
 import { PageHeroBanner } from '@/components/hero';
 import LazyQuoteForm from '@/components/dynamic/LazyQuoteForm';
 import { getBusinessRating } from '@/lib/google-places';
@@ -197,7 +198,7 @@ export default async function GetAQuotePage({
                     {t('sidebar.callLabel')}
                   </p>
                   <a
-                    href="tel:3015788779"
+                    href={`tel:${SHOP_PHONE_TEL}`}
                     className="flex items-center gap-2 font-bold text-2xl text-[#C62828] hover:opacity-80 transition-opacity min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 rounded-sm"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >

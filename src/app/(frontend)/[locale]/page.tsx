@@ -4,6 +4,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { SHOP_PHONE_TEL } from '@/lib/business';
 import { StatsCounters, ResponsiveHero } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
@@ -410,7 +411,7 @@ export default async function HomePage({
               {t('cta.button')}
             </ButtonLink>
             <ButtonLink
-              href="tel:3015788779"
+              href={`tel:${SHOP_PHONE_TEL}`}
               variant="outline-white"
               size="lg"
               aria-label={t('cta.phoneAriaLabel')}

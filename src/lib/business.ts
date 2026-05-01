@@ -51,6 +51,16 @@ export const BUSINESS_INFO = {
   ],
 } as const;
 
+/**
+ * E.164-formatted phone number for `tel:` links.
+ * Per RFC 3966 / E.164 the country code prefix is required for international
+ * dial-out (roaming, VoIP, non-US callers).
+ */
+export const SHOP_PHONE_TEL = '+13015788779';
+
+/** Display-formatted phone number, no spaces stripping needed. */
+export const SHOP_PHONE_DISPLAY = '(301) 578-8779';
+
 export const RATING_INFO = {
   ratingValue: 4.7,
   reviewCount: 243,

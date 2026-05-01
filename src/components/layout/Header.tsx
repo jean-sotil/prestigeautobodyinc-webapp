@@ -25,6 +25,7 @@ import {
 } from '@/components/ui/NavigationMenu';
 import UtilityBar from './UtilityBar';
 import MobileNav from './MobileNav';
+import { SHOP_PHONE_TEL } from '@/lib/business';
 import {
   useNavStructure,
   useIsActiveLink,
@@ -219,7 +220,7 @@ export default function Header() {
 
             <div className="flex items-center gap-2 lg:gap-3">
               <a
-                href="tel:3015788779"
+                href={`tel:${SHOP_PHONE_TEL}`}
                 className="hidden lg:inline-flex items-center gap-2 font-bold text-sm text-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm whitespace-nowrap"
                 aria-label={`${c('callNow')} ${t('phone')}`}
               >
@@ -236,7 +237,7 @@ export default function Header() {
               </a>
 
               <a
-                href="tel:3015788779"
+                href={`tel:${SHOP_PHONE_TEL}`}
                 className="lg:hidden inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-md text-foreground hover:text-primary hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 aria-label={`${c('callNow')} ${t('phone')}`}
               >

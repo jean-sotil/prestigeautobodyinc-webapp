@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { ButtonLink } from '@/components/ui/Button';
 import { LocalBusinessJsonLd } from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
+import { SHOP_PHONE_TEL } from '@/lib/business';
 import {
   fetchBlogCategories,
   fetchBlogContributors,
@@ -383,7 +384,7 @@ export default async function BlogIndexPage({
               {t('cta.button')}
             </ButtonLink>
             <ButtonLink
-              href="tel:3015788779"
+              href={`tel:${SHOP_PHONE_TEL}`}
               variant="outline-white"
               size="lg"
               aria-label={t('cta.phoneAriaLabel')}

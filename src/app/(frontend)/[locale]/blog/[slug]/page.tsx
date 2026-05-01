@@ -20,6 +20,7 @@ import { RichTextRenderer } from '@/components/RichTextRenderer';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ButtonLink } from '@/components/ui/Button';
 import { getBusinessRating } from '@/lib/google-places';
+import { SHOP_PHONE_TEL } from '@/lib/business';
 import { computeReadingTime } from '@/lib/reading-time';
 import BreadcrumbTitleSetter from '@/components/BreadcrumbTitleSetter';
 import { BASE_URL } from '@/lib/seo';
@@ -409,7 +410,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {t('cta.button')}
             </ButtonLink>
             <ButtonLink
-              href="tel:3015788779"
+              href={`tel:${SHOP_PHONE_TEL}`}
               variant="outline-white"
               size="lg"
               aria-label={t('cta.phoneAriaLabel')}

@@ -2,6 +2,11 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import {
+  SHOP_PHONE_TEL,
+  SHOP_PHONE_DISPLAY,
+  BUSINESS_INFO,
+} from '@/lib/business';
 import type { QuoteFormData } from './hooks/useQuoteForm';
 
 interface QuoteConfirmationProps {
@@ -10,9 +15,7 @@ interface QuoteConfirmationProps {
   onReset: () => void;
 }
 
-const SHOP_PHONE_DISPLAY = '(301) 578-8779';
-const SHOP_PHONE_TEL = '3015788779';
-const SHOP_EMAIL = 'info@prestigeautobodyinc.com';
+const SHOP_EMAIL = BUSINESS_INFO.email;
 
 export function QuoteConfirmation({
   data,

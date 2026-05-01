@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/Collapsible';
 import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { SHOP_PHONE_TEL } from '@/lib/business';
 import {
   useNavStructure,
   useIsActiveLink,
@@ -168,7 +169,7 @@ export default function MobileNav() {
 
           <div className="px-4">
             <a
-              href="tel:3015788779"
+              href={`tel:${SHOP_PHONE_TEL}`}
               onClick={close}
               className="flex items-center gap-2 py-3 font-bold text-foreground hover:text-primary transition-colors"
               aria-label={`${c('callNow')} ${t('phone')}`}
