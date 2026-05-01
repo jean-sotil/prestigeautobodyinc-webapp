@@ -4,7 +4,10 @@ import { type ReactNode } from 'react';
 interface Stat {
   id: string;
   icon: ReactNode;
-  value: string;
+  value: ReactNode;
+  /** Plain-text version of `value` used for SR announcement when value
+   * contains decorative glyphs (e.g. ★). Falls back to value's text. */
+  valueLabel?: string;
   label: string;
 }
 
@@ -100,10 +103,10 @@ export async function StatsCounters({
 }: StatsCountersProps) {
   const t = await getTranslations({ locale, namespace: 'home' });
 
-  const ratingValueDisplay =
+  const ratingNumeric =
     typeof ratingValue === 'number'
-      ? `${ratingValue.toFixed(1)}★`
-      : t('stats.rating.value');
+      ? ratingValue.toFixed(1)
+      : t('stats.rating.value').replace('★', '').trim();
 
   const reviewCountDisplay =
     typeof reviewCount === 'number'
@@ -120,7 +123,13 @@ export async function StatsCounters({
     {
       id: 'rating',
       icon: <StarIcon />,
-      value: ratingValueDisplay,
+      value: (
+        <>
+          {ratingNumeric}
+          <span aria-hidden="true">★</span>
+        </>
+      ),
+      valueLabel: `${ratingNumeric} out of 5`,
       label: t('stats.rating.label'),
     },
     {
@@ -158,6 +167,7 @@ export async function StatsCounters({
               <div
                 className="text-4xl lg:text-5xl font-extrabold text-[#C62828]"
                 style={{ fontFamily: 'var(--font-display)' }}
+                aria-label={stat.valueLabel}
               >
                 {stat.value}
               </div>

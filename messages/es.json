@@ -729,7 +729,7 @@
     },
     "hoursToday": "Hoy",
     "reviews": {
-      "ratingShort": "{rating}★ · {count} reseñas en Google"
+      "ratingShort": "{rating} · {count} reseñas en Google"
     }
   },
   "notFound": {
