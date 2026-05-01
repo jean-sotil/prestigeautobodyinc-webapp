@@ -1,6 +1,4 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import NextLink from 'next/link';
 import { Link } from '@/i18n/navigation';
 
@@ -8,8 +6,8 @@ interface FooterProps {
   className?: string;
 }
 
-export default function Footer({ className = '' }: FooterProps) {
-  const t = useTranslations('footer');
+export default async function Footer({ className = '' }: FooterProps) {
+  const t = await getTranslations('footer');
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
