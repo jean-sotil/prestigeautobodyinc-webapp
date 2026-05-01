@@ -11,7 +11,7 @@ export const BUSINESS_INFO = {
   image: 'https://www.prestigeautobodyinc.com/og-image.jpg',
   telephone: '+1-301-578-8779',
   faxNumber: '+1-301-578-8780',
-  email: 'info@prestigeautobody.com',
+  email: 'info@prestigeautobodyinc.com',
   priceRange: '$$',
   currenciesAccepted: 'USD',
   paymentAccepted: ['Cash', 'Credit Card', 'Insurance', 'Check'],
