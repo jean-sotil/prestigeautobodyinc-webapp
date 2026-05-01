@@ -22,7 +22,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'services' });
   const title =
     locale === 'es'
       ? 'Servicio de Remolque 24/7 | Prestige Auto Body Inc.'
@@ -71,10 +70,9 @@ export default async function TowingPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [heroMedia, nav, t] = await Promise.all([
+  const [heroMedia, nav] = await Promise.all([
     getHeroMedia('towing-24-7'),
     getTranslations({ locale, namespace: 'nav' }),
-    getTranslations({ locale, namespace: 'services' }),
   ]);
 
   const breadcrumbItems = generateBreadcrumbItems(

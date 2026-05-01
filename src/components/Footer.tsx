@@ -49,7 +49,7 @@ export default function Footer({ className = '' }: FooterProps) {
                   Phone:{' '}
                   <a
                     href="tel:+13015788779"
-                    className="hover:text-[#c62828] transition-colors"
+                    className="underline underline-offset-2 hover:text-[#c62828] transition-colors"
                     itemProp="telephone"
                   >
                     {t('company.phone')}
@@ -59,7 +59,7 @@ export default function Footer({ className = '' }: FooterProps) {
                   Fax:{' '}
                   <a
                     href="tel:+13015857791"
-                    className="hover:text-[#c62828] transition-colors"
+                    className="underline underline-offset-2 hover:text-[#c62828] transition-colors"
                   >
                     {t('company.fax')}
                   </a>
@@ -67,7 +67,7 @@ export default function Footer({ className = '' }: FooterProps) {
                 <p>
                   <a
                     href="mailto:info@prestigeautobodyinc.com"
-                    className="hover:text-[#c62828] transition-colors"
+                    className="underline underline-offset-2 hover:text-[#c62828] transition-colors"
                     itemProp="email"
                   >
                     {t('company.email')}
@@ -209,31 +209,31 @@ export default function Footer({ className = '' }: FooterProps) {
             >
               <Link
                 href="/privacy-policy"
-                className="text-xs text-[#a0a0a0] hover:text-[#c62828] transition-colors"
+                className="text-xs text-[#a0a0a0] underline underline-offset-2 hover:text-[#c62828] transition-colors"
               >
                 {t('legal.privacy')}
               </Link>
               <Link
                 href="/terms-of-service"
-                className="text-xs text-[#a0a0a0] hover:text-[#c62828] transition-colors"
+                className="text-xs text-[#a0a0a0] underline underline-offset-2 hover:text-[#c62828] transition-colors"
               >
                 {t('legal.terms')}
               </Link>
               <NextLink
                 href="/sitemap.xml"
-                className="text-xs text-[#a0a0a0] hover:text-[#c62828] transition-colors"
+                className="text-xs text-[#a0a0a0] underline underline-offset-2 hover:text-[#c62828] transition-colors"
               >
                 {t('legal.sitemap')}
               </NextLink>
             </nav>
           </div>
-          <p className="mt-4 text-center text-[10px] text-[#666] tracking-wide">
+          <p className="mt-4 text-center text-[10px] text-[#a0a0a0] tracking-wide">
             {t('builtBy')}{' '}
             <a
               href="https://ibudi.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#888] hover:text-[#c62828] transition-colors"
+              className="text-white underline underline-offset-2 hover:text-[#c62828] transition-colors"
             >
               ibudi.dev
             </a>

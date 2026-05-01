@@ -41,14 +41,17 @@ export default function WhatsAppWidget() {
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(t('defaultMessage'))}`;
 
   // Detect mobile (no hover support)
-  const isMobile = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
+  const isMobile =
+    typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
 
   // Show tooltip on mobile when page loads
   useEffect(() => {
     if (!isMobile) return;
-    setMobileTooltip(true);
+    Promise.resolve().then(() => setMobileTooltip(true));
     mobileTimerRef.current = setTimeout(() => setMobileTooltip(false), 5000);
-    return () => { if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current); };
+    return () => {
+      if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current);
+    };
   }, [isMobile]);
 
   // Auto-hide mobile tooltip after 5 seconds whenever it becomes visible
@@ -56,7 +59,9 @@ export default function WhatsAppWidget() {
     if (!isMobile || !mobileTooltip) return;
     if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current);
     mobileTimerRef.current = setTimeout(() => setMobileTooltip(false), 5000);
-    return () => { if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current); };
+    return () => {
+      if (mobileTimerRef.current) clearTimeout(mobileTimerRef.current);
+    };
   }, [isMobile, mobileTooltip]);
 
   // Close popup when clicking outside

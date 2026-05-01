@@ -1,7 +1,7 @@
 # Accessibility Audit — WCAG 2.1 AA
 
-**Generated:** 2026-04-28T06:34:09.809Z
-**Base URL:** `http://localhost:3001`
+**Generated:** 2026-05-01T00:51:19.702Z
+**Base URL:** `http://localhost:3000`
 **Tool:** axe-core via @axe-core/playwright
 **Tags:** wcag2a, wcag2aa, wcag21a, wcag21aa
 
@@ -13,138 +13,138 @@
 
 ## Findings per page
 
-### EN — `http://localhost:3001/en`
+### EN — `http://localhost:3000/en`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es`
+### ES — `http://localhost:3000/es`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/about`
+### EN — `http://localhost:3000/en/about`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/nosotros`
+### ES — `http://localhost:3000/es/nosotros`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/auto-body-services`
+### EN — `http://localhost:3000/en/auto-body-services`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/servicios-de-carroceria`
+### ES — `http://localhost:3000/es/servicios-de-carroceria`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/auto-painting`
+### EN — `http://localhost:3000/en/auto-painting`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/pintura-de-autos`
+### ES — `http://localhost:3000/es/pintura-de-autos`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/blog`
+### EN — `http://localhost:3000/en/blog`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/blog`
+### ES — `http://localhost:3000/es/blog`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/certifications`
+### EN — `http://localhost:3000/en/certifications`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/certificaciones`
+### ES — `http://localhost:3000/es/certificaciones`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/collision-repair`
+### EN — `http://localhost:3000/en/collision-repair`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/reparacion-de-colisiones`
+### ES — `http://localhost:3000/es/reparacion-de-colisiones`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/contact`
+### EN — `http://localhost:3000/en/contact`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/contacto`
+### ES — `http://localhost:3000/es/contacto`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/gallery`
+### EN — `http://localhost:3000/en/gallery`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/galeria`
+### ES — `http://localhost:3000/es/galeria`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/get-a-quote`
+### EN — `http://localhost:3000/en/get-a-quote`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/obtener-cotizacion`
+### ES — `http://localhost:3000/es/obtener-cotizacion`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/insurance-claims`
+### EN — `http://localhost:3000/en/insurance-claims`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/reclamos-de-seguro`
+### ES — `http://localhost:3000/es/reclamos-de-seguro`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/locations`
+### EN — `http://localhost:3000/en/locations`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/ubicaciones`
+### ES — `http://localhost:3000/es/ubicaciones`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/our-team`
+### EN — `http://localhost:3000/en/our-team`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/nuestro-equipo`
+### ES — `http://localhost:3000/es/nuestro-equipo`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/privacy-policy`
+### EN — `http://localhost:3000/en/privacy-policy`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/politica-de-privacidad`
+### ES — `http://localhost:3000/es/politica-de-privacidad`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/rental-assistance`
+### EN — `http://localhost:3000/en/rental-assistance`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/asistencia-de-alquiler`
+### ES — `http://localhost:3000/es/asistencia-de-alquiler`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/terms-of-service`
+### EN — `http://localhost:3000/en/terms-of-service`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/terminos-de-servicio`
+### ES — `http://localhost:3000/es/terminos-de-servicio`
 
 - ✅ No violations.
 
-### EN — `http://localhost:3001/en/towing`
+### EN — `http://localhost:3000/en/towing`
 
 - ✅ No violations.
 
-### ES — `http://localhost:3001/es/remolque`
+### ES — `http://localhost:3000/es/remolque`
 
 - ✅ No violations.

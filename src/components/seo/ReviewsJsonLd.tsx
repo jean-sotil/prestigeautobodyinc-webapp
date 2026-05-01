@@ -15,8 +15,6 @@ type ReviewsJsonLdProps = {
 export function ReviewsJsonLd({
   ratingValue,
   reviewCount,
-  bestRating,
-  worstRating,
   locale = 'en',
 }: ReviewsJsonLdProps) {
   const schema = {

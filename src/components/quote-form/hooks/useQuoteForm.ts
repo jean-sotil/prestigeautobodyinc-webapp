@@ -148,7 +148,7 @@ export function useQuoteForm() {
         if (parsed && typeof parsed === 'object') {
           // Remove files from hydration (can't persist File objects)
           // and set hasPhotos based on _hasFiles flag
-          const { files, _hasFiles, ...rest } = parsed;
+          const { _hasFiles, ...rest } = parsed;
           dispatch({
             type: 'HYDRATE',
             data: {
