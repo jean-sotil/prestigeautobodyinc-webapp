@@ -229,7 +229,7 @@ export default function Header() {
                   <span>{t('phone')}</span>
                   <Caption
                     color="muted"
-                    className="hidden xl:inline-block font-normal"
+                    className="hidden xl:inline-block font-normal overflow-hidden max-h-4 group-data-[scrolled=true]/header:max-h-0 transition-[max-height] duration-300 ease-out motion-reduce:transition-none"
                   >
                     {t('callForEstimate')}
                   </Caption>
@@ -249,7 +249,7 @@ export default function Header() {
                   href="/get-a-quote"
                   variant="primary"
                   size="sm"
-                  className="rounded-full shadow-lg whitespace-nowrap"
+                  className="rounded-full shadow-lg whitespace-nowrap group-data-[scrolled=true]/header:shadow-md group-data-[scrolled=true]/header:scale-95 transition-transform duration-300 ease-out motion-reduce:transition-none"
                 >
                   {c('getQuote')}
                 </ButtonLink>
@@ -261,7 +261,7 @@ export default function Header() {
         </div>
 
         {!isHomePage && (
-          <div className="bg-muted border-t border-border">
+          <div className="bg-muted border-t border-border py-1 group-data-[scrolled=true]/header:py-0.5 transition-[padding] duration-300 ease-out motion-reduce:transition-none">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <Breadcrumbs />
             </div>
