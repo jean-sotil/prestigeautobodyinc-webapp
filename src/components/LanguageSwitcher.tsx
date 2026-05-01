@@ -113,9 +113,9 @@ export default function LanguageSwitcher({
     setHreflangHref(next);
   }, [otherLocale, pathname]);
 
-  const ariaLabel = t('switchTo', {
-    locale: t(otherLocale === 'en' ? 'english' : 'spanish').toLowerCase(),
-  });
+  const currentLocaleName = t(locale === 'en' ? 'english' : 'spanish');
+  const otherLocaleName = t(otherLocale === 'en' ? 'english' : 'spanish');
+  const ariaLabel = `${t('current', { locale: currentLocaleName })}. ${t('switchTo', { locale: otherLocaleName.toLowerCase() })}`;
 
   const handleSwitch = () => {
     scrollToTop();
@@ -157,6 +157,8 @@ export default function LanguageSwitcher({
       className={`group relative inline-flex shrink-0 items-center gap-0.5 rounded-full p-0.75 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${containerClasses}`}
     >
       <span
+        aria-hidden="true"
+        data-active={locale === 'en'}
         className={`${cellBase} ${
           locale === 'en' ? activeCellClass : inactiveCellClass
         }`}
@@ -169,6 +171,8 @@ export default function LanguageSwitcher({
         <span>EN</span>
       </span>
       <span
+        aria-hidden="true"
+        data-active={locale === 'es'}
         className={`${cellBase} ${
           locale === 'es' ? activeCellClass : inactiveCellClass
         }`}
