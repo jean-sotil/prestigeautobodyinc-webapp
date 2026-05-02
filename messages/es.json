@@ -76,7 +76,7 @@
     "viewAllPosts": "Ver Todos los Artículos",
     "cta": {
       "title": "¿Aún tienes preguntas? Obtén una cotización gratis.",
-      "description": "Envía una foto del daño por mensaje o llama al taller. Técnicos I-CAR Gold Class, Garantía de por Vida, más de 20 años en Silver Spring.",
+      "description": "Envía una foto del daño por mensaje o llama al taller. Técnicos I-CAR Gold Class, Garantía de por Vida, más de 30 años en Silver Spring.",
       "button": "Obtener cotización gratis",
       "phone": "(301) 578-8779",
       "phoneAriaLabel": "Llamar a Prestige Auto Body al (301) 578-8779"
@@ -150,7 +150,7 @@
     "stats": {
       "title": "Nuestro Historial",
       "experience": {
-        "value": "20+",
+        "value": "30+",
         "label": "Años de Experiencia"
       },
       "rating": {
@@ -188,8 +188,8 @@
     "whyChooseUs": {
       "title": "¿Por Qué Elegir Prestige?",
       "experience": {
-        "title": "20+ Años de Experiencia",
-        "description": "Dos décadas de excelencia confiable en reparación de carrocería en la comunidad de Silver Spring."
+        "title": "30+ Años de Experiencia",
+        "description": "Tres décadas de excelencia confiable en reparación de carrocería en la comunidad de Silver Spring."
       },
       "certified": {
         "title": "Certificados I-CAR y ASE",
@@ -424,7 +424,7 @@
       "galleryLink": "Mira nuestra Galería"
     },
     "whyChooseUsBullets": {
-      "experience": "Más de dos décadas de experiencia en reparación de colisiones",
+      "experience": "Más de tres décadas de experiencia en reparación de colisiones",
       "certified": "Técnicos certificados I-CAR Gold Class",
       "warranty": "Garantía de por vida en todas las reparaciones",
       "insurance": "Aceptamos todos los seguros principales y presentamos reclamos por usted",
@@ -456,7 +456,7 @@
         "location": "Bethesda, MD"
       },
       "review3": {
-        "text": "El mejor taller de carrocería del área. 20+ años y se nota. La garantía de por vida da verdadera tranquilidad.",
+        "text": "El mejor taller de carrocería del área. 30+ años y se nota. La garantía de por vida da verdadera tranquilidad.",
         "name": "— Carlos R.",
         "location": "Rockville, MD"
       }
@@ -506,19 +506,19 @@
   },
   "about": {
     "metaTitle": "Nosotros — Prestige Auto Body Inc. | Silver Spring, MD",
-    "metaDescription": "Más de 20 años de reparación profesional de carrocería en Silver Spring, MD. Certificados I-CAR Gold Class, garantía de por vida en todas las reparaciones.",
+    "metaDescription": "Más de 30 años de reparación profesional de carrocería en Silver Spring, MD. Certificados I-CAR Gold Class, garantía de por vida en todas las reparaciones.",
     "heroImageAlt": "Servicios completos de carrocería incluyendo reparación de abolladuras, trabajo estructural de chasis, reparación de parachoques, restauración de rines, reemplazo de vidrios y pintura",
     "heroTitle": "Reparación Completa de Carrocería — Abolladuras, Trabajo Estructural, Pintura y Más",
     "heading": "Nosotros",
-    "subtitle": "Más de 20 años de servicios profesionales de reparación de carrocería",
-    "intro": "Prestige Auto Body Inc. ha servido a la comunidad de Silver Spring por más de 20 años con servicios profesionales de reparación de carrocería. Nuestro compromiso con la calidad del trabajo y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria.",
+    "subtitle": "Más de 30 años de servicios profesionales de reparación de carrocería",
+    "intro": "Prestige Auto Body Inc. ha servido a la comunidad de Silver Spring por más de 30 años con servicios profesionales de reparación de carrocería. Nuestro compromiso con la calidad del trabajo y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria.",
     "missionTitle": "Nuestra Misión",
     "mission": "Ofrecer reparación de colisiones y pintura automotriz de calidad de fábrica con integridad, transparencia y garantía de por vida — para que cada cliente se vaya confiado de que su vehículo ha sido restaurado a su condición pre-accidente.",
     "valuesTitle": "Por Qué los Clientes Confían en Nosotros",
     "values": {
       "experience": {
-        "title": "20+ Años de Experiencia",
-        "description": "Dos décadas de excelencia confiable en reparación de carrocería en Silver Spring y el Condado de Montgomery."
+        "title": "30+ Años de Experiencia",
+        "description": "Tres décadas de excelencia confiable en reparación de carrocería en Silver Spring y el Condado de Montgomery."
       },
       "certified": {
         "title": "Certificados I-CAR Gold Class",
@@ -595,7 +595,7 @@
         "metaDescription": "Trabajo completo de carrocería en Silver Spring, MD — reparación de abolladuras, daño estructural, reemplazo de parachoques, restauración de rines y trabajo personalizado. Cotizaciones gratis, todos los seguros aceptados.",
         "title": "Servicios de Carrocería en Silver Spring, MD",
         "heroImageAlt": "Instalación completa de trabajo de carrocería mostrando reparación de abolladuras, restauración de daño estructural y servicios de reemplazo de parachoques en Prestige Auto Body",
-        "heroDescription": "Servicios completos de carrocería incluyendo reparación de abolladuras, restauración de daños estructurales, reemplazo de parachoques, reparación de rines, trabajo de vidrios y modificaciones personalizadas. Más de 20 años de artesanía certificada en Silver Spring.",
+        "heroDescription": "Servicios completos de carrocería incluyendo reparación de abolladuras, restauración de daños estructurales, reemplazo de parachoques, reparación de rines, trabajo de vidrios y modificaciones personalizadas. Más de 30 años de artesanía certificada en Silver Spring.",
         "offerings": {
           "item1": {
             "title": "Reparación y Eliminación de Abolladuras",

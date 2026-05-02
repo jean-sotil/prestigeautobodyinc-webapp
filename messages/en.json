@@ -76,7 +76,7 @@
     "viewAllPosts": "View All Posts",
     "cta": {
       "title": "Still have questions? Get a free quote.",
-      "description": "Text a photo of the damage or call the shop. I-CAR Gold Class techs, Lifetime Warranty, 20+ years in Silver Spring.",
+      "description": "Text a photo of the damage or call the shop. I-CAR Gold Class techs, Lifetime Warranty, 30+ years in Silver Spring.",
       "button": "Get a free quote",
       "phone": "(301) 578-8779",
       "phoneAriaLabel": "Call Prestige Auto Body at (301) 578-8779"
@@ -150,7 +150,7 @@
     "stats": {
       "title": "Our Track Record",
       "experience": {
-        "value": "20+",
+        "value": "30+",
         "label": "Years of Experience"
       },
       "rating": {
@@ -188,8 +188,8 @@
     "whyChooseUs": {
       "title": "Why Choose Prestige?",
       "experience": {
-        "title": "20+ Years Experience",
-        "description": "Two decades of trusted auto body repair excellence in the Silver Spring community."
+        "title": "30+ Years Experience",
+        "description": "Three decades of trusted auto body repair excellence in the Silver Spring community."
       },
       "certified": {
         "title": "I-CAR & ASE Certified",
@@ -424,7 +424,7 @@
       "galleryLink": "Check our Gallery"
     },
     "whyChooseUsBullets": {
-      "experience": "More than two decades of collision repair experience",
+      "experience": "More than three decades of collision repair experience",
       "certified": "I-CAR Gold Class certified technicians",
       "warranty": "Lifetime warranty guarantee on all repairs",
       "insurance": "Accept all major insurance and submit claims for you",
@@ -456,7 +456,7 @@
         "location": "Bethesda, MD"
       },
       "review3": {
-        "text": "Best auto body shop in the area. 20+ years and it shows. Lifetime warranty gives real peace of mind.",
+        "text": "Best auto body shop in the area. 30+ years and it shows. Lifetime warranty gives real peace of mind.",
         "name": "— Carlos R.",
         "location": "Rockville, MD"
       }
@@ -506,19 +506,19 @@
   },
   "about": {
     "metaTitle": "About Us — Prestige Auto Body Inc. | Silver Spring, MD",
-    "metaDescription": "Over 20 years of professional auto body repair in Silver Spring, MD. I-CAR Gold Class certified, lifetime warranty on all repairs.",
+    "metaDescription": "Over 30 years of professional auto body repair in Silver Spring, MD. I-CAR Gold Class certified, lifetime warranty on all repairs.",
     "heroImageAlt": "Comprehensive auto body services including dent repair, structural frame work, bumper repair, alloy wheel restoration, glass replacement and spray painting",
     "heroTitle": "Full-Service Auto Body Repair — Dent Repair, Structural Work, Paint & More",
     "heading": "About Us",
-    "subtitle": "Over 20 years of professional auto body repair services",
-    "intro": "Prestige Auto Body Inc. has been serving the Silver Spring community for over 20 years with professional auto body repair services. Our commitment to quality workmanship and customer satisfaction has made us a trusted name in the industry.",
+    "subtitle": "Over 30 years of professional auto body repair services",
+    "intro": "Prestige Auto Body Inc. has been serving the Silver Spring community for over 30 years with professional auto body repair services. Our commitment to quality workmanship and customer satisfaction has made us a trusted name in the industry.",
     "missionTitle": "Our Mission",
     "mission": "To deliver factory-quality collision repair and auto painting with integrity, transparency, and a lifetime warranty — so every customer drives away confident their vehicle is restored to pre-accident condition.",
     "valuesTitle": "Why Customers Trust Us",
     "values": {
       "experience": {
-        "title": "20+ Years Experience",
-        "description": "Two decades of trusted auto body repair excellence in Silver Spring and Montgomery County."
+        "title": "30+ Years Experience",
+        "description": "Three decades of trusted auto body repair excellence in Silver Spring and Montgomery County."
       },
       "certified": {
         "title": "I-CAR Gold Class Certified",
@@ -595,7 +595,7 @@
         "metaDescription": "Complete auto body work in Silver Spring, MD — dent repair, structural damage, bumper replacement, alloy wheel restoration & custom body work. Free quotes, all insurance accepted.",
         "title": "Auto Body Work Services in Silver Spring, MD",
         "heroImageAlt": "Complete auto body work facility showing dent repair, structural damage restoration, and bumper replacement services at Prestige Auto Body",
-        "heroDescription": "Complete auto body services including dent repair, structural damage restoration, bumper replacement, alloy wheel repair, glass work, and custom body modifications. Over 20 years of certified craftsmanship in Silver Spring.",
+        "heroDescription": "Complete auto body services including dent repair, structural damage restoration, bumper replacement, alloy wheel repair, glass work, and custom body modifications. Over 30 years of certified craftsmanship in Silver Spring.",
         "offerings": {
           "item1": {
             "title": "Dent Repair & Removal",

@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s | Prestige Auto Body',
   },
   description:
-    'Trusted collision repair and auto body shop in Silver Spring, MD. 24/7 towing, insurance claims assistance, and certified professionals with 20+ years experience.',
+    'Trusted collision repair and auto body shop in Silver Spring, MD. 24/7 towing, insurance claims assistance, and certified professionals with 30+ years experience.',
   keywords: [
     'auto body shop',
     'collision repair',

@@ -141,7 +141,7 @@ fontFamily: {
 - **Layout:** `grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`
 - **Left column:** H2 "Why Choose Prestige?", checklist of 6 items. Each item: red checkbox icon + text
 - **Right column:** YouTube video embed (16:9 aspect ratio), `rounded-lg overflow-hidden shadow-lg`
-- **Checklist items:** 20+ years experience, I-CAR Gold Class certified, Lifetime warranty, All major insurance accepted, Computerized frame measuring & color matching, Free estimates with no obligation
+- **Checklist items:** 30+ years experience, I-CAR Gold Class certified, Lifetime warranty, All major insurance accepted, Computerized frame measuring & color matching, Free estimates with no obligation
 
 ### 7. QuoteFormSection (Multi-Step Form)
 
