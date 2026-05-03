@@ -446,6 +446,11 @@ img {
   z-index: 1;
 }
 
+/* Language switcher — ensure pointer cursor */
+#language-switcher {
+  cursor: pointer !important;
+}
+
 /* Header bottom edge — asymmetric 3-segment red accent (per .impeccable.md) */
 .header-edge-accent {
   position: relative;

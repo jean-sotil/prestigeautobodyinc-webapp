@@ -152,6 +152,7 @@ export default function LanguageSwitcher({
   return (
     <button
       type="button"
+      id="language-switcher"
       aria-label={ariaLabel}
       onClick={handleSwitch}
       className={`group relative inline-flex shrink-0 items-center gap-0.5 rounded-full p-0.75 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${containerClasses}`}

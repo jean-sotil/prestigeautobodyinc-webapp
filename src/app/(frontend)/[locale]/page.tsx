@@ -183,8 +183,22 @@ export default async function HomePage({
             </div>
           </div>
         </div>
-      </section>
 
+        {/* I-CAR Gold Class watermark */}
+        <div
+          className="absolute top-2 left-1/2 -translate-x-1/2 sm:top-6 lg:top-8 z-10 pointer-events-none motion-safe:animate-fade-in-up z-0"
+          style={{ animationDelay: '600ms' }}
+        >
+          <Image
+            src="/gold_class_icar_hero_logo.png"
+            alt=""
+            width={200}
+            height={200}
+            aria-hidden="true"
+            className="w-16 h-16 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 opacity-85 drop-shadow-[0_0_32px_rgba(200,180,80,0.6)]"
+          />
+        </div>
+      </section>
       {/* Stats Bar */}
       <StatsCounters
         ratingValue={rating.ratingValue}
@@ -264,7 +278,7 @@ export default async function HomePage({
           </div>
 
           {/* Right: YouTube Embed */}
-          <div className="flex-1 w-full max-w-[520px]">
+          <div className="flex-1 w-full">
             <LazyYouTubeEmbed
               videoId="8DM-Ej56Xf8"
               title={t('video.playButton')}
