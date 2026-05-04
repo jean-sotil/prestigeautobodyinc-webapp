@@ -12,9 +12,10 @@
 .idea
 
 # testing
-/coverage
+/coverage/
 /test-results/
 /playwright-report/
+.playwright-browsers/
 /blob-report/
 
 # next.js
