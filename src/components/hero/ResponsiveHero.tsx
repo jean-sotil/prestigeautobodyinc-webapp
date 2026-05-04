@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { HeroMedia } from '@/lib/heroMedia';
+import { GoldClassWatermark } from './GoldClassWatermark';
 
 interface ResponsiveHeroProps {
   slug: string;
@@ -120,6 +121,7 @@ export function PageHeroBanner({
       />
       {/* Transparent gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+      <GoldClassWatermark size="banner" position="top-right" />
       {/* Content */}
       <div className="absolute top-0 left-0 z-10 flex items-end h-full pb-10 sm:pb-14 lg:pb-16">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">

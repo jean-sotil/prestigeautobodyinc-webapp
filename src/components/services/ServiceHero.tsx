@@ -1,4 +1,4 @@
-import { ResponsiveHero } from '@/components/hero';
+import { ResponsiveHero, GoldClassWatermark } from '@/components/hero';
 import { ButtonLink } from '@/components/ui/Button';
 import { PhoneIcon } from '@/components/ui/Icons';
 import type { HeroMedia } from '@/lib/heroMedia';
@@ -41,6 +41,7 @@ export function ServiceHero({
 
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-black/20" />
+        <GoldClassWatermark size="banner" position="top-right" />
       </div>
 
       {/* Overlapping title card — breaks out of the hero */}

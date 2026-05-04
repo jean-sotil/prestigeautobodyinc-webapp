@@ -490,3 +490,18 @@ img {
     transition: none;
   }
 }
+
+/* Subtle glow pulse — discreet opacity animation */
+@keyframes subtle-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.animate-glow-pulse {
+  animation: subtle-glow-pulse 4s ease-in-out infinite;
+}

@@ -6,7 +6,11 @@ import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
 import { SHOP_PHONE_TEL } from '@/lib/business';
-import { StatsCounters, ResponsiveHero } from '@/components/hero';
+import {
+  StatsCounters,
+  ResponsiveHero,
+  GoldClassWatermark,
+} from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
 import { ReviewsJsonLd, LocalBusinessJsonLd } from '@/components/seo';
@@ -184,20 +188,7 @@ export default async function HomePage({
           </div>
         </div>
 
-        {/* I-CAR Gold Class watermark */}
-        <div
-          className="absolute top-2 left-1/2 -translate-x-1/2 sm:top-6 lg:top-8 z-10 pointer-events-none motion-safe:animate-fade-in-up z-0"
-          style={{ animationDelay: '600ms' }}
-        >
-          <Image
-            src="/gold_class_icar_hero_logo.png"
-            alt=""
-            width={200}
-            height={200}
-            aria-hidden="true"
-            className="w-16 h-16 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 opacity-85 drop-shadow-[0_0_32px_rgba(200,180,80,0.6)]"
-          />
-        </div>
+        <GoldClassWatermark size="hero" position="top-center" />
       </section>
       {/* Stats Bar */}
       <StatsCounters
