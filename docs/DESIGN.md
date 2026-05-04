@@ -126,7 +126,7 @@ fontFamily: {
 
 - **Layout:** `grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-[--border]`
 - **Each stat:** Centered column — icon (outlined, 24px), large number (`text-[#C62828] font-display text-5xl font-extrabold`), label (`text-sm text-[--text-secondary]`)
-- **Data:** `20+` Years Experience, `4.7☆` Customer Rating, `1000+` Cars Repaired, `A+` BBB Rating
+- **Data:** `40+` Years Experience, `4.7☆` Customer Rating, `10k` Happy Customer Served, `A+` BBB Rating
 
 ### 5. ServiceCard
 
