@@ -13,6 +13,13 @@
     "lint": "eslint",
     "a11y": "node scripts/a11y-audit.mjs",
     "contrast": "node scripts/contrast-audit.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:all": "vitest run && playwright test",
     "prepare": "husky || true"
   },
   "trustedDependencies": [
@@ -61,21 +68,27 @@
     "@axe-core/playwright": "^4.11.2",
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^16.2.2",
+    "@playwright/test": "^1.59.1",
     "@swc-node/register": "^1.11.1",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/busboy": "^1.5.4",
     "@types/node": "^20",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9",
     "eslint-config-next": "^16.2.3",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "husky": "^9.1.7",
+    "jsdom": "^29.1.1",
     "lint-staged": "^16.4.0",
     "playwright": "^1.59.1",
     "prettier": "^3.8.1",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }
