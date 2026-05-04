@@ -106,6 +106,51 @@ The `/api/quote` endpoint handles customer quote submissions with advanced featu
 - File type verification (JPEG, PNG, WebP, HEIC, HEIF)
 - Size limits: 5MB per file, 20MB total upload
 
+### Testing
+
+The project includes unit tests (Vitest) and end-to-end tests (Playwright).
+
+**Commands:**
+
+| Command                   | Description                                      |
+| ------------------------- | ------------------------------------------------ |
+| `npm test`                | Run all unit tests                               |
+| `npm run test:watch`      | Run unit tests in watch mode                     |
+| `npm run test:coverage`   | Run unit tests with coverage report              |
+| `npm run test:e2e`        | Run E2E tests (requires dev server on port 3000) |
+| `npm run test:e2e:ui`     | Open Playwright interactive UI                   |
+| `npm run test:e2e:headed` | Run E2E tests with visible browser               |
+| `npm run test:all`        | Run unit + E2E tests sequentially                |
+
+**Unit Tests** (`tests/unit/`):
+
+| Test file                     | Coverage area                                                       |
+| ----------------------------- | ------------------------------------------------------------------- |
+| `payload-access.test.ts`      | RBAC access control for all Payload collections                     |
+| `payload-collections.test.ts` | Collection structure, required/localized fields, slugs, config      |
+| `quote-schema.test.ts`        | Zod schema validation for quote submissions                         |
+| `quote-form-steps.test.ts`    | Multi-step form validation per step                                 |
+| `quote-form-reducer.test.ts`  | Form state reducer (add/remove files, reset, hydrate)               |
+| `quote-helpers.test.ts`       | Reference ID generation, sanitization, phone formatting, IP hashing |
+| `seo.test.ts`                 | Page metadata builder (canonical, hreflang, OpenGraph)              |
+| `jsonld.test.tsx`             | JSON-LD structured data (LocalBusiness, WebSite, FAQ, Breadcrumb)   |
+| `business.test.ts`            | Business constants (address, phone, geo, hours)                     |
+| `i18n-completeness.test.ts`   | EN/ES translation key parity and completeness                       |
+
+**E2E Tests** (`tests/e2e/`):
+
+| Test file            | Coverage area                                                                        |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| `navigation.spec.ts` | Header, footer, responsive layout, localization, critical page loads                 |
+| `seo.spec.ts`        | Meta tags, hreflang, heading structure, JSON-LD, robots.txt, sitemap, lang attribute |
+
+**Notes:**
+
+- Unit tests run in jsdom via Vitest
+- E2E tests run across 3 Playwright projects: `desktop-chrome`, `mobile-chrome`, `tablet`
+- The dev server must be running before executing E2E tests
+- E2E tests use `--timeout=60000` to account for cold compilation on first run
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
