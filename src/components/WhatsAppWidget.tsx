@@ -89,7 +89,7 @@ export default function WhatsAppWidget() {
       ref={widgetRef}
       style={{
         position: 'fixed',
-        bottom: 16,
+        bottom: 220,
         right: 16,
         zIndex: 50,
         display: 'flex',
