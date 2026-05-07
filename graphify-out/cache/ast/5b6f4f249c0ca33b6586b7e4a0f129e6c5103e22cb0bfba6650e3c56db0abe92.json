@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "label": "LocalBusinessJsonLd.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "seo_localbusinessjsonld_localbusinessjsonld",
+      "label": "LocalBusinessJsonLd()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L15"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_business",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "lib_business_business_info",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "lib_business_getopeninghoursspecification",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "lib_business_getgeocoordinates",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "lib_business_getpostaladdress",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "lib_business_getaggregaterating",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo_localbusinessjsonld_tsx",
+      "target": "seo_localbusinessjsonld_localbusinessjsonld",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "seo_localbusinessjsonld_localbusinessjsonld",
+      "callee": "getPostalAddress",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "seo_localbusinessjsonld_localbusinessjsonld",
+      "callee": "getGeoCoordinates",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "seo_localbusinessjsonld_localbusinessjsonld",
+      "callee": "getOpeningHoursSpecification",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "seo_localbusinessjsonld_localbusinessjsonld",
+      "callee": "getAggregateRating",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx",
+      "source_location": "L40"
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/instrumentation-client.ts": {
+    "mtime": 1777400941.9609506,
+    "hash": "a8972397029d94d45e9e523f75416185"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/types/payload.ts": {
+    "mtime": 1777310750.942072,
+    "hash": "88d745666ead4bd91e6305658879521e"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/robots.ts": {
+    "mtime": 1777661241.9621701,
+    "hash": "9c6d9b445c3a9448bf4e690c0afccd1d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/sitemap.ts": {
+    "mtime": 1777507866.0678692,
+    "hash": "08e75d029223f0a29310e38f2e7a5981"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/layout.tsx": {
+    "mtime": 1777661241.9612346,
+    "hash": "31cc5709a2c45c2580241a910924ca2a"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/api/quote/route.ts": {
+    "mtime": 1777661241.9604497,
+    "hash": "2e5983d050fde589917707b0e82af0ad"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/api/blog/draft/route.ts": {
+    "mtime": 1777310750.9380608,
+    "hash": "2212490b6ec5e6470641ebe60ab319f2"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/api/revalidate/route.ts": {
+    "mtime": 1776547509.862919,
+    "hash": "110ae20075abc4d505bf345921c8fd93"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/layout.tsx": {
+    "mtime": 1777698924.168031,
+    "hash": "e6e6dde6165ce73faa56abb366028ae7"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/page.tsx": {
+    "mtime": 1777310750.9369848,
+    "hash": "898f9ed4c7ce5f323ec8d18a2c3f8ecd"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/layout.tsx": {
+    "mtime": 1777573212.9307654,
+    "hash": "49fe632555f593dce790f64c392b05c1"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/page.tsx": {
+    "mtime": 1777853154.0560398,
+    "hash": "986ad5cdeac3e116c91be12b001a2062"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/not-found.tsx": {
+    "mtime": 1777500990.2880728,
+    "hash": "d4097fb7815b028c57d6f55620f3a9d9"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/contact/page.tsx": {
+    "mtime": 1777661241.957691,
+    "hash": "1db52db6b95f651f156efeb1438d1dfa"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/get-a-quote/page.tsx": {
+    "mtime": 1777661241.9581556,
+    "hash": "5265d17264a72f2f2cbd771f9d214a0a"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/rental-assistance/page.tsx": {
+    "mtime": 1777597232.5087392,
+    "hash": "a42f2671ced9742316dd1b865bcfd1e5"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/collision-repair/page.tsx": {
+    "mtime": 1777542795.0679367,
+    "hash": "482923e87789c7e48dccfbbf4a943bfc"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx": {
+    "mtime": 1777542795.0644867,
+    "hash": "0e41504eee6e1d444a99c8caa020f7eb"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/privacy-policy/page.tsx": {
+    "mtime": 1777325775.8090048,
+    "hash": "d81e43782c928df5fc3b8e7acd20e2cc"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/gallery/page.tsx": {
+    "mtime": 1777510939.847892,
+    "hash": "aab178a87c9fefe96948112dc9a9880d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/about/AboutContent.tsx": {
+    "mtime": 1777310750.933502,
+    "hash": "00014f4977e99ce8d8058be478ff4349"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/about/page.tsx": {
+    "mtime": 1777542795.064129,
+    "hash": "62bff400fbafd3b7342388b233ad4511"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/towing/page.tsx": {
+    "mtime": 1777597219.9461656,
+    "hash": "1e27c32371734ae54966b3cc458173a9"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/blog/page.tsx": {
+    "mtime": 1777623543.7611628,
+    "hash": "9db6faee6c80620a4335f436c89a0765"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/blog/[slug]/page.tsx": {
+    "mtime": 1777623575.8198583,
+    "hash": "fcacb8b15b927ae73145f6fe841ddb46"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-painting/page.tsx": {
+    "mtime": 1777542795.0647593,
+    "hash": "31c49df2e40b1fd05f39bd9367e9e207"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/[...rest]/page.tsx": {
+    "mtime": 1777497882.9896593,
+    "hash": "4100a2b4a59b53f9a9f47c4210daa5a4"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/locations/page.tsx": {
+    "mtime": 1777542795.0694048,
+    "hash": "6dc38517bb2ed926bf911bdf940cee8c"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/terms-of-service/page.tsx": {
+    "mtime": 1777325775.8178675,
+    "hash": "6ffbf429f59189379c655947f3f6cdde"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/our-team/page.tsx": {
+    "mtime": 1777542795.0697029,
+    "hash": "f55b04f07f9e370831edd9d28d61cd59"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/certifications/page.tsx": {
+    "mtime": 1777542795.0676236,
+    "hash": "e939d1cd4f8af005880f2beadf844154"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/insurance-claims/page.tsx": {
+    "mtime": 1777542795.068298,
+    "hash": "e66730b8cee7de717940bf60a15c0795"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(payload)/layout.tsx": {
+    "mtime": 1777310750.937714,
+    "hash": "d41c08b53b29659933ccb2de78e62e4a"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(payload)/admin/importMap.js": {
+    "mtime": 1777310750.9373486,
+    "hash": "3875de8418667cea7bfc8b37c33bed60"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(payload)/admin/[[...segments]]/page.tsx": {
+    "mtime": 1776273896.6011794,
+    "hash": "dd9fa8695259fbcf421fef30a34d4faa"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(payload)/api/[...slug]/route.ts": {
+    "mtime": 1776265164.2875428,
+    "hash": "fd19203c31c1d5c4d9938aba8dd59069"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/providers/QueryProvider.tsx": {
+    "mtime": 1776720184.0295994,
+    "hash": "b0198a3f7b73218414460b513c42143b"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/payload.config.ts": {
+    "mtime": 1777314283.840985,
+    "hash": "3e9b1ff0d5e15f55e1fc3e32aefc4b1d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/payload-types.ts": {
+    "mtime": 1777065465.7126646,
+    "hash": "715af5bd897fc83ad2a39e01a9495a33"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/seed/blog-categories.ts": {
+    "mtime": 1776547509.8642378,
+    "hash": "16eabace337b43488c0bd0cbaafa856e"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/components/Icon.tsx": {
+    "mtime": 1777597603.3445742,
+    "hash": "103cd2fad994e66feb512811ff088ee6"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/components/DamagePhotosCell.tsx": {
+    "mtime": 1777622182.8986013,
+    "hash": "fa5b3b046539aafd625bb2e42226493f"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/components/Logo.tsx": {
+    "mtime": 1777597799.5309446,
+    "hash": "a0d3c90341df138ba18631f2f8ebc7b2"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/Navigation.ts": {
+    "mtime": 1776265164.2883742,
+    "hash": "036f46f63911c06167cdc8a3d27061a3"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/ServiceAreas.ts": {
+    "mtime": 1776265164.289087,
+    "hash": "1eeea685741f3140366e70cd77269ade"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/TeamMembers.ts": {
+    "mtime": 1776265164.2900658,
+    "hash": "b14a54d6244912814c92ac7196520e33"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/Pages.ts": {
+    "mtime": 1776265164.288538,
+    "hash": "36705e4a1e4571ba512b6bd6cd867c49"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/SiteSettings.ts": {
+    "mtime": 1776265164.2896914,
+    "hash": "6e574ec47a4b3e5c51b643d2b7911455"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/Testimonials.ts": {
+    "mtime": 1776265164.2902837,
+    "hash": "7a87d82ecd67db1f8eff7dfdaa9f10d1"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/Users.ts": {
+    "mtime": 1777049436.8239548,
+    "hash": "242f905024233c7a8600a5303a93f604"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/BlogCategories.ts": {
+    "mtime": 1776547509.8632092,
+    "hash": "6d61ed1c52a33570af0fdf1962ed0905"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/Media.ts": {
+    "mtime": 1777430871.8255398,
+    "hash": "7b0c62e0ba09ce185c8b365a0447787e"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/QuoteRequests.ts": {
+    "mtime": 1777542795.0769455,
+    "hash": "c7fa762352b71490946d4d523c733e07"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/Services.ts": {
+    "mtime": 1776265164.2892513,
+    "hash": "ef3a9c013db9f065822e751727b1106f"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/payload/collections/BlogPosts.ts": {
+    "mtime": 1777310750.9411411,
+    "hash": "1e66403d13986eb0c68b795868de42db"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/WhatsAppWidget.tsx": {
+    "mtime": 1778106943.3686938,
+    "hash": "859fc0a512b08dec5ddf55176afe5774"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/Breadcrumbs.tsx": {
+    "mtime": 1777542795.071871,
+    "hash": "ecae5373becbb53004beeb9784c14f52"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/Footer.tsx": {
+    "mtime": 1778106112.1484125,
+    "hash": "ca71877db59e22ccc813571f70c39412"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/RichTextRenderer.tsx": {
+    "mtime": 1777310750.9398177,
+    "hash": "10c6d399eb471e96b78a42a9bade3eb8"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/index.ts": {
+    "mtime": 1777389769.7639706,
+    "hash": "e5c3e2fab6181d5485dd65e66efc92ae"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx": {
+    "mtime": 1777310750.9388046,
+    "hash": "588c331e9f89b832feaafca9145a605a"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/LanguageSwitcher.tsx": {
+    "mtime": 1777746388.2579706,
+    "hash": "e2e52d9a7ff79a9b8d9c2ef1c01d9580"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbContext.tsx": {
+    "mtime": 1777310750.938731,
+    "hash": "280ae116e54943a774f63fb00b91d526"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/QuoteForm.tsx": {
+    "mtime": 1777661241.968532,
+    "hash": "da690fa31c7d127e5aa8e712c56483bb"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/FormProgress.tsx": {
+    "mtime": 1776881160.2707086,
+    "hash": "dd18d84e0fa13a6f5e15835ff9c82787"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/FormNavigation.tsx": {
+    "mtime": 1776881180.9031925,
+    "hash": "5a2c1cd7cb085e0fa52cf80569d95ecf"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/QuoteConfirmation.tsx": {
+    "mtime": 1777622624.8512533,
+    "hash": "f196464ecb4b2abbf1b330208354f82c"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/ContactStep.tsx": {
+    "mtime": 1776978471.1627085,
+    "hash": "e0e3d4e3cbc304a1995d2f8a69259973"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx": {
+    "mtime": 1776980510.8631856,
+    "hash": "1f8871938b1a4b052f9b9873d494c5bc"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/ServiceStep.tsx": {
+    "mtime": 1776978471.1943471,
+    "hash": "be12ee04b3e6073e76bfd6a800a5c754"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/DamageStep.tsx": {
+    "mtime": 1776880594.702838,
+    "hash": "f08fe0ac41a1101ad51229019c75082b"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/hooks/useShakeOnError.ts": {
+    "mtime": 1776880570.8181033,
+    "hash": "393eb3c43c7268e6b6366322d8c7b6e4"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/hooks/useQuoteForm.ts": {
+    "mtime": 1777597476.5885751,
+    "hash": "ec2a45404ef7512f948e515016d07b95"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/hooks/useSubmitQuote.ts": {
+    "mtime": 1777400071.0789478,
+    "hash": "efb14220fb8b92cb9ae9f331d0231500"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/NavigationMenu.tsx": {
+    "mtime": 1776108404.6117997,
+    "hash": "b5bd8b3f260bfdeaf423606b317fe75b"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Icon.tsx": {
+    "mtime": 1775348536.7535732,
+    "hash": "47062d2fb6ca0a573edd981b740d54cc"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Sheet.tsx": {
+    "mtime": 1776268821.7091672,
+    "hash": "eb11a6cb1daa1f7744aa85dc3fd7a433"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Typography.tsx": {
+    "mtime": 1775348536.754042,
+    "hash": "e45b627f5258a29f8ded88f07153c90d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/SectionHeading.tsx": {
+    "mtime": 1776654266.184481,
+    "hash": "9f0f2412364549a17a65521de6346972"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Icons.tsx": {
+    "mtime": 1777389769.7646549,
+    "hash": "590dbc97e9e844ce5b3e8878ed3a8169"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Badge.tsx": {
+    "mtime": 1775348536.753393,
+    "hash": "992d318393bd9bf5308a437ff3b6a134"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/ServiceCard.tsx": {
+    "mtime": 1776654170.7552204,
+    "hash": "81c436c86b320391b87c2f938bbdbe5a"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Button.tsx": {
+    "mtime": 1777573090.685423,
+    "hash": "94bee9e280f88327a4edf072d56aafb7"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Image.tsx": {
+    "mtime": 1775348536.7538602,
+    "hash": "bbf68e6142e3f797bbae4d65254c4c1e"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Collapsible.tsx": {
+    "mtime": 1776102286.420885,
+    "hash": "38ce68a8a370ff42c24fffcca4ceaef0"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/ui/Skeleton.tsx": {
+    "mtime": 1775355026.2479835,
+    "hash": "34a22024e1fc45d564456d6086f7490d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/OpenStatus.tsx": {
+    "mtime": 1777496141.4806151,
+    "hash": "666c93b8af1972b68afea2c0feeaa63b"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/BusinessHours.tsx": {
+    "mtime": 1777496141.4642816,
+    "hash": "066881d518f06eb1e28a842e5a501bd3"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/MapEmbed.tsx": {
+    "mtime": 1777661241.9646552,
+    "hash": "e88ccb955c012c89078dc1935883fb8e"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/dynamic/LazyQuoteForm.tsx": {
+    "mtime": 1777661241.9657242,
+    "hash": "321c51b459dafd610b57215d1fe16fa8"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/dynamic/LazyYouTubeEmbed.tsx": {
+    "mtime": 1777661241.966873,
+    "hash": "7656e8c8ed35d0be2f217469828d15d6"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/dynamic/LazyGoogleMapEmbed.tsx": {
+    "mtime": 1777323270.640592,
+    "hash": "49005f3b7ee967cc38213256af1799f2"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx": {
+    "mtime": 1776722870.2306921,
+    "hash": "9f83be9d3c518f3555e6b4827f2a3421"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/MobileNav.tsx": {
+    "mtime": 1777622662.5979242,
+    "hash": "aaa18bf4ca57a16a23b11ae0e81a0092"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/Header.tsx": {
+    "mtime": 1777626503.390735,
+    "hash": "5640e781c36463726c8a4a3fe8e6a325"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/UtilityBar.tsx": {
+    "mtime": 1777626416.708225,
+    "hash": "9b95a77ae7b42252f314b5e7e699cea6"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx": {
+    "mtime": 1777507977.5819025,
+    "hash": "e356a041ff10ebeae6d528f7cd2f63e6"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviews.tsx": {
+    "mtime": 1776123086.066241,
+    "hash": "dbb774133a7d2502d3b05357a4ef0921"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleMapEmbed.tsx": {
+    "mtime": 1777335680.902536,
+    "hash": "70b0361f4e9ab8c1dacec4c1cf0b2afa"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarousel.tsx": {
+    "mtime": 1777661241.9673488,
+    "hash": "29c3ac8ee362e72c16c426de19a0d7be"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/YouTubeEmbed.tsx": {
+    "mtime": 1777335680.902966,
+    "hash": "e50fd92275d18263f90bc8cb72c2cd35"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx": {
+    "mtime": 1777430673.5508296,
+    "hash": "97914f33b850987d917425852a7fdc8f"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/TrustBadges.tsx": {
+    "mtime": 1775355026.2470295,
+    "hash": "b0f21af525ef35476c133c302316a43d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/ResponsiveHero.tsx": {
+    "mtime": 1777853039.7087624,
+    "hash": "bbfa83891a245daf4b7840b367c78fbb"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/GoldClassWatermark.tsx": {
+    "mtime": 1777853024.5947528,
+    "hash": "da7db2a4ea815cc394720c15ad6733f2"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/index.ts": {
+    "mtime": 1777853028.2879753,
+    "hash": "4387af3cf853d94e04c73d982f67df41"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx": {
+    "mtime": 1777627372.621375,
+    "hash": "b7bdd6cc561c96c36dae6acbf915bbb4"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx": {
+    "mtime": 1775348536.7531946,
+    "hash": "96895cc312d92972972eb02b643fcfee"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/legal/LegalPage.tsx": {
+    "mtime": 1776663116.5131834,
+    "hash": "28966e7d246df8f7f863046b5879cad1"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/ArticleJsonLd.tsx": {
+    "mtime": 1777310750.9400105,
+    "hash": "b1554be42c3208ab684ccb00cd3d67d5"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/LocalBusinessJsonLd.tsx": {
+    "mtime": 1776722870.2311413,
+    "hash": "d3032594782b34deb135f6fd664b1abc"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/WebsiteJsonLd.tsx": {
+    "mtime": 1776799678.3121455,
+    "hash": "752f7265f1866c5e33ce08e896eb2ff2"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/BreadcrumbJsonLd.tsx": {
+    "mtime": 1776722870.2309196,
+    "hash": "18f2cdb8aee335418ed230cb77fd0360"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/ReviewsJsonLd.tsx": {
+    "mtime": 1777597494.7964017,
+    "hash": "4fa7117cd206d14d62bf9ebb086b8fb8"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/FAQJsonLd.tsx": {
+    "mtime": 1776722870.2310238,
+    "hash": "f8f06f60abf2af237a44cff47e8a3aa2"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/seo/index.ts": {
+    "mtime": 1777630731.165302,
+    "hash": "e5669ef4388a40cccb6acf646883fde5"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceTestimonial.tsx": {
+    "mtime": 1777389769.7644022,
+    "hash": "0b85dc85c2273732340e2a60ace7ee1f"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceJsonLd.tsx": {
+    "mtime": 1776722870.2319727,
+    "hash": "85482e0e3217f81839aaeb051794feec"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServicePageTemplate.tsx": {
+    "mtime": 1777573153.472861,
+    "hash": "ae253ec8183343a3be67aceb5bed642c"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/WhatWeOffer.tsx": {
+    "mtime": 1775846725.8275342,
+    "hash": "deb4852fc924b568439310f62564d9a8"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceAreas.tsx": {
+    "mtime": 1777573164.6466165,
+    "hash": "ee540af07739da7ce985a558add4fdd7"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/CTABanner.tsx": {
+    "mtime": 1777573122.8481927,
+    "hash": "ef10136d16f94709f3632fca580ec86d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/index.ts": {
+    "mtime": 1777430618.2263186,
+    "hash": "afc2f40ed9ddc117a5375716ab7954cf"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceHero.tsx": {
+    "mtime": 1777853050.6011894,
+    "hash": "17aacffd42d21f2c91f6ed89147185d5"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/analytics/RouteChangeTracker.tsx": {
+    "mtime": 1777400071.078199,
+    "hash": "b9988e6b58900b218c002f9ead31ddb9"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/analytics/AnalyticsUserProperties.tsx": {
+    "mtime": 1777400071.0776567,
+    "hash": "b853d9a463d904a42333f2a1b55f28e8"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/analytics/GoogleAnalytics.tsx": {
+    "mtime": 1777400919.6015296,
+    "hash": "1a3557fdae54cc826e9987107075eb37"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/analytics/ConsentBanner.tsx": {
+    "mtime": 1777400911.1688106,
+    "hash": "2393661299491cba8b4c9093b01edfb5"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/consent.ts": {
+    "mtime": 1777400071.0794697,
+    "hash": "9ee5fb23a94ef2d1b7da5a72706f8dd9"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/gallery.ts": {
+    "mtime": 1777507701.9962533,
+    "hash": "d477ae42d918d7abf5f7988e13951609"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/analytics.ts": {
+    "mtime": 1777400071.079357,
+    "hash": "8e988ad56af6019f3f8a9f001db46718"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/google-places.ts": {
+    "mtime": 1777430618.2264574,
+    "hash": "95be28fe6df6aa9bf1271d9c937451e9"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/business.ts": {
+    "mtime": 1777626911.3099182,
+    "hash": "6d34091c942e129bfa9d2fe156c0df90"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/utils.ts": {
+    "mtime": 1775795009.7514727,
+    "hash": "8595c2f874aa1ff8c7cc28df2999f354"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts": {
+    "mtime": 1776547509.8630836,
+    "hash": "8b59f467908302c700ace1bdf11eca4d"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts": {
+    "mtime": 1777424315.918791,
+    "hash": "4527b1f69720492a006dfbb23160afa0"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts": {
+    "mtime": 1777050946.4073913,
+    "hash": "f2265c97abf6da5e00a139c12f945240"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/heroMedia.ts": {
+    "mtime": 1777064913.5406747,
+    "hash": "75cff922ad3c8d5d0502b3fa2240f608"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/analytics-events.ts": {
+    "mtime": 1777400071.0792058,
+    "hash": "7cdfb46b54d0955774736af02eefa742"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/blog.server.ts": {
+    "mtime": 1777310750.94018,
+    "hash": "4e05d7dfb2cf9d4585bf07534a1190fc"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useBlogPosts.ts": {
+    "mtime": 1777310750.9406931,
+    "hash": "deb3d051cfa96ed28983be407ee1156f"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts": {
+    "mtime": 1776720184.029467,
+    "hash": "e0ea63d682aa3772f9ce285d19638559"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/queryKeys.ts": {
+    "mtime": 1776720184.028894,
+    "hash": "ec8f48e404680ff1bf3335e2b4e191f6"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/types.ts": {
+    "mtime": 1777310750.9404109,
+    "hash": "08f392d4e50eeb00b0fb10adcb0cece8"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/queryClient.ts": {
+    "mtime": 1776720184.0286915,
+    "hash": "7f9f27ce510d85832a7af07360b7429e"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx": {
+    "mtime": 1776720184.0285718,
+    "hash": "d8d3e289bc4b46a851dd6a6edc61a128"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/index.ts": {
+    "mtime": 1776720184.028415,
+    "hash": "c131193b1412d0dbda9dc6cff6615e88"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts": {
+    "mtime": 1776720184.0293665,
+    "hash": "5b3d6385083615750626a98de0cd754b"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/i18n/navigation.ts": {
+    "mtime": 1775348536.7541518,
+    "hash": "2695aae8d5dfdb35c7ae79a913e818ff"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/i18n/routing.ts": {
+    "mtime": 1777661241.9692564,
+    "hash": "f5248868b72f35b5d3f43f0f736d89c3"
+  },
+  "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/i18n/request.ts": {
+    "mtime": 1776276519.7908995,
+    "hash": "1e045c46d07d5c02170e7c8d5c947355"
+  }
+}

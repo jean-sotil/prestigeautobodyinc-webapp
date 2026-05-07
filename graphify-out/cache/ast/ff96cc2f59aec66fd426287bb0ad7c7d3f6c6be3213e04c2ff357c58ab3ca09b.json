@@ -1,0 +1,129 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_embeds_googlereviewscarouselcontrols_tsx",
+      "label": "GoogleReviewsCarouselControls.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "embeds_googlereviewscarouselcontrols_getcardwidth",
+      "label": "getCardWidth()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "embeds_googlereviewscarouselcontrols_readscrollstate",
+      "label": "readScrollState()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L23"
+    },
+    {
+      "id": "embeds_googlereviewscarouselcontrols_carouselcontrols",
+      "label": "CarouselControls()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L34"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_embeds_googlereviewscarouselcontrols_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_embeds_googlereviewscarouselcontrols_tsx",
+      "target": "embeds_googlereviewscarouselcontrols_getcardwidth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_embeds_googlereviewscarouselcontrols_tsx",
+      "target": "embeds_googlereviewscarouselcontrols_readscrollstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_embeds_googlereviewscarouselcontrols_tsx",
+      "target": "embeds_googlereviewscarouselcontrols_carouselcontrols",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L34",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_getcardwidth",
+      "callee": "querySelector",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L16"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_getcardwidth",
+      "callee": "getComputedStyle",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L18"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_getcardwidth",
+      "callee": "parseFloat",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L19"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_getcardwidth",
+      "callee": "getBoundingClientRect",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L20"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_readscrollstate",
+      "callee": "getElementById",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_carouselcontrols",
+      "callee": "useCallback",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_carouselcontrols",
+      "callee": "useCallback",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "embeds_googlereviewscarouselcontrols_carouselcontrols",
+      "callee": "useSyncExternalStore",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/embeds/GoogleReviewsCarouselControls.tsx",
+      "source_location": "L58"
+    }
+  ]
+}

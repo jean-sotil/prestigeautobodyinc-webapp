@@ -1,0 +1,137 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_performance_webvitals_tsx",
+      "label": "WebVitals.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "performance_webvitals_sendtoanalytics",
+      "label": "sendToAnalytics()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L30"
+    },
+    {
+      "id": "performance_webvitals_webvitals",
+      "label": "WebVitals()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L111"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_performance_webvitals_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_performance_webvitals_tsx",
+      "target": "web_vitals",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_performance_webvitals_tsx",
+      "target": "performance_webvitals_sendtoanalytics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_performance_webvitals_tsx",
+      "target": "performance_webvitals_webvitals",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L111",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "toISOString",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "log",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "sendBeacon",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "stringify",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "catch",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "fetch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "stringify",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "gtag",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L91"
+    },
+    {
+      "caller_nid": "performance_webvitals_sendtoanalytics",
+      "callee": "round",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "performance_webvitals_webvitals",
+      "callee": "useEffect",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/performance/WebVitals.tsx",
+      "source_location": "L112"
+    }
+  ]
+}

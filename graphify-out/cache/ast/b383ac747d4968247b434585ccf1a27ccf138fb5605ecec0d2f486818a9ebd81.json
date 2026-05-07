@@ -1,0 +1,336 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "label": "prefetchExamples.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "queries_prefetchexamples_testimonialspageprefetch",
+      "label": "TestimonialsPagePrefetch()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L33"
+    },
+    {
+      "id": "queries_prefetchexamples_blogpageprefetch",
+      "label": "BlogPagePrefetch()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L72"
+    },
+    {
+      "id": "queries_prefetchexamples_serviceareaspageprefetch",
+      "label": "ServiceAreasPagePrefetch()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L113"
+    },
+    {
+      "id": "queries_prefetchexamples_dashboardprefetch",
+      "label": "DashboardPrefetch()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L146"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "react_query",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_queryclient",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "queries_queryclient_makequeryclient",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_querykeys",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "queries_querykeys_querykeys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "lib_queries_prefetchtestimonials",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "lib_queries_prefetchblogposts",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "lib_queries_prefetchserviceareas",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_providers_queryprovider",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "providers_queryprovider_queryprovider",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "queries_prefetchexamples_testimonialspageprefetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "queries_prefetchexamples_blogpageprefetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "queries_prefetchexamples_serviceareaspageprefetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_prefetchexamples_tsx",
+      "target": "queries_prefetchexamples_dashboardprefetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L146",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "queries_prefetchexamples_testimonialspageprefetch",
+      "callee": "makeQueryClient",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L39"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_testimonialspageprefetch",
+      "callee": "prefetchQuery",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L42"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_testimonialspageprefetch",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_testimonialspageprefetch",
+      "callee": "dehydrate",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L49"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_blogpageprefetch",
+      "callee": "makeQueryClient",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L79"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_blogpageprefetch",
+      "callee": "prefetchQuery",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_blogpageprefetch",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_blogpageprefetch",
+      "callee": "dehydrate",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L94"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_serviceareaspageprefetch",
+      "callee": "makeQueryClient",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L117"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_serviceareaspageprefetch",
+      "callee": "prefetchQuery",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L120"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_serviceareaspageprefetch",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L121"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_serviceareaspageprefetch",
+      "callee": "dehydrate",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L126"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "makeQueryClient",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L150"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "all",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L153"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "prefetchQuery",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L155"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L156"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "prefetchQuery",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L162"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L163"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "prefetchQuery",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L174"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L175"
+    },
+    {
+      "caller_nid": "queries_prefetchexamples_dashboardprefetch",
+      "callee": "dehydrate",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/prefetchExamples.tsx",
+      "source_location": "L181"
+    }
+  ]
+}

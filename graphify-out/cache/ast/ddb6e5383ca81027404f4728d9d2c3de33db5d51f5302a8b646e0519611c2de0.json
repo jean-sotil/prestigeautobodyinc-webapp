@@ -1,0 +1,295 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "label": "NavLinks.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "layout_navlinks_useserviceitems",
+      "label": "useServiceItems()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L25"
+    },
+    {
+      "id": "layout_navlinks_usenavstructure",
+      "label": "useNavStructure()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L46"
+    },
+    {
+      "id": "layout_navlinks_useisactivelink",
+      "label": "useIsActiveLink()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L64"
+    },
+    {
+      "id": "layout_navlinks_useisgroupactive",
+      "label": "useIsGroupActive()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L75"
+    },
+    {
+      "id": "layout_navlinks_navlink",
+      "label": "NavLink()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L86"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "next_intl",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_i18n_navigation",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "i18n_navigation_link",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "i18n_navigation_usepathname",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "layout_navlinks_useserviceitems",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "layout_navlinks_usenavstructure",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "layout_navlinks_useisactivelink",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "layout_navlinks_useisgroupactive",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_layout_navlinks_tsx",
+      "target": "layout_navlinks_navlink",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "layout_navlinks_usenavstructure",
+      "target": "layout_navlinks_useserviceitems",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "layout_navlinks_navlink",
+      "target": "layout_navlinks_useisactivelink",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L93",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "useTranslations",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L26"
+    },
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L31"
+    },
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "layout_navlinks_useserviceitems",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L41"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "useTranslations",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L54"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L58"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L59"
+    },
+    {
+      "caller_nid": "layout_navlinks_usenavstructure",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L60"
+    },
+    {
+      "caller_nid": "layout_navlinks_useisactivelink",
+      "callee": "usePathname",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L65"
+    },
+    {
+      "caller_nid": "layout_navlinks_useisactivelink",
+      "callee": "useLocale",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L66"
+    },
+    {
+      "caller_nid": "layout_navlinks_useisactivelink",
+      "callee": "startsWith",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "layout_navlinks_useisgroupactive",
+      "callee": "usePathname",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "layout_navlinks_useisgroupactive",
+      "callee": "useLocale",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L77"
+    },
+    {
+      "caller_nid": "layout_navlinks_useisgroupactive",
+      "callee": "some",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/layout/NavLinks.tsx",
+      "source_location": "L78"
+    }
+  ]
+}

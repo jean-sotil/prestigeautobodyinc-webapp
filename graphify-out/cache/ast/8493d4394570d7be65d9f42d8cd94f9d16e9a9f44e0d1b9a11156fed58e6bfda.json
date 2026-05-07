@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_services_serviceareas_tsx",
+      "label": "ServiceAreas.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceAreas.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_serviceareas_serviceareas",
+      "label": "ServiceAreas()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceAreas.tsx",
+      "source_location": "L16"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_services_serviceareas_tsx",
+      "target": "services_serviceareas_serviceareas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceAreas.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "services_serviceareas_serviceareas",
+      "callee": "map",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/services/ServiceAreas.tsx",
+      "source_location": "L27"
+    }
+  ]
+}

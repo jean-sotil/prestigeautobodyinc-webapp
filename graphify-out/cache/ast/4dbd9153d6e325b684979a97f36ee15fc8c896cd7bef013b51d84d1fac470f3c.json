@@ -1,0 +1,249 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "label": "VehicleStep.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "steps_vehiclestep_handleyearchange",
+      "label": "handleYearChange()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L75"
+    },
+    {
+      "id": "steps_vehiclestep_handlemakeselect",
+      "label": "handleMakeSelect()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L79"
+    },
+    {
+      "id": "steps_vehiclestep_handlecustommakechange",
+      "label": "handleCustomMakeChange()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L91"
+    },
+    {
+      "id": "steps_vehiclestep_handlemodelchange",
+      "label": "handleModelChange()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L95"
+    },
+    {
+      "id": "steps_vehiclestep_handlevinchange",
+      "label": "handleVinChange()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L99"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "next_intl",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_hooks_usequoteform",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "hooks_usequoteform_quoteformdata",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "hooks_usequoteform_formaction",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_hooks_useshakeonerror",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "hooks_useshakeonerror_useshakeonerror",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "steps_vehiclestep_handleyearchange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "steps_vehiclestep_handlemakeselect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "steps_vehiclestep_handlecustommakechange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "steps_vehiclestep_handlemodelchange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_quote_form_steps_vehiclestep_tsx",
+      "target": "steps_vehiclestep_handlevinchange",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L99",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "steps_vehiclestep_handleyearchange",
+      "callee": "dispatch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L76"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlemakeselect",
+      "callee": "setOtherMode",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L81"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlemakeselect",
+      "callee": "includes",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlemakeselect",
+      "callee": "dispatch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlemakeselect",
+      "callee": "setOtherMode",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlemakeselect",
+      "callee": "dispatch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlecustommakechange",
+      "callee": "dispatch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L92"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlemodelchange",
+      "callee": "dispatch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L96"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlevinchange",
+      "callee": "slice",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlevinchange",
+      "callee": "replace",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlevinchange",
+      "callee": "toUpperCase",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L100"
+    },
+    {
+      "caller_nid": "steps_vehiclestep_handlevinchange",
+      "callee": "dispatch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/quote-form/steps/VehicleStep.tsx",
+      "source_location": "L101"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_seo_ts",
+      "label": "seo.ts",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_seo_buildpagemetadata",
+      "label": "buildPageMetadata()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L28"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_seo_ts",
+      "target": "next",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_seo_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_i18n_routing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_seo_ts",
+      "target": "i18n_routing_routing",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_seo_ts",
+      "target": "lib_seo_buildpagemetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L28",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "lib_seo_buildpagemetadata",
+      "callee": "map",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "lib_seo_buildpagemetadata",
+      "callee": "filter",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L45"
+    },
+    {
+      "caller_nid": "lib_seo_buildpagemetadata",
+      "callee": "startsWith",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "lib_seo_buildpagemetadata",
+      "callee": "startsWith",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/seo.ts",
+      "source_location": "L82"
+    }
+  ]
+}

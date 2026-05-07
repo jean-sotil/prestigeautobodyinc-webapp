@@ -1,0 +1,117 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_revalidation_ts",
+      "label": "revalidation.ts",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_revalidation_revalidateblogpost",
+      "label": "revalidateBlogPost()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "lib_revalidation_revalidatebloglisting",
+      "label": "revalidateBlogListing()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L67"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_revalidation_ts",
+      "target": "lib_revalidation_revalidateblogpost",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_revalidation_ts",
+      "target": "lib_revalidation_revalidatebloglisting",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L67",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "lib_revalidation_revalidateblogpost",
+      "callee": "warn",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L24"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidateblogpost",
+      "callee": "fetch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L32"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidateblogpost",
+      "callee": "stringify",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidateblogpost",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidateblogpost",
+      "callee": "error",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L56"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidatebloglisting",
+      "callee": "warn",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidatebloglisting",
+      "callee": "fetch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidatebloglisting",
+      "callee": "stringify",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L87"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidatebloglisting",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L93"
+    },
+    {
+      "caller_nid": "lib_revalidation_revalidatebloglisting",
+      "callee": "error",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/revalidation.ts",
+      "source_location": "L106"
+    }
+  ]
+}

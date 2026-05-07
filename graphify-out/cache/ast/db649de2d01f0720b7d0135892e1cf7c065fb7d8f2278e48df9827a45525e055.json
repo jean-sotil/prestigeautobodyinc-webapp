@@ -1,0 +1,345 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "auto_body_services_page_generatestaticparams",
+      "label": "generateStaticParams()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L13"
+    },
+    {
+      "id": "auto_body_services_page_generatemetadata",
+      "label": "generateMetadata()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "auto_body_services_page_autobodyservicespage",
+      "label": "AutoBodyServicesPage()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L66"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "next",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "server",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_i18n_routing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "i18n_routing_routing",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_seo",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "lib_seo_base_url",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_i18n_navigation",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "i18n_navigation_getpathname",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_services",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "components_services_servicepagetemplate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "components_services_servicejsonld",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_heromedia",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "lib_heromedia_getheromedia",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "lib_heromedia_pickalt",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_seo",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "components_seo_breadcrumbjsonld",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "components_seo_generatebreadcrumbitems",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "auto_body_services_page_generatestaticparams",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "auto_body_services_page_generatemetadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_app_frontend_locale_auto_body_services_page_tsx",
+      "target": "auto_body_services_page_autobodyservicespage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L66",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "auto_body_services_page_generatestaticparams",
+      "callee": "map",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L14"
+    },
+    {
+      "caller_nid": "auto_body_services_page_generatemetadata",
+      "callee": "getTranslations",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L25"
+    },
+    {
+      "caller_nid": "auto_body_services_page_generatemetadata",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L27"
+    },
+    {
+      "caller_nid": "auto_body_services_page_generatemetadata",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L28"
+    },
+    {
+      "caller_nid": "auto_body_services_page_generatemetadata",
+      "callee": "getPathname",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L30"
+    },
+    {
+      "caller_nid": "auto_body_services_page_generatemetadata",
+      "callee": "getPathname",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L34"
+    },
+    {
+      "caller_nid": "auto_body_services_page_generatemetadata",
+      "callee": "getPathname",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "all",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "getTranslations",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L73"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "getHeroMedia",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L74"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "getTranslations",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L75"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "getPathname",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L78"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "generateBreadcrumbItems",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L83"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "nav",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L84"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "nav",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L86"
+    },
+    {
+      "caller_nid": "auto_body_services_page_autobodyservicespage",
+      "callee": "t",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/app/(frontend)/[locale]/auto-body-services/page.tsx",
+      "source_location": "L108"
+    }
+  ]
+}
