@@ -1,6 +1,6 @@
 # Contrast Audit — WCAG 2.1 AA (token-level)
 
-**Generated:** 2026-05-01T00:52:14.195Z
+**Generated:** 2026-05-07T06:15:18.596Z
 **Source:** `src/app/globals.css` (`:root` + `.dark`)
 **Pairs evaluated:** 25 per theme
 **Failures (non-advisory):** 0

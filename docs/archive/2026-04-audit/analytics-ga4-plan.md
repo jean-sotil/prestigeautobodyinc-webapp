@@ -1,6 +1,6 @@
 # GA4 Analytics — Implementation Plan (RFC-Lite)
 
-**Source**: [docs/analytics-task.md](./analytics-task.md)
+**Source**: original task spec (not committed to repo)
 **Status**: Draft, awaiting implementation
 **Author**: Maestro / Claude (Opus 4.7)
 **Date**: 2026-04-28
@@ -14,8 +14,8 @@ The task spec lists eight DoD lines. A literal read suggests greenfield work. Re
 
 **Already built** (surprise — keep, refine):
 
-- Stub `trackEvent` helper at [src/lib/analytics.ts](../src/lib/analytics.ts) — calls `window.gtag` which is **never loaded today**, so every fire is a no-op
-- Quote form already calls `trackEvent` for **all 5 lifecycle events** ([src/components/quote-form/QuoteForm.tsx:83,99,142,153](../src/components/quote-form/QuoteForm.tsx#L83) + [hooks/useSubmitQuote.ts:222,236](../src/components/quote-form/hooks/useSubmitQuote.ts#L222))
+- Stub `trackEvent` helper at [src/lib/analytics.ts](../../../src/lib/analytics.ts) — calls `window.gtag` which is **never loaded today**, so every fire is a no-op
+- Quote form already calls `trackEvent` for **all 5 lifecycle events** ([src/components/quote-form/QuoteForm.tsx:83,99,142,153](../../../src/components/quote-form/QuoteForm.tsx#L83) + [hooks/useSubmitQuote.ts:222,236](../../../src/components/quote-form/hooks/useSubmitQuote.ts#L222))
 - 4 functional steps (Service · Vehicle · Damage · Contact) + Submit = matches the spec's "Steps 1→2→3→4→5"
 
 **Missing entirely**:

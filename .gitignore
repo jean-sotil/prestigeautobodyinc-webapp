@@ -42,3 +42,6 @@ yarn-error.log*
 next-env.d.ts
 .env*.local
 .playwright-browsers/
+
+# generated audit artifacts (regenerate via `npm run a11y` / `npm run contrast`)
+docs/accessibility/reports/*.json
