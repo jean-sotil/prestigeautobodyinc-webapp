@@ -2,6 +2,8 @@
 
 Project documentation, organized by topic and lifecycle. Active work lives at the top of each folder; completed work moves to [`archive/`](./archive/).
 
+> **First time here?** Read [`PROJECT_SUMMARY.md`](./PROJECT_SUMMARY.md) — high-level overview of stack, capabilities, timeline, and where things live.
+
 ## Active
 
 | Folder                                 | What's there                                                                                                                                                |
