@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter, Poppins } from 'next/font/google';
 import '../../globals.css';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -13,6 +14,22 @@ import { BreadcrumbProvider } from '@/components/BreadcrumbContext';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import AnalyticsUserProperties from '@/components/analytics/AnalyticsUserProperties';
 import ConsentBanner from '@/components/analytics/ConsentBanner';
+import { WebVitals } from '@/components/performance/WebVitals';
+import { QueryProvider } from '@/providers/QueryProvider';
+import { cn } from '@/lib/utils';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const poppins = Poppins({
+  variable: '--font-display',
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  display: 'swap',
+});
 
 interface MessagesType {
   metadata?: {
@@ -80,22 +97,47 @@ export default async function LocaleLayout({
   const messages = (await getMessages({ locale })) as MessagesType;
 
   return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
-      <BreadcrumbProvider>
-        <GoogleAnalytics />
-        <AnalyticsUserProperties />
-        <WebsiteJsonLd
-          locale={locale}
-          description={messages.metadata?.description}
-        />
-        <Header />
-        <main id="main-content" tabIndex={-1}>
-          {children}
-        </main>
-        <Footer />
-        <ConsentBanner />
-        <WhatsAppWidget />
-      </BreadcrumbProvider>
-    </NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <link rel="dns-prefetch" href="//www.google.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//elfsightcdn.com" />
+        <link rel="dns-prefetch" href="//static.elfsight.com" />
+      </head>
+      <body
+        className={cn(
+          inter.variable,
+          poppins.variable,
+          'font-sans antialiased',
+        )}
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          Skip to main content
+        </a>
+        <WebVitals />
+        <QueryProvider>
+          <NextIntlClientProvider messages={messages} locale={locale}>
+            <BreadcrumbProvider>
+              <GoogleAnalytics />
+              <AnalyticsUserProperties />
+              <WebsiteJsonLd
+                locale={locale}
+                description={messages.metadata?.description}
+              />
+              <Header />
+              <main id="main-content" tabIndex={-1}>
+                {children}
+              </main>
+              <Footer />
+              <ConsentBanner />
+              <WhatsAppWidget />
+            </BreadcrumbProvider>
+          </NextIntlClientProvider>
+        </QueryProvider>
+      </body>
+    </html>
   );
 }
