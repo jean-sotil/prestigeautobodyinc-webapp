@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense, useEffect, useSyncExternalStore } from 'react';
-import Script from 'next/script';
 import { getConsent, onConsentChange } from '@/lib/consent';
 import RouteChangeTracker from './RouteChangeTracker';
 
@@ -15,8 +14,8 @@ export default function GoogleAnalytics() {
     () => getConsent(),
     () => undefined,
   );
-  const shouldLoad = consent === 'granted';
 
+  // Initialize stub and dataLayer on mount
   useEffect(() => {
     if (!GA_ID) return;
     window.dataLayer = window.dataLayer || [];
@@ -27,27 +26,36 @@ export default function GoogleAnalytics() {
     }
   }, []);
 
+  // Load gtag.js script when consent is granted
+  useEffect(() => {
+    if (!GA_ID || consent !== 'granted') return;
+
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    script.async = true;
+
+    script.onload = () => {
+      if (window.gtag) {
+        window.gtag('js', new Date());
+        window.gtag('config', GA_ID, {
+          send_page_view: false,
+          anonymize_ip: true,
+        });
+      }
+    };
+
+    document.head.appendChild(script);
+
+    return () => {
+      // Don't remove script on unmount to avoid breaking tracking
+    };
+  }, [consent]);
+
   if (!GA_ID) return null;
 
   return (
-    <>
-      {shouldLoad && (
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-          onLoad={() => {
-            if (!window.gtag) return;
-            window.gtag('js', new Date());
-            window.gtag('config', GA_ID, {
-              send_page_view: false,
-              anonymize_ip: true,
-            });
-          }}
-        />
-      )}
-      <Suspense fallback={null}>
-        <RouteChangeTracker />
-      </Suspense>
-    </>
+    <Suspense fallback={null}>
+      <RouteChangeTracker />
+    </Suspense>
   );
 }
