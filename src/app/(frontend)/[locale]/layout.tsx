@@ -97,20 +97,26 @@ export default async function LocaleLayout({
   const messages = (await getMessages({ locale })) as MessagesType;
 
   return (
-    <html lang={locale} className={cn('font-sans', inter.variable)}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//elfsightcdn.com" />
         <link rel="dns-prefetch" href="//static.elfsight.com" />
       </head>
-      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
+      <body
+        className={cn(
+          inter.variable,
+          poppins.variable,
+          'font-sans antialiased',
+        )}
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          Skip to main content
+        </a>
         <WebVitals />
         <QueryProvider>
           <NextIntlClientProvider messages={messages} locale={locale}>
