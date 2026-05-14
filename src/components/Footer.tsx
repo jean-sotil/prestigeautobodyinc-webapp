@@ -11,7 +11,7 @@ export default async function Footer({ className = '' }: FooterProps) {
 
   const quickLinks = [
     { href: '/collision-repair', label: t('quickLinks.collisionRepair') },
-    { href: '/about', label: t('quickLinks.autoBodyServices') },
+    { href: '/auto-body-services', label: t('quickLinks.autoBodyServices') },
     { href: '/auto-painting', label: t('quickLinks.paintSolutions') },
     { href: '/insurance-claims', label: t('quickLinks.insuranceClaims') },
     { href: '/get-a-quote', label: t('quickLinks.getAQuote') },

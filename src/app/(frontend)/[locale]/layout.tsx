@@ -38,7 +38,7 @@ interface MessagesType {
   };
 }
 
-const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 export async function generateMetadata({
   params,
@@ -54,6 +54,7 @@ export async function generateMetadata({
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
 
   return {
+    metadataBase: new URL(BASE_URL),
     title,
     description,
     alternates: {
@@ -71,7 +72,7 @@ export async function generateMetadata({
       locale: ogLocale,
       alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
       type: 'website',
-      images: [{ url: OG_IMAGE, width: 1920, height: 1080, alt: title }],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
