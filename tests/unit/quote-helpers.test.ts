@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import {
   generateReferenceId,
   sanitizeInput,
@@ -60,6 +60,16 @@ describe('Quote API Helpers', () => {
   });
 
   describe('hashIp', () => {
+    const TEST_SALT = 'test-salt-for-unit-tests';
+
+    beforeEach(() => {
+      process.env.IP_HASH_SALT = TEST_SALT;
+    });
+
+    afterEach(() => {
+      delete process.env.IP_HASH_SALT;
+    });
+
     it('should return a 64-char hex string (SHA-256)', () => {
       expect(hashIp('127.0.0.1')).toMatch(/^[a-f0-9]{64}$/);
     });
@@ -70,6 +80,13 @@ describe('Quote API Helpers', () => {
 
     it('should be deterministic', () => {
       expect(hashIp('10.0.0.1')).toBe(hashIp('10.0.0.1'));
+    });
+
+    it('should throw when IP_HASH_SALT is not set', () => {
+      delete process.env.IP_HASH_SALT;
+      expect(() => hashIp('127.0.0.1')).toThrow(
+        'IP_HASH_SALT env var is not set',
+      );
     });
   });
 });

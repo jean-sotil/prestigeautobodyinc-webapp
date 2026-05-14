@@ -143,7 +143,13 @@ export function generateReferenceId(): string {
 }
 
 export function hashIp(ip: string): string {
-  const salt = process.env.IP_HASH_SALT || 'default-salt-change-in-production';
+  const salt = process.env.IP_HASH_SALT;
+  if (!salt) {
+    throw new Error(
+      '[hashIp] IP_HASH_SALT env var is not set. ' +
+        'Add it to your .env.local and production secrets.',
+    );
+  }
   return createHash('sha256')
     .update(ip + salt)
     .digest('hex');
