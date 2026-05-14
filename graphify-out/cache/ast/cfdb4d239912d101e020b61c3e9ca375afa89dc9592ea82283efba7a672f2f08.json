@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_contact_mapembed_tsx",
+      "label": "MapEmbed.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/MapEmbed.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "contact_mapembed_mapembed",
+      "label": "MapEmbed()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/MapEmbed.tsx",
+      "source_location": "L8"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_contact_mapembed_tsx",
+      "target": "contact_mapembed_mapembed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/MapEmbed.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "contact_mapembed_mapembed",
+      "callee": "encodeURIComponent",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/contact/MapEmbed.tsx",
+      "source_location": "L14"
+    }
+  ]
+}

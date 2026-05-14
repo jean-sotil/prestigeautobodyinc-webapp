@@ -21,8 +21,8 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const CSS_PATH = path.resolve('src/app/globals.css');
-const REPORT_MD = path.resolve('docs/contrast-audit.md');
-const REPORT_JSON = path.resolve('docs/contrast-audit.json');
+const REPORT_MD = path.resolve('docs/accessibility/reports/contrast.md');
+const REPORT_JSON = path.resolve('docs/accessibility/reports/contrast.json');
 
 // ─── Pairs to verify ──────────────────────────────────────────────
 // kind: 'text-normal' (≥4.5:1), 'text-large' (≥3:1), 'graphical' (≥3:1)

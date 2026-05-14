@@ -174,8 +174,8 @@ export default function Header() {
       >
         <UtilityBar />
 
-        <header className="header-edge-accent overflow-hidden h-16 group-data-[scrolled=true]/header:h-14 bg-background/85 group-data-[scrolled=true]/header:bg-background/95 backdrop-blur-md group-data-[scrolled=true]/header:backdrop-blur-xl border-b border-border/60 group-data-[scrolled=true]/header:border-border transition-[height,background-color,backdrop-filter,border-color] duration-300 ease-out motion-reduce:transition-none">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <header className="min-h-16 group-data-[scrolled=true]/header:min-h-14 bg-background/85 group-data-[scrolled=true]/header:bg-background/95 backdrop-blur-md group-data-[scrolled=true]/header:backdrop-blur-xl transition-[min-height,background-color,backdrop-filter] duration-300 ease-out motion-reduce:transition-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 group-data-[scrolled=true]/header:h-14 transition-[height] duration-300 ease-out">
             <div className="flex items-center justify-between h-full gap-3 lg:gap-4 xl:gap-6">
               <div className="shrink-0">
                 <Link
@@ -262,7 +262,7 @@ export default function Header() {
           </div>
 
           {!isHomePage && (
-            <div className="bg-muted border-t border-border py-1 group-data-[scrolled=true]/header:py-0.5 transition-[padding] duration-300 ease-out motion-reduce:transition-none">
+            <div className="bg-muted py-1 group-data-[scrolled=true]/header:py-0.5 transition-[padding] duration-300 ease-out motion-reduce:transition-none">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <Breadcrumbs />
               </div>
@@ -279,11 +279,10 @@ function ServicesMenu({ label, items }: { label: string; items: NavItem[] }) {
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger
-        className={`border-b-2 px-0 py-1 text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[popup-open]:bg-transparent ${
-          isActive
-            ? 'text-primary border-primary'
-            : 'text-foreground border-transparent hover:text-primary'
+        className={`px-0 py-1 text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[popup-open]:bg-transparent ${
+          isActive ? 'text-primary' : 'text-foreground hover:text-primary'
         }`}
+        aria-current={isActive ? 'page' : undefined}
       >
         {label}
       </NavigationMenuTrigger>

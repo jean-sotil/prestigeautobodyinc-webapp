@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import NextLink from 'next/link';
 import { Link } from '@/i18n/navigation';
 
 interface FooterProps {
@@ -12,7 +11,7 @@ export default async function Footer({ className = '' }: FooterProps) {
 
   const quickLinks = [
     { href: '/collision-repair', label: t('quickLinks.collisionRepair') },
-    { href: '/about', label: t('quickLinks.autoBodyServices') },
+    { href: '/auto-body-services', label: t('quickLinks.autoBodyServices') },
     { href: '/auto-painting', label: t('quickLinks.paintSolutions') },
     { href: '/insurance-claims', label: t('quickLinks.insuranceClaims') },
     { href: '/get-a-quote', label: t('quickLinks.getAQuote') },
@@ -217,12 +216,12 @@ export default async function Footer({ className = '' }: FooterProps) {
               >
                 {t('legal.terms')}
               </Link>
-              <NextLink
+              <a
                 href="/sitemap.xml"
                 className="text-xs text-[#a0a0a0] underline underline-offset-2 hover:text-[#c62828] transition-colors"
               >
                 {t('legal.sitemap')}
-              </NextLink>
+              </a>
             </nav>
           </div>
           <p className="mt-4 text-center text-[10px] text-[#a0a0a0] tracking-wide">

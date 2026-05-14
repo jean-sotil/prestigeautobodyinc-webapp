@@ -1,0 +1,98 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "label": "StatsCounters.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "hero_statscounters_trophyicon",
+      "label": "TrophyIcon()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L14"
+    },
+    {
+      "id": "hero_statscounters_staricon",
+      "label": "StarIcon()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L36"
+    },
+    {
+      "id": "hero_statscounters_caricon",
+      "label": "CarIcon()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L53"
+    },
+    {
+      "id": "hero_statscounters_starclustericon",
+      "label": "StarClusterIcon()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L73"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "target": "server",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "target": "hero_statscounters_trophyicon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "target": "hero_statscounters_staricon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "target": "hero_statscounters_caricon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_hero_statscounters_tsx",
+      "target": "hero_statscounters_starclustericon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/hero/StatsCounters.tsx",
+      "source_location": "L73",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": []
+}

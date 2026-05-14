@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_reading_time_ts",
+      "label": "reading-time.ts",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_reading_time_istextnode",
+      "label": "isTextNode()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L26"
+    },
+    {
+      "id": "lib_reading_time_countwords",
+      "label": "countWords()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "lib_reading_time_computereadingtime",
+      "label": "computeReadingTime()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L44"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_reading_time_ts",
+      "target": "lib_reading_time_istextnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_reading_time_ts",
+      "target": "lib_reading_time_countwords",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_reading_time_ts",
+      "target": "lib_reading_time_computereadingtime",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_reading_time_countwords",
+      "target": "lib_reading_time_istextnode",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_reading_time_computereadingtime",
+      "target": "lib_reading_time_countwords",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L45",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "lib_reading_time_countwords",
+      "callee": "trim",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L35"
+    },
+    {
+      "caller_nid": "lib_reading_time_countwords",
+      "callee": "filter",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "lib_reading_time_countwords",
+      "callee": "split",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L36"
+    },
+    {
+      "caller_nid": "lib_reading_time_computereadingtime",
+      "callee": "max",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L46"
+    },
+    {
+      "caller_nid": "lib_reading_time_computereadingtime",
+      "callee": "ceil",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/reading-time.ts",
+      "source_location": "L46"
+    }
+  ]
+}

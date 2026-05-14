@@ -1,0 +1,320 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "label": "useServiceAreas.ts",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "queries_useserviceareas_fetchserviceareas",
+      "label": "fetchServiceAreas()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L29"
+    },
+    {
+      "id": "queries_useserviceareas_useserviceareas",
+      "label": "useServiceAreas()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L61"
+    },
+    {
+      "id": "queries_useserviceareas_useserviceareabyslug",
+      "label": "useServiceAreaBySlug()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L92"
+    },
+    {
+      "id": "queries_useserviceareas_useserviceareabyzip",
+      "label": "useServiceAreaByZip()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L137"
+    },
+    {
+      "id": "queries_useserviceareas_prefetchserviceareas",
+      "label": "prefetchServiceAreas()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L169"
+    },
+    {
+      "id": "queries_useserviceareas_prefetchserviceareabyslug",
+      "label": "prefetchServiceAreaBySlug()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L175"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "react_query",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_querykeys",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_querykeys_querykeys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_queryclient",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_queryclient_staletimes",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_types_servicearea",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_types_serviceareasresponse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_useserviceareas_fetchserviceareas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_useserviceareas_useserviceareas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_useserviceareas_useserviceareabyslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_useserviceareas_useserviceareabyzip",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_useserviceareas_prefetchserviceareas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_useserviceareas_ts",
+      "target": "queries_useserviceareas_prefetchserviceareabyslug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "queries_useserviceareas_prefetchserviceareas",
+      "target": "queries_useserviceareas_fetchserviceareas",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L172",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "queries_useserviceareas_fetchserviceareas",
+      "callee": "append",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L38"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_fetchserviceareas",
+      "callee": "fetch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_fetchserviceareas",
+      "callee": "toString",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L40"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_fetchserviceareas",
+      "callee": "catch",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_fetchserviceareas",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_fetchserviceareas",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L53"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_useserviceareas",
+      "callee": "useQuery",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L71"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_useserviceareas",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L72"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_useserviceareabyslug",
+      "callee": "useQuery",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L97"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_useserviceareabyslug",
+      "callee": "bySlug",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L98"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_useserviceareabyzip",
+      "callee": "useQuery",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L138"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_useserviceareabyzip",
+      "callee": "byZip",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L139"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_prefetchserviceareabyslug",
+      "callee": "fetch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_prefetchserviceareabyslug",
+      "callee": "toString",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L185"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_prefetchserviceareabyslug",
+      "callee": "catch",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_prefetchserviceareabyslug",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L192"
+    },
+    {
+      "caller_nid": "queries_useserviceareas_prefetchserviceareabyslug",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useServiceAreas.ts",
+      "source_location": "L198"
+    }
+  ]
+}

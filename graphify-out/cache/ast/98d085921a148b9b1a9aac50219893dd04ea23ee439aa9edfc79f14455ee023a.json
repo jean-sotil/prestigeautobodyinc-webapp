@@ -1,0 +1,102 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_gallery_gallerygrid_tsx",
+      "label": "GalleryGrid.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "gallery_gallerygrid_formattemplate",
+      "label": "formatTemplate()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L33"
+    },
+    {
+      "id": "gallery_gallerygrid_handler",
+      "label": "handler()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L104"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_gallery_gallerygrid_tsx",
+      "target": "image",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_gallery_gallerygrid_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_gallery_gallerygrid_tsx",
+      "target": "gallery_gallerygrid_formattemplate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_gallery_gallerygrid_tsx",
+      "target": "gallery_gallerygrid_handler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L104",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "gallery_gallerygrid_formattemplate",
+      "callee": "replace",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L37"
+    },
+    {
+      "caller_nid": "gallery_gallerygrid_handler",
+      "callee": "preventDefault",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L106"
+    },
+    {
+      "caller_nid": "gallery_gallerygrid_handler",
+      "callee": "goTo",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L107"
+    },
+    {
+      "caller_nid": "gallery_gallerygrid_handler",
+      "callee": "preventDefault",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L109"
+    },
+    {
+      "caller_nid": "gallery_gallerygrid_handler",
+      "callee": "goTo",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/gallery/GalleryGrid.tsx",
+      "source_location": "L110"
+    }
+  ]
+}

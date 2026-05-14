@@ -1,0 +1,223 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "label": "useTestimonials.ts",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "queries_usetestimonials_fetchtestimonials",
+      "label": "fetchTestimonials()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L30"
+    },
+    {
+      "id": "queries_usetestimonials_usetestimonials",
+      "label": "useTestimonials()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L71"
+    },
+    {
+      "id": "queries_usetestimonials_prefetchtestimonials",
+      "label": "prefetchTestimonials()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L103"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "react_query",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_querykeys",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_querykeys_querykeys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_queryclient",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_queryclient_staletimes",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_types",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_types_testimonial",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_types_testimonialsresponse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_usetestimonials_fetchtestimonials",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_usetestimonials_usetestimonials",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_lib_queries_usetestimonials_ts",
+      "target": "queries_usetestimonials_prefetchtestimonials",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "queries_usetestimonials_prefetchtestimonials",
+      "target": "queries_usetestimonials_fetchtestimonials",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L107",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "append",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L43"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "append",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "toString",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L47"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "fetch",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "toString",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L50"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "catch",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L57"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_fetchtestimonials",
+      "callee": "json",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L63"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_usetestimonials",
+      "callee": "useQuery",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L82"
+    },
+    {
+      "caller_nid": "queries_usetestimonials_usetestimonials",
+      "callee": "list",
+      "is_member_call": true,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/lib/queries/useTestimonials.ts",
+      "source_location": "L83"
+    }
+  ]
+}

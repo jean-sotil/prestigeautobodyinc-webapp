@@ -4,7 +4,11 @@ import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
-import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+import {
+  BreadcrumbJsonLd,
+  generateBreadcrumbItems,
+  FAQJsonLd,
+} from '@/components/seo';
 
 const SERVICE_KEY = 'collisionRepair';
 
@@ -76,8 +80,27 @@ export default async function CollisionRepairPage({
     locale,
   );
 
+  const collisionFaqs = [
+    {
+      question: 'What is included in collision repair?',
+      answer:
+        'Collision repair at Prestige Auto Body includes dent removal, frame straightening, panel replacement, repainting, and restoring the vehicle to its pre-accident condition. We use OEM and high-quality aftermarket parts and match paint using computer color-matching technology.',
+    },
+    {
+      question: 'Will my car look the same after collision repair?',
+      answer:
+        'Yes. Our technicians use computer color-matching technology and I-CAR Gold Class techniques to restore your vehicle to its original factory appearance. We back every repair with a lifetime warranty.',
+    },
+    {
+      question: 'Should I get multiple estimates for collision repair?',
+      answer:
+        'You have the legal right to choose your own repair shop in Maryland regardless of what your insurance company recommends. We offer free, no-obligation estimates and work directly with all insurance carriers.',
+    },
+  ];
+
   return (
     <>
+      <FAQJsonLd faqs={collisionFaqs} locale={locale} />
       <ServiceJsonLd
         serviceName="Collision Repair"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}

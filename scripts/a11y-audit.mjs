@@ -14,8 +14,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const BASE_URL = process.env.BASE_URL ?? 'http://localhost:3000';
-const REPORT_MD = path.resolve('docs/accessibility-audit.md');
-const REPORT_JSON = path.resolve('docs/accessibility-audit.json');
+const REPORT_MD = path.resolve('docs/accessibility/reports/accessibility.md');
+const REPORT_JSON = path.resolve(
+  'docs/accessibility/reports/accessibility.json',
+);
 
 // (en path, es path) tuples per page. Mirrors src/i18n/routing.ts pathnames.
 const ROUTES = [

@@ -1,24 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Poppins } from 'next/font/google';
-import { getLocale } from 'next-intl/server';
-import { WebVitals } from '@/components/performance/WebVitals';
-import { QueryProvider } from '@/providers/QueryProvider';
 import { BASE_URL } from '@/lib/seo';
-import '../globals.css';
-import { cn } from '@/lib/utils';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const poppins = Poppins({
-  variable: '--font-display',
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  display: 'swap',
-});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -86,31 +67,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function FrontendLayout({
+export default function FrontendLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getLocale();
-
-  return (
-    <html lang={locale} className={cn('font-sans', inter.variable)}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="//www.google.com" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="//elfsightcdn.com" />
-        <link rel="dns-prefetch" href="//static.elfsight.com" />
-      </head>
-      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
-        <WebVitals />
-        <QueryProvider>{children}</QueryProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

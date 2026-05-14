@@ -1,0 +1,75 @@
+{
+  "nodes": [
+    {
+      "id": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_breadcrumbtitlesetter_tsx",
+      "label": "BreadcrumbTitleSetter.tsx",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "components_breadcrumbtitlesetter_breadcrumbtitlesetter",
+      "label": "BreadcrumbTitleSetter()",
+      "file_type": "code",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L6"
+    }
+  ],
+  "edges": [
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_breadcrumbtitlesetter_tsx",
+      "target": "react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_breadcrumbtitlesetter_tsx",
+      "target": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_breadcrumbcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_breadcrumbtitlesetter_tsx",
+      "target": "components_breadcrumbcontext_usepagetitle",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "users_jeanpaul_documents_freelancer_prestigeautobodyinc_webapp_src_components_breadcrumbtitlesetter_tsx",
+      "target": "components_breadcrumbtitlesetter_breadcrumbtitlesetter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "components_breadcrumbtitlesetter_breadcrumbtitlesetter",
+      "callee": "usePageTitle",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L7"
+    },
+    {
+      "caller_nid": "components_breadcrumbtitlesetter_breadcrumbtitlesetter",
+      "callee": "useEffect",
+      "is_member_call": false,
+      "source_file": "/Users/jeanpaul/Documents/FreeLancer/prestigeautobodyinc-webapp/src/components/BreadcrumbTitleSetter.tsx",
+      "source_location": "L9"
+    }
+  ]
+}
