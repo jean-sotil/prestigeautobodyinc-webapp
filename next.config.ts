@@ -104,6 +104,32 @@ const nextConfig: NextConfig = {
   // Redirects (if needed)
   async redirects() {
     return [
+      // Canonical domain: consolidate non-www → www.prestigeautobodyinc.com
+      {
+        source: '/',
+        destination: 'https://www.prestigeautobodyinc.com/en',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/en/:path*',
+        destination: 'https://www.prestigeautobodyinc.com/en/:path*',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/es/:path*',
+        destination: 'https://www.prestigeautobodyinc.com/es/:path*',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      // www root without locale → /en
+      {
+        source: '/',
+        destination: '/en',
+        permanent: true,
+        has: [{ type: 'host', value: 'www.prestigeautobodyinc.com' }],
+      },
       // Route renames: paint-solutions → auto-painting
       {
         source: '/:locale/paint-solutions',

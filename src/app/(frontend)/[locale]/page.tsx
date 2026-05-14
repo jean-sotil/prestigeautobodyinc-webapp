@@ -13,7 +13,11 @@ import {
 } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
-import { ReviewsJsonLd, LocalBusinessJsonLd } from '@/components/seo';
+import {
+  ReviewsJsonLd,
+  LocalBusinessJsonLd,
+  FAQJsonLd,
+} from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
 import LazyYouTubeEmbed from '@/components/dynamic/LazyYouTubeEmbed';
 import LazyQuoteForm from '@/components/dynamic/LazyQuoteForm';
@@ -32,7 +36,7 @@ import {
   ThumbsUpIcon,
 } from '@/components/ui/Icons';
 
-const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 interface HomeMessagesType {
   metadata?: { title?: string; description?: string };
@@ -74,7 +78,7 @@ export async function generateMetadata({
       locale: ogLocale,
       alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
       type: 'website',
-      images: [{ url: OG_IMAGE, width: 1920, height: 1080, alt: title }],
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -120,6 +124,34 @@ export default async function HomePage({
     getTranslations({ locale, namespace: 'overlines' }),
   ]);
 
+  const homepageFaqs = [
+    {
+      question: 'How long does collision repair take?',
+      answer:
+        'Most collision repairs at Prestige Auto Body take between 3–7 business days depending on the severity of the damage. Minor repairs like bumper dents may be completed in 1–2 days, while major structural repairs can take 1–2 weeks. We provide a detailed timeline with your free estimate.',
+    },
+    {
+      question: 'Does Prestige Auto Body work with all insurance companies?',
+      answer:
+        'Yes. Prestige Auto Body works with all major insurance companies including State Farm, GEICO, Allstate, Progressive, USAA, and more. We handle all the paperwork and communicate directly with your adjuster to make the process as smooth as possible.',
+    },
+    {
+      question: 'Do you offer a warranty on repairs?',
+      answer:
+        'Yes — Prestige Auto Body offers a lifetime warranty on all repairs. This covers workmanship and materials for as long as you own your vehicle.',
+    },
+    {
+      question: 'Are you I-CAR certified?',
+      answer:
+        'Yes. Prestige Auto Body is I-CAR Gold Class certified — the highest training designation in the collision repair industry. Our technicians undergo continuous training to stay current with the latest vehicle technologies and repair procedures.',
+    },
+    {
+      question: 'Do you provide rental car assistance?',
+      answer:
+        'Yes. We work with rental car companies and can help coordinate a rental vehicle while your car is being repaired. Many insurance policies cover rental costs during a covered repair.',
+    },
+  ];
+
   return (
     <div className="font-sans min-h-screen">
       <LocalBusinessJsonLd
@@ -127,6 +159,7 @@ export default async function HomePage({
         reviewCount={rating.reviewCount}
         locale={locale}
       />
+      <FAQJsonLd faqs={homepageFaqs} locale={locale} />
       {/* Hero Section — full-bleed image with dark overlay, white text */}
       <section
         className="bg-foreground relative w-full min-h-105 sm:min-h-120 lg:min-h-135 overflow-hidden"
