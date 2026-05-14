@@ -20,13 +20,14 @@ const nextConfig: NextConfig = {
 
   // Webpack optimization — rely on Next.js built-in chunk splitting
   // (custom splitChunks overrides can inflate first-load JS per route)
-  webpack: (config) => {
-    // Tree shaking: ensure unused exports are removed
-    config.optimization = {
-      ...config.optimization,
-      usedExports: true,
-      sideEffects: false,
-    };
+  webpack: (config, { dev }) => {
+    if (!dev) {
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+      };
+    }
 
     return config;
   },
