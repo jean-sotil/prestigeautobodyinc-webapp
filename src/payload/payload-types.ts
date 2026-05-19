@@ -345,7 +345,7 @@ export interface BlogPost {
      */
     focusKeyword?: string | null;
   };
-  status?: ('draft' | 'published' | 'archived') | null;
+  publishStatus?: ('draft' | 'published' | 'archived') | null;
   publishedAt?: string | null;
   tags?:
     | {
@@ -368,7 +368,6 @@ export interface BlogPost {
   };
   updatedAt: string;
   createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -851,7 +850,7 @@ export interface BlogPostsSelect<T extends boolean = true> {
         ogImage?: T;
         focusKeyword?: T;
       };
-  status?: T;
+  publishStatus?: T;
   publishedAt?: T;
   tags?:
     | T
@@ -870,7 +869,6 @@ export interface BlogPostsSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
-  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -178,6 +178,7 @@
   },
   "active": "ee369862c43753c7",
   "lastOpenFiles": [
+    "src/lib/compressImage.ts",
     "bun.lock",
     "node_modules/@emotion/serialize/node_modules/csstype/package.json",
     "node_modules/@emotion/serialize/node_modules/csstype/index.js.flow",
@@ -190,7 +191,6 @@
     "node_modules/dom-helpers/node_modules/csstype/index.js.flow",
     "node_modules/dom-helpers/node_modules/csstype/index.d.ts",
     "node_modules/dom-helpers/node_modules/csstype/README.md",
-    "node_modules/dom-helpers/node_modules/csstype/LICENSE",
     "node_modules/@payloadcms/richtext-lexical/node_modules/csstype/README.md",
     "node_modules/hoist-non-react-statics/node_modules/react-is/README.md",
     "node_modules/@emotion/babel-plugin/node_modules/source-map/CHANGELOG.md",
