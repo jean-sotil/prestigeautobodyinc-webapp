@@ -41,6 +41,8 @@ export default function GoogleAnalytics() {
           send_page_view: false,
           anonymize_ip: true,
         });
+        window.__gaReady = true;
+        window.dispatchEvent(new Event('ga:ready'));
       }
     };
 
