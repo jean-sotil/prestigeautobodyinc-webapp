@@ -719,8 +719,8 @@ async function sendEmails(
     return { shopSent: false, customerSent: false };
   }
 
-  const fromEmail = process.env.FROM_EMAIL || 'quotes@prestigeautobody.com';
-  const shopEmail = process.env.SHOP_EMAIL || 'quotes@prestigeautobody.com';
+  const fromEmail = process.env.FROM_EMAIL || 'info@prestigeautobody.com';
+  const shopEmail = process.env.SHOP_EMAIL || 'info@prestigeautobody.com';
   const locale = quote.metadata.locale;
 
   let shopSent = false;
