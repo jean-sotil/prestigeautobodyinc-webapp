@@ -189,7 +189,6 @@ export function useQuoteForm() {
 
   // Add files to form
   const addFiles = useCallback((files: File[]) => {
-    // Filter allowed types
     const allowedTypes = [
       'image/jpeg',
       'image/png',
@@ -198,11 +197,7 @@ export function useQuoteForm() {
       'image/heif',
     ];
 
-    const validFiles = files.filter((file) => {
-      const isAllowedType = allowedTypes.includes(file.type);
-      const isAllowedSize = file.size <= 5 * 1024 * 1024; // 5 MB
-      return isAllowedType && isAllowedSize;
-    });
+    const validFiles = files.filter((file) => allowedTypes.includes(file.type));
 
     if (validFiles.length > 0) {
       dispatch({ type: 'ADD_FILES', files: validFiles });

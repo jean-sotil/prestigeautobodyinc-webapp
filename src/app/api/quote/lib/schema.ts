@@ -62,7 +62,7 @@ export interface QuoteRequest {
 // Configuration
 // ============================================================================
 
-export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+export const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB — client compresses; guard against uncompressed HEIC
 export const MAX_TOTAL_SIZE = 20 * 1024 * 1024; // 20 MB
 export const MAX_FILES = 5;
 export const MIN_SUBMISSION_TIME = 3000; // 3 seconds

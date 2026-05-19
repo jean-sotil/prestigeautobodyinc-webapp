@@ -4,6 +4,7 @@ import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import type { QuoteFormData, FormAction } from '../hooks/useQuoteForm';
 import { useShakeOnError } from '../hooks/useShakeOnError';
+import { compressImages } from '@/lib/compressImage';
 
 interface DamageStepProps {
   state: QuoteFormData;
@@ -14,7 +15,7 @@ interface DamageStepProps {
 }
 
 type SeverityId = 'minor' | 'moderate' | 'major' | 'unsure';
-type RejectReason = 'limit' | 'type' | 'size';
+type RejectReason = 'limit' | 'type';
 
 const severityOrder: readonly SeverityId[] = [
   'minor',
@@ -31,8 +32,6 @@ const severityDot: Record<SeverityId, string> = {
 };
 
 const MAX_FILES = 5;
-const MAX_FILE_SIZE_MB = 5;
-const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 const ACCEPTED_MIME = [
   'image/jpeg',
   'image/png',
@@ -73,10 +72,6 @@ function validateIncoming(
       rejected.push({ name: file.name, reason: 'type' });
       continue;
     }
-    if (file.size > MAX_FILE_SIZE_BYTES) {
-      rejected.push({ name: file.name, reason: 'size' });
-      continue;
-    }
     accepted.push(file);
   }
   return { accepted, rejected };
@@ -98,6 +93,7 @@ export function DamageStep({
   const severityRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [isDragging, setIsDragging] = useState(false);
   const dragCounter = useRef(0);
+  const [compressing, setCompressing] = useState(false);
   const [rejected, setRejected] = useState<
     { name: string; reason: RejectReason }[]
   >([]);
@@ -152,17 +148,22 @@ export function DamageStep({
     severityRefs.current[nextIdx]?.focus();
   }
 
-  function handleFiles(incoming: FileList | File[]) {
+  async function handleFiles(incoming: FileList | File[]) {
     const arr = Array.from(incoming);
     if (arr.length === 0) return;
     const { accepted, rejected: rej } = validateIncoming(
       arr,
       state.files.length,
     );
-    if (accepted.length > 0) {
-      addFiles(accepted);
-    }
     setRejected(rej);
+    if (accepted.length === 0) return;
+    setCompressing(true);
+    try {
+      const compressed = await compressImages(accepted);
+      addFiles(compressed);
+    } finally {
+      setCompressing(false);
+    }
   }
 
   function openPicker() {
@@ -224,11 +225,13 @@ export function DamageStep({
       ? 'text-red-hover'
       : 'text-muted-foreground';
 
-  const dropzoneMessage = isDragging
-    ? t('photos.dropzone.active')
-    : atCapacity
-      ? t('photos.dropzone.full')
-      : t('photos.dropzone.idle');
+  const dropzoneMessage = compressing
+    ? t('photos.dropzone.compressing')
+    : isDragging
+      ? t('photos.dropzone.active')
+      : atCapacity
+        ? t('photos.dropzone.full')
+        : t('photos.dropzone.idle');
 
   return (
     <div className="space-y-6">
@@ -371,24 +374,25 @@ export function DamageStep({
 
         <div
           role="button"
-          tabIndex={atCapacity ? -1 : 0}
-          aria-disabled={atCapacity}
+          tabIndex={atCapacity || compressing ? -1 : 0}
+          aria-disabled={atCapacity || compressing}
+          aria-busy={compressing}
           aria-describedby={dropzoneHelpId}
           aria-label={
             atCapacity
               ? t('photos.dropzone.ariaLabelFull')
               : t('photos.dropzone.ariaLabel')
           }
-          onClick={atCapacity ? undefined : openPicker}
-          onKeyDown={atCapacity ? undefined : onKeyDown}
+          onClick={atCapacity || compressing ? undefined : openPicker}
+          onKeyDown={atCapacity || compressing ? undefined : onKeyDown}
           onDragEnter={onDragEnter}
           onDragOver={onDragOver}
           onDragLeave={onDragLeave}
-          onDrop={atCapacity ? undefined : onDrop}
+          onDrop={atCapacity || compressing ? undefined : onDrop}
           className={[
             'group relative flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-6 py-8 text-center transition-all duration-200',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-            atCapacity
+            atCapacity || compressing
               ? 'border-border bg-muted cursor-not-allowed'
               : isDragging
                 ? 'border-primary bg-red-surface shadow-md scale-[1.01]'
@@ -414,10 +418,7 @@ export function DamageStep({
               id={dropzoneHelpId}
               className="text-xs text-muted-foreground mt-1"
             >
-              {t('photos.dropzone.help', {
-                size: MAX_FILE_SIZE_MB,
-                max: MAX_FILES,
-              })}
+              {t('photos.dropzone.help', { max: MAX_FILES })}
             </p>
           </div>
 
@@ -447,9 +448,7 @@ export function DamageStep({
                 <AlertIcon className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" />
                 <span className="flex-1">
                   <span className="font-medium">{r.name}</span> —{' '}
-                  {r.reason === 'size'
-                    ? t('photos.reject.size', { max: MAX_FILE_SIZE_MB })
-                    : t(`photos.reject.${r.reason}`)}
+                  {t(`photos.reject.${r.reason}`)}
                 </span>
               </li>
             ))}

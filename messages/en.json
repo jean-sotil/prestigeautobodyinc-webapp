@@ -386,14 +386,14 @@
             "idle": "Click to upload or drag & drop",
             "active": "Drop photos to upload",
             "full": "Photo limit reached",
-            "help": "JPG · PNG · WEBP · HEIC · up to {size} MB each · {max} photos max",
+            "compressing": "Optimizing photos…",
+            "help": "JPG · PNG · WEBP · HEIC · up to {max} photos",
             "ariaLabel": "Upload damage photos. Click or drag files to this area.",
             "ariaLabelFull": "Photo limit reached"
           },
           "reject": {
             "limit": "Photo limit reached",
-            "type": "Unsupported file type",
-            "size": "Exceeds {max} MB"
+            "type": "Unsupported file type"
           },
           "remove": "Remove {name}",
           "thumbAlt": "Damage photo: {name}",

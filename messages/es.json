@@ -386,14 +386,14 @@
             "idle": "Haga clic para subir o arrastre y suelte",
             "active": "Suelte las fotos para subir",
             "full": "Límite de fotos alcanzado",
-            "help": "JPG · PNG · WEBP · HEIC · máx. {size} MB cada una · máx. {max} fotos",
+            "compressing": "Optimizando fotos…",
+            "help": "JPG · PNG · WEBP · HEIC · máx. {max} fotos",
             "ariaLabel": "Subir fotos del daño. Haga clic o arrastre archivos a esta zona.",
             "ariaLabelFull": "Límite de fotos alcanzado"
           },
           "reject": {
             "limit": "Límite de fotos alcanzado",
-            "type": "Tipo de archivo no admitido",
-            "size": "Supera {max} MB"
+            "type": "Tipo de archivo no admitido"
           },
           "remove": "Eliminar {name}",
           "thumbAlt": "Foto del daño: {name}",
