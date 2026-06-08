@@ -49,3 +49,6 @@ next-env.d.ts
 
 # generated audit artifacts (regenerate via `npm run a11y` / `npm run contrast`)
 docs/accessibility/reports/*.json
+
+# maestro
+.maestro/
