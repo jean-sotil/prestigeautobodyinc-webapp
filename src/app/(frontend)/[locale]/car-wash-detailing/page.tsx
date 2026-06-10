@@ -89,7 +89,32 @@ export default async function CarWashDetailingPage({
         serviceName="Hand Wash & Detailing Services"
         description={t('meta.description')}
         url={`https://prestigeautobodyinc.com${localizedPath}`}
-        serviceType="Car Wash and Detailing"
+        serviceType={['Car Wash', 'Auto Detailing', 'Ceramic Coating']}
+        schemaType="AutoWash"
+        showAggregateRating
+        offerCatalog={[
+          {
+            name: 'Basic Hand Wash',
+            description:
+              'Professional hand wash, vacuum, tire shine, and window cleaning. Available for cars, SUVs, and vans.',
+            minPrice: 40,
+            maxPrice: 80,
+          },
+          {
+            name: 'Full Car Detail',
+            description:
+              'Complete interior and exterior detailing with steam cleaning, UV protectant, and high-lubricity wax.',
+            minPrice: 175,
+            maxPrice: 250,
+          },
+          {
+            name: 'Ceramic Coat',
+            description:
+              'Premium ceramic coating with full paint correction, polishing, and 2-day indoor curing process.',
+            minPrice: 1400,
+            maxPrice: 2200,
+          },
+        ]}
         locale={locale}
       />
       <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
