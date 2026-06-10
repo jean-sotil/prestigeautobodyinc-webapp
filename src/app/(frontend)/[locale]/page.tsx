@@ -34,6 +34,7 @@ import {
   AwardIcon,
   ToolsIcon,
   ThumbsUpIcon,
+  SparklesIcon,
 } from '@/components/ui/Icons';
 
 const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
@@ -243,7 +244,7 @@ export default async function HomePage({
           }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             <ServiceCard
               icon={<CollisionIcon className="w-6 h-6" aria-hidden="true" />}
               title={t('services.collision.title')}
@@ -271,6 +272,14 @@ export default async function HomePage({
               description={t('services.insurance.description')}
               href="/insurance-claims"
               linkLabel={common('learnMore')}
+            />
+            <ServiceCard
+              icon={<SparklesIcon className="w-6 h-6" aria-hidden="true" />}
+              title={t('services.carWash.title')}
+              description={t('services.carWash.description')}
+              href="/car-wash-detailing"
+              linkLabel={common('learnMore')}
+              highlight
             />
           </div>
         </div>
@@ -330,7 +339,7 @@ export default async function HomePage({
           aria-hidden="true"
           fill
           sizes="100vw"
-          quality={70}
+          quality={75}
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-foreground/90 dark:bg-black/90" />
