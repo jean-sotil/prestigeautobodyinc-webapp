@@ -1465,6 +1465,19 @@
         "rimDetailing": "Rim Detailing",
         "rimFullService": "Rim Full Service (R&I 4 Wheels)",
         "wheelRepair": "Wheel Repair"
+      },
+      "descriptions": {
+        "headlights": "Restore cloudy, oxidized headlights to clear brightness for better night visibility and a sharper look.",
+        "floorMat": "Deep-clean rubber or fabric floor mats to eliminate embedded dirt, mud, and debris.",
+        "tintRemoval": "Safe, scratch-free removal of old, bubbling, or faded window tint without damaging the glass.",
+        "carpetShampoo": "Hot-water extraction shampooing lifts deep stains, odors, and grime from your interior carpets.",
+        "engineDetail": "Thorough engine bay cleaning removes grease, dust, and buildup for a showroom-ready look.",
+        "upholstery": "Professional fabric seat and surface cleaning to remove stains and trapped odors throughout the cabin.",
+        "treeSap": "Specialized solvent treatment safely dissolves sticky sap deposits without harming your paint or finish.",
+        "leatherRecondition": "Cleanse, condition, and protect leather seats to restore softness and prevent drying or cracking.",
+        "rimDetailing": "Precision cleaning of each rim removes brake dust and road grime for a brilliant, like-new shine.",
+        "rimFullService": "Full remove-and-install service with a complete detail on all four wheels for a flawless result.",
+        "wheelRepair": "Professional repair of curb rash, scuffs, and cosmetic wheel damage to restore factory appearance."
       }
     },
     "calculator": {

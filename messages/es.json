@@ -1465,6 +1465,19 @@
         "rimDetailing": "Detallado de Rines",
         "rimFullService": "Servicio Completo de Rines (R&I 4 Ruedas)",
         "wheelRepair": "Reparación de Ruedas"
+      },
+      "descriptions": {
+        "headlights": "Restaura los faros opacos u oxidados a su claridad original para mejor visibilidad nocturna y mejor apariencia.",
+        "floorMat": "Limpieza profunda de tapetes de goma o tela para eliminar tierra incrustada, barro y residuos.",
+        "tintRemoval": "Retiro seguro de polarizado viejo, con burbujas o desvanecido sin rayar ni dañar el vidrio.",
+        "carpetShampoo": "Extracción con agua caliente que elimina manchas profundas, olores y suciedad de las alfombras interiores.",
+        "engineDetail": "Limpieza a fondo del compartimento del motor para eliminar grasa, polvo y acumulación de residuos.",
+        "upholstery": "Limpieza profesional de asientos y superficies de tela para eliminar manchas y olores de la cabina.",
+        "treeSap": "Tratamiento especializado que disuelve y retira depósitos pegajosos de savia sin dañar la pintura o el acabado.",
+        "leatherRecondition": "Limpia, acondiciona y protege los asientos de cuero para restaurar su suavidad y prevenir grietas.",
+        "rimDetailing": "Limpieza precisa de cada rin para eliminar polvo de frenos y suciedad del camino, dejándolos como nuevos.",
+        "rimFullService": "Servicio completo de retiro e instalación con detallado total en las cuatro ruedas para un resultado impecable.",
+        "wheelRepair": "Reparación profesional de rasguños y daños cosméticos en ruedas para restaurar su apariencia de fábrica."
       }
     },
     "calculator": {

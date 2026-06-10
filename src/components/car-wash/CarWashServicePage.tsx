@@ -1,4 +1,17 @@
 import { getTranslations } from 'next-intl/server';
+import {
+  Lightbulb,
+  Layers,
+  Eye,
+  Droplets,
+  Wrench,
+  Sofa,
+  Leaf,
+  Shield,
+  CircleDot,
+  Settings,
+  Hammer,
+} from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
 import { CTABanner } from '@/components/services';
@@ -160,40 +173,100 @@ export async function CarWashServicePage({ locale }: CarWashServicePageProps) {
             {t('alaCarte.subtitle')}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {[
-              { name: t('alaCarte.items.headlights'), price: '$49.99 each' },
-              { name: t('alaCarte.items.floorMat'), price: '$25.99' },
               {
+                Icon: Lightbulb,
+                name: t('alaCarte.items.headlights'),
+                description: t('alaCarte.descriptions.headlights'),
+                price: '$49.99 each',
+              },
+              {
+                Icon: Layers,
+                name: t('alaCarte.items.floorMat'),
+                description: t('alaCarte.descriptions.floorMat'),
+                price: '$25.99',
+              },
+              {
+                Icon: Eye,
                 name: t('alaCarte.items.tintRemoval'),
+                description: t('alaCarte.descriptions.tintRemoval'),
                 price: t('alaCarte.startingAt') + ' $75.00',
               },
-              { name: t('alaCarte.items.carpetShampoo'), price: '$75.00' },
-              { name: t('alaCarte.items.engineDetail'), price: '$50.00' },
-              { name: t('alaCarte.items.upholstery'), price: '$100.00*' },
               {
+                Icon: Droplets,
+                name: t('alaCarte.items.carpetShampoo'),
+                description: t('alaCarte.descriptions.carpetShampoo'),
+                price: '$75.00',
+              },
+              {
+                Icon: Wrench,
+                name: t('alaCarte.items.engineDetail'),
+                description: t('alaCarte.descriptions.engineDetail'),
+                price: '$50.00',
+              },
+              {
+                Icon: Sofa,
+                name: t('alaCarte.items.upholstery'),
+                description: t('alaCarte.descriptions.upholstery'),
+                price: '$100.00*',
+              },
+              {
+                Icon: Leaf,
                 name: t('alaCarte.items.treeSap'),
+                description: t('alaCarte.descriptions.treeSap'),
                 price: t('alaCarte.askEstimate'),
               },
-              { name: t('alaCarte.items.leatherRecondition'), price: '$69.00' },
-              { name: t('alaCarte.items.rimDetailing'), price: '$60.00' },
-              { name: t('alaCarte.items.rimFullService'), price: '$100.00' },
-              { name: t('alaCarte.items.wheelRepair'), price: '$195.00' },
+              {
+                Icon: Shield,
+                name: t('alaCarte.items.leatherRecondition'),
+                description: t('alaCarte.descriptions.leatherRecondition'),
+                price: '$69.00',
+              },
+              {
+                Icon: CircleDot,
+                name: t('alaCarte.items.rimDetailing'),
+                description: t('alaCarte.descriptions.rimDetailing'),
+                price: '$60.00',
+              },
+              {
+                Icon: Settings,
+                name: t('alaCarte.items.rimFullService'),
+                description: t('alaCarte.descriptions.rimFullService'),
+                price: '$100.00',
+              },
+              {
+                Icon: Hammer,
+                name: t('alaCarte.items.wheelRepair'),
+                description: t('alaCarte.descriptions.wheelRepair'),
+                price: '$195.00',
+              },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-between bg-white dark:bg-[#2D2D2D] rounded-xl px-4 py-3 border border-border"
+                className="group bg-white dark:bg-[#2D2D2D] rounded-2xl p-5 border border-border hover:border-primary/40 hover:shadow-md transition-all duration-200"
               >
-                <span className="text-sm font-medium text-foreground">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <item.Icon
+                      className="w-5 h-5 text-primary"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <span className="text-sm font-bold text-primary whitespace-nowrap ml-3 mt-1">
+                    {item.price}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-sm text-foreground mb-1.5 leading-tight">
                   {item.name}
-                </span>
-                <span className="text-sm font-bold text-primary whitespace-nowrap ml-2">
-                  {item.price}
-                </span>
+                </h3>
+                <p className="text-xs text-(--text-secondary) leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
-          <p className="text-center text-(--text-secondary) text-xs mt-4">
+          <p className="text-center text-(--text-secondary) text-xs mt-6">
             * {t('alaCarte.inspectionNote')}
           </p>
         </div>
