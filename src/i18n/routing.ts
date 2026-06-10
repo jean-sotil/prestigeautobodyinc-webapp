@@ -79,6 +79,10 @@ export const routing = defineRouting({
       en: '/blog',
       es: '/blog',
     },
+    '/car-wash-detailing': {
+      en: '/car-wash-detailing',
+      es: '/lavado-y-detallado',
+    },
   },
 });
 
