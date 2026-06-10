@@ -98,7 +98,7 @@ export default async function LocaleLayout({
   const messages = (await getMessages({ locale })) as MessagesType;
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
