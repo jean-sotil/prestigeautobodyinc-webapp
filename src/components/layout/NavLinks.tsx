@@ -40,6 +40,11 @@ export function useServiceItems(): NavItem[] {
       label: t('autoPainting'),
       description: t('autoPaintingDesc'),
     },
+    {
+      href: '/car-wash-detailing',
+      label: t('carWashDetailing'),
+      description: t('carWashDetailingDesc'),
+    },
   ];
 }
 
