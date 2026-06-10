@@ -179,6 +179,10 @@ const nextConfig: NextConfig = {
         source: '/es/terminos-de-servicio',
         destination: '/es/terms-of-service',
       },
+      {
+        source: '/es/lavado-y-detallado',
+        destination: '/es/car-wash-detailing',
+      },
     ];
   },
 };

@@ -26,7 +26,9 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "blog": "Blog",
-    "getAQuote": "Get a Quote"
+    "getAQuote": "Get a Quote",
+    "carWashDetailing": "Car Wash & Detailing",
+    "carWashDetailingDesc": "Hand wash, full detail & ceramic coating"
   },
   "blog": {
     "meta": {
@@ -183,6 +185,10 @@
       "insurance": {
         "title": "Insurance Claims",
         "description": "We work directly with all insurance companies to streamline your claims process and get you back on the road faster."
+      },
+      "carWash": {
+        "title": "Car Wash & Detailing",
+        "description": "Professional hand wash, full car detail, and ceramic coating services. Book your appointment today."
       }
     },
     "whyChooseUs": {
@@ -1384,6 +1390,134 @@
       "body": "Every car in our gallery started with a free, no-obligation quote. Bring yours in — or send us a photo of the damage and we'll take it from there.",
       "primary": "Get a Free Quote",
       "secondary": "Contact the Shop"
+    }
+  },
+  "carWash": {
+    "meta": {
+      "title": "Hand Wash & Detailing Services Silver Spring, MD | Prestige Auto Body",
+      "description": "Professional hand car wash, full detailing, and ceramic coating in Silver Spring, MD. Starting at $40. Book your appointment via WhatsApp. Compact, SUV & van pricing available."
+    },
+    "hero": {
+      "badge": "New Service",
+      "title": "Professional Hand Wash & Detailing in Silver Spring, MD",
+      "description": "Premium hand wash, full car detail, ceramic coating, and à la carte services for all vehicle types. Expert care for your vehicle's interior and exterior.",
+      "appointmentNote": "We work by appointment only — book via WhatsApp or phone call."
+    },
+    "servicesSection": {
+      "overline": "Our Services",
+      "heading": "Hand Wash & Detailing Packages",
+      "subtitle": "Choose the level of care your vehicle needs. All services performed by trained professionals using premium products."
+    },
+    "services": {
+      "basicWash": {
+        "name": "Basic Hand Wash",
+        "description": "Complete exterior hand wash with interior vacuum and wipe-down. Perfect for regular maintenance.",
+        "includes": {
+          "item1": "Exterior Hand Wash",
+          "item2": "Chamois Dry",
+          "item3": "Tires Cleaned & Dressing Applied",
+          "item4": "Door Jambs Cleaned",
+          "item5": "Dash Wiped",
+          "item6": "Ashtrays Cleaned",
+          "item7": "Vehicle Interior Vacuum",
+          "item8": "Windows Cleaned"
+        }
+      },
+      "fullDetail": {
+        "name": "Full Car Detail",
+        "description": "Deep interior and exterior cleaning with wax and UV protection. Your car will look showroom-ready.",
+        "includes": {
+          "item1": "Everything in Basic Service",
+          "item2": "Interior Deep Cleaning",
+          "item3": "Seats Steam Cleaned",
+          "item4": "Door Panels & Dash Brush Cleaned and Dressed",
+          "item5": "Exterior Wax with High-Lubricity Formula",
+          "item6": "Interior & Exterior UV Protector Applied"
+        }
+      },
+      "ceramicCoat": {
+        "name": "Ceramic Coat",
+        "description": "Premium ceramic coating for long-lasting protection. Full paint correction and polishing included. Vehicle must stay 2 days minimum.",
+        "includes": {
+          "item1": "Full Paint Correction & Polishing",
+          "item2": "Ceramic Coating Application",
+          "item3": "Hydrophobic & UV Protection",
+          "item4": "2-Day Indoor Curing Process"
+        }
+      }
+    },
+    "alaCarte": {
+      "overline": "Add-Ons",
+      "heading": "À La Carte Services",
+      "subtitle": "Enhance any package with individual services tailored to your vehicle's needs.",
+      "startingAt": "Starting at",
+      "askEstimate": "Ask for Estimate",
+      "inspectionNote": "Inspection required for final price on select services",
+      "items": {
+        "headlights": "Headlights Polished",
+        "floorMat": "Floor Mat Cleaning",
+        "tintRemoval": "Tint Removal",
+        "carpetShampoo": "Carpet Shampoo",
+        "engineDetail": "Engine Detail",
+        "upholstery": "Upholstery Cleaning",
+        "treeSap": "Tree Sap Removal",
+        "leatherRecondition": "Leather Recondition",
+        "rimDetailing": "Rim Detailing",
+        "rimFullService": "Rim Full Service (R&I 4 Wheels)",
+        "wheelRepair": "Wheel Repair"
+      }
+    },
+    "calculator": {
+      "overline": "Price Calculator",
+      "heading": "Estimate Your Service Cost",
+      "subtitle": "Get an approximate cost for your service. Final price will be determined by our expert after a physical evaluation of your vehicle.",
+      "step1": "1. Select Your Vehicle Size",
+      "step2": "2. Choose Your Service",
+      "step3": "3. Add Extras (Optional)",
+      "vehicleSizes": {
+        "car": "Car / Compact",
+        "smallSuv": "Small SUV",
+        "largeSuv": "Large SUV / Van"
+      },
+      "serviceTypes": {
+        "basicWash": "Basic Hand Wash",
+        "fullDetail": "Full Car Detail",
+        "ceramicCoat": "Ceramic Coat"
+      },
+      "extras": {
+        "headlights": "Headlights Polished",
+        "floorMat": "Floor Mat Cleaning",
+        "tintRemoval": "Tint Removal",
+        "carpetShampoo": "Carpet Shampoo",
+        "engineDetail": "Engine Detail",
+        "upholstery": "Upholstery Cleaning",
+        "leatherRecondition": "Leather Recondition",
+        "rimDetailing": "Rim Detailing",
+        "rimFullService": "Rim Full Service",
+        "wheelRepair": "Wheel Repair"
+      },
+      "vehicleLabel": "Vehicle",
+      "serviceLabel": "Service",
+      "extrasLabel": "Extras",
+      "estimatedTotal": "Estimated Total",
+      "disclaimer": "This is an approximate cost. The final price will be determined by a certified expert after a physical evaluation of your vehicle.",
+      "bookVia": "Book via WhatsApp",
+      "whatsappIntro": "Hi! I'd like to book a car wash/detailing appointment.",
+      "whatsappNote": "Please confirm availability and final pricing.",
+      "sendEstimate": "Send Estimate via WhatsApp"
+    },
+    "appointment": {
+      "overline": "Book Now",
+      "heading": "Schedule Your Appointment",
+      "subtitle": "Tap below to send us a WhatsApp message with your details. We'll confirm your appointment time.",
+      "tapToBook": "Tap to book via WhatsApp",
+      "workByAppointment": "We work by appointment only to ensure dedicated attention to your vehicle.",
+      "whatsappMessage": "Hi! I'd like to schedule a car wash/detailing appointment.\n\nName: \nVehicle: \nService needed: \nPreferred date/time: "
+    },
+    "cta": {
+      "headline": "Ready for a Spotless Ride?",
+      "subtitle": "Book your hand wash or detailing appointment today. Professional care for every vehicle.",
+      "button": "Get a Quote"
     }
   }
 }
