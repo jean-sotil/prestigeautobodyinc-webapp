@@ -3,6 +3,8 @@ import { cache } from 'react';
 
 export interface HeroMedia {
   url: string;
+  /** Pre-resized tablet variant (≤1024 px wide) — use as src when the source is too large for the Next.js image optimizer. */
+  tabletUrl?: string | null;
   width: number | null;
   height: number | null;
   alt: { en?: string; es?: string } | null;
@@ -35,8 +37,10 @@ async function fetchMediaByFilename(
       return null;
     }
 
+    const sizes = (doc as { sizes?: Record<string, { url?: string }> }).sizes;
     return {
       url: doc.url,
+      tabletUrl: sizes?.tablet?.url ?? null,
       width: doc.width ?? null,
       height: doc.height ?? null,
       alt: (doc as { alt?: HeroMedia['alt'] }).alt ?? null,

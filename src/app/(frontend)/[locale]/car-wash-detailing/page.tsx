@@ -5,6 +5,7 @@ import { BASE_URL } from '@/lib/seo';
 import { getPathname } from '@/i18n/navigation';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 import { ServiceJsonLd } from '@/components/services';
+import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
 import { CarWashServicePage } from '@/components/car-wash/CarWashServicePage';
 
 const PATHNAME = '/car-wash-detailing' as const;
@@ -68,8 +69,11 @@ export default async function CarWashDetailingPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const nav = await getTranslations({ locale, namespace: 'nav' });
-  const t = await getTranslations({ locale, namespace: 'carWash' });
+  const [nav, t, heroMedia] = await Promise.all([
+    getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'carWash' }),
+    getMediaByFilename('hero_banner.png'),
+  ]);
 
   const localizedPath = getPathname({
     locale: locale as 'en' | 'es',
@@ -118,7 +122,11 @@ export default async function CarWashDetailingPage({
         locale={locale}
       />
       <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
-      <CarWashServicePage locale={locale} />
+      <CarWashServicePage
+        locale={locale}
+        heroMedia={heroMedia}
+        heroAlt={pickAlt(heroMedia, locale, t('hero.imageAlt'))}
+      />
     </>
   );
 }

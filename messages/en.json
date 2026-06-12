@@ -1401,7 +1401,8 @@
       "badge": "New Service",
       "title": "Professional Hand Wash & Detailing in Silver Spring, MD",
       "description": "Premium hand wash, full car detail, ceramic coating, and à la carte services for all vehicle types. Expert care for your vehicle's interior and exterior.",
-      "appointmentNote": "We work by appointment only — book via WhatsApp or phone call."
+      "appointmentNote": "We work by appointment only — book via WhatsApp or phone call.",
+      "imageAlt": "Professional hand car wash and detailing service at Prestige Auto Body in Silver Spring, MD"
     },
     "servicesSection": {
       "overline": "Our Services",
