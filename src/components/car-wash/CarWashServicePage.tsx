@@ -64,6 +64,7 @@ export async function CarWashServicePage({
         t('services.fullDetail.includes.item4'),
         t('services.fullDetail.includes.item5'),
         t('services.fullDetail.includes.item6'),
+        t('services.fullDetail.includes.item7'),
       ],
     },
     {

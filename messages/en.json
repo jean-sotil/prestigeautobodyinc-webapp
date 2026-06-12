@@ -1416,7 +1416,7 @@
         "includes": {
           "item1": "Exterior Hand Wash",
           "item2": "Chamois Dry",
-          "item3": "Tires Cleaned & Dressing Applied",
+          "item3": "Tires Cleaned",
           "item4": "Door Jambs Cleaned",
           "item5": "Dash Wiped",
           "item6": "Ashtrays Cleaned",
@@ -1433,7 +1433,8 @@
           "item3": "Seats Steam Cleaned",
           "item4": "Door Panels & Dash Brush Cleaned and Dressed",
           "item5": "Exterior Wax with High-Lubricity Formula",
-          "item6": "Interior & Exterior UV Protector Applied"
+          "item6": "Interior & Exterior UV Protector Applied",
+          "item7": "Tires Cleaned & Dressing Applied"
         }
       },
       "ceramicCoat": {
