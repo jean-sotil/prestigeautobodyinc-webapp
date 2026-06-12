@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import {
   Lightbulb,
@@ -15,14 +16,21 @@ import {
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
 import { CTABanner } from '@/components/services';
+import type { HeroMedia } from '@/lib/heroMedia';
 import { CarWashCalculator } from './CarWashCalculator';
 import { CarWashWhatsApp } from './CarWashWhatsApp';
 
 interface CarWashServicePageProps {
   locale: string;
+  heroMedia?: HeroMedia | null;
+  heroAlt?: string;
 }
 
-export async function CarWashServicePage({ locale }: CarWashServicePageProps) {
+export async function CarWashServicePage({
+  locale,
+  heroMedia,
+  heroAlt,
+}: CarWashServicePageProps) {
   const [t, h, r] = await Promise.all([
     getTranslations({ locale, namespace: 'carWash' }),
     getTranslations({ locale, namespace: 'header' }),
@@ -78,12 +86,24 @@ export async function CarWashServicePage({ locale }: CarWashServicePageProps) {
         className="bg-foreground relative w-full min-h-80 sm:min-h-96 lg:min-h-110 overflow-hidden flex items-center"
         aria-labelledby="carwash-hero-heading"
       >
+        {heroMedia?.url && (
+          <Image
+            src={heroMedia.tabletUrl ?? heroMedia.url}
+            alt={heroAlt ?? ''}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1600px"
+            priority
+            fetchPriority="high"
+            quality={75}
+            className="object-cover"
+          />
+        )}
         <div
           className="absolute inset-0"
           aria-hidden="true"
           style={{
             background:
-              'linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.7) 40%, rgba(198,40,40,0.3) 100%)',
+              'linear-gradient(135deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.40) 50%, rgba(198,40,40,0.20) 100%)',
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-16 w-full">
