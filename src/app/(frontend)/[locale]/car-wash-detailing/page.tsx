@@ -14,7 +14,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
+const OG_IMAGE =
+  'https://ozvvbnwhcfpq2umh.public.blob.vercel-storage.com/hero_banner-1024x434.png';
 
 export async function generateMetadata({
   params,
@@ -52,7 +53,7 @@ export async function generateMetadata({
       locale: ogLocale,
       alternateLocale: locale === 'en' ? 'es_US' : 'en_US',
       type: 'website',
-      images: [{ url: OG_IMAGE, width: 1920, height: 1080, alt: title }],
+      images: [{ url: OG_IMAGE, width: 1024, height: 434, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
