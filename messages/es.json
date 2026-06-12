@@ -1438,7 +1438,7 @@
         }
       },
       "ceramicCoat": {
-        "name": "Ceramic Coat",
+        "name": "Ceramic Coating",
         "description": "Recubrimiento cerámico premium para protección duradera. Corrección completa de pintura y pulido incluidos. El vehículo debe permanecer mínimo 2 días.",
         "includes": {
           "item1": "Corrección y Pulido Completo de Pintura",
@@ -1497,7 +1497,7 @@
       "serviceTypes": {
         "basicWash": "Lavado Básico a Mano",
         "fullDetail": "Detallado Completo",
-        "ceramicCoat": "Ceramic Coat"
+        "ceramicCoat": "Ceramic Coating"
       },
       "extras": {
         "headlights": "Pulido de Faros",
