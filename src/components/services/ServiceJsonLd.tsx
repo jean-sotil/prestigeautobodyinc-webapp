@@ -1,4 +1,15 @@
-import { BUSINESS_INFO, getPostalAddress } from '@/lib/business';
+import {
+  BUSINESS_INFO,
+  getPostalAddress,
+  getAggregateRating,
+} from '@/lib/business';
+
+interface OfferItem {
+  name: string;
+  description?: string;
+  minPrice: number;
+  maxPrice?: number;
+}
 
 interface ServiceJsonLdProps {
   serviceName: string;
@@ -6,6 +17,9 @@ interface ServiceJsonLdProps {
   url: string;
   serviceType?: string | string[];
   locale?: string;
+  schemaType?: string;
+  showAggregateRating?: boolean;
+  offerCatalog?: OfferItem[];
 }
 
 export function ServiceJsonLd({
@@ -14,8 +28,10 @@ export function ServiceJsonLd({
   url,
   serviceType,
   locale = 'en',
+  schemaType = 'AutoRepair',
+  showAggregateRating = false,
+  offerCatalog,
 }: ServiceJsonLdProps) {
-  // Build service type array - use provided value or default to service name
   const serviceTypes = serviceType
     ? Array.isArray(serviceType)
       ? serviceType
@@ -24,7 +40,7 @@ export function ServiceJsonLd({
 
   const serviceSchema = {
     '@context': 'https://schema.org',
-    '@type': 'AutoRepair',
+    '@type': schemaType,
     name: serviceName,
     description,
     url,
@@ -40,6 +56,24 @@ export function ServiceJsonLd({
     serviceType: serviceTypes,
     priceRange: BUSINESS_INFO.priceRange,
     '@language': locale,
+    ...(showAggregateRating && { aggregateRating: getAggregateRating() }),
+    ...(offerCatalog?.length && {
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: serviceName,
+        itemListElement: offerCatalog.map((item) => ({
+          '@type': 'Offer',
+          name: item.name,
+          ...(item.description && { description: item.description }),
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            minPrice: item.minPrice,
+            ...(item.maxPrice !== undefined && { maxPrice: item.maxPrice }),
+            priceCurrency: 'USD',
+          },
+        })),
+      },
+    }),
   };
 
   return (

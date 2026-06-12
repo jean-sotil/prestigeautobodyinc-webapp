@@ -9,6 +9,8 @@ interface ServiceCardProps {
   description: string;
   href: AppHref | string;
   linkLabel: string;
+  /** When true, renders a "NEW" badge to highlight the service */
+  highlight?: boolean;
 }
 
 /**
@@ -21,6 +23,7 @@ export function ServiceCard({
   description,
   href,
   linkLabel,
+  highlight,
 }: ServiceCardProps) {
   return (
     <div
@@ -56,6 +59,11 @@ export function ServiceCard({
 
       {/* Title */}
       <h3 className="relative font-display text-lg font-bold tracking-display text-foreground mb-1.5">
+        {highlight && (
+          <span className="inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-primary text-white rounded-full mr-2 align-middle">
+            NEW
+          </span>
+        )}
         {title}
       </h3>
 

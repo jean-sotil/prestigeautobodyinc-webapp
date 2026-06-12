@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
@@ -13,6 +13,7 @@ import {
   CarIcon,
   WrenchIcon,
   PaintbrushIcon,
+  SparklesIcon,
   ChevronRightIcon,
 } from '@/components/ui/Icons';
 import {
@@ -44,6 +45,7 @@ const SERVICE_ICONS: Record<string, ServiceIcon> = {
   '/collision-repair': CarIcon,
   '/auto-body-services': WrenchIcon,
   '/auto-painting': PaintbrushIcon,
+  '/car-wash-detailing': SparklesIcon,
 };
 
 function ServiceLinkCard({ item }: { item: NavItem }) {
@@ -276,13 +278,21 @@ export default function Header() {
 
 function ServicesMenu({ label, items }: { label: string; items: NavItem[] }) {
   const isActive = useIsGroupActive(items);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+
   return (
     <NavigationMenuItem>
       <NavigationMenuTrigger
         className={`px-0 py-1 text-sm font-medium bg-transparent hover:bg-transparent focus:bg-transparent data-[popup-open]:bg-transparent ${
-          isActive ? 'text-primary' : 'text-foreground hover:text-primary'
+          mounted && isActive
+            ? 'text-primary'
+            : 'text-foreground hover:text-primary'
         }`}
-        aria-current={isActive ? 'page' : undefined}
+        aria-current={mounted && isActive ? 'page' : undefined}
       >
         {label}
       </NavigationMenuTrigger>

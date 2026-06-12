@@ -26,7 +26,9 @@
     "privacyPolicy": "Política de Privacidad",
     "termsOfService": "Términos de Servicio",
     "blog": "Blog",
-    "getAQuote": "Obtener Cotización"
+    "getAQuote": "Obtener Cotización",
+    "carWashDetailing": "Lavado y Detallado",
+    "carWashDetailingDesc": "Lavado a mano, detallado completo y ceramic coating"
   },
   "blog": {
     "meta": {
@@ -183,6 +185,10 @@
       "insurance": {
         "title": "Reclamos de Seguro",
         "description": "Trabajamos directamente con todas las compañías de seguros para agilizar su proceso de reclamos y devolverle la carretera más rápido."
+      },
+      "carWash": {
+        "title": "Lavado y Detallado",
+        "description": "Lavado profesional a mano, detallado completo y ceramic coating. Reserve su cita hoy."
       }
     },
     "whyChooseUs": {
@@ -1384,6 +1390,149 @@
       "body": "Cada auto en nuestra galería comenzó con una cotización gratuita y sin compromiso. Tráiganos el suyo — o envíenos una foto del daño y nosotros nos encargamos.",
       "primary": "Solicitar Cotización Gratis",
       "secondary": "Contactar al Taller"
+    }
+  },
+  "carWash": {
+    "meta": {
+      "title": "Lavado a Mano y Detallado Silver Spring | Prestige Auto Body",
+      "description": "Lavado profesional a mano, detallado completo y ceramic coating en Silver Spring, MD. Desde $40. Reserve por WhatsApp. Precios para compactos, SUVs y vans."
+    },
+    "hero": {
+      "badge": "Nuevo Servicio",
+      "title": "Lavado a Mano y Detallado Profesional en Silver Spring, MD",
+      "description": "Lavado premium a mano, detallado completo, ceramic coating y servicios à la carte para todo tipo de vehículo. Cuidado experto para el interior y exterior de su vehículo.",
+      "appointmentNote": "Trabajamos solo con cita previa — reserve por WhatsApp o llamada telefónica.",
+      "imageAlt": "Servicio profesional de lavado a mano y detallado de autos en Prestige Auto Body en Silver Spring, MD"
+    },
+    "servicesSection": {
+      "overline": "Nuestros Servicios",
+      "heading": "Paquetes de Lavado y Detallado",
+      "subtitle": "Elija el nivel de cuidado que necesita su vehículo. Todos los servicios son realizados por profesionales capacitados con productos premium."
+    },
+    "services": {
+      "basicWash": {
+        "name": "Lavado Básico a Mano",
+        "description": "Lavado exterior completo a mano con aspirado interior y limpieza. Perfecto para mantenimiento regular.",
+        "includes": {
+          "item1": "Lavado Exterior a Mano",
+          "item2": "Secado con Gamuza",
+          "item3": "Neumáticos Limpiados",
+          "item4": "Marcos de Puertas Limpiados",
+          "item5": "Tablero Limpiado",
+          "item6": "Ceniceros Limpiados",
+          "item7": "Aspirado Interior del Vehículo",
+          "item8": "Ventanas Limpiadas"
+        }
+      },
+      "fullDetail": {
+        "name": "Detallado Completo",
+        "description": "Limpieza profunda interior y exterior con cera y protección UV. Su auto quedará como de sala de exhibición.",
+        "includes": {
+          "item1": "Todo lo del Servicio Básico",
+          "item2": "Limpieza Profunda Interior",
+          "item3": "Asientos Limpiados a Vapor",
+          "item4": "Paneles de Puertas y Tablero Cepillados y Acondicionados",
+          "item5": "Cera Exterior con Fórmula de Alta Lubricidad",
+          "item6": "Protector UV Interior y Exterior Aplicado",
+          "item7": "Neumáticos Limpiados y Brillo Aplicado"
+        }
+      },
+      "ceramicCoat": {
+        "name": "Ceramic Coating",
+        "description": "Recubrimiento cerámico premium para protección duradera. Corrección completa de pintura y pulido incluidos. El vehículo debe permanecer mínimo 2 días.",
+        "includes": {
+          "item1": "Corrección y Pulido Completo de Pintura",
+          "item2": "Aplicación de Recubrimiento Cerámico",
+          "item3": "Protección Hidrofóbica y UV",
+          "item4": "Proceso de Curado Interior de 2 Días"
+        }
+      }
+    },
+    "alaCarte": {
+      "overline": "Extras",
+      "heading": "Servicios À La Carte",
+      "subtitle": "Mejore cualquier paquete con servicios individuales adaptados a las necesidades de su vehículo.",
+      "startingAt": "Desde",
+      "askEstimate": "Consultar Precio",
+      "inspectionNote": "Inspección requerida para precio final en servicios selectos",
+      "items": {
+        "headlights": "Pulido de Faros",
+        "floorMat": "Limpieza de Alfombras",
+        "tintRemoval": "Remoción de Polarizado",
+        "carpetShampoo": "Shampoo de Alfombra",
+        "engineDetail": "Detallado de Motor",
+        "upholstery": "Limpieza de Tapicería",
+        "treeSap": "Remoción de Savia de Árbol",
+        "leatherRecondition": "Reacondicionamiento de Cuero",
+        "rimDetailing": "Detallado de Rines",
+        "rimFullService": "Servicio Completo de Rines (R&I 4 Ruedas)",
+        "wheelRepair": "Reparación de Ruedas"
+      },
+      "descriptions": {
+        "headlights": "Restaura los faros opacos u oxidados a su claridad original para mejor visibilidad nocturna y mejor apariencia.",
+        "floorMat": "Limpieza profunda de tapetes de goma o tela para eliminar tierra incrustada, barro y residuos.",
+        "tintRemoval": "Retiro seguro de polarizado viejo, con burbujas o desvanecido sin rayar ni dañar el vidrio.",
+        "carpetShampoo": "Extracción con agua caliente que elimina manchas profundas, olores y suciedad de las alfombras interiores.",
+        "engineDetail": "Limpieza a fondo del compartimento del motor para eliminar grasa, polvo y acumulación de residuos.",
+        "upholstery": "Limpieza profesional de asientos y superficies de tela para eliminar manchas y olores de la cabina.",
+        "treeSap": "Tratamiento especializado que disuelve y retira depósitos pegajosos de savia sin dañar la pintura o el acabado.",
+        "leatherRecondition": "Limpia, acondiciona y protege los asientos de cuero para restaurar su suavidad y prevenir grietas.",
+        "rimDetailing": "Limpieza precisa de cada rin para eliminar polvo de frenos y suciedad del camino, dejándolos como nuevos.",
+        "rimFullService": "Servicio completo de retiro e instalación con detallado total en las cuatro ruedas para un resultado impecable.",
+        "wheelRepair": "Reparación profesional de rasguños y daños cosméticos en ruedas para restaurar su apariencia de fábrica."
+      }
+    },
+    "calculator": {
+      "overline": "Calculadora de Precios",
+      "heading": "Estime el Costo de Su Servicio",
+      "subtitle": "Obtenga un costo aproximado de su servicio. El precio final será determinado por nuestro experto después de una evaluación física de su vehículo.",
+      "step1": "1. Seleccione el Tamaño de Su Vehículo",
+      "step2": "2. Elija Su Servicio",
+      "step3": "3. Agregue Extras (Opcional)",
+      "vehicleSizes": {
+        "car": "Auto / Compacto",
+        "smallSuv": "SUV Pequeño",
+        "largeSuv": "SUV Grande / Van"
+      },
+      "serviceTypes": {
+        "basicWash": "Lavado Básico a Mano",
+        "fullDetail": "Detallado Completo",
+        "ceramicCoat": "Ceramic Coating"
+      },
+      "extras": {
+        "headlights": "Pulido de Faros",
+        "floorMat": "Limpieza de Alfombras",
+        "tintRemoval": "Remoción de Polarizado",
+        "carpetShampoo": "Shampoo de Alfombra",
+        "engineDetail": "Detallado de Motor",
+        "upholstery": "Limpieza de Tapicería",
+        "leatherRecondition": "Reacondicionamiento de Cuero",
+        "rimDetailing": "Detallado de Rines",
+        "rimFullService": "Servicio Completo de Rines",
+        "wheelRepair": "Reparación de Ruedas"
+      },
+      "vehicleLabel": "Vehículo",
+      "serviceLabel": "Servicio",
+      "extrasLabel": "Extras",
+      "estimatedTotal": "Total Estimado",
+      "disclaimer": "Este es un costo aproximado. El precio final será determinado por un experto certificado después de una evaluación física de su vehículo.",
+      "bookVia": "Reservar por WhatsApp",
+      "whatsappIntro": "¡Hola! Me gustaría reservar una cita de lavado/detallado.",
+      "whatsappNote": "Por favor confirmen disponibilidad y precio final.",
+      "sendEstimate": "Enviar Estimado por WhatsApp"
+    },
+    "appointment": {
+      "overline": "Reservar Ahora",
+      "heading": "Agende Su Cita",
+      "subtitle": "Toque abajo para enviarnos un mensaje de WhatsApp con sus datos. Confirmaremos su horario de cita.",
+      "tapToBook": "Toque para reservar por WhatsApp",
+      "workByAppointment": "Trabajamos solo con cita previa para asegurar atención dedicada a su vehículo.",
+      "whatsappMessage": "¡Hola! Me gustaría agendar una cita de lavado/detallado.\n\nNombre: \nVehículo: \nServicio necesario: \nFecha/hora preferida: "
+    },
+    "cta": {
+      "headline": "¿Listo Para un Auto Impecable?",
+      "subtitle": "Reserve su cita de lavado o detallado hoy. Cuidado profesional para todo tipo de vehículo.",
+      "button": "Solicitar Cotización"
     }
   }
 }

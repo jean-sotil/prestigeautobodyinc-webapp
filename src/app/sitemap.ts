@@ -53,6 +53,12 @@ const pages: PageEntry[] = [
   },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
   {
+    path: '/car-wash-detailing',
+    changeFrequency: 'weekly',
+    priority: 0.9,
+    paths: { en: '/car-wash-detailing', es: '/lavado-y-detallado' },
+  },
+  {
     path: '/get-a-quote',
     changeFrequency: 'monthly',
     priority: 0.95,
