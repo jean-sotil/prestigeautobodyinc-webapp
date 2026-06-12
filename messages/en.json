@@ -1438,7 +1438,7 @@
         }
       },
       "ceramicCoat": {
-        "name": "Ceramic Coat",
+        "name": "Ceramic Coating",
         "description": "Premium ceramic coating for long-lasting protection. Full paint correction and polishing included. Vehicle must stay 2 days minimum.",
         "includes": {
           "item1": "Full Paint Correction & Polishing",
@@ -1497,7 +1497,7 @@
       "serviceTypes": {
         "basicWash": "Basic Hand Wash",
         "fullDetail": "Full Car Detail",
-        "ceramicCoat": "Ceramic Coat"
+        "ceramicCoat": "Ceramic Coating"
       },
       "extras": {
         "headlights": "Headlights Polished",
