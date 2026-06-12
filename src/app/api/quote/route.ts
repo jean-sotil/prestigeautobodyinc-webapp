@@ -372,8 +372,8 @@ function emailShell(args: {
           <td class="dm-surface px-card" style="background-color: ${BRAND.surface}; border-radius: 0 0 12px 12px; border-top: 1px solid ${BRAND.border}; padding: 28px 32px;">
             <p class="dm-text-primary" style="margin: 0 0 6px; color: ${BRAND.textPrimary}; font-size: 14px; font-weight: 600; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">Prestige Auto Body Inc.</p>
             <p class="dm-text-secondary" style="margin: 0; color: ${BRAND.textSecondary}; font-size: 13px; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
-              1161 N Tustin Ave, Anaheim, CA 92807<br />
-              <a href="tel:+17146305959" style="color: ${BRAND.textSecondary}; text-decoration: none;">(714) 630-5959</a>
+              928 Philadelphia Ave, Silver Spring, MD 20910<br />
+              <a href="tel:+13015788779" style="color: ${BRAND.textSecondary}; text-decoration: none;">(301) 578-8779</a>
             </p>
             <p class="dm-text-secondary" style="margin: 16px 0 0; color: ${BRAND.textMuted}; font-size: 11px; line-height: 1.5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">${footerNote}</p>
           </td>
