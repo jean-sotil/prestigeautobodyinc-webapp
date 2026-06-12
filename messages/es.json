@@ -1416,7 +1416,7 @@
         "includes": {
           "item1": "Lavado Exterior a Mano",
           "item2": "Secado con Gamuza",
-          "item3": "Neumáticos Limpiados y Brillo Aplicado",
+          "item3": "Neumáticos Limpiados",
           "item4": "Marcos de Puertas Limpiados",
           "item5": "Tablero Limpiado",
           "item6": "Ceniceros Limpiados",
@@ -1433,7 +1433,8 @@
           "item3": "Asientos Limpiados a Vapor",
           "item4": "Paneles de Puertas y Tablero Cepillados y Acondicionados",
           "item5": "Cera Exterior con Fórmula de Alta Lubricidad",
-          "item6": "Protector UV Interior y Exterior Aplicado"
+          "item6": "Protector UV Interior y Exterior Aplicado",
+          "item7": "Neumáticos Limpiados y Brillo Aplicado"
         }
       },
       "ceramicCoat": {
