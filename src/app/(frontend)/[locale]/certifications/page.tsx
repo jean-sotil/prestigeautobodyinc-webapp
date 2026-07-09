@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+
+const PATHNAME = '/certifications' as const;
 
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
@@ -25,9 +28,12 @@ export async function generateMetadata({
       ? 'Nuestros técnicos poseen certificaciones I-CAR y ASE, garantizando reparaciones profesionales según los estándares de la industria.'
       : 'Our technicians hold I-CAR and ASE certifications, ensuring professional repairs that follow industry best practices and safety standards.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
-  const enPath = '/en/certifications';
-  const esPath = '/es/certificaciones';
-  const currentPath = locale === 'es' ? esPath : enPath;
+  const currentPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
+  const enPath = getPathname({ locale: 'en', href: PATHNAME });
+  const esPath = getPathname({ locale: 'es', href: PATHNAME });
 
   return {
     title,
@@ -66,9 +72,14 @@ export default async function CertificationsPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'nav' });
 
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
+
   const breadcrumbItems = generateBreadcrumbItems(
     t('certifications'),
-    `/${locale}/certifications`,
+    localizedPath,
     t('home'),
     locale,
   );

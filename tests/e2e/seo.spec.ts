@@ -141,6 +141,56 @@ test.describe('SEO — JSON-LD Structured Data', () => {
   });
 });
 
+test.describe('SEO — Breadcrumb & Service JSON-LD locale consistency', () => {
+  // Regression guard: pages that hardcode `/${locale}/<english-slug>` instead
+  // of resolving the actual localized slug produce breadcrumb/Service JSON-LD
+  // pointing at a URL that doesn't exist on the ES site (e.g. /es/towing
+  // instead of /es/remolque, which 404s because next-intl's pathnames config
+  // only serves the translated slug for that locale).
+  const LOCALIZED_ROUTES = [
+    { path: '/towing', esSlug: '/es/remolque', name: 'Towing' },
+    {
+      path: '/rental-assistance',
+      esSlug: '/es/asistencia-de-alquiler',
+      name: 'Rental Assistance',
+    },
+    { path: '/locations', esSlug: '/es/ubicaciones', name: 'Locations' },
+    {
+      path: '/certifications',
+      esSlug: '/es/certificaciones',
+      name: 'Certifications',
+    },
+    { path: '/our-team', esSlug: '/es/nuestro-equipo', name: 'Our Team' },
+  ];
+
+  for (const route of LOCALIZED_ROUTES) {
+    test(`${route.name} (es) breadcrumb JSON-LD uses the localized slug`, async ({
+      page,
+    }) => {
+      await page.goto(`${route.esSlug}`, { waitUntil: 'domcontentloaded' });
+
+      const scripts = await page
+        .locator('script[type="application/ld+json"]')
+        .allTextContents();
+
+      const breadcrumb = scripts
+        .map((s) => {
+          try {
+            return JSON.parse(s);
+          } catch {
+            return null;
+          }
+        })
+        .find((d) => d?.['@type'] === 'BreadcrumbList');
+
+      expect(breadcrumb).toBeDefined();
+      const currentPageItem = breadcrumb.itemListElement.at(-1);
+      expect(currentPageItem.item).toContain(route.esSlug);
+      expect(currentPageItem.item).not.toContain(`/es${route.path}`);
+    });
+  }
+});
+
 test.describe('SEO — Robots & Sitemap', () => {
   test('robots.txt is accessible and blocks /admin/', async ({ page }) => {
     const res = await page.goto('/robots.txt');
