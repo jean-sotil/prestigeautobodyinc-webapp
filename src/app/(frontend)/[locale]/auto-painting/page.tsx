@@ -4,7 +4,11 @@ import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
-import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+import {
+  BreadcrumbJsonLd,
+  generateBreadcrumbItems,
+  FAQJsonLd,
+} from '@/components/seo';
 
 const SERVICE_KEY = 'autoPainting';
 
@@ -76,6 +80,24 @@ export default async function AutoPaintingPage({
     locale,
   );
 
+  const autoPaintingFaqs = [
+    {
+      question: 'What type of paint do you use for auto painting?',
+      answer:
+        'We use premium automotive-grade paint with computer color-matching technology to ensure a factory-perfect finish that matches your vehicle exactly, backed by our lifetime warranty.',
+    },
+    {
+      question: 'How long does a full car repaint take?',
+      answer:
+        'A full vehicle repaint typically takes 5 to 7 business days, depending on the size of the vehicle, the number of panels involved, and whether bodywork or dent repair is needed beforehand.',
+    },
+    {
+      question: 'Can you fix scratches without repainting the whole car?',
+      answer:
+        'Yes. For localized scratches or chips we offer spot and panel repainting with precise color matching, so you only pay for the area affected instead of a full repaint.',
+    },
+  ];
+
   return (
     <>
       <ServiceJsonLd
@@ -83,8 +105,10 @@ export default async function AutoPaintingPage({
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
         url={`https://prestigeautobodyinc.com/${locale}/auto-painting`}
         serviceType="Auto Painting"
+        showAggregateRating
         locale={locale}
       />
+      <FAQJsonLd faqs={autoPaintingFaqs} locale={locale} />
       <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}

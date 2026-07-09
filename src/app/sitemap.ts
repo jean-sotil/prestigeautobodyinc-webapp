@@ -22,6 +22,12 @@ const pages: PageEntry[] = [
     priority: 0.9,
   },
   {
+    path: '/auto-body-services',
+    changeFrequency: 'monthly',
+    priority: 0.9,
+    paths: { en: '/auto-body-services', es: '/servicios-de-carroceria' },
+  },
+  {
     path: '/auto-painting',
     changeFrequency: 'monthly',
     priority: 0.9,
