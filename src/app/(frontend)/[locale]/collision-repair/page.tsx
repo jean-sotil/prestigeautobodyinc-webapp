@@ -106,6 +106,7 @@ export default async function CollisionRepairPage({
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
         url={`https://prestigeautobodyinc.com/${locale}/collision-repair`}
         serviceType="Collision Repair"
+        showAggregateRating
         locale={locale}
       />
       <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />

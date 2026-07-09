@@ -7,6 +7,7 @@ const PAGES = [
   { path: '', name: 'Home' },
   { path: '/about', name: 'About' },
   { path: '/collision-repair', name: 'Collision Repair' },
+  { path: '/auto-body-services', name: 'Auto Body Services' },
   { path: '/auto-painting', name: 'Auto Painting' },
   { path: '/contact', name: 'Contact' },
   { path: '/get-a-quote', name: 'Get a Quote' },
@@ -30,9 +31,12 @@ test.describe('SEO — Meta Tags', () => {
         const description = p.locator('meta[name="description"]');
         await expect(description).toHaveAttribute('content', /.+/);
 
-        // Canonical URL
+        // Canonical URL — must not duplicate the locale segment
+        // (regression guard for the /en/en/... bug on auto-body-services)
         const canonical = p.locator('link[rel="canonical"]');
         await expect(canonical).toHaveAttribute('href', /https?:\/\/.+/);
+        const canonicalHref = await canonical.getAttribute('href');
+        expect(canonicalHref).not.toMatch(/\/(en|es)\/(en|es)\//);
 
         // Open Graph
         await expect(p.locator('meta[property="og:title"]')).toHaveAttribute(
@@ -153,6 +157,13 @@ test.describe('SEO — Robots & Sitemap', () => {
     expect(body).toContain('<urlset');
     expect(body).toContain('/en');
     expect(body).toContain('/es');
+  });
+
+  test('sitemap.xml includes /auto-body-services', async ({ page }) => {
+    const res = await page.goto('/sitemap.xml');
+    const body = await res?.text();
+    expect(body).toContain('/en/auto-body-services');
+    expect(body).toContain('/es/servicios-de-carroceria');
   });
 });
 

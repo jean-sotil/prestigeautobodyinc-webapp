@@ -4,7 +4,11 @@ import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
-import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+import {
+  BreadcrumbJsonLd,
+  generateBreadcrumbItems,
+  FAQJsonLd,
+} from '@/components/seo';
 
 const SERVICE_KEY = 'insuranceClaims';
 
@@ -76,6 +80,24 @@ export default async function InsuranceClaimsPage({
     locale,
   );
 
+  const insuranceClaimsFaqs = [
+    {
+      question: 'Can I choose my own repair shop for an insurance claim?',
+      answer:
+        'Yes. Maryland law gives you the legal right to choose your own repair shop regardless of what your insurance company recommends. We work directly with all major carriers on your behalf.',
+    },
+    {
+      question: 'Do you handle the insurance paperwork for me?',
+      answer:
+        'Yes. We manage the estimate submission, direct communication with your adjuster, and all supplemental claims paperwork so you do not have to navigate the insurance process alone.',
+    },
+    {
+      question: 'Will using insurance affect my repair quality?',
+      answer:
+        'No. We use the same OEM and high-quality aftermarket parts and I-CAR Gold Class techniques on every insurance-covered repair as we do on out-of-pocket work, backed by our lifetime warranty.',
+    },
+  ];
+
   return (
     <>
       <ServiceJsonLd
@@ -83,8 +105,10 @@ export default async function InsuranceClaimsPage({
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
         url={`https://prestigeautobodyinc.com/${locale}/insurance-claims`}
         serviceType="Insurance Claims Assistance"
+        showAggregateRating
         locale={locale}
       />
+      <FAQJsonLd faqs={insuranceClaimsFaqs} locale={locale} />
       <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <ServicePageTemplate
         serviceKey={SERVICE_KEY}
