@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+
+const PATHNAME = '/our-team' as const;
 
 const OG_IMAGE = '/hero/homepage/desktop/homepage-hero-desktop.webp';
 
@@ -25,9 +28,12 @@ export async function generateMetadata({
       ? 'Conozca a nuestro equipo de técnicos certificados y profesionales de carrocería con décadas de experiencia combinada.'
       : 'Meet our team of certified technicians and auto body professionals with decades of combined experience in Silver Spring, MD.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
-  const enPath = '/en/our-team';
-  const esPath = '/es/nuestro-equipo';
-  const currentPath = locale === 'es' ? esPath : enPath;
+  const currentPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
+  const enPath = getPathname({ locale: 'en', href: PATHNAME });
+  const esPath = getPathname({ locale: 'es', href: PATHNAME });
 
   return {
     title,
@@ -66,9 +72,14 @@ export default async function OurTeamPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'nav' });
 
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
+
   const breadcrumbItems = generateBreadcrumbItems(
     t('ourTeam'),
-    `/${locale}/our-team`,
+    localizedPath,
     t('home'),
     locale,
   );

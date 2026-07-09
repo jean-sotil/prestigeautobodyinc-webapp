@@ -2,10 +2,13 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { PageHeroBanner } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 import { ServiceJsonLd } from '@/components/services';
+
+const PATHNAME = '/towing' as const;
 
 const FALLBACK_ALT =
   'Professional flatbed tow truck providing 24/7 emergency roadside assistance and towing services at night with amber emergency lights';
@@ -31,9 +34,12 @@ export async function generateMetadata({
       ? 'Servicio de remolque de emergencia disponible las 24 horas en Silver Spring, MD y áreas circundantes.'
       : 'Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
-  const enPath = '/en/towing';
-  const esPath = '/es/remolque';
-  const currentPath = locale === 'es' ? esPath : enPath;
+  const currentPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
+  const enPath = getPathname({ locale: 'en', href: PATHNAME });
+  const esPath = getPathname({ locale: 'es', href: PATHNAME });
 
   return {
     title,
@@ -75,9 +81,14 @@ export default async function TowingPage({
     getTranslations({ locale, namespace: 'nav' }),
   ]);
 
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: PATHNAME,
+  });
+
   const breadcrumbItems = generateBreadcrumbItems(
     nav('towing'),
-    `/${locale}/towing`,
+    localizedPath,
     nav('home'),
     locale,
   );
@@ -87,7 +98,7 @@ export default async function TowingPage({
       <ServiceJsonLd
         serviceName="24/7 Towing Service"
         description="Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas"
-        url={`https://prestigeautobodyinc.com/${locale}/towing`}
+        url={`https://prestigeautobodyinc.com${localizedPath}`}
         serviceType="Towing Service"
         locale={locale}
       />
