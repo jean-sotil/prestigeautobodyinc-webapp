@@ -13,11 +13,7 @@ import {
 } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import { GoogleReviewsCarousel } from '@/components/embeds/GoogleReviewsCarousel';
-import {
-  ReviewsJsonLd,
-  LocalBusinessJsonLd,
-  FAQJsonLd,
-} from '@/components/seo';
+import { LocalBusinessJsonLd, FAQJsonLd } from '@/components/seo';
 import { getBusinessRating } from '@/lib/google-places';
 import LazyYouTubeEmbed from '@/components/dynamic/LazyYouTubeEmbed';
 import LazyQuoteForm from '@/components/dynamic/LazyQuoteForm';
@@ -435,10 +431,6 @@ export default async function HomePage({
           <p className="text-(--text-secondary) text-sm text-center">
             {t('testimonials.subtitle')}
           </p>
-          <ReviewsJsonLd
-            ratingValue={rating.ratingValue}
-            reviewCount={rating.reviewCount}
-          />
           <Suspense
             fallback={
               <div
