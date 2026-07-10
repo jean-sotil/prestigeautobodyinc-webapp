@@ -3,6 +3,8 @@
  * Centralized business data for use across JSON-LD schemas and other components
  */
 
+import { FALLBACK_RATING } from '@/lib/rating-fallback';
+
 export const BUSINESS_INFO = {
   name: 'Prestige Auto Body, Inc.',
   alternateName: 'Prestige Auto Body',
@@ -61,9 +63,23 @@ export const SHOP_PHONE_TEL = '+13015788779';
 /** Display-formatted phone number, no spaces stripping needed. */
 export const SHOP_PHONE_DISPLAY = '(301) 578-8779';
 
+/**
+ * Default rating/reviewCount used by JSON-LD schemas when no live value is
+ * passed in (e.g. `getAggregateRating()` called with no arguments).
+ *
+ * `ratingValue`/`reviewCount` are sourced from `FALLBACK_RATING` in
+ * `@/lib/rating-fallback` — the SAME fallback `src/lib/google-places.ts`
+ * returns from `getBusinessRating()` when the homepage's live Google
+ * Reviews widget can't reach the Places API — so this file never maintains
+ * its own, independently-drifting hardcoded review count.
+ * Callers that want the true live count (fetched from the Google Places
+ * API at request time) should call `getBusinessRating()` and pass its
+ * `ratingValue`/`reviewCount` into `getAggregateRating()` explicitly, the
+ * way the homepage, contact, get-a-quote, and blog pages already do.
+ */
 export const RATING_INFO = {
-  ratingValue: 4.7,
-  reviewCount: 243,
+  ratingValue: FALLBACK_RATING.ratingValue,
+  reviewCount: FALLBACK_RATING.reviewCount,
   bestRating: 5,
   worstRating: 1,
 } as const;

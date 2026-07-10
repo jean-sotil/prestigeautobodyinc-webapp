@@ -3,6 +3,7 @@ import {
   getPostalAddress,
   getAggregateRating,
 } from '@/lib/business';
+import { getBusinessRating } from '@/lib/google-places';
 
 interface OfferItem {
   name: string;
@@ -22,7 +23,7 @@ interface ServiceJsonLdProps {
   offerCatalog?: OfferItem[];
 }
 
-export function ServiceJsonLd({
+export async function ServiceJsonLd({
   serviceName,
   description,
   url,
@@ -37,6 +38,12 @@ export function ServiceJsonLd({
       ? serviceType
       : [serviceType]
     : [serviceName];
+
+  // Reuse the same Google Places source as the homepage's live review
+  // widget (`getBusinessRating`) so every service page's AggregateRating
+  // schema stays in sync with the real, current review count instead of
+  // relying on a separately-hardcoded number.
+  const rating = showAggregateRating ? await getBusinessRating() : null;
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -56,7 +63,12 @@ export function ServiceJsonLd({
     serviceType: serviceTypes,
     priceRange: BUSINESS_INFO.priceRange,
     '@language': locale,
-    ...(showAggregateRating && { aggregateRating: getAggregateRating() }),
+    ...(rating && {
+      aggregateRating: getAggregateRating(
+        rating.ratingValue,
+        rating.reviewCount,
+      ),
+    }),
     ...(offerCatalog?.length && {
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
