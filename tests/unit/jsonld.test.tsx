@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { LocalBusinessJsonLd } from '@/components/seo/LocalBusinessJsonLd';
 import { WebsiteJsonLd } from '@/components/seo/WebsiteJsonLd';
-import { ReviewsJsonLd } from '@/components/seo/ReviewsJsonLd';
 import { FAQJsonLd } from '@/components/seo/FAQJsonLd';
 import {
   BreadcrumbJsonLd,
@@ -13,6 +12,13 @@ function extractJsonLd(container: HTMLElement): Record<string, unknown> {
   const script = container.querySelector('script[type="application/ld+json"]');
   expect(script).not.toBeNull();
   return JSON.parse(script!.textContent!);
+}
+
+function extractAllJsonLd(container: HTMLElement): Record<string, unknown>[] {
+  const scripts = container.querySelectorAll(
+    'script[type="application/ld+json"]',
+  );
+  return Array.from(scripts).map((script) => JSON.parse(script.textContent!));
 }
 
 describe('LocalBusinessJsonLd', () => {
@@ -105,24 +111,23 @@ describe('WebsiteJsonLd', () => {
   });
 });
 
-describe('ReviewsJsonLd', () => {
-  it('should render AutoBodyShop with aggregateRating', () => {
+describe('Homepage JSON-LD composition (aggregateRating de-duplication)', () => {
+  it('emits at most one aggregateRating block across all page-level JSON-LD scripts', () => {
+    // Regression test for GSC "Review has multiple aggregateRatings" error:
+    // the homepage previously rendered both LocalBusinessJsonLd AND the
+    // (now-removed) ReviewsJsonLd component, each independently declaring
+    // their own aggregateRating for the identical `#business` entity.
+    // LocalBusinessJsonLd is the canonical, most complete declaration of
+    // that entity, so it is the sole source of aggregateRating on the page.
     const { container } = render(
-      <ReviewsJsonLd ratingValue={4.7} reviewCount={243} />,
+      <LocalBusinessJsonLd ratingValue={4.9} reviewCount={300} />,
     );
-    const data = extractJsonLd(container);
+    const schemas = extractAllJsonLd(container);
+    const aggregateRatingBlocks = schemas.filter(
+      (schema) => schema.aggregateRating !== undefined,
+    );
 
-    expect(data['@type']).toBe('AutoBodyShop');
-    const rating = data.aggregateRating as Record<string, unknown>;
-    expect(rating.ratingValue).toBe(4.7);
-    expect(rating.reviewCount).toBe(243);
-  });
-
-  it('should include address', () => {
-    const { container } = render(<ReviewsJsonLd />);
-    const data = extractJsonLd(container);
-    const address = data.address as Record<string, unknown>;
-    expect(address['@type']).toBe('PostalAddress');
+    expect(aggregateRatingBlocks).toHaveLength(1);
   });
 });
 
