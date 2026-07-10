@@ -1,9 +1,7 @@
 import 'server-only';
+import { FALLBACK_RATING, type PlaceRating } from '@/lib/rating-fallback';
 
-type PlaceRating = {
-  ratingValue: number;
-  reviewCount: number;
-};
+export { FALLBACK_RATING };
 
 export type BusinessReview = {
   id: string;
@@ -39,11 +37,6 @@ type PlacesApiResponse = {
   rating?: number;
   userRatingCount?: number;
   reviews?: PlaceApiReview[];
-};
-
-const FALLBACK_RATING: PlaceRating = {
-  ratingValue: 4.9,
-  reviewCount: 150,
 };
 
 async function fetchPlaceDetails(): Promise<PlacesApiResponse | null> {
