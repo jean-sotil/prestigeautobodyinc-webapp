@@ -9,6 +9,7 @@ import {
   getPostalAddress,
   getAggregateRating,
 } from '@/lib/business';
+import { FALLBACK_RATING } from '@/lib/google-places';
 
 describe('BUSINESS_INFO constants', () => {
   it('should have a valid URL', () => {
@@ -100,6 +101,13 @@ describe('getPostalAddress', () => {
     expect(address.addressRegion).toBeTruthy();
     expect(address.postalCode).toBeTruthy();
     expect(address.addressCountry).toBeTruthy();
+  });
+});
+
+describe('RATING_INFO', () => {
+  it('should reuse google-places FALLBACK_RATING as its single source of truth, instead of a second hardcoded literal', () => {
+    expect(RATING_INFO.ratingValue).toBe(FALLBACK_RATING.ratingValue);
+    expect(RATING_INFO.reviewCount).toBe(FALLBACK_RATING.reviewCount);
   });
 });
 

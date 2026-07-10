@@ -7,6 +7,7 @@ const PAGES = [
   { path: '', name: 'Home' },
   { path: '/about', name: 'About' },
   { path: '/collision-repair', name: 'Collision Repair' },
+  { path: '/auto-body-services', name: 'Auto Body Services' },
   { path: '/auto-painting', name: 'Auto Painting' },
   { path: '/contact', name: 'Contact' },
   { path: '/get-a-quote', name: 'Get a Quote' },
@@ -30,9 +31,12 @@ test.describe('SEO — Meta Tags', () => {
         const description = p.locator('meta[name="description"]');
         await expect(description).toHaveAttribute('content', /.+/);
 
-        // Canonical URL
+        // Canonical URL — must not duplicate the locale segment
+        // (regression guard for the /en/en/... bug on auto-body-services)
         const canonical = p.locator('link[rel="canonical"]');
         await expect(canonical).toHaveAttribute('href', /https?:\/\/.+/);
+        const canonicalHref = await canonical.getAttribute('href');
+        expect(canonicalHref).not.toMatch(/\/(en|es)\/(en|es)\//);
 
         // Open Graph
         await expect(p.locator('meta[property="og:title"]')).toHaveAttribute(
@@ -137,6 +141,56 @@ test.describe('SEO — JSON-LD Structured Data', () => {
   });
 });
 
+test.describe('SEO — Breadcrumb & Service JSON-LD locale consistency', () => {
+  // Regression guard: pages that hardcode `/${locale}/<english-slug>` instead
+  // of resolving the actual localized slug produce breadcrumb/Service JSON-LD
+  // pointing at a URL that doesn't exist on the ES site (e.g. /es/towing
+  // instead of /es/remolque, which 404s because next-intl's pathnames config
+  // only serves the translated slug for that locale).
+  const LOCALIZED_ROUTES = [
+    { path: '/towing', esSlug: '/es/remolque', name: 'Towing' },
+    {
+      path: '/rental-assistance',
+      esSlug: '/es/asistencia-de-alquiler',
+      name: 'Rental Assistance',
+    },
+    { path: '/locations', esSlug: '/es/ubicaciones', name: 'Locations' },
+    {
+      path: '/certifications',
+      esSlug: '/es/certificaciones',
+      name: 'Certifications',
+    },
+    { path: '/our-team', esSlug: '/es/nuestro-equipo', name: 'Our Team' },
+  ];
+
+  for (const route of LOCALIZED_ROUTES) {
+    test(`${route.name} (es) breadcrumb JSON-LD uses the localized slug`, async ({
+      page,
+    }) => {
+      await page.goto(`${route.esSlug}`, { waitUntil: 'domcontentloaded' });
+
+      const scripts = await page
+        .locator('script[type="application/ld+json"]')
+        .allTextContents();
+
+      const breadcrumb = scripts
+        .map((s) => {
+          try {
+            return JSON.parse(s);
+          } catch {
+            return null;
+          }
+        })
+        .find((d) => d?.['@type'] === 'BreadcrumbList');
+
+      expect(breadcrumb).toBeDefined();
+      const currentPageItem = breadcrumb.itemListElement.at(-1);
+      expect(currentPageItem.item).toContain(route.esSlug);
+      expect(currentPageItem.item).not.toContain(`/es${route.path}`);
+    });
+  }
+});
+
 test.describe('SEO — Robots & Sitemap', () => {
   test('robots.txt is accessible and blocks /admin/', async ({ page }) => {
     const res = await page.goto('/robots.txt');
@@ -153,6 +207,13 @@ test.describe('SEO — Robots & Sitemap', () => {
     expect(body).toContain('<urlset');
     expect(body).toContain('/en');
     expect(body).toContain('/es');
+  });
+
+  test('sitemap.xml includes /auto-body-services', async ({ page }) => {
+    const res = await page.goto('/sitemap.xml');
+    const body = await res?.text();
+    expect(body).toContain('/en/auto-body-services');
+    expect(body).toContain('/es/servicios-de-carroceria');
   });
 });
 
