@@ -71,6 +71,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Prevent search engines from indexing static assets
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow',
+          },
+        ],
+      },
+      {
         // Cache static assets aggressively
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2)',
         headers: [
