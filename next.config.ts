@@ -106,21 +106,10 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // Canonical domain: consolidate non-www → www.prestigeautobodyinc.com
+      // Catch-all for any path on non-www domain
       {
-        source: '/',
-        destination: 'https://www.prestigeautobodyinc.com/en',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/en/:path*',
-        destination: 'https://www.prestigeautobodyinc.com/en/:path*',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/es/:path*',
-        destination: 'https://www.prestigeautobodyinc.com/es/:path*',
+        source: '/:path*',
+        destination: 'https://www.prestigeautobodyinc.com/:path*',
         permanent: true,
         has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },

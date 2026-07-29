@@ -29,14 +29,28 @@ export const BUSINESS_INFO = {
     latitude: 39.0015,
     longitude: -77.0365,
   },
-  areaServed: {
-    '@type': 'City',
-    name: 'Silver Spring',
-    containedInPlace: {
-      '@type': 'AdministrativeArea',
-      name: 'Montgomery County, MD',
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Silver Spring',
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: 'Montgomery County, MD',
+      },
     },
-  },
+    { '@type': 'City', name: 'Bethesda' },
+    { '@type': 'City', name: 'Rockville' },
+    { '@type': 'City', name: 'Takoma Park' },
+    { '@type': 'City', name: 'Wheaton' },
+    { '@type': 'City', name: 'College Park' },
+    { '@type': 'City', name: 'Hyattsville' },
+    { '@type': 'City', name: 'Columbia' },
+    { '@type': 'City', name: 'Chevy Chase' },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Washington, DC',
+    },
+  ],
   serviceTypes: [
     'Collision Repair',
     'Auto Body Repair',
@@ -46,6 +60,10 @@ export const BUSINESS_INFO = {
     'Insurance Claims Assistance',
     '24/7 Towing Service',
     'Rental Car Assistance',
+    'Auto Accident Repair',
+    'Hail Damage Repair',
+    'Bumper Repair',
+    'Car Wash & Detailing',
   ],
   sameAs: [
     'https://www.facebook.com/prestigeautobodyinc',

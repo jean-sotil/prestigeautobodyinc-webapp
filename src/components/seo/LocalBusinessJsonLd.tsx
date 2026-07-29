@@ -38,6 +38,15 @@ export function LocalBusinessJsonLd({
     areaServed: BUSINESS_INFO.areaServed,
     sameAs: BUSINESS_INFO.sameAs,
     aggregateRating: getAggregateRating(ratingValue, reviewCount),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Auto Body Services',
+      itemListElement: BUSINESS_INFO.serviceTypes.map((service, index) => ({
+        '@type': 'OfferCatalog',
+        name: service,
+        position: index + 1,
+      })),
+    },
     '@language': locale,
   };
 

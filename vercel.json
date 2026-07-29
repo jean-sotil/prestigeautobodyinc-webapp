@@ -1,5 +1,13 @@
 {
   "framework": "nextjs",
   "buildCommand": "next build",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "redirects": [
+    {
+      "source": "/:path((?!_next|_vercel|api|admin|static|.*\\..*).*)",
+      "has": [{ "type": "host", "value": "prestigeautobodyinc.com" }],
+      "destination": "https://www.prestigeautobodyinc.com/:path",
+      "permanent": true
+    }
+  ]
 }
