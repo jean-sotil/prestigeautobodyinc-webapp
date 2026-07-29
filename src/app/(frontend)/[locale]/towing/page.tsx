@@ -24,12 +24,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const title =
     locale === 'es'
-      ? 'Servicio de Remolque 24/7 | Prestige Auto Body Inc.'
-      : '24/7 Towing & Roadside Assistance | Prestige Auto Body Inc.';
+      ? 'Servicio de Remolque 24/7 Silver Spring, MD | Prestige Auto Body'
+      : '24/7 Towing & Roadside Assistance Silver Spring, MD | Prestige Auto Body';
   const description =
     locale === 'es'
-      ? 'Servicio de remolque de emergencia disponible las 24 horas en Silver Spring, MD y áreas circundantes.'
-      : 'Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas.';
+      ? 'Servicio de remolque de emergencia 24/7 en Silver Spring, MD y áreas circundantes. Grúa de plataforma, asistencia en carretera. Llame al (301) 578-8779.'
+      : 'Emergency towing & roadside assistance 24/7 in Silver Spring, MD. Flatbed tow trucks, jump starts & lockouts. All insurance accepted. Call (301) 578-8779.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const enPath = '/en/towing';
   const esPath = '/es/remolque';
