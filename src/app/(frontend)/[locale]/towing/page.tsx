@@ -5,7 +5,11 @@ import { BASE_URL } from '@/lib/seo';
 import { getPathname } from '@/i18n/navigation';
 import { PageHeroBanner } from '@/components/hero';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
-import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
+import {
+  BreadcrumbJsonLd,
+  generateBreadcrumbItems,
+  FAQJsonLd,
+} from '@/components/seo';
 import { ServiceJsonLd } from '@/components/services';
 
 const PATHNAME = '/towing' as const;
@@ -93,6 +97,29 @@ export default async function TowingPage({
     locale,
   );
 
+  const towingFaqs = [
+    {
+      question: 'Do you offer 24/7 towing services?',
+      answer:
+        'Yes. Prestige Auto Body provides 24/7 emergency towing and roadside assistance in Silver Spring, MD and the entire DMV area. Call (301) 578-8779 anytime for immediate dispatch.',
+    },
+    {
+      question: 'How much does towing cost?',
+      answer:
+        'Towing costs vary by distance and vehicle type. If your repair is done at our shop, towing may be included. Many insurance policies also cover towing — we can help coordinate directly with your insurer.',
+    },
+    {
+      question: 'What areas do you tow from?',
+      answer:
+        "We serve Silver Spring, Bethesda, Rockville, Takoma Park, Wheaton, College Park, Hyattsville, Chevy Chase, Columbia, Washington DC, and surrounding areas in Montgomery and Prince George's counties.",
+    },
+    {
+      question: 'Can you tow my electric vehicle (EV)?',
+      answer:
+        'Yes. Our flatbed tow trucks safely transport electric and hybrid vehicles without putting stress on the drivetrain. We follow all manufacturer-recommended procedures for EV towing.',
+    },
+  ];
+
   return (
     <div className="font-sans min-h-screen">
       <ServiceJsonLd
@@ -102,6 +129,7 @@ export default async function TowingPage({
         serviceType="Towing Service"
         locale={locale}
       />
+      <FAQJsonLd faqs={towingFaqs} locale={locale} />
       <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
       <PageHeroBanner
         slug="towing-24-7"
@@ -113,11 +141,120 @@ export default async function TowingPage({
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-lg text-(--text-secondary) leading-relaxed">
-          Our professional tow truck operators are ready to assist you around
-          the clock, ensuring your vehicle is safely transported to our
-          facility. Available 24 hours a day, 7 days a week.
-        </p>
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Emergency Towing When You Need It Most
+          </h2>
+          <p className="text-lg text-(--text-secondary) leading-relaxed mb-4">
+            Our professional tow truck operators are ready to assist you around
+            the clock, ensuring your vehicle is safely transported to our
+            facility. Available 24 hours a day, 7 days a week in Silver Spring,
+            MD and throughout the greater DMV area.
+          </p>
+          <p className="text-base text-(--text-secondary) leading-relaxed mb-4">
+            Whether you&apos;ve been in an accident, have a flat tire, locked
+            your keys in the car, or need a dead battery jump-started — our
+            experienced operators respond quickly to get you off the road
+            safely.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Our Towing & Roadside Services
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-base text-(--text-secondary)">
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Flatbed towing for all vehicle types
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Accident scene towing & recovery
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Jump starts & battery service
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Lockout assistance
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Flat tire changes
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Long-distance transport
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Insurance-direct towing
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary font-bold">✓</span>
+              Direct delivery to our repair shop
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Areas We Serve
+          </h2>
+          <p className="text-base text-(--text-secondary) leading-relaxed mb-4">
+            We provide towing services throughout Montgomery County, Prince
+            George&apos;s County, and the Washington DC metropolitan area
+            including:
+          </p>
+          <p className="text-base text-(--text-secondary) leading-relaxed">
+            Silver Spring, Bethesda, Rockville, Takoma Park, Wheaton, College
+            Park, Hyattsville, Chevy Chase, Columbia, and Washington DC.
+          </p>
+        </section>
+
+        <section className="mb-12 bg-muted rounded-xl p-6">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Why Choose Prestige for Towing?
+          </h2>
+          <ul className="space-y-3 text-base text-(--text-secondary)">
+            <li>
+              <strong>Direct to repair:</strong> Your vehicle goes straight to
+              our I-CAR Gold Class certified shop — no middleman, no extra
+              stops.
+            </li>
+            <li>
+              <strong>Insurance coordination:</strong> We work with all major
+              insurance companies and handle the paperwork from tow to repair
+              completion.
+            </li>
+            <li>
+              <strong>24/7 availability:</strong> Accidents don&apos;t follow
+              business hours. Neither do we.
+            </li>
+            <li>
+              <strong>Professional operators:</strong> Our drivers are trained
+              to handle all vehicle types safely, including EVs and luxury
+              vehicles.
+            </li>
+          </ul>
+        </section>
+
+        <section className="text-center py-8">
+          <h2 className="text-2xl font-bold text-foreground mb-2">
+            Need a Tow Right Now?
+          </h2>
+          <p className="text-base text-(--text-secondary) mb-4">
+            Call us 24/7 for immediate dispatch.
+          </p>
+          <a
+            href="tel:+13015788779"
+            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-primary/90 transition-colors"
+          >
+            Call (301) 578-8779
+          </a>
+        </section>
       </main>
     </div>
   );
