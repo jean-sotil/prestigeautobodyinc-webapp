@@ -226,6 +226,22 @@ const nextConfig: NextConfig = {
         destination: '/en',
         permanent: true,
       },
+      // WordPress legacy routes (prevent 5xx errors)
+      {
+        source: '/wp-admin/:path*',
+        destination: '/en',
+        permanent: true,
+      },
+      {
+        source: '/wp-includes/:path*',
+        destination: '/en',
+        permanent: true,
+      },
+      {
+        source: '/wp-content/:path*',
+        destination: '/en',
+        permanent: true,
+      },
     ];
   },
 
