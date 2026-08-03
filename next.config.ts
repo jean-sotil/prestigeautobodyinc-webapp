@@ -142,6 +142,90 @@ const nextConfig: NextConfig = {
         destination: '/:locale/insurance-claims',
         permanent: true,
       },
+      // ===== Legacy 404 fixes: old bilingual URL patterns =====
+      {
+        source: '/about-Nosotros',
+        destination: '/en/about',
+        permanent: true,
+      },
+      {
+        source: '/about-Servicios',
+        destination: '/en/auto-body-services',
+        permanent: true,
+      },
+      {
+        source: '/collision-repair-Collision',
+        destination: '/en/collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/auto-painting-Pintura',
+        destination: '/en/auto-painting',
+        permanent: true,
+      },
+      {
+        source: '/insurance-claims-Seguro',
+        destination: '/en/insurance-claims',
+        permanent: true,
+      },
+      {
+        source: '/insurance-claims-Insurance',
+        destination: '/en/insurance-claims',
+        permanent: true,
+      },
+      {
+        source: '/get-a-quote-Cotizaci%C3%B3n',
+        destination: '/en/get-a-quote',
+        permanent: true,
+      },
+      // Legacy WordPress/old-site routes
+      {
+        source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
+        destination: '/es',
+        permanent: true,
+      },
+      {
+        source: '/:locale/body-services',
+        destination: '/:locale/auto-body-services',
+        permanent: true,
+      },
+      // Blog cross-locale slug fixes (Spanish slug served under /en/)
+      {
+        source: '/en/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/que-es-un-suplemento-de-carroceria',
+        destination: '/es/blog/que-es-un-suplemento-de-carroceria',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/oem-vs-aftermarket-parts-explained',
+        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/what-is-an-auto-body-supplement',
+        destination: '/es/blog/que-es-un-suplemento-de-carroceria',
+        permanent: true,
+      },
+      // Malformed URL
+      {
+        source: '/$',
+        destination: '/en',
+        permanent: true,
+      },
     ];
   },
 
