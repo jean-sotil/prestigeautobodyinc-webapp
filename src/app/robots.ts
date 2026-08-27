@@ -7,13 +7,17 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: [
-          '/',
-          '/_next/static/media/',
-          '/_next/static/css/',
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/_next/static/',
           '/_next/image/',
+          '/_next/data/',
+          '/wp-admin/',
+          '/wp-includes/',
+          '/wp-content/',
         ],
-        disallow: ['/api/', '/admin/', '/_next/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

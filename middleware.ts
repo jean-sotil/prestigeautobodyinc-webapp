@@ -5,25 +5,6 @@ import { routing } from './src/i18n/routing';
 const handleI18nRouting = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
-  const host = request.headers.get('host') || '';
-  const pathname = request.nextUrl.pathname;
-
-  // Normalize non-www → www (single redirect, then continue to i18n routing)
-  if (host.startsWith('prestigeautobodyinc.com') && !host.startsWith('www')) {
-    return NextResponse.redirect(
-      new URL(
-        `https://www.prestigeautobodyinc.com${pathname}${request.nextUrl.search}`,
-        request.url,
-      ),
-      308,
-    );
-  }
-
-  // Handle root path for www domain → route to i18n (next-intl will handle locale detection)
-  if (pathname === '/' && host.includes('www.prestigeautobodyinc.com')) {
-    // Let next-intl middleware handle locale routing from root
-  }
-
   const response = handleI18nRouting(request);
 
   // next-intl always issues 307 for its locale/pathname redirects, even
