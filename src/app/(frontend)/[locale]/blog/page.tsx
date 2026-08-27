@@ -36,11 +36,6 @@ export async function generateMetadata({
   const sp = (await searchParams) ?? {};
   const t = await getTranslations({ locale, namespace: 'blog' });
 
-  // Filtered/paginated views collapse onto the base canonical and are
-  // marked noindex so crawl budget isn't spent on permutations.
-  const isFiltered = Boolean(sp.category);
-  const isPaginated = Boolean(sp.page) && sp.page !== '1';
-
   const ogImage = '/hero/homepage/desktop/homepage-hero-desktop.webp';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
 
@@ -55,10 +50,7 @@ export async function generateMetadata({
         'x-default': '/en/blog',
       },
     },
-    robots:
-      isFiltered || isPaginated
-        ? { index: false, follow: true }
-        : { index: true, follow: true },
+    robots: { index: true, follow: true },
     openGraph: {
       title: t('og.title'),
       description: t('og.description'),
