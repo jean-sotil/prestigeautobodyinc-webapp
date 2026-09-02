@@ -1,23 +1,15 @@
 import type { MetadataRoute } from 'next';
+import { BASE_URL } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.prestigeautobodyinc.com';
+  const baseUrl = BASE_URL.replace(/\/$/, ''); // Remove trailing slash if present
 
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/_next/static/',
-          '/_next/image/',
-          '/_next/data/',
-          '/wp-admin/',
-          '/wp-includes/',
-          '/wp-content/',
-        ],
+        disallow: ['/api/', '/admin/', '/payload/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

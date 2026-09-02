@@ -5,6 +5,18 @@ import { routing } from './src/i18n/routing';
 const handleI18nRouting = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
+  // Enforce HTTPS (x-forwarded-proto is set by most hosting platforms)
+  const protocol =
+    request.headers.get('x-forwarded-proto') ||
+    request.nextUrl.protocol.slice(0, -1);
+  if (protocol === 'http') {
+    const host = request.headers.get('host');
+    return NextResponse.redirect(
+      `https://${host}${request.nextUrl.pathname}${request.nextUrl.search}`,
+      308,
+    );
+  }
+
   const response = handleI18nRouting(request);
 
   // next-intl always issues 307 for its locale/pathname redirects, even
