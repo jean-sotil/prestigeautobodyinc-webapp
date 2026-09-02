@@ -196,6 +196,12 @@ const nextConfig: NextConfig = {
         destination: '/:locale/auto-body-services',
         permanent: true,
       },
+      // Catch-all: unlocalized blog paths → /en/blog/:slug (fixes URLs without locale prefix)
+      {
+        source: '/blog/:slug+',
+        destination: '/en/blog/:slug+',
+        permanent: true,
+      },
       // Blog cross-locale slug fixes (Spanish slug served under /en/)
       {
         source: '/en/blog/partes-oem-vs-aftermarket-explicado',
