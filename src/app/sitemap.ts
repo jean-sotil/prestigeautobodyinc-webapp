@@ -1,165 +1,50 @@
 import type { MetadataRoute } from 'next';
-import { routing } from '@/i18n/routing';
+import { BASE_URL } from '@/lib/seo';
 
-const BASE_URL = 'https://www.prestigeautobodyinc.com';
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = BASE_URL.replace(/\/$/, '');
 
-// All public marketing pages, with EN→ES localized path overrides where they
-// diverge from the canonical English path.
-type PageEntry = {
-  path: string;
-  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
-  priority: number;
-  // Optional locale-specific path overrides (defaults to `path` when absent).
-  paths?: Partial<Record<(typeof routing.locales)[number], string>>;
-};
+  // Core pages with English paths and Spanish localized paths
+  const pages = [
+    { en: '/en', es: '/es' },
+    { en: '/en/collision-repair', es: '/es/reparacion-de-colisiones' },
+    { en: '/en/auto-body-services', es: '/es/servicios-de-carroceria' },
+    { en: '/en/auto-painting', es: '/es/pintura-de-autos' },
+    { en: '/en/towing', es: '/es/remolque' },
+    { en: '/en/insurance-claims', es: '/es/reclamos-de-seguro' },
+    { en: '/en/rental-assistance', es: '/es/asistencia-de-alquiler' },
+    { en: '/en/about', es: '/es/nosotros' },
+    { en: '/en/our-team', es: '/es/nuestro-equipo' },
+    { en: '/en/certifications', es: '/es/certificaciones' },
+    { en: '/en/contact', es: '/es/contacto' },
+    { en: '/en/locations', es: '/es/ubicaciones' },
+    { en: '/en/gallery', es: '/es/galeria' },
+    { en: '/en/get-a-quote', es: '/es/obtener-cotizacion' },
+    { en: '/en/privacy-policy', es: '/es/politica-de-privacidad' },
+    { en: '/en/terms-of-service', es: '/es/terminos-de-servicio' },
+    { en: '/en/blog', es: '/es/blog' },
+    { en: '/en/car-wash-detailing', es: '/es/lavado-y-detallado' },
+  ];
 
-const pages: PageEntry[] = [
-  { path: '', changeFrequency: 'weekly', priority: 1 },
-  { path: '/about', changeFrequency: 'monthly', priority: 0.8 },
-  {
-    path: '/collision-repair',
-    changeFrequency: 'monthly',
-    priority: 0.9,
-  },
-  {
-    path: '/auto-body-services',
-    changeFrequency: 'monthly',
-    priority: 0.9,
-    paths: { en: '/auto-body-services', es: '/servicios-de-carroceria' },
-  },
-  {
-    path: '/auto-painting',
-    changeFrequency: 'monthly',
-    priority: 0.9,
-  },
-  {
-    path: '/insurance-claims',
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  },
-  { path: '/towing', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/contact', changeFrequency: 'monthly', priority: 0.7 },
-  {
-    path: '/gallery',
-    changeFrequency: 'weekly',
-    priority: 0.6,
-    paths: { en: '/gallery', es: '/galeria' },
-  },
-  {
-    path: '/certifications',
-    changeFrequency: 'monthly',
-    priority: 0.5,
-  },
-  { path: '/our-team', changeFrequency: 'monthly', priority: 0.5 },
-  { path: '/locations', changeFrequency: 'monthly', priority: 0.6 },
-  {
-    path: '/rental-assistance',
-    changeFrequency: 'monthly',
-    priority: 0.5,
-  },
-  { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
-  {
-    path: '/car-wash-detailing',
-    changeFrequency: 'weekly',
-    priority: 0.9,
-    paths: { en: '/car-wash-detailing', es: '/lavado-y-detallado' },
-  },
-  {
-    path: '/get-a-quote',
-    changeFrequency: 'monthly',
-    priority: 0.95,
-    paths: { en: '/get-a-quote', es: '/obtener-cotizacion' },
-  },
-];
+  const entries: MetadataRoute.Sitemap = [];
 
-function buildLanguageAlternates(
-  pathByLocale: Record<string, string>,
-): Record<string, string> {
-  return Object.fromEntries(
-    Object.entries(pathByLocale).map(([locale, path]) => [
-      locale,
-      `${BASE_URL}/${locale}${path}`,
-    ]),
-  );
-}
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastModified = new Date();
-
-  const standardEntries: MetadataRoute.Sitemap = pages.flatMap((page) => {
-    const pathByLocale: Record<string, string> = {};
-    for (const locale of routing.locales) {
-      pathByLocale[locale] = page.paths?.[locale] ?? page.path;
-    }
-    const alternates = buildLanguageAlternates(pathByLocale);
-
-    return routing.locales.map((locale) => ({
-      url: `${BASE_URL}/${locale}${pathByLocale[locale]}`,
-      lastModified,
-      changeFrequency: page.changeFrequency,
-      priority: page.priority,
-      alternates: { languages: alternates },
-    }));
+  // Add all page variants
+  pages.forEach(({ en, es }) => {
+    entries.push(
+      {
+        url: `${baseUrl}${en}`,
+        lastModified: new Date(),
+        changeFrequency: en.includes('blog') ? 'weekly' : 'monthly',
+        priority: en === '/en' ? 1 : 0.8,
+      },
+      {
+        url: `${baseUrl}${es}`,
+        lastModified: new Date(),
+        changeFrequency: es.includes('blog') ? 'weekly' : 'monthly',
+        priority: es === '/es' ? 0.95 : 0.8,
+      },
+    );
   });
 
-  // Blog posts: one entry per (locale × post) using each locale's slug.
-  // Failures here must not break the sitemap, so we swallow errors and fall
-  // back to the standard entries only.
-  const blogEntries: MetadataRoute.Sitemap = [];
-  try {
-    const { getPayload } = await import('payload');
-    const config = await import('@/payload/payload.config');
-    const payload = await getPayload({ config: config.default });
-
-    const result = await payload.find({
-      collection: 'blog-posts',
-      depth: 0,
-      limit: 1000,
-      pagination: false,
-      // 'all' returns localized fields as { en, es, … }
-      locale: 'all',
-      where: { publishStatus: { equals: 'published' } },
-    });
-
-    for (const doc of result.docs as Array<{
-      slug?: unknown;
-      updatedAt?: string;
-      publishedAt?: string;
-    }>) {
-      const slugMap =
-        doc.slug && typeof doc.slug === 'object'
-          ? (doc.slug as Record<string, string>)
-          : null;
-      if (!slugMap) continue;
-
-      const lastModifiedPost = new Date(
-        doc.updatedAt ?? doc.publishedAt ?? Date.now(),
-      );
-
-      // Build the alternates map (only locales that actually have a slug).
-      const localesWithSlug = routing.locales.filter(
-        (l) => typeof slugMap[l] === 'string' && slugMap[l].length > 0,
-      );
-      if (localesWithSlug.length === 0) continue;
-
-      const alternates: Record<string, string> = {};
-      for (const l of localesWithSlug) {
-        alternates[l] = `${BASE_URL}/${l}/blog/${slugMap[l]}`;
-      }
-
-      for (const locale of localesWithSlug) {
-        blogEntries.push({
-          url: alternates[locale],
-          lastModified: lastModifiedPost,
-          changeFrequency: 'monthly',
-          priority: 0.6,
-          alternates: { languages: alternates },
-        });
-      }
-    }
-  } catch (error) {
-    console.error('sitemap: failed to enumerate blog posts', error);
-  }
-
-  return [...standardEntries, ...blogEntries];
+  return entries;
 }

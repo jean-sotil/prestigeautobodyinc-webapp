@@ -115,15 +115,22 @@ const nextConfig: NextConfig = {
   // Redirects (if needed)
   async redirects() {
     return [
-      // Canonical domain: consolidate non-www → www.prestigeautobodyinc.com
-      // Catch-all for any path on non-www domain
+      // Canonical domain: consolidate non-www → www + locale in ONE redirect
+      // Root path on non-www → www.prestigeautobodyinc.com/en (direct, no chain)
+      {
+        source: '/',
+        destination: 'https://www.prestigeautobodyinc.com/en',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      // All other paths: non-www → www.prestigeautobodyinc.com
       {
         source: '/:path*',
         destination: 'https://www.prestigeautobodyinc.com/:path*',
         permanent: true,
         has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
-      // www root without locale → /en
+      // www root without locale → /en (middleware handles this, but keep as fallback)
       {
         source: '/',
         destination: '/en',
