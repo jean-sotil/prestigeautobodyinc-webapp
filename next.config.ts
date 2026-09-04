@@ -1,4 +1,4 @@
-import type { NextConfig } from 'next';
+import type { NextConfig, Redirect } from 'next';
 import { withPayload } from '@payloadcms/next/withPayload';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import createNextIntlPlugin from 'next-intl/plugin';
@@ -118,8 +118,8 @@ const nextConfig: NextConfig = {
   },
 
   // Redirects (if needed)
-  async redirects() {
-    const staticRedirects = [
+  async redirects(): Promise<Redirect[]> {
+    const staticRedirects: Redirect[] = [
       // Canonical domain: consolidate non-www → www + locale in ONE redirect
       // Root path on non-www → www.prestigeautobodyinc.com/en (direct, no chain)
       {

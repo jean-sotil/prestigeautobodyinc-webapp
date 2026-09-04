@@ -7,7 +7,7 @@
  * - /en/blog/deductible-seguro → /en/blog/insurance-deductible
  */
 
-import type { NextConfig } from 'next';
+import type { Redirect } from 'next';
 
 interface BlogPostSlugs {
   id: string;
@@ -18,7 +18,7 @@ interface BlogPostSlugs {
 async function fetchBlogPostSlugs(): Promise<BlogPostSlugs[]> {
   try {
     const { getPayload } = await import('payload');
-    const config = await import('@/payload/payload.config');
+    const config = await import('@payload-config');
     const payload = await getPayload({ config: config.default });
 
     // Fetch all published blog posts
@@ -71,19 +71,9 @@ async function fetchBlogPostSlugs(): Promise<BlogPostSlugs[]> {
   }
 }
 
-export async function generateBlogRedirects(): Promise<
-  Array<{
-    source: string;
-    destination: string;
-    permanent: boolean;
-  }>
-> {
+export async function generateBlogRedirects(): Promise<Redirect[]> {
   const slugs = await fetchBlogPostSlugs();
-  const redirects: Array<{
-    source: string;
-    destination: string;
-    permanent: boolean;
-  }> = [];
+  const redirects: Redirect[] = [];
 
   for (const post of slugs) {
     // Skip if the slugs are identical (no redirect needed)
