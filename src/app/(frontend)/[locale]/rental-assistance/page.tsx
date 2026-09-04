@@ -88,7 +88,6 @@ export default async function RentalAssistancePage({
     locale,
   );
 
-  const serviceAreas = t.raw('pages.rentalAssistance.serviceAreas');
   const relatedArticles = t.raw('pages.rentalAssistance.relatedArticles');
 
   return (
@@ -110,34 +109,6 @@ export default async function RentalAssistancePage({
           vehicle is being repaired. Ask us about our rental car partnerships.
         </p>
       </main>
-
-      {/* Service Areas by Location */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-4">{serviceAreas.heading}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-          {serviceAreas.intro}
-        </p>
-        <div className="grid gap-8 md:grid-cols-2">
-          {(
-            serviceAreas.locations as Array<{
-              city: string;
-              description: string;
-            }>
-          ).map((location, idx) => (
-            <div
-              key={idx}
-              className="bg-blue-50 dark:bg-blue-950 p-6 rounded-lg border border-blue-200 dark:border-blue-800"
-            >
-              <h3 className="text-2xl font-semibold mb-3 text-blue-900 dark:text-blue-100">
-                {location.city}
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                {location.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Related Articles CTA */}
       <section className="py-16 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-900 dark:to-blue-800">
