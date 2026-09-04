@@ -22,12 +22,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const title =
     locale === 'es'
-      ? 'Asistencia de Alquiler de Autos | Prestige Auto Body Inc.'
-      : 'Rental Car Assistance | Prestige Auto Body Inc.';
+      ? 'Asistencia de Alquiler Silver Spring, MD'
+      : 'Rental Car Assistance Silver Spring, MD';
   const description =
     locale === 'es'
-      ? 'Servicios de asistencia de alquiler para mantenerlo en la carretera mientras su vehículo está en reparación.'
-      : 'Rental assistance services to keep you on the road while your vehicle is being repaired at our Silver Spring, MD facility.';
+      ? 'Asistencia de alquiler mientras reparamos su vehículo. Trabajamos con agentes de seguros. Manténgase en la carretera.'
+      : 'Rental car assistance while we repair your vehicle. Coordinated with your insurance company. Stay on the road.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const currentPath = getPathname({
     locale: locale as 'en' | 'es',
