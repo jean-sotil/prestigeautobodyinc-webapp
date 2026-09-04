@@ -151,33 +151,48 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // ===== Legacy 404 fixes: old bilingual URL patterns =====
+      // CRITICAL: Add non-www versions FIRST to avoid redirect chains
+      // These go DIRECTLY to final destination (single 301, not multi-hop)
       {
-        source: '/about-Nosotros',
-        destination: '/en/about',
+        source: '/insurance-claims-Seguro',
+        destination: 'https://www.prestigeautobodyinc.com/en/insurance-claims',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
       {
-        source: '/about-Servicios',
-        destination: '/en/auto-body-services',
+        source: '/get-a-quote-Cotización',
+        destination: 'https://www.prestigeautobodyinc.com/en/get-a-quote',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
       {
         source: '/collision-repair-Collision',
-        destination: '/en/collision-repair',
+        destination: 'https://www.prestigeautobodyinc.com/en/collision-repair',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/about-Nosotros',
+        destination: 'https://www.prestigeautobodyinc.com/en/about',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
       {
         source: '/auto-painting-Pintura',
-        destination: '/en/auto-painting',
+        destination: 'https://www.prestigeautobodyinc.com/en/auto-painting',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
+      {
+        source: '/about-Servicios',
+        destination:
+          'https://www.prestigeautobodyinc.com/en/auto-body-services',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      // www bilingual URLs (URL-encoded version for Cotización)
       {
         source: '/insurance-claims-Seguro',
-        destination: '/en/insurance-claims',
-        permanent: true,
-      },
-      {
-        source: '/insurance-claims-Insurance',
         destination: '/en/insurance-claims',
         permanent: true,
       },
@@ -186,7 +201,54 @@ const nextConfig: NextConfig = {
         destination: '/en/get-a-quote',
         permanent: true,
       },
+      {
+        source: '/collision-repair-Collision',
+        destination: '/en/collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/about-Nosotros',
+        destination: '/en/about',
+        permanent: true,
+      },
+      {
+        source: '/auto-painting-Pintura',
+        destination: '/en/auto-painting',
+        permanent: true,
+      },
+      {
+        source: '/about-Servicios',
+        destination: '/en/auto-body-services',
+        permanent: true,
+      },
+      {
+        source: '/insurance-claims-Insurance',
+        destination: '/en/insurance-claims',
+        permanent: true,
+      },
       // Legacy WordPress/old-site routes
+      // Direct non-www URLs to avoid chains
+      {
+        source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
+        destination: 'https://www.prestigeautobodyinc.com/es',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/en/body-services/:path*',
+        destination:
+          'https://www.prestigeautobodyinc.com/en/auto-body-services',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/es/body-services/:path*',
+        destination:
+          'https://www.prestigeautobodyinc.com/es/auto-body-services',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      // www versions (locale-aware)
       {
         source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
         destination: '/es',
