@@ -7,6 +7,10 @@ import { generateBlogRedirects } from './src/lib/generate-blog-redirects';
 const nextConfig: NextConfig = {
   // Core Web Vitals Optimizations
 
+  // Remove trailing slashes for canonical URLs (consolidates duplicate impressions)
+  // /en/contact/ → /en/contact, /es/nosotros/ → /es/nosotros
+  trailingSlash: false,
+
   // Disable production source maps for max performance (reduces bundle size)
   productionBrowserSourceMaps: false,
 
@@ -137,6 +141,20 @@ const nextConfig: NextConfig = {
         destination: '/en',
         permanent: true,
         has: [{ type: 'host', value: 'www.prestigeautobodyinc.com' }],
+      },
+      // Trailing slash consolidation: /path/ → /path
+      // Merges duplicate impressions from URLs with/without trailing slash
+      // Applied AFTER locale/domain redirects so /en/contact/ → /en/contact
+      {
+        source: '/:locale/:path+/',
+        destination: '/:locale/:path+',
+        permanent: true,
+      },
+      // Legacy URLs with trailing slashes (no locale prefix)
+      {
+        source: '/:path+/',
+        destination: '/:path+',
+        permanent: true,
       },
       // Route renames: paint-solutions → auto-painting
       {
