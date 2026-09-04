@@ -152,19 +152,18 @@ export default async function AutoPaintingPage({
           {techSection.intro}
         </p>
         <div className="grid gap-8 md:grid-cols-2">
-          {Object.entries(techSection.technology).map(
-            ([key, tech]: [string, { title: string; description: string }]) => (
-              <div
-                key={key}
-                className="bg-white dark:bg-gray-900 p-6 rounded-lg"
-              >
-                <h3 className="text-xl font-semibold mb-3">{tech.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {tech.description}
-                </p>
-              </div>
-            ),
-          )}
+          {(
+            Object.entries(techSection.technology) as Array<
+              [string, { title: string; description: string }]
+            >
+          ).map(([key, tech]) => (
+            <div key={key} className="bg-white dark:bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-3">{tech.title}</h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {tech.description}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -1,8 +1,13 @@
-import type { NextConfig, Redirect } from 'next';
+import type { NextConfig } from 'next';
 import { withPayload } from '@payloadcms/next/withPayload';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import createNextIntlPlugin from 'next-intl/plugin';
-import { generateBlogRedirects } from './src/lib/generate-blog-redirects';
+
+// The `Redirect` exported from 'next' is a different (looser) type than the one
+// `NextConfig['redirects']` actually expects, so derive the exact element type.
+type NextRedirect = Awaited<
+  ReturnType<NonNullable<NextConfig['redirects']>>
+>[number];
 
 const nextConfig: NextConfig = {
   // Core Web Vitals Optimizations
@@ -118,8 +123,13 @@ const nextConfig: NextConfig = {
   },
 
   // Redirects (if needed)
-  async redirects(): Promise<Redirect[]> {
-    const staticRedirects: Redirect[] = [
+  //
+  // NOTE: keep this list static. Payload's config is ESM-only (`import.meta`),
+  // while next.config.ts is transpiled to CJS and `require()`d, so querying the
+  // CMS from here cannot work. Cross-locale blog slug redirects are issued at
+  // request time by src/app/(frontend)/[locale]/blog/[slug]/page.tsx instead.
+  async redirects(): Promise<NextRedirect[]> {
+    const staticRedirects: NextRedirect[] = [
       // Canonical domain: consolidate non-www → www + locale in ONE redirect
       // Root path on non-www → www.prestigeautobodyinc.com/en (direct, no chain)
       {
@@ -338,15 +348,7 @@ const nextConfig: NextConfig = {
       },
     ];
 
-    // Fetch and append dynamically generated blog redirects from Payload CMS
-    try {
-      const blogRedirects = await generateBlogRedirects();
-      return staticRedirects.concat(blogRedirects);
-    } catch (error) {
-      console.error('Failed to generate blog redirects:', error);
-      // Fall back to static redirects if Payload fetch fails
-      return staticRedirects;
-    }
+    return staticRedirects;
   },
 
   // Rewrites: map localized Spanish slugs to internal English paths
