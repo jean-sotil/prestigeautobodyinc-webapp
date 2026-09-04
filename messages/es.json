@@ -659,6 +659,33 @@
           "quote": "Nunca escribo reseñas pero elegí este taller de carrocería por las reseñas y espero poder ayudar a alguien más. Carlos y su equipo fueron muy útiles guiándome en el proceso. ¡10/10 lo recomendaría!",
           "author": "Mitch Hawkins",
           "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Servicios de Carrocería por Ubicación",
+          "intro": "Prestige Auto Body proporciona servicios completos de reparación de carrocería en toda Silver Spring y el Condado de Montgomery, Maryland. Nuestros técnicos certificados están listos para manejar reparación de abolladuras, reparación de chasis, reemplazo de parachoques y restauración estructural en ubicaciones convenientes cerca de usted.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación principal de carrocería se encuentra en 928 Philadelphia Avenue en Silver Spring. Ubicados convenientemente cerca de la Ruta 29, servimos a clientes en todo Silver Spring, Forest Glen y áreas circundantes. La mayoría de los clientes pueden llegar a nosotros en 10–15 minutos."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los residentes de Takoma Park confían en Prestige Auto Body para servicios completos de carrocería. Estamos a solo 5 millas de distancia a través de la Ruta 29 Norte. Nuestros técnicos experimentados manejan reparación de abolladuras, daño estructural, reemplazo de parachoques y trabajo de carrocería personalizado."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Ubicado aproximadamente 10 millas de nuestro taller en Silver Spring, los clientes de Wheaton se benefician de nuestro tiempo de espera rápido y artesanía experta. Desde abolladuras menores hasta reparaciones estructurales importantes, restauramos su vehículo a su condición anterior al daño."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Los residentes de Columbia pueden confiar en Prestige Auto Body para servicios profesionales de reparación de carrocería. Servimos el área más amplia de Columbia con tiempo de espera rápido, precios competitivos y coordinación directa con seguros para todo tipo de daño vehicular."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Reparación de Carrocería",
+          "description": "Explore nuestro blog para consejos expertos, guías y mejores prácticas para reparación de abolladuras, restauración de carrocería, mantenimiento de su vehículo después de la reparación y más.",
+          "linkText": "Leer Nuestro Blog"
         }
       },
       "autoPainting": {
@@ -870,7 +897,34 @@
             "question": "¿Qué debo hacer para proteger áreas recién pintadas?",
             "answer": "Evite lavar durante la primera semana (déjela curarse completamente). Estacione en sombra si es posible. Evite cera o selladores durante 30 días. Después del curado completo, lavado regular y encerado cada 3 meses extiende significativamente la vida de la pintura."
           }
-        ]
+        ],
+        "serviceAreas": {
+          "heading": "Servicios de Pintura de Autos por Ubicación",
+          "intro": "Prestige Auto Body ofrece servicios expertos de pintura de autos en toda Silver Spring y el Condado de Montgomery, Maryland. Ya sea que necesite un retoque o un repintado completo de vehículo, nuestros técnicos de pintura certificados entregan resultados impecables.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación de pintura principal en 928 Philadelphia Avenue cuenta con una cabina de pintura downdraft de última generación con igualación de color computarizada. Ubicados convenientemente cerca de la Ruta 29, servimos clientes en todo Silver Spring, Forest Glen y Kensington en 10–15 minutos."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los residentes de Takoma Park confían en Prestige Auto Body para pintura profesional de autos. Ubicado a solo 5 millas de distancia a través de la Ruta 29 Norte, nuestra instalación maneja reparaciones puntuales, repintados de paneles y refinishing completo de vehículos con resultados de calidad de fábrica."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Ubicado aproximadamente 10 millas de nuestro taller en Silver Spring, los clientes de Wheaton se benefician de nuestros técnicos expertos de pintura y tecnología avanzada de igualación de color. Manejamos todo tipo de pintura incluyendo acabados ecológicos a base de agua y metalizados."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Los residentes de Columbia pueden confiar en Prestige Auto Body para servicios profesionales de pintura de autos. Servimos el área más amplia de Columbia con precios competitivos, tiempo de espera rápido y los sistemas de pintura automotriz de más alta calidad."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Pintura de Autos",
+          "description": "Explore nuestro blog para consejos expertos sobre protección de pintura, tecnología de igualación de color, mantenimiento de su acabado y técnicas de pintura profesional.",
+          "linkText": "Leer Nuestro Blog"
+        }
       },
       "insuranceClaims": {
         "metaTitle": "Asistencia con Reclamos de Seguro Silver Spring, MD | Prestige Auto Body",
@@ -908,6 +962,228 @@
           "quote": "¡El auto quedó increíble! Jorge y el equipo de Prestige fueron mucho más allá de lo que esperaba. Cuando tuve problemas con mi compañía de seguros, Prestige trabajó rápidamente para resolver el problema. ¡Altamente recomendado!",
           "author": "Steve Rose",
           "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Servicios de Reclamos de Seguros por Ubicación",
+          "intro": "Prestige Auto Body maneja reclamos de seguros en toda Silver Spring y el Condado de Montgomery, Maryland. Trabajamos directamente con todas las compañías de seguros principales para reparar su vehículo rápidamente y sin complicaciones.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación principal en 928 Philadelphia Avenue es un taller aprobado de reparación de colisiones para todas las compañías de seguros principales. Manejamos presentación de reclamos, coordinación con ajustadores y facturación directa para clientes en toda Silver Spring y Forest Glen."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los residentes de Takoma Park pueden confiar en nuestra coordinación directa con seguros. Ubicado a solo 5 millas de distancia a través de la Ruta 29 Norte, optimizamos todo el proceso de reclamos para que pueda enfocarse en volver a la carretera."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Nuestro servicio de grúa 24/7 llega rápidamente a los clientes de Wheaton después de un accidente. Manejamos todos los documentos de seguros y trabajamos directamente con su ajustador para agilizar aprobaciones y reparaciones."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Los residentes de Columbia se benefician de nuestras relaciones directas con todas las compañías de seguros principales. Servimos el área más amplia de Columbia con procesamiento eficiente de reclamos y reparaciones de colisiones de expertos respaldadas por garantía de por vida."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Reclamos de Seguros",
+          "description": "Explore nuestro blog para orientación sobre presentación de reclamos, comprensión de su cobertura, trabajo con ajustadores y navegación del proceso de reparación.",
+          "linkText": "Leer Nuestro Blog"
+        }
+      },
+      "towing": {
+        "metaTitle": "Servicios de Grúa 24/7 Silver Spring, MD | Ayuda de Emergencia en Carretera",
+        "metaDescription": "Grúa de emergencia 24/7 en Silver Spring, MD. Respuesta rápida, conductores profesionales, todo tipo de vehículos. Cotizaciones gratis. Especialista en recuperación de accidentes.",
+        "title": "Servicios de Grúa de Emergencia — Silver Spring, MD",
+        "heroImageAlt": "Camión profesional de grúa equipado con equipo de levantamiento avanzado para recuperación segura de vehículos",
+        "heroDescription": "Grúa rápida y confiable 24/7 en Silver Spring y el Condado de Montgomery, Maryland. Todo tipo de vehículos manejados con cuidado — de sedanes a camiones pesados. Conductores profesionales con experiencia en recuperación de accidentes.",
+        "offerings": {
+          "item1": {
+            "title": "Respuesta de Emergencia 24/7",
+            "description": "Disponible las 24 horas del día para accidentes, descomposturas y emergencias de carretera."
+          },
+          "item2": {
+            "title": "Grúa de Larga Distancia",
+            "description": "Manejamos traslados en todo Maryland y estados vecinos con equipo de nivel profesional."
+          },
+          "item3": {
+            "title": "Servicio de Grúa Tipo Cama y Brazo",
+            "description": "Equipo especializado para sedanes, SUVs, camiones y vehículos exóticos — todo transportado con seguridad."
+          },
+          "item4": {
+            "title": "Recuperación de Accidentes",
+            "description": "Recuperación segura de escena de accidente con daño mínimo adicional a su vehículo."
+          },
+          "item5": {
+            "title": "Asistencia de Carretera",
+            "description": "Cerraduras, arranque de batería, entrega de combustible y cambios de llantas disponibles bajo solicitud."
+          },
+          "item6": {
+            "title": "Coordinación Directa a Reparación",
+            "description": "Transportamos directamente a nuestra instalación y comenzamos reparaciones inmediatamente con aprobación de seguros."
+          }
+        },
+        "testimonial": {
+          "quote": "Llegaron rápidamente y trasladaron mi auto al taller sin complicaciones. El conductor fue profesional y cortés. ¡Definitivamente los usaría de nuevo!",
+          "author": "Marcus Thompson",
+          "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Servicios de Grúa de Emergencia por Ubicación",
+          "intro": "Prestige Auto Body proporciona grúa rápida 24/7 en todo Silver Spring y el Condado de Montgomery, Maryland. Nuestros conductores profesionales responden rápidamente a accidentes, descomposturas y emergencias de carretera.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación principal sirve Silver Spring con grúa de respuesta rápida 24/7. La mayoría de clientes en Silver Spring y Forest Glen reciben grúa en 15–20 minutos después del despacho."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los residentes de Takoma Park se benefician de nuestra respuesta rápida y recuperación profesional de accidentes. Ubicado a solo 5 millas de distancia, proporcionamos grúa y coordinación directa al taller."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Proporcionamos grúa de emergencia 24/7 para residentes del área de Wheaton. Los accidentes en la Circunvalación y carreteras locales se responden rápidamente con experiencia completa en recuperación de accidentes."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Nuestro servicio de grúa se extiende a Columbia y el área más amplia del Condado de Montgomery. Manejamos todo tipo de vehículos y coordinamos directamente con seguros y nuestra instalación de reparación."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Grúa y Recuperación",
+          "description": "Explore nuestro blog para consejos sobre seguridad en carretera, qué hacer después de un accidente, mejores prácticas de grúa y preparación para emergencias.",
+          "linkText": "Leer Nuestro Blog"
+        }
+      },
+      "rentalAssistance": {
+        "metaTitle": "Asistencia con Renta de Autos Silver Spring, MD | Programas de Vehículos Prestados",
+        "metaDescription": "Asistencia con renta de autos para reparaciones de colisiones en Silver Spring, MD. Programa de vehículos prestados mientras se repara su auto. Coordinación de seguros incluida.",
+        "title": "Programa de Renta de Autos y Vehículos Prestados — Silver Spring, MD",
+        "heroImageAlt": "Flota de vehículos prestados de Prestige Auto Body disponible mientras se repara su auto",
+        "heroDescription": "No se quede sin transporte durante las reparaciones. Prestige Auto Body ofrece asistencia con renta de autos y programas de vehículos prestados para que pueda desplazarse mientras reparamos su vehículo.",
+        "offerings": {
+          "item1": {
+            "title": "Programa de Vehículos Prestados",
+            "description": "Vehículos prestados gratis disponibles mientras su auto está en el taller de reparación (disponibilidad varía)."
+          },
+          "item2": {
+            "title": "Coordinación de Seguros",
+            "description": "Coordinamos con seguros para asegurar que los costos de renta estén cubiertos bajo su póliza."
+          },
+          "item3": {
+            "title": "Referencias de Renta a Corto Plazo",
+            "description": "Asociaciones con agencias de alquiler locales para tarifas diarias/semanales asequibles."
+          },
+          "item4": {
+            "title": "Reparaciones de Tiempo de Espera Rápido",
+            "description": "Nuestro proceso de reparación eficiente significa períodos de alquiler más cortos y costos más bajos para usted."
+          },
+          "item5": {
+            "title": "Transporte Durante Colisión",
+            "description": "Vales de viaje compartido de emergencia disponibles para transporte el mismo día después de accidentes."
+          },
+          "item6": {
+            "title": "Recogida y Entrega el Mismo Día",
+            "description": "Disponibilidad conveniente de vehículos prestados con horarios flexibles de recogida y entrega."
+          }
+        },
+        "testimonial": {
+          "quote": "Tener acceso a un auto prestado hizo que todo el proceso de reparación fuera sin estrés. Podía ir al trabajo sin preocuparme por los horarios. ¡Gran servicio!",
+          "author": "Jennifer Kim",
+          "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Servicios de Asistencia con Renta por Ubicación",
+          "intro": "Prestige Auto Body proporciona asistencia conveniente con renta de autos y programas de vehículos prestados en toda Silver Spring y el Condado de Montgomery, Maryland.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación principal ofrece una flota de vehículos prestados para clientes que se someten a reparaciones de colisiones. Recogida/entrega rápida disponible durante horarios de operación."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los clientes de Takoma Park pueden acceder a nuestro programa de vehículos prestados. Ubicado a solo 5 millas de distancia, ofrecemos recogida conveniente de vehículos durante la duración de las reparaciones."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Los residentes de Wheaton se benefician de nuestra coordinación de asistencia con renta. Podemos arreglar vehículos prestados y coordinar con agencias de alquiler locales para opciones adicionales."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Los clientes de Columbia pueden confiar en nuestro programa de asistencia con renta. Coordinamos cobertura de seguros y arreglamos soluciones de transporte mientras se repara su vehículo."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Asistencia con Renta",
+          "description": "Explore nuestro blog para consejos sobre manejo de transporte durante reparaciones, comprensión de cobertura de seguros para alquileres y superación de una reparación suavemente.",
+          "linkText": "Leer Nuestro Blog"
+        }
+      },
+      "carWashDetailing": {
+        "metaTitle": "Lavado de Autos y Detallado Silver Spring, MD | Lavado a Mano y Encerado",
+        "metaDescription": "Lavado profesional de autos y detallado en Silver Spring, MD. Lavado a mano, detalle interior, protección de pintura, recubrimiento cerámico. Cuidado experto para cada vehículo.",
+        "title": "Lavado Profesional de Autos y Detallado — Silver Spring, MD",
+        "heroImageAlt": "Técnico experto realizando lavado a mano y detallado en vehículo de lujo con equipo profesional",
+        "heroDescription": "Servicios profesionales de lavado a mano y detallado que protegen la pintura, interior y valor de su vehículo. Desde mantenimiento regular hasta restauración profunda, nuestros especialistas en detallado cuidan cada vehículo como si fuera propio.",
+        "offerings": {
+          "item1": {
+            "title": "Lavado a Mano y Secado",
+            "description": "Lavado a mano suave con jabones premium y secado con microfibra para prevenir marcas de remolino."
+          },
+          "item2": {
+            "title": "Detallado Interior",
+            "description": "Limpieza profunda de asientos, alfombras, tablero y molduras con tratamientos especializados."
+          },
+          "item3": {
+            "title": "Corrección y Pulido de Pintura",
+            "description": "Elimine marcas de remolino, rayaduras y oxidación para restaurar un acabado de sala de exhibición."
+          },
+          "item4": {
+            "title": "Aplicación de Recubrimiento Cerámico",
+            "description": "Recubrimiento protector duradero que proporciona hidrofóbico, resistencia a raspaduras y protección UV."
+          },
+          "item5": {
+            "title": "Protección de Cera y Sellador",
+            "description": "Encerado premium y selladores sintéticos preservan su pintura y extienden la longevidad del vehículo."
+          },
+          "item6": {
+            "title": "Restauración de Faros y Molduras",
+            "description": "Pulido profesional de faros y restauración de molduras para mejorar el atractivo visual."
+          }
+        },
+        "testimonial": {
+          "quote": "¡Mi auto se ve nuevo! La atención al detalle es increíble. Vale cada centavo por ese toque profesional.",
+          "author": "David Martinez",
+          "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Servicios de Lavado y Detallado de Autos por Ubicación",
+          "intro": "Prestige Auto Body proporciona servicios profesionales de lavado a mano y detallado en toda Silver Spring y el Condado de Montgomery, Maryland.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación de detallado principal en 928 Philadelphia Avenue ofrece servicios completos de lavado a mano y detallado profesional. Trabajamos por cita para asegurar atención dedicada a su vehículo."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los residentes de Takoma Park pueden disfrutar de nuestros servicios de detallado profesional. Ubicado a solo 5 millas de distancia a través de la Ruta 29 Norte, proporcionamos el mismo trabajo de lavado a mano y detalle de alta calidad."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Ubicado aproximadamente 10 millas de nuestro Silver Spring, los clientes de Wheaton se benefician de nuestra experiencia profesional en detallado y compromiso con la protección de vehículos."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Los residentes de Columbia pueden confiar en Prestige Auto Body para lavado profesional de autos y detallado. Servimos el área más amplia de Columbia con servicio por cita y protección experta de pintura."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Cuidado de Autos y Protección",
+          "description": "Explore nuestro blog para consejos sobre mantenimiento de vehículos, protección de pintura, mejores prácticas de detallado y beneficios de recubrimiento cerámico.",
+          "linkText": "Leer Nuestro Blog"
         }
       }
     }

@@ -659,6 +659,33 @@
           "quote": "I never write reviews but I chose this auto body shop because I read the reviews so I hope I can help someone else out. Carlos and his team were very helpful walking me through the process. 10/10 would recommend!",
           "author": "Mitch Hawkins",
           "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Auto Body Repair Services by Location",
+          "intro": "Prestige Auto Body provides comprehensive auto body repair services across Silver Spring and Montgomery County, Maryland. Our certified technicians are ready to handle dent removal, frame repair, bumper replacement, and structural restoration at convenient locations near you.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main auto body facility is located at 928 Philadelphia Avenue in Silver Spring. We're conveniently located near Route 29, serving customers throughout downtown Silver Spring, Forest Glen, and surrounding areas. Most customers can reach us within 10–15 minutes."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park residents trust Prestige Auto Body for comprehensive auto body services. We're just 5 miles away via Route 29 North. Our experienced technicians handle dent repair, structural damage, bumper replacement, and custom body work."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Located approximately 10 miles from our Silver Spring shop, Wheaton customers benefit from our quick turnaround and expert craftsmanship. From minor dents to major structural repairs, we restore your vehicle to pre-damage condition."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Columbia residents can rely on Prestige Auto Body for professional auto body repair services. We serve the broader Columbia area with fast turnaround, competitive pricing, and direct insurance coordination for all types of vehicle damage."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Auto Body Repair",
+          "description": "Explore our blog for expert tips, guidance, and best practices for dent repair, body work restoration, maintaining your vehicle after repair, and more.",
+          "linkText": "Read Our Blog"
         }
       },
       "autoPainting": {
@@ -870,7 +897,34 @@
             "question": "What should I do to protect freshly painted areas?",
             "answer": "Avoid washing for the first week (let it fully cure). Park in shade if possible to prevent UV exposure during cure. Avoid wax or sealers for 30 days. After full cure, regular washing and waxing every 3 months extends paint life significantly."
           }
-        ]
+        ],
+        "serviceAreas": {
+          "heading": "Auto Painting Services by Location",
+          "intro": "Prestige Auto Body offers expert auto painting services across Silver Spring and Montgomery County, Maryland. Whether you need a touch-up or a full vehicle repaint, our certified paint technicians deliver flawless results.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main painting facility at 928 Philadelphia Avenue features a state-of-the-art downdraft paint booth with computerized color matching. We're conveniently located near Route 29, serving customers throughout Silver Spring, Forest Glen, and Kensington within 10–15 minutes."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park residents trust Prestige Auto Body for professional auto painting. Located just 5 miles away via Route 29 North, our facility handles spot repairs, panel repaints, and full vehicle refinishing with factory-quality results."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Located approximately 10 miles from our Silver Spring shop, Wheaton customers benefit from our expert paint technicians and advanced color-matching technology. We handle all paint types including eco-friendly waterborne and metallic finishes."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Columbia residents can rely on Prestige Auto Body for professional auto painting services. We serve the broader Columbia area with competitive pricing, fast turnaround, and the highest quality automotive paint systems."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Auto Painting",
+          "description": "Explore our blog for expert advice on paint protection, color matching technology, maintaining your finish, and professional painting techniques.",
+          "linkText": "Read Our Blog"
+        }
       },
       "insuranceClaims": {
         "metaTitle": "Insurance Claims Help Silver Spring, MD | Direct Repair Provider",
@@ -908,6 +962,228 @@
           "quote": "Car looks dope! Jorge and the Prestige team went far and beyond what I was expecting. When I had issues with my insurance company, Prestige worked quickly to resolve the issue. Highly recommended!",
           "author": "Steve Rose",
           "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Insurance Claims Services by Location",
+          "intro": "Prestige Auto Body handles insurance claims across Silver Spring and Montgomery County, Maryland. We work directly with all major insurance carriers to get your vehicle repaired quickly and hassle-free.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main facility at 928 Philadelphia Avenue is an approved collision repair shop for all major insurance carriers. We handle claims filing, adjuster coordination, and direct billing for customers throughout Silver Spring and Forest Glen."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park residents can rely on our direct insurance coordination. Located just 5 miles away via Route 29 North, we streamline the entire claims process so you can focus on getting back on the road."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Our 24/7 towing service reaches Wheaton customers quickly after an accident. We handle all insurance paperwork and work directly with your adjuster to expedite approvals and repairs."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Columbia residents benefit from our direct relationships with all major insurance carriers. We serve the broader Columbia area with efficient claims processing and expert collision repairs backed by a lifetime warranty."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Insurance Claims",
+          "description": "Explore our blog for guidance on filing claims, understanding your coverage, working with adjusters, and navigating the repair process.",
+          "linkText": "Read Our Blog"
+        }
+      },
+      "towing": {
+        "metaTitle": "24/7 Towing Services Silver Spring, MD | Emergency Roadside Help",
+        "metaDescription": "24/7 emergency towing in Silver Spring, MD. Quick response time, professional drivers, all vehicle types. Free estimates. Accident recovery specialist.",
+        "title": "Emergency Towing Services — Silver Spring, MD",
+        "heroImageAlt": "Professional towing truck equipped with advanced lifting equipment for safe vehicle recovery",
+        "heroDescription": "Fast, reliable 24/7 emergency towing throughout Silver Spring and Montgomery County, Maryland. All vehicle types handled with care — from sedans to heavy trucks. Professional drivers with accident recovery expertise.",
+        "offerings": {
+          "item1": {
+            "title": "24/7 Emergency Response",
+            "description": "Available around the clock for accidents, breakdowns, and roadside emergencies."
+          },
+          "item2": {
+            "title": "Long-Distance Towing",
+            "description": "We handle tows across Maryland and neighboring states with professional-grade equipment."
+          },
+          "item3": {
+            "title": "Flatbed & Wheel-Lift Service",
+            "description": "Specialized equipment for sedans, SUVs, trucks, and exotic vehicles — all towed safely."
+          },
+          "item4": {
+            "title": "Accident Recovery",
+            "description": "Secure accident scene recovery with minimal additional damage to your vehicle."
+          },
+          "item5": {
+            "title": "Roadside Assistance",
+            "description": "Lockouts, battery jump-starts, fuel delivery, and tire changes available on request."
+          },
+          "item6": {
+            "title": "Direct-to-Repair Coordination",
+            "description": "We tow directly to our facility and begin repairs immediately with insurance approval."
+          }
+        },
+        "testimonial": {
+          "quote": "They showed up quickly and got my car to the shop without any hassle. The driver was professional and courteous. Would definitely use them again!",
+          "author": "Marcus Thompson",
+          "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Emergency Towing Services by Location",
+          "intro": "Prestige Auto Body provides rapid 24/7 towing throughout Silver Spring and Montgomery County, Maryland. Our professional drivers respond quickly to accidents, breakdowns, and roadside emergencies.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main facility serves Silver Spring with rapid-response 24/7 towing. Most customers in Silver Spring and Forest Glen receive towing within 15–20 minutes of dispatch."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park residents benefit from our quick response and professional accident recovery. Located just 5 miles away, we provide towing and direct shop coordination."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "We provide 24/7 emergency towing for Wheaton area residents. Accidents on the Beltway and local roads are responded to quickly with full accident recovery expertise."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Our towing service extends to Columbia and the broader Montgomery County area. We handle all vehicle types and coordinate directly with insurance and our repair facility."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Towing & Recovery",
+          "description": "Explore our blog for tips on roadside safety, what to do after an accident, towing best practices, and emergency preparedness.",
+          "linkText": "Read Our Blog"
+        }
+      },
+      "rentalAssistance": {
+        "metaTitle": "Rental Car Assistance Silver Spring, MD | Loaner Programs",
+        "metaDescription": "Rental car assistance for collision repairs in Silver Spring, MD. Loaner vehicle program while your car is being repaired. Insurance coordination included.",
+        "title": "Rental Car & Loaner Vehicle Program — Silver Spring, MD",
+        "heroImageAlt": "Prestige Auto Body's fleet of loaner vehicles available while your car is being repaired",
+        "heroDescription": "Don't be without transportation during repairs. Prestige Auto Body offers rental car assistance and loaner vehicle programs so you can get around while we fix your vehicle.",
+        "offerings": {
+          "item1": {
+            "title": "Loaner Vehicle Program",
+            "description": "Free loaner vehicles available while your car is in the repair shop (availability varies)."
+          },
+          "item2": {
+            "title": "Insurance Coordination",
+            "description": "We coordinate with insurance to ensure rental costs are covered under your policy."
+          },
+          "item3": {
+            "title": "Short-Term Rental Referrals",
+            "description": "Partnerships with local rental agencies for affordable daily/weekly rental rates."
+          },
+          "item4": {
+            "title": "Quick Turnaround Repairs",
+            "description": "Our efficient repair process means shorter rental periods and lower costs for you."
+          },
+          "item5": {
+            "title": "Transportation During Collision",
+            "description": "Emergency ride-share vouchers available for same-day transportation after accidents."
+          },
+          "item6": {
+            "title": "Same-Day Pickup/Dropoff",
+            "description": "Convenient loaner availability with flexible pickup and dropoff times."
+          }
+        },
+        "testimonial": {
+          "quote": "Having access to a loaner car made the entire repair process stress-free. I could get to work without worrying about timing. Great service!",
+          "author": "Jennifer Kim",
+          "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Rental Assistance Services by Location",
+          "intro": "Prestige Auto Body provides convenient rental car assistance and loaner vehicle programs across Silver Spring and Montgomery County, Maryland.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main facility offers a fleet of loaner vehicles for customers undergoing collision repairs. Quick pickup/dropoff available during business hours."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park customers can access our loaner program. Located just 5 miles away, we offer convenient vehicle pickup for the duration of repairs."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Wheaton residents benefit from our rental assistance coordination. We can arrange loaner vehicles and coordinate with local rental agencies for additional options."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Columbia customers can rely on our rental assistance program. We coordinate insurance coverage and arrange transportation solutions while your vehicle is being repaired."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Rental Assistance",
+          "description": "Explore our blog for tips on managing transportation during repairs, understanding insurance coverage for rentals, and getting through a repair smoothly.",
+          "linkText": "Read Our Blog"
+        }
+      },
+      "carWashDetailing": {
+        "metaTitle": "Car Wash & Detail Silver Spring, MD | Hand Wash & Waxing",
+        "metaDescription": "Professional car wash and detailing in Silver Spring, MD. Hand wash, interior detail, paint protection, ceramic coating. Expert care for every vehicle.",
+        "title": "Professional Car Wash & Detailing — Silver Spring, MD",
+        "heroImageAlt": "Expert technician performing hand wash and detailing on luxury vehicle with professional-grade equipment",
+        "heroDescription": "Professional-grade hand wash and detailing services that protect your vehicle's paint, interior, and value. From regular maintenance to deep restoration, our detailing specialists care for every vehicle like it's their own.",
+        "offerings": {
+          "item1": {
+            "title": "Hand Wash & Drying",
+            "description": "Gentle hand wash with premium soaps and microfiber drying to prevent swirl marks."
+          },
+          "item2": {
+            "title": "Interior Detailing",
+            "description": "Deep cleaning of seats, carpets, dashboard, and trim with specialized treatments."
+          },
+          "item3": {
+            "title": "Paint Correction & Polishing",
+            "description": "Remove swirl marks, scratches, and oxidation to restore a showroom finish."
+          },
+          "item4": {
+            "title": "Ceramic Coating Application",
+            "description": "Long-lasting protective coating provides hydrophobic, scratch-resistant, UV protection."
+          },
+          "item5": {
+            "title": "Wax & Sealant Protection",
+            "description": "Premium waxing and synthetic sealants preserve your paint and extend vehicle longevity."
+          },
+          "item6": {
+            "title": "Headlight & Trim Restoration",
+            "description": "Professional headlight polishing and trim restoration to enhance curb appeal."
+          }
+        },
+        "testimonial": {
+          "quote": "My car looks brand new! The attention to detail is incredible. Worth every penny for that professional touch.",
+          "author": "David Martinez",
+          "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Car Wash & Detailing Services by Location",
+          "intro": "Prestige Auto Body provides professional hand wash and detailing services across Silver Spring and Montgomery County, Maryland.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main detailing facility at 928 Philadelphia Avenue offers complete hand wash and professional detailing services. We work by appointment to ensure dedicated attention to your vehicle."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park residents can enjoy our professional detailing services. Located just 5 miles away via Route 29 North, we provide the same high-quality hand wash and detail work."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Located approximately 10 miles from our Silver Spring location, Wheaton customers benefit from our professional detailing expertise and commitment to vehicle protection."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Columbia residents can rely on Prestige Auto Body for professional car wash and detailing. We serve the broader Columbia area with appointment-based service and expert paint protection."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Car Care & Protection",
+          "description": "Explore our blog for tips on vehicle maintenance, protecting your paint, detailing best practices, and ceramic coating benefits.",
+          "linkText": "Read Our Blog"
         }
       }
     }
