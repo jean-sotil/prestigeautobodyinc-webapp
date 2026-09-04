@@ -594,6 +594,33 @@
           "quote": "Excelente servicio desde el presupuesto inicial hasta la finalización del trabajo. El equipo ordenó las piezas inmediatamente y cumplió con el calendario. Fueron razonables en precio y fáciles de trabajar.",
           "author": "Mina Y.",
           "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Servicios de Reparación de Colisiones por Ubicación",
+          "intro": "Prestige Auto Body sirve a clientes de reparación de colisiones en Silver Spring y el condado de Montgomery, Maryland. Sin importar si su vehículo fue dañado en un accidente en la Ruta 29, la Carretera de Circunvalación o calles locales, nuestros técnicos certificados están listos para restaurarlo a su condición pre-accidente.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Nuestra instalación principal de reparación de colisiones está ubicada en 928 Philadelphia Avenue en Silver Spring. Estamos convenientemente ubicados cerca de la Ruta 29 y cercanos a clientes en todo Silver Spring, Forest Glen y Wheaton. La mayoría de los clientes pueden alcanzarnos en 10–15 minutos desde cualquier lugar en Silver Spring."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Los residentes de Takoma Park confían en Prestige Auto Body para reparaciones de colisiones. Estamos a solo 5 millas de distancia vía Ruta 29 Norte. Nuestro equipo de medición computarizada de chasis y técnicos certificados I-CAR Gold están equipados para manejar cualquier daño de colisión."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Ubicada aproximadamente a 10 millas de nuestro taller en Silver Spring, los clientes de Wheaton se benefician de nuestro servicio de remolque 24/7 de emergencia. Después de una colisión en la Carretera de Circunvalación o calles locales, podemos remolcar su vehículo a nuestras instalaciones y comenzar reparaciones inmediatamente."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Los residentes de Columbia pueden confiar en Prestige Auto Body para servicios expertos de reparación de colisiones. Servimos el área más amplia de Columbia con reparación rápida, precios competitivos y coordinación directa con seguros. Nuestro equipo experimentado maneja todos los modelos de vehículos."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Aprenda Más Sobre Reparación de Colisiones",
+          "description": "Explore nuestro blog para consejos expertos, orientación e información del mundo real sobre reparación de colisiones, recuperación de vehículos y trabajo con compañías de seguros.",
+          "linkText": "Lee Nuestro Blog"
         }
       },
       "autoBodyServices": {

@@ -594,6 +594,33 @@
           "quote": "Great service from the initial estimate through completion of the job! The team ordered the parts immediately and kept the schedule. They were reasonably priced and easy to work with.",
           "author": "Mina Y.",
           "location": "Silver Spring"
+        },
+        "serviceAreas": {
+          "heading": "Collision Repair Services by Location",
+          "intro": "Prestige Auto Body serves collision repair customers across Silver Spring and Montgomery County, Maryland. Whether your vehicle was damaged in an accident on Route 29, the Beltway, or local roads, our certified technicians are ready to restore it to pre-accident condition.",
+          "locations": [
+            {
+              "city": "Silver Spring, MD",
+              "description": "Our main collision repair facility is located at 928 Philadelphia Avenue in Silver Spring. We're conveniently located near Route 29 and close to customers throughout downtown Silver Spring, Forest Glen, and Wheaton. Most customers can reach us within 10–15 minutes from anywhere in Silver Spring."
+            },
+            {
+              "city": "Takoma Park, MD",
+              "description": "Takoma Park residents trust Prestige Auto Body for collision repairs. We're just 5 miles away via Route 29 North. Our computerized frame measuring and I-CAR Gold technicians are equipped to handle any collision damage — from fender-benders to major structural repairs."
+            },
+            {
+              "city": "Wheaton, MD",
+              "description": "Located approximately 10 miles from our Silver Spring shop, Wheaton customers benefit from our 24/7 emergency towing service. After a collision on the Beltway or local streets, we can tow your vehicle to our facility and begin repairs immediately."
+            },
+            {
+              "city": "Columbia, MD",
+              "description": "Columbia residents can rely on Prestige Auto Body for expert collision repair services. We serve the broader Columbia area with fast turnaround, competitive pricing, and direct insurance coordination. Our experienced team handles all vehicle makes and models."
+            }
+          ]
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Collision Repair",
+          "description": "Explore our blog for expert tips, guidance, and real-world insights about collision repair, vehicle recovery, and working with insurance companies.",
+          "linkText": "Read Our Blog"
         }
       },
       "autoBodyServices": {
