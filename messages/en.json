@@ -670,7 +670,180 @@
           "quote": "Couldn't be any happier with the work they performed on my vehicle. Not just the work done in my car was excellent, but the customer service was beyond excellent. Carlos was thoroughly helpful by always answering my questions.",
           "author": "Suellen B.",
           "location": "Silver Spring"
-        }
+        },
+        "processSection": {
+          "heading": "Our Auto Painting Process",
+          "intro": "Professional auto painting requires precision, expertise, and the right equipment. At Prestige Auto Body in Silver Spring, MD, our paint technicians follow a meticulous multi-step process to ensure a flawless finish that lasts.",
+          "steps": [
+            {
+              "title": "Inspection & Preparation",
+              "description": "We begin with a detailed inspection of the existing paint and bodywork. The vehicle is thoroughly cleaned, and any damaged areas are identified. Masking tape and protective coverings are applied to preserve trim, windows, and areas not requiring paint."
+            },
+            {
+              "title": "Surface Prep & Sanding",
+              "description": "The surface is sanded to remove old paint, oxidation, and imperfections. We use progressive grits (80–400) to create a smooth base. For spot repairs, only the affected area is sanded. For full repaints, the entire exterior is prepped to factory specifications."
+            },
+            {
+              "title": "Primer Application",
+              "description": "High-quality automotive primer is applied to seal the bare metal or substrate. This layer prevents rust, improves paint adhesion, and ensures uniform color coverage. Our primer blocks stains and provides the perfect foundation for the base coat."
+            },
+            {
+              "title": "Color Matching & Base Coat",
+              "description": "Our computerized paint color-matching system analyzes your vehicle's original factory color and formulates an exact match. The base coat is spray-applied in a controlled environment for even coverage. Prestige uses premium waterborne and traditional automotive paints."
+            },
+            {
+              "title": "Clear Coat Protection",
+              "description": "A UV-resistant clear coat is applied over the base coat. This protective layer provides gloss, durability, and shields against sun, oxidation, and road chemicals. Our clear coat formula delivers superior shine and longevity."
+            },
+            {
+              "title": "Drying & Curing",
+              "description": "The painted vehicle enters a controlled drying bay where temperature and humidity are monitored. Full cure times vary: 24–48 hours for spot repairs, 5–7 days for full repaints. Rushing this step compromises the finish."
+            },
+            {
+              "title": "Wet Sanding & Buffing",
+              "description": "Once cured, the surface is wet-sanded with fine-grit sandpaper (1000–2000) to remove any dust, runs, or imperfections. A machine buffer then polishes the finish to a showroom-ready shine with uniform gloss."
+            },
+            {
+              "title": "Final Inspection & Masking Removal",
+              "description": "A final quality inspection checks for color consistency, coverage, and defects under natural and artificial light. Protective masking is carefully removed. The vehicle receives a final hand polish and detailing."
+            }
+          ]
+        },
+        "technologySection": {
+          "heading": "Advanced Paint-Matching Technology",
+          "intro": "Achieving a perfect paint match is one of the most critical challenges in auto body repair. Mismatched paint is immediately visible and can significantly reduce your vehicle's resale value. Prestige Auto Body employs state-of-the-art computerized color matching to eliminate the guesswork.",
+          "technology": {
+            "spectrophotometer": {
+              "title": "Spectrophotometer Color Analysis",
+              "description": "Our spectrophotometer is a precision instrument that analyzes light reflection from your vehicle's existing paint. It measures color across the full visible spectrum and accounts for metallic flakes, pearl effects, and color variations caused by age and UV exposure. This data is converted into precise paint formulations."
+            },
+            "databaseAndFormulation": {
+              "title": "Factory Database & Digital Formulation",
+              "description": "We maintain comprehensive paint formulation databases for every vehicle manufacturer — Toyota, Honda, BMW, Ford, Chevrolet, and more. Our color-matching software cross-references your vehicle's year, make, model, and build date to retrieve the exact factory paint specification. Custom adjustments account for fading and environmental factors."
+            },
+            "boothEnvironment": {
+              "title": "Downdraft Paint Booth Environment",
+              "description": "Paint application happens in our climate-controlled, downdraft paint booth. Temperature (72°F ± 2°F) and humidity (50% ± 5%) are maintained at factory specifications. This controlled environment ensures consistent paint flow, even atomization, and perfect color settling — eliminating variables that cause color shifts."
+            },
+            "multipleApplications": {
+              "title": "Precision Multi-Layer Application",
+              "description": "Professional auto paint requires layering: primer, sealer, base coat, and clear coat. Each layer is applied with specific spray patterns, gun pressure, and wet film thickness. Our I-CAR certified technicians use spray guns calibrated for micro-level precision, not generic spray cans."
+            },
+            "qualityControl": {
+              "title": "Light-Box Quality Control",
+              "description": "After painting, we use a light-box (D65 5000K standard lighting) to inspect the finish under consistent artificial light. This reveals any color shifts, orange peel, dust, runs, or blending issues that may not be visible in sunlight. Additional spot corrections are made as needed."
+            }
+          }
+        },
+        "warrantySection": {
+          "heading": "Our Lifetime Paint Warranty",
+          "intro": "When you choose Prestige Auto Body for auto painting, your investment is protected by our comprehensive lifetime warranty on workmanship.",
+          "coverage": [
+            "Lifetime coverage against paint peeling, cracking, or adhesion failure due to material or workmanship defects",
+            "Protection against color fading caused by our materials (UV-resistant clear coat standard)",
+            "Defect correction at no charge — repainting, blending, or spot repairs as needed",
+            "No time limit on coverage — valid for as long as you own the vehicle",
+            "Transferable to subsequent owners (adds resale value)"
+          ],
+          "exclusions": "This warranty covers manufacturing and application defects only. It does not cover damage from accidents, abuse, improper care, or negligence. Paint protection film and ceramic coatings are optional add-ons with separate terms."
+        },
+        "pricingSection": {
+          "heading": "Auto Painting Pricing Guide",
+          "intro": "Paint costs depend on vehicle size, damage extent, paint type, and finish complexity. Below is a general pricing framework for auto painting in Silver Spring, MD.",
+          "priceOptions": [
+            {
+              "service": "Spot Repair (single scratch/chip)",
+              "price": "$150–$400",
+              "description": "Localized area up to 6 inches. Includes sanding, priming, paint, and clear coat."
+            },
+            {
+              "service": "Panel Repaint (single door, fender, hood)",
+              "price": "$400–$800",
+              "description": "One panel, color-matched and blended at edges. Includes primer, base coat, and clear coat."
+            },
+            {
+              "service": "Two-Panel Repaint",
+              "price": "$700–$1,300",
+              "description": "Two adjacent panels (e.g., driver door + fender). Blend line managed for seamless transition."
+            },
+            {
+              "service": "Full Vehicle Repaint (sedan/coupe)",
+              "price": "$2,500–$4,500",
+              "description": "Complete exterior + engine bay. Includes full prep, primer, base coat, clear coat, and multi-day curing."
+            },
+            {
+              "service": "Full Vehicle Repaint (SUV/truck)",
+              "price": "$3,500–$5,500",
+              "description": "Larger surface area. Additional panels (roof, liftgate, running boards) increase labor and material."
+            },
+            {
+              "service": "Eco-Friendly Waterborne Paint Upgrade",
+              "price": "+$300–$600",
+              "description": "Low-VOC waterborne paints. Premium environmental and safety benefits. Same durability as traditional."
+            },
+            {
+              "service": "Metallic or Pearl Paint Upgrade",
+              "price": "+$200–$400",
+              "description": "Custom metallic or pearl finishes require additional spray coats and curing time."
+            },
+            {
+              "service": "Ceramic Coat Protection (add-on)",
+              "price": "+$400–$800",
+              "description": "Optional 9H ceramic coat applied over final clear coat. Provides hydrophobic, scratch-resistant, UV protection."
+            }
+          ],
+          "note": "Prices vary based on paint type (waterborne vs. traditional), vehicle condition, and complexity. Final quote provided after in-person inspection. Free estimates available within 24 hours of contact."
+        },
+        "faqExpanded": [
+          {
+            "question": "How accurate is computerized paint color matching?",
+            "answer": "Modern spectrophotometer-based color matching is 95–99% accurate. Our system analyzes thousands of data points and accounts for metallic flakes, pearls, and color variations. For vintage or discontinued colors, we may need to sand a test area or reference factory samples. The result is a match invisible to the human eye."
+          },
+          {
+            "question": "What's the difference between waterborne and traditional automotive paint?",
+            "answer": "Waterborne (eco-friendly) paints use water as the carrier instead of solvent. Benefits: lower VOC emissions, faster drying, reduced fire hazard, and similar durability. Traditional paints offer slightly deeper color and faster application in cold weather. Both are backed by our lifetime warranty."
+          },
+          {
+            "question": "Why does a full repaint take 5–7 days?",
+            "answer": "Professional curing takes time. After base coat application (day 1–2), the paint must cure in a controlled environment at specific temperature/humidity. Clear coat (day 3) requires additional curing. Wet sanding and buffing (day 4–5) happen after full hardness is reached. Rushing risks runs, crazing, or adhesion failure."
+          },
+          {
+            "question": "Can you paint just one panel to match the rest?",
+            "answer": "Yes, we offer panel repainting with color matching and blend-line management. However, if the existing paint is faded, one panel may look slightly brighter after painting. In these cases, we recommend repainting adjacent panels (e.g., both doors) or the entire vehicle for uniform appearance."
+          },
+          {
+            "question": "What happens if the color match isn't perfect?",
+            "answer": "It's extremely rare, but if you're not satisfied with the color match within 48 hours of completion, we'll re-spray at no charge. This is covered under our lifetime warranty on workmanship."
+          },
+          {
+            "question": "How long does the paint last before fading?",
+            "answer": "Quality automotive paint lasts 10–15 years with proper care (regular washing, wax). Our UV-resistant clear coat significantly extends this timeframe. Ceramic coat protection can extend life to 20+ years. Environmental factors (sun exposure, salt spray, pollution) affect longevity."
+          },
+          {
+            "question": "Do you offer ceramic coating to protect the new paint?",
+            "answer": "Yes. Ceramic coating is a liquid glass layer applied over the final clear coat. It provides hydrophobic (water-beading), scratch resistance, and UV protection. It's an optional add-on at $400–$800 and extends paint life significantly."
+          },
+          {
+            "question": "What if my vehicle has a specialty color (pearl, metallic, color-shift)?",
+            "answer": "Our database includes specialty colors. Pearls and metallics require additional base coats and more precise spray technique. Color-shift finishes are complex and may require reference samples. Pricing is higher (+$200–$400), but color matching is equally precise."
+          },
+          {
+            "question": "Can I pick up my vehicle immediately after painting?",
+            "answer": "No. We require a minimum 24-hour cure time before pickup for spot/panel repairs, and 5–7 days for full repaints. Premature pickup risks paint sticking to door jambs or scratching. We'll confirm the exact pickup time based on environmental conditions."
+          },
+          {
+            "question": "Does auto painting include dent or scratch repair?",
+            "answer": "Painting and body repair are separate services. Our collision repair and auto body teams handle dents, scratches, and structural damage. Once bodywork is complete, our paint team takes over. We can coordinate both as a bundle or separately."
+          },
+          {
+            "question": "How much does paint cost for insurance claims?",
+            "answer": "Insurance typically covers paint costs associated with collision repairs (scratches, chips from impact). We work directly with adjusters to determine coverage. Full repaints due to age/fading may not be covered unless they're part of collision damage. Call for a free estimate."
+          },
+          {
+            "question": "What should I do to protect freshly painted areas?",
+            "answer": "Avoid washing for the first week (let it fully cure). Park in shade if possible to prevent UV exposure during cure. Avoid wax or sealers for 30 days. After full cure, regular washing and waxing every 3 months extends paint life significantly."
+          }
+        ]
       },
       "insuranceClaims": {
         "metaTitle": "Insurance Claims Help Silver Spring, MD | Direct Repair Provider",
