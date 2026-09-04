@@ -287,36 +287,58 @@ const nextConfig: NextConfig = {
         destination: '/:locale/auto-body-services',
         permanent: true,
       },
+      // Unlocalized Spanish blog slugs → /es/. MUST precede the catch-all below,
+      // which would otherwise send them to /en/ and force a second redirect.
+      {
+        source: '/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/partes-oem-vs-aftermarket-explicado',
+        permanent: true,
+      },
+      {
+        source: '/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/blog/que-es-un-suplemento-de-carroceria',
+        destination: '/es/blog/que-es-un-suplemento-de-carroceria',
+        permanent: true,
+      },
       // Catch-all: unlocalized blog paths → /en/blog/:slug (fixes URLs without locale prefix)
       {
         source: '/blog/:slug+',
         destination: '/en/blog/:slug+',
         permanent: true,
       },
-      // Blog cross-locale slug fixes (Spanish slug served under /en/)
+      // Blog cross-locale slug fixes: a slug belonging to the other locale, served
+      // under this one. The destination stays in the REQUESTED locale and only
+      // corrects the slug — same rule the runtime resolver in
+      // blog/[slug]/page.tsx applies. That resolver already covers every post;
+      // these entries exist so the URLs Google has already indexed resolve in a
+      // single hop without waking the app.
       {
         source: '/en/blog/partes-oem-vs-aftermarket-explicado',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/en/blog/oem-vs-aftermarket-parts-explained',
         permanent: true,
       },
       {
         source: '/en/blog/partes-oem-vs-aftermarket-reparacion-colision',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
-        permanent: true,
-      },
-      {
-        source: '/blog/partes-oem-vs-aftermarket-reparacion-colision',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
         permanent: true,
       },
       {
         source: '/en/blog/que-es-un-suplemento-de-carroceria',
-        destination: '/es/blog/que-es-un-suplemento-de-carroceria',
+        destination: '/en/blog/what-is-an-auto-body-supplement',
         permanent: true,
       },
       {
         source: '/es/blog/oem-vs-aftermarket-parts-explained',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/es/blog/partes-oem-vs-aftermarket-explicado',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
         permanent: true,
       },
       {
