@@ -98,6 +98,8 @@ export default async function CollisionRepairPage({
     },
   ];
 
+  const relatedArticles = t.raw(`pages.${SERVICE_KEY}.relatedArticles`);
+
   return (
     <>
       <FAQJsonLd faqs={collisionFaqs} locale={locale} />
@@ -121,6 +123,24 @@ export default async function CollisionRepairPage({
           t(`pages.${SERVICE_KEY}.heroImageAlt`),
         )}
       />
+
+      {/* Related Articles CTA */}
+      <section className="py-16 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-900 dark:to-blue-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            {relatedArticles.heading}
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            {relatedArticles.description}
+          </p>
+          <a
+            href={`/${locale}/blog`}
+            className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition"
+          >
+            {relatedArticles.linkText} →
+          </a>
+        </div>
+      </section>
     </>
   );
 }

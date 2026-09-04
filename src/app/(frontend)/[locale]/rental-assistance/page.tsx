@@ -22,12 +22,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const title =
     locale === 'es'
-      ? 'Asistencia de Alquiler de Autos | Prestige Auto Body Inc.'
-      : 'Rental Car Assistance | Prestige Auto Body Inc.';
+      ? 'Asistencia de Alquiler Silver Spring, MD'
+      : 'Rental Car Assistance Silver Spring, MD';
   const description =
     locale === 'es'
-      ? 'Servicios de asistencia de alquiler para mantenerlo en la carretera mientras su vehículo está en reparación.'
-      : 'Rental assistance services to keep you on the road while your vehicle is being repaired at our Silver Spring, MD facility.';
+      ? 'Asistencia de alquiler mientras reparamos su vehículo. Trabajamos con agentes de seguros. Manténgase en la carretera.'
+      : 'Rental car assistance while we repair your vehicle. Coordinated with your insurance company. Stay on the road.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const currentPath = getPathname({
     locale: locale as 'en' | 'es',
@@ -71,8 +71,9 @@ export default async function RentalAssistancePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [nav] = await Promise.all([
+  const [nav, t] = await Promise.all([
     getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'services' }),
   ]);
 
   const localizedPath = getPathname({
@@ -87,6 +88,8 @@ export default async function RentalAssistancePage({
     locale,
   );
 
+  const relatedArticles = t.raw('pages.rentalAssistance.relatedArticles');
+
   return (
     <div className="font-sans min-h-screen">
       <ServiceJsonLd
@@ -100,12 +103,30 @@ export default async function RentalAssistancePage({
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-3xl font-bold mb-6">{nav('rentalAssistance')}</h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-600 mb-12">
           We understand that being without your vehicle is inconvenient. We
           offer rental assistance services to keep you on the road while your
           vehicle is being repaired. Ask us about our rental car partnerships.
         </p>
       </main>
+
+      {/* Related Articles CTA */}
+      <section className="py-16 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-900 dark:to-blue-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            {relatedArticles.heading}
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            {relatedArticles.description}
+          </p>
+          <a
+            href={`/${locale}/blog`}
+            className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition"
+          >
+            {relatedArticles.linkText} →
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

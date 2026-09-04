@@ -99,6 +99,37 @@ export async function fetchBlogPostBySlug(
   }
 }
 
+/**
+ * Resolve a slug that belongs to a different locale than the one requested.
+ *
+ * A post's slug is localized, so /en/blog/<spanish-slug> is a real URL people
+ * and crawlers hit (old links, mistranslated shares) but 404s in that locale.
+ * This looks the slug up in the other locales and returns the slug the
+ * requested locale actually uses, so the page can issue a 308 to the canonical
+ * URL instead of a 404.
+ */
+export async function resolveSlugInLocale(
+  slug: string,
+  targetLocale: string,
+  otherLocales: readonly string[],
+): Promise<string | null> {
+  for (const locale of otherLocales) {
+    if (locale === targetLocale) continue;
+
+    const post = await fetchBlogPostBySlug(slug, locale);
+    if (!post) continue;
+
+    const localizedSlugs = await fetchPostLocalizedSlugs(post.id);
+    const targetSlug = localizedSlugs[targetLocale];
+
+    // Only redirect when the target locale has its own, different slug.
+    if (targetSlug && targetSlug !== slug) return targetSlug;
+    return null;
+  }
+
+  return null;
+}
+
 interface FetchRelatedPostsOptions {
   locale: string;
   excludeSlug: string;

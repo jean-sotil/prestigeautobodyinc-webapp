@@ -31,12 +31,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const title =
     locale === 'es'
-      ? 'Servicio de Remolque 24/7 Silver Spring, MD | Prestige Auto Body'
-      : '24/7 Towing & Roadside Assistance Silver Spring, MD | Prestige Auto Body';
+      ? '24/7 Remolque Silver Spring, MD | Asistencia Vial'
+      : '24/7 Towing Silver Spring, MD | Emergency Roadside Help';
   const description =
     locale === 'es'
-      ? 'Servicio de remolque de emergencia 24/7 en Silver Spring, MD y áreas circundantes. Grúa de plataforma, asistencia en carretera. Llame al (301) 578-8779.'
-      : 'Emergency towing & roadside assistance 24/7 in Silver Spring, MD. Flatbed tow trucks, jump starts & lockouts. All insurance accepted. Call (301) 578-8779.';
+      ? 'Remolque de emergencia 24/7 en Silver Spring, MD. Grúa de plataforma, saltos de batería, asistencia vial. Seguros aceptados.'
+      : '24/7 emergency towing in Silver Spring, MD. Flatbed tow trucks, jump starts, lockout help. All insurance accepted. Free roadside assistance.';
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
   const currentPath = getPathname({
     locale: locale as 'en' | 'es',
@@ -80,9 +80,10 @@ export default async function TowingPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [heroMedia, nav] = await Promise.all([
+  const [heroMedia, nav, t] = await Promise.all([
     getHeroMedia('towing-24-7'),
     getTranslations({ locale, namespace: 'nav' }),
+    getTranslations({ locale, namespace: 'services' }),
   ]);
 
   const localizedPath = getPathname({
@@ -106,7 +107,7 @@ export default async function TowingPage({
     {
       question: 'How much does towing cost?',
       answer:
-        'Towing costs vary by distance and vehicle type. If your repair is done at our shop, towing may be included. Many insurance policies also cover towing — we can help coordinate directly with your insurer.',
+        'Towing costs vary by distance and vehicle type. If your repair is done at our shop, towing may be included. Many insurance policies also cover towing - we can help coordinate directly with your insurer.',
     },
     {
       question: 'What areas do you tow from?',
@@ -153,7 +154,7 @@ export default async function TowingPage({
           </p>
           <p className="text-base text-(--text-secondary) leading-relaxed mb-4">
             Whether you&apos;ve been in an accident, have a flat tire, locked
-            your keys in the car, or need a dead battery jump-started — our
+            your keys in the car, or need a dead battery jump-started - our
             experienced operators respond quickly to get you off the road
             safely.
           </p>
@@ -221,7 +222,7 @@ export default async function TowingPage({
           <ul className="space-y-3 text-base text-(--text-secondary)">
             <li>
               <strong>Direct to repair:</strong> Your vehicle goes straight to
-              our I-CAR Gold Class certified shop — no middleman, no extra
+              our I-CAR Gold Class certified shop - no middleman, no extra
               stops.
             </li>
             <li>
@@ -240,22 +241,50 @@ export default async function TowingPage({
             </li>
           </ul>
         </section>
-
-        <section className="text-center py-8">
-          <h2 className="text-2xl font-bold text-foreground mb-2">
-            Need a Tow Right Now?
-          </h2>
-          <p className="text-base text-(--text-secondary) mb-4">
-            Call us 24/7 for immediate dispatch.
-          </p>
-          <a
-            href="tel:+13015788779"
-            className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-primary/90 transition-colors"
-          >
-            Call (301) 578-8779
-          </a>
-        </section>
       </main>
+
+      {/* Service Areas by Location */}
+      {(() => {
+        const relatedArticles = t.raw('pages.towing.relatedArticles');
+        return (
+          <>
+            {/* Related Articles CTA */}
+            <section className="py-16 bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-900 dark:to-blue-800">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 className="text-4xl font-bold mb-4 text-white">
+                  {relatedArticles.heading}
+                </h2>
+                <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                  {relatedArticles.description}
+                </p>
+                <a
+                  href={`/${locale}/blog`}
+                  className="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition"
+                >
+                  {relatedArticles.linkText} →
+                </a>
+              </div>
+            </section>
+
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <section className="text-center py-8">
+                <h2 className="text-2xl font-bold text-foreground mb-2">
+                  Need a Tow Right Now?
+                </h2>
+                <p className="text-base text-(--text-secondary) mb-4">
+                  Call us 24/7 for immediate dispatch.
+                </p>
+                <a
+                  href="tel:+13015788779"
+                  className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-primary/90 transition-colors"
+                >
+                  Call (301) 578-8779
+                </a>
+              </section>
+            </main>
+          </>
+        );
+      })()}
     </div>
   );
 }

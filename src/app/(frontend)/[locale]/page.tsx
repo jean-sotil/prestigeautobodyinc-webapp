@@ -58,7 +58,8 @@ export async function generateMetadata({
   const ogLocale = locale === 'es' ? 'es_US' : 'en_US';
 
   return {
-    title,
+    // See note in [locale]/layout.tsx — opt out of the title template.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `${BASE_URL}/${locale}`,

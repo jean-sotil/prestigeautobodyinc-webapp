@@ -44,7 +44,12 @@ export function ResponsiveHero({
         />
       ) : (
         <picture>
-          {/* Mobile: ≤767px */}
+          {/* Mobile: ≤767px — AVIF first for best compression */}
+          <source
+            media="(max-width: 767px)"
+            srcSet={`/hero/${slug}/mobile/${slug}-hero-mobile.avif`}
+            type="image/avif"
+          />
           <source
             media="(max-width: 767px)"
             srcSet={`/hero/${slug}/mobile/${slug}-hero-mobile.webp`}
@@ -58,6 +63,11 @@ export function ResponsiveHero({
           {/* Tablet: 768px–1023px */}
           <source
             media="(max-width: 1023px)"
+            srcSet={`/hero/${slug}/tablet/${slug}-hero-tablet.avif`}
+            type="image/avif"
+          />
+          <source
+            media="(max-width: 1023px)"
             srcSet={`/hero/${slug}/tablet/${slug}-hero-tablet.webp`}
             type="image/webp"
           />
@@ -67,6 +77,10 @@ export function ResponsiveHero({
             type="image/jpeg"
           />
           {/* Desktop: ≥1024px */}
+          <source
+            srcSet={`/hero/${slug}/desktop/${slug}-hero-desktop.avif`}
+            type="image/avif"
+          />
           <source
             srcSet={`/hero/${slug}/desktop/${slug}-hero-desktop.webp`}
             type="image/webp"

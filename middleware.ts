@@ -4,13 +4,23 @@ import { routing } from './src/i18n/routing';
 
 const handleI18nRouting = createMiddleware(routing);
 
+const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '[::1]', '::1']);
+
+function isLocalHost(host: string | null): boolean {
+  if (!host) return false;
+  const hostname = host.replace(/:\d+$/, '');
+  return LOCAL_HOSTS.has(hostname) || hostname.endsWith('.local');
+}
+
 export default function middleware(request: NextRequest) {
-  // Enforce HTTPS (x-forwarded-proto is set by most hosting platforms)
-  const protocol =
-    request.headers.get('x-forwarded-proto') ||
-    request.nextUrl.protocol.slice(0, -1);
-  if (protocol === 'http') {
-    const host = request.headers.get('host');
+  // Enforce HTTPS, but only when a proxy has actually told us the scheme.
+  // A missing x-forwarded-proto means we are not behind a TLS-terminating
+  // proxy (local `next start`, direct container access), and redirecting
+  // there sends the browser to an https:// port nothing is listening on.
+  // Do NOT fall back to nextUrl.protocol — it is always http in those cases.
+  const forwardedProto = request.headers.get('x-forwarded-proto');
+  const host = request.headers.get('host');
+  if (forwardedProto === 'http' && !isLocalHost(host)) {
     return NextResponse.redirect(
       `https://${host}${request.nextUrl.pathname}${request.nextUrl.search}`,
       308,

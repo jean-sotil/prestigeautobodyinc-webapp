@@ -3,8 +3,18 @@ import { withPayload } from '@payloadcms/next/withPayload';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import createNextIntlPlugin from 'next-intl/plugin';
 
+// The `Redirect` exported from 'next' is a different (looser) type than the one
+// `NextConfig['redirects']` actually expects, so derive the exact element type.
+type NextRedirect = Awaited<
+  ReturnType<NonNullable<NextConfig['redirects']>>
+>[number];
+
 const nextConfig: NextConfig = {
   // Core Web Vitals Optimizations
+
+  // Remove trailing slashes for canonical URLs (consolidates duplicate impressions)
+  // /en/contact/ → /en/contact, /es/nosotros/ → /es/nosotros
+  trailingSlash: false,
 
   // Disable production source maps for max performance (reduces bundle size)
   productionBrowserSourceMaps: false,
@@ -113,8 +123,13 @@ const nextConfig: NextConfig = {
   },
 
   // Redirects (if needed)
-  async redirects() {
-    return [
+  //
+  // NOTE: keep this list static. Payload's config is ESM-only (`import.meta`),
+  // while next.config.ts is transpiled to CJS and `require()`d, so querying the
+  // CMS from here cannot work. Cross-locale blog slug redirects are issued at
+  // request time by src/app/(frontend)/[locale]/blog/[slug]/page.tsx instead.
+  async redirects(): Promise<NextRedirect[]> {
+    const staticRedirects: NextRedirect[] = [
       // Canonical domain: consolidate non-www → www + locale in ONE redirect
       // Root path on non-www → www.prestigeautobodyinc.com/en (direct, no chain)
       {
@@ -137,6 +152,20 @@ const nextConfig: NextConfig = {
         permanent: true,
         has: [{ type: 'host', value: 'www.prestigeautobodyinc.com' }],
       },
+      // Trailing slash consolidation: /path/ → /path
+      // Merges duplicate impressions from URLs with/without trailing slash
+      // Applied AFTER locale/domain redirects so /en/contact/ → /en/contact
+      {
+        source: '/:locale/:path+/',
+        destination: '/:locale/:path+',
+        permanent: true,
+      },
+      // Legacy URLs with trailing slashes (no locale prefix)
+      {
+        source: '/:path+/',
+        destination: '/:path+',
+        permanent: true,
+      },
       // Route renames: paint-solutions → auto-painting
       {
         source: '/:locale/paint-solutions',
@@ -150,33 +179,48 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // ===== Legacy 404 fixes: old bilingual URL patterns =====
+      // CRITICAL: Add non-www versions FIRST to avoid redirect chains
+      // These go DIRECTLY to final destination (single 301, not multi-hop)
       {
-        source: '/about-Nosotros',
-        destination: '/en/about',
+        source: '/insurance-claims-Seguro',
+        destination: 'https://www.prestigeautobodyinc.com/en/insurance-claims',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
       {
-        source: '/about-Servicios',
-        destination: '/en/auto-body-services',
+        source: '/get-a-quote-Cotización',
+        destination: 'https://www.prestigeautobodyinc.com/en/get-a-quote',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
       {
         source: '/collision-repair-Collision',
-        destination: '/en/collision-repair',
+        destination: 'https://www.prestigeautobodyinc.com/en/collision-repair',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/about-Nosotros',
+        destination: 'https://www.prestigeautobodyinc.com/en/about',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
       {
         source: '/auto-painting-Pintura',
-        destination: '/en/auto-painting',
+        destination: 'https://www.prestigeautobodyinc.com/en/auto-painting',
         permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
       },
+      {
+        source: '/about-Servicios',
+        destination:
+          'https://www.prestigeautobodyinc.com/en/auto-body-services',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      // www bilingual URLs (URL-encoded version for Cotización)
       {
         source: '/insurance-claims-Seguro',
-        destination: '/en/insurance-claims',
-        permanent: true,
-      },
-      {
-        source: '/insurance-claims-Insurance',
         destination: '/en/insurance-claims',
         permanent: true,
       },
@@ -185,7 +229,54 @@ const nextConfig: NextConfig = {
         destination: '/en/get-a-quote',
         permanent: true,
       },
+      {
+        source: '/collision-repair-Collision',
+        destination: '/en/collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/about-Nosotros',
+        destination: '/en/about',
+        permanent: true,
+      },
+      {
+        source: '/auto-painting-Pintura',
+        destination: '/en/auto-painting',
+        permanent: true,
+      },
+      {
+        source: '/about-Servicios',
+        destination: '/en/auto-body-services',
+        permanent: true,
+      },
+      {
+        source: '/insurance-claims-Insurance',
+        destination: '/en/insurance-claims',
+        permanent: true,
+      },
       // Legacy WordPress/old-site routes
+      // Direct non-www URLs to avoid chains
+      {
+        source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
+        destination: 'https://www.prestigeautobodyinc.com/es',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/en/body-services/:path*',
+        destination:
+          'https://www.prestigeautobodyinc.com/en/auto-body-services',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      {
+        source: '/es/body-services/:path*',
+        destination:
+          'https://www.prestigeautobodyinc.com/es/auto-body-services',
+        permanent: true,
+        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
+      },
+      // www versions (locale-aware)
       {
         source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
         destination: '/es',
@@ -196,36 +287,97 @@ const nextConfig: NextConfig = {
         destination: '/:locale/auto-body-services',
         permanent: true,
       },
-      // Catch-all: unlocalized blog paths → /en/blog/:slug (fixes URLs without locale prefix)
+      // ── Unlocalized blog slugs (no /en or /es prefix) ────────────────
+      // These MUST precede the /blog/:slug+ catch-all below, which would
+      // otherwise send them all to /en/ and force a second redirect.
+      // Slugs of retired duplicates go straight to the canonical post.
+      {
+        source: '/blog/oem-vs-aftermarket-parts-explained',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/blog/right-to-choose-repair-shop',
+        destination: '/en/blog/right-to-choose-auto-body-shop',
+        permanent: true,
+      },
+      // Spanish slugs belong under /es/, not the /en/ catch-all:
+      {
+        source: '/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/blog/que-es-un-suplemento-de-carroceria',
+        destination: '/es/blog/que-es-un-suplemento-de-carroceria',
+        permanent: true,
+      },
+      // Catch-all: remaining unlocalized blog paths → /en/blog/:slug
       {
         source: '/blog/:slug+',
         destination: '/en/blog/:slug+',
         permanent: true,
       },
-      // Blog cross-locale slug fixes (Spanish slug served under /en/)
+      // ── Consolidated duplicate posts ─────────────────────────────────
+      // Archived in the CMS in favour of one canonical article per query
+      // (they were competing with each other in search). Keep these for as
+      // long as the retired URLs hold inbound links or index presence.
+      {
+        source: '/en/blog/oem-vs-aftermarket-parts-explained',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/right-to-choose-repair-shop',
+        destination: '/en/blog/right-to-choose-auto-body-shop',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/right-to-choose-repair-shop',
+        destination: '/es/blog/right-to-choose-auto-body-shop',
+        permanent: true,
+      },
+      // ── Blog cross-locale slug fixes ─────────────────────────────────
+      // A slug belonging to the other locale, served under this one. The
+      // destination stays in the REQUESTED locale and only corrects the slug
+      // — the same rule the runtime resolver in blog/[slug]/page.tsx applies.
+      // That resolver covers every post; these entries exist so URLs Google
+      // has already indexed resolve in a single hop without waking the app.
+      // Where the slug belonged to a retired duplicate, they point straight
+      // at the canonical post so there is still only one hop.
       {
         source: '/en/blog/partes-oem-vs-aftermarket-explicado',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
         permanent: true,
       },
       {
         source: '/en/blog/partes-oem-vs-aftermarket-reparacion-colision',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
-        permanent: true,
-      },
-      {
-        source: '/blog/partes-oem-vs-aftermarket-reparacion-colision',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
         permanent: true,
       },
       {
         source: '/en/blog/que-es-un-suplemento-de-carroceria',
-        destination: '/es/blog/que-es-un-suplemento-de-carroceria',
+        destination: '/en/blog/what-is-an-auto-body-supplement',
         permanent: true,
       },
       {
         source: '/es/blog/oem-vs-aftermarket-parts-explained',
-        destination: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/oem-vs-aftermarket-parts-collision-repair',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
         permanent: true,
       },
       {
@@ -256,6 +408,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
     ];
+
+    return staticRedirects;
   },
 
   // Rewrites: map localized Spanish slugs to internal English paths

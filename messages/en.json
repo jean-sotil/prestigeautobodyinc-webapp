@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Auto Body Shop Silver Spring, MD | Collision Repair & Paint | Prestige",
-    "description": "I-CAR Gold Class certified auto body shop in Silver Spring, MD. Collision repair, auto painting, free estimates & lifetime warranty. All insurance accepted. Call (301) 578-8779."
+    "title": "Auto Body Shop Silver Spring | Free Estimates | Prestige",
+    "description": "I-CAR Gold Class certified auto body shop in Silver Spring, MD. Collision repair, painting & frame work. Lifetime warranty. Insurance approved. Free estimates."
   },
   "nav": {
     "about": "About",
@@ -559,8 +559,8 @@
     "breadcrumbServices": "Services",
     "pages": {
       "collisionRepair": {
-        "metaTitle": "Collision Repair Silver Spring, MD | I-CAR Gold Class | Prestige Auto Body",
-        "metaDescription": "Expert collision repair in Silver Spring, MD. I-CAR Gold Class certified, computerized frame measuring, all insurance accepted. Lifetime warranty & free estimates. Call (301) 578-8779.",
+        "metaTitle": "Collision Repair Silver Spring, MD | I-CAR Gold Class",
+        "metaDescription": "Collision repair in Silver Spring, MD. I-CAR Gold Class technicians, computerized frame measuring, lifetime warranty. All insurance accepted.",
         "title": "Collision Repair Silver Spring, MD",
         "heroImageAlt": "Professional collision repair technician using computerized frame measuring equipment with laser scanners and digital displays at Prestige Auto Body",
         "heroDescription": "Expert collision repair with computerized frame measuring, paintless dent repair, and I-CAR Gold Class certified technicians. We restore your vehicle to pre-accident condition — fast, affordable, and backed by a lifetime warranty.",
@@ -594,11 +594,16 @@
           "quote": "Great service from the initial estimate through completion of the job! The team ordered the parts immediately and kept the schedule. They were reasonably priced and easy to work with.",
           "author": "Mina Y.",
           "location": "Silver Spring"
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Collision Repair",
+          "description": "Explore our blog for expert tips, guidance, and real-world insights about collision repair, vehicle recovery, and working with insurance companies.",
+          "linkText": "Read Our Blog"
         }
       },
       "autoBodyServices": {
-        "metaTitle": "Auto Body Repair Shop Silver Spring, MD | Dent & Structural Repair | Prestige",
-        "metaDescription": "Full-service auto body repair shop in Silver Spring, MD. Dent repair, structural frame damage, bumper replacement, panel restoration & alloy wheel repair. Free estimates, all insurance accepted.",
+        "metaTitle": "Dent & Structural Auto Body Repair | Silver Spring, MD",
+        "metaDescription": "Auto body repair in Silver Spring, MD. Dent removal, frame repair, bumper & panel replacement. I-CAR Gold Class. Lifetime warranty. Free estimates.",
         "title": "Auto Body Work Services in Silver Spring, MD",
         "heroImageAlt": "Complete auto body work facility showing dent repair, structural damage restoration, and bumper replacement services at Prestige Auto Body",
         "heroDescription": "Complete auto body services including dent repair, structural damage restoration, bumper replacement, alloy wheel repair, glass work, and custom body modifications. Over 30 years of certified craftsmanship in Silver Spring.",
@@ -632,11 +637,16 @@
           "quote": "I never write reviews but I chose this auto body shop because I read the reviews so I hope I can help someone else out. Carlos and his team were very helpful walking me through the process. 10/10 would recommend!",
           "author": "Mitch Hawkins",
           "location": "Silver Spring"
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Auto Body Repair",
+          "description": "Explore our blog for expert tips, guidance, and best practices for dent repair, body work restoration, maintaining your vehicle after repair, and more.",
+          "linkText": "Read Our Blog"
         }
       },
       "autoPainting": {
-        "metaTitle": "Auto Body Paint Shop Silver Spring, MD | Custom & Collision Paint | Prestige",
-        "metaDescription": "Professional auto body painting in Silver Spring, MD. Computerized color matching, downdraft paint booth, eco-friendly waterborne paints. Full repaint, partial & collision refinishing. Free quotes.",
+        "metaTitle": "Auto Painting Silver Spring, MD | Custom Paint & Refinishing",
+        "metaDescription": "Auto painting in Silver Spring, MD. Computerized color matching, eco-friendly paints, downdraft booth. Full repaints & refinishing. Free estimates.",
         "title": "Professional Auto Painting in Silver Spring, MD",
         "heroImageAlt": "Advanced computerized paint color matching and formulation facility with downdraft paint booth and eco-friendly refinishing technology",
         "heroDescription": "Factory-quality auto painting with computerized color formulation, a state-of-the-art downdraft paint booth, and eco-friendly waterborne finishes. From spot repairs to full vehicle repaints — flawless results guaranteed.",
@@ -670,11 +680,16 @@
           "quote": "Couldn't be any happier with the work they performed on my vehicle. Not just the work done in my car was excellent, but the customer service was beyond excellent. Carlos was thoroughly helpful by always answering my questions.",
           "author": "Suellen B.",
           "location": "Silver Spring"
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Auto Painting",
+          "description": "Explore our blog for expert advice on paint protection, color matching technology, maintaining your finish, and professional painting techniques.",
+          "linkText": "Read Our Blog"
         }
       },
       "insuranceClaims": {
-        "metaTitle": "Insurance Claims Assistance Silver Spring, MD | Prestige Auto Body",
-        "metaDescription": "We handle your auto insurance claim from start to finish in Silver Spring, MD. All major insurance accepted, lifetime warranty on repairs, free quotes. Call (301) 578-8779.",
+        "metaTitle": "Insurance Claims Help Silver Spring, MD | All Carriers",
+        "metaDescription": "Auto insurance claims help in Silver Spring, MD. We handle the paperwork start to finish. All major insurers accepted. Lifetime warranty on repairs.",
         "title": "Insurance Claims Assistance — Silver Spring, MD",
         "heroImageAlt": "Professional insurance claims advisor reviewing documentation with satisfied customer at Prestige Auto Body consultation area",
         "heroDescription": "We handle your auto insurance claim from start to finish. All major insurance companies accepted — we work directly with your adjuster so you can focus on getting back on the road. Lifetime warranty on every repair.",
@@ -708,6 +723,32 @@
           "quote": "Car looks dope! Jorge and the Prestige team went far and beyond what I was expecting. When I had issues with my insurance company, Prestige worked quickly to resolve the issue. Highly recommended!",
           "author": "Steve Rose",
           "location": "Silver Spring"
+        },
+        "relatedArticles": {
+          "heading": "Learn More About Insurance Claims",
+          "description": "Explore our blog for guidance on filing claims, understanding your coverage, working with adjusters, and navigating the repair process.",
+          "linkText": "Read Our Blog"
+        }
+      },
+      "towing": {
+        "relatedArticles": {
+          "heading": "Learn More About Towing & Recovery",
+          "description": "Explore our blog for tips on roadside safety, what to do after an accident, towing best practices, and emergency preparedness.",
+          "linkText": "Read Our Blog"
+        }
+      },
+      "rentalAssistance": {
+        "relatedArticles": {
+          "heading": "Learn More About Rental Assistance",
+          "description": "Explore our blog for tips on managing transportation during repairs, understanding insurance coverage for rentals, and getting through a repair smoothly.",
+          "linkText": "Read Our Blog"
+        }
+      },
+      "carWashDetailing": {
+        "relatedArticles": {
+          "heading": "Learn More About Car Care & Protection",
+          "description": "Explore our blog for tips on vehicle maintenance, protecting your paint, detailing best practices, and ceramic coating benefits.",
+          "linkText": "Read Our Blog"
         }
       }
     }
@@ -1013,7 +1054,7 @@
   },
   "quotePage": {
     "meta": {
-      "title": "Get a Free Auto Body Quote | Prestige Auto Body, Silver Spring MD",
+      "title": "Get a Free Auto Body Repair Quote | Silver Spring, MD",
       "description": "Request a free collision repair or auto body quote in 2 minutes. Serving Silver Spring, Bethesda & Montgomery County, MD. All insurance accepted. I-CAR Gold Class certified."
     },
     "hero": {
@@ -1324,7 +1365,7 @@
     "agentRole": "Customer Service"
   },
   "gallery": {
-    "metaTitle": "Photo Gallery | Prestige Auto Body Inc. — Silver Spring, MD",
+    "metaTitle": "Photo Gallery | Prestige Auto Body, Silver Spring, MD",
     "metaDescription": "Browse photos from Prestige Auto Body in Silver Spring, MD: collision repair work, paintwork, shop events, and team milestones from our I-CAR Gold Class facility.",
     "heroTitle": "Photo Gallery — Prestige Auto Body Inc., Silver Spring, MD",
     "heroAlt": "Prestige Auto Body — collision repair shop in Silver Spring, MD",

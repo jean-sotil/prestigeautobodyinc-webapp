@@ -55,7 +55,10 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(BASE_URL),
-    title,
+    // `absolute` opts out of the parent layout's '%s | Prestige Auto Body'
+    // template. These titles already name the brand, so templating them
+    // produced '… | Prestige | Prestige Auto Body' at 77 chars.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
@@ -100,6 +103,21 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
+        {/* Font Preloading for LCP Optimization */}
+        <link
+          rel="preload"
+          href="/fonts/inter-fallback.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/poppins-fallback.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="//www.google.com" />
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="dns-prefetch" href="//elfsightcdn.com" />

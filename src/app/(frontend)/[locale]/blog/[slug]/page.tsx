@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import {
   fetchBlogPostBySlug,
   fetchBlogPosts,
   fetchPostLocalizedSlugs,
   fetchRelatedPosts,
+  resolveSlugInLocale,
 } from '@/lib/queries/blog.server';
 import type { BlogPost } from '@/lib/queries/types';
 import { routing } from '@/i18n/routing';
@@ -130,6 +131,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   ]);
 
   if (!post) {
+    // The slug may belong to another locale (old links, cross-locale shares).
+    // Send a 308 to this locale's canonical slug rather than 404'ing.
+    const canonicalSlug = await resolveSlugInLocale(
+      slug,
+      locale,
+      routing.locales,
+    );
+    if (canonicalSlug) {
+      permanentRedirect(`/${locale}/blog/${canonicalSlug}`);
+    }
     notFound();
   }
 
