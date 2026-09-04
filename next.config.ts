@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 import { withPayload } from '@payloadcms/next/withPayload';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import createNextIntlPlugin from 'next-intl/plugin';
+import { generateBlogRedirects } from './src/lib/generate-blog-redirects';
 
 const nextConfig: NextConfig = {
   // Core Web Vitals Optimizations
@@ -114,7 +115,7 @@ const nextConfig: NextConfig = {
 
   // Redirects (if needed)
   async redirects() {
-    return [
+    const staticRedirects = [
       // Canonical domain: consolidate non-www → www + locale in ONE redirect
       // Root path on non-www → www.prestigeautobodyinc.com/en (direct, no chain)
       {
@@ -256,6 +257,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
     ];
+
+    // Fetch and append dynamically generated blog redirects from Payload CMS
+    try {
+      const blogRedirects = await generateBlogRedirects();
+      return staticRedirects.concat(blogRedirects);
+    } catch (error) {
+      console.error('Failed to generate blog redirects:', error);
+      // Fall back to static redirects if Payload fetch fails
+      return staticRedirects;
+    }
   },
 
   // Rewrites: map localized Spanish slugs to internal English paths
