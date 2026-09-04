@@ -92,6 +92,8 @@ export default async function AutoPaintingPage({
   const techSection = t.raw(`pages.${SERVICE_KEY}.technologySection`);
   const warrantySection = t.raw(`pages.${SERVICE_KEY}.warrantySection`);
   const pricingSection = t.raw(`pages.${SERVICE_KEY}.pricingSection`);
+  const serviceAreas = t.raw(`pages.${SERVICE_KEY}.serviceAreas`);
+  const relatedArticles = t.raw(`pages.${SERVICE_KEY}.relatedArticles`);
 
   return (
     <>
@@ -242,6 +244,24 @@ export default async function AutoPaintingPage({
         <p className="mt-8 text-gray-600 dark:text-gray-400 text-sm">
           {pricingSection.note}
         </p>
+      </section>
+
+      {/* Related Articles CTA */}
+      <section className="py-16 bg-gradient-to-r from-purple-500 to-purple-600 dark:from-purple-900 dark:to-purple-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            {relatedArticles.heading}
+          </h2>
+          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+            {relatedArticles.description}
+          </p>
+          <a
+            href={`/${locale}/blog`}
+            className="inline-block bg-white text-purple-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition"
+          >
+            {relatedArticles.linkText} →
+          </a>
+        </div>
       </section>
     </>
   );
