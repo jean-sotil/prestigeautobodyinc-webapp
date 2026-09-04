@@ -287,13 +287,26 @@ const nextConfig: NextConfig = {
         destination: '/:locale/auto-body-services',
         permanent: true,
       },
-      // Unlocalized Spanish blog slugs → /es/. MUST precede the catch-all below,
-      // which would otherwise send them to /en/ and force a second redirect.
+      // ── Unlocalized blog slugs (no /en or /es prefix) ────────────────
+      // These MUST precede the /blog/:slug+ catch-all below, which would
+      // otherwise send them all to /en/ and force a second redirect.
+      // Slugs of retired duplicates go straight to the canonical post.
       {
-        source: '/blog/partes-oem-vs-aftermarket-explicado',
-        destination: '/es/blog/partes-oem-vs-aftermarket-explicado',
+        source: '/blog/oem-vs-aftermarket-parts-explained',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
         permanent: true,
       },
+      {
+        source: '/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/blog/right-to-choose-repair-shop',
+        destination: '/en/blog/right-to-choose-auto-body-shop',
+        permanent: true,
+      },
+      // Spanish slugs belong under /es/, not the /en/ catch-all:
       {
         source: '/blog/partes-oem-vs-aftermarket-reparacion-colision',
         destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
@@ -304,21 +317,47 @@ const nextConfig: NextConfig = {
         destination: '/es/blog/que-es-un-suplemento-de-carroceria',
         permanent: true,
       },
-      // Catch-all: unlocalized blog paths → /en/blog/:slug (fixes URLs without locale prefix)
+      // Catch-all: remaining unlocalized blog paths → /en/blog/:slug
       {
         source: '/blog/:slug+',
         destination: '/en/blog/:slug+',
         permanent: true,
       },
-      // Blog cross-locale slug fixes: a slug belonging to the other locale, served
-      // under this one. The destination stays in the REQUESTED locale and only
-      // corrects the slug — same rule the runtime resolver in
-      // blog/[slug]/page.tsx applies. That resolver already covers every post;
-      // these entries exist so the URLs Google has already indexed resolve in a
-      // single hop without waking the app.
+      // ── Consolidated duplicate posts ─────────────────────────────────
+      // Archived in the CMS in favour of one canonical article per query
+      // (they were competing with each other in search). Keep these for as
+      // long as the retired URLs hold inbound links or index presence.
+      {
+        source: '/en/blog/oem-vs-aftermarket-parts-explained',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
+        permanent: true,
+      },
+      {
+        source: '/en/blog/right-to-choose-repair-shop',
+        destination: '/en/blog/right-to-choose-auto-body-shop',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/right-to-choose-repair-shop',
+        destination: '/es/blog/right-to-choose-auto-body-shop',
+        permanent: true,
+      },
+      // ── Blog cross-locale slug fixes ─────────────────────────────────
+      // A slug belonging to the other locale, served under this one. The
+      // destination stays in the REQUESTED locale and only corrects the slug
+      // — the same rule the runtime resolver in blog/[slug]/page.tsx applies.
+      // That resolver covers every post; these entries exist so URLs Google
+      // has already indexed resolve in a single hop without waking the app.
+      // Where the slug belonged to a retired duplicate, they point straight
+      // at the canonical post so there is still only one hop.
       {
         source: '/en/blog/partes-oem-vs-aftermarket-explicado',
-        destination: '/en/blog/oem-vs-aftermarket-parts-explained',
+        destination: '/en/blog/oem-vs-aftermarket-parts-collision-repair',
         permanent: true,
       },
       {
@@ -333,7 +372,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/es/blog/oem-vs-aftermarket-parts-explained',
-        destination: '/es/blog/partes-oem-vs-aftermarket-explicado',
+        destination: '/es/blog/partes-oem-vs-aftermarket-reparacion-colision',
         permanent: true,
       },
       {
