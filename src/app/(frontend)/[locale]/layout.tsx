@@ -55,7 +55,10 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(BASE_URL),
-    title,
+    // `absolute` opts out of the parent layout's '%s | Prestige Auto Body'
+    // template. These titles already name the brand, so templating them
+    // produced '… | Prestige | Prestige Auto Body' at 77 chars.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `${BASE_URL}/${locale}`,
