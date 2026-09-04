@@ -560,7 +560,7 @@
     "pages": {
       "collisionRepair": {
         "metaTitle": "Reparación de Colisiones Silver Spring, MD | I-CAR Gold",
-        "metaDescription": "Reparación experta de colisiones en Silver Spring, MD. Medición computarizada de chasis, reparación de abolladuras sin pintura y técnicos certificados I-CAR Gold Class. Cotizaciones gratis — llame al (301) 578-8779.",
+        "metaDescription": "Reparación de colisiones en Silver Spring, MD. Medición computarizada de chasis y técnicos certificados I-CAR Gold Class. Cotizaciones gratis.",
         "title": "Reparación de Colisiones Silver Spring, MD",
         "heroImageAlt": "Técnico profesional de reparación de colisiones usando equipo de medición computarizada de chasis con escáneres láser y pantallas digitales en Prestige Auto Body",
         "heroDescription": "Reparación experta de colisiones con medición computarizada de chasis, reparación de abolladuras sin pintura y técnicos certificados I-CAR Gold Class. Restauramos su vehículo a su condición pre-accidente — rápido, económico y con garantía de por vida.",
@@ -603,7 +603,7 @@
       },
       "autoBodyServices": {
         "metaTitle": "Reparación de Carrocería y Abolladuras | Silver Spring MD",
-        "metaDescription": "Trabajo completo de carrocería en Silver Spring, MD — reparación de abolladuras, daño estructural, reemplazo de parachoques, restauración de rines y trabajo personalizado. Cotizaciones gratis, todos los seguros aceptados.",
+        "metaDescription": "Trabajo de carrocería en Silver Spring, MD: abolladuras, daño estructural, parachoques y rines. Todos los seguros aceptados. Cotizaciones gratis.",
         "title": "Servicios de Carrocería en Silver Spring, MD",
         "heroImageAlt": "Instalación completa de trabajo de carrocería mostrando reparación de abolladuras, restauración de daño estructural y servicios de reemplazo de parachoques en Prestige Auto Body",
         "heroDescription": "Servicios completos de carrocería incluyendo reparación de abolladuras, restauración de daños estructurales, reemplazo de parachoques, reparación de rines, trabajo de vidrios y modificaciones personalizadas. Más de 30 años de artesanía certificada en Silver Spring.",
@@ -646,7 +646,7 @@
       },
       "autoPainting": {
         "metaTitle": "Pintura de Autos Silver Spring, MD | Prestige Auto Body",
-        "metaDescription": "Pintura profesional de autos en Silver Spring, MD. Igualación computarizada de color, cabina de pintura downdraft y pinturas ecológicas a base de agua. Trabajos completos y parciales — cotizaciones gratis.",
+        "metaDescription": "Pintura de autos en Silver Spring, MD. Igualación computarizada de color, cabina downdraft y pinturas ecológicas. Cotizaciones gratis.",
         "title": "Pintura Profesional de Autos en Silver Spring, MD",
         "heroImageAlt": "Instalación avanzada de igualación y formulación computarizada de color de pintura con cabina de pintura downdraft y tecnología de refinishing ecológica",
         "heroDescription": "Pintura automotriz de calidad de fábrica con formulación computarizada de color, cabina de pintura downdraft de última generación y acabados ecológicos a base de agua. Desde reparaciones puntuales hasta repintados completos — resultados impecables garantizados.",
@@ -681,179 +681,6 @@
           "author": "Suellen B.",
           "location": "Silver Spring"
         },
-        "processSection": {
-          "heading": "Nuestro Proceso de Pintura de Autos",
-          "intro": "La pintura profesional de autos requiere precisión, experiencia y equipo adecuado. En Prestige Auto Body en Silver Spring, MD, nuestros técnicos de pintura siguen un proceso meticuloso de múltiples pasos para garantizar un acabado impecable que dure.",
-          "steps": [
-            {
-              "title": "Inspección y Preparación",
-              "description": "Comenzamos con una inspección detallada de la pintura existente y el trabajo de carrocería. El vehículo se limpia a fondo y se identifican las áreas dañadas. Se aplican cinta adhesiva y coberturas protectoras para preservar el acabado, ventanas y áreas que no requieren pintura."
-            },
-            {
-              "title": "Preparación de Superficie y Lijado",
-              "description": "La superficie se lija para eliminar pintura antigua, oxidación e imperfecciones. Utilizamos lijas progresivas (80–400) para crear una base suave. Para reparaciones puntuales, solo se lija el área afectada. Para repintados completos, todo el exterior se prepara según especificaciones de fábrica."
-            },
-            {
-              "title": "Aplicación de Primer",
-              "description": "Se aplica primer automotriz de alta calidad para sellar el metal desnudo o sustrato. Esta capa previene oxidación, mejora la adherencia de la pintura y asegura cobertura de color uniforme. Nuestro primer bloquea manchas y proporciona la base perfecta para la capa base."
-            },
-            {
-              "title": "Igualación de Color y Capa Base",
-              "description": "Nuestro sistema computarizado de igualación de color analiza el color de fábrica original de su vehículo y formula una coincidencia exacta. La capa base se aplica por pulverización en un ambiente controlado para cobertura uniforme. Prestige utiliza pinturas automotrices de última generación."
-            },
-            {
-              "title": "Protección con Capa Transparente",
-              "description": "Se aplica una capa transparente resistente a UV sobre la capa base. Esta capa protectora proporciona brillo, durabilidad y protege contra el sol, oxidación y químicos de la carretera. Nuestra fórmula de capa transparente ofrece brillo superior y longevidad."
-            },
-            {
-              "title": "Secado y Curado",
-              "description": "El vehículo pintado entra en una bahía de secado controlada donde se monitorean la temperatura y humedad. Los tiempos de curado completo varían: 24–48 horas para reparaciones puntuales, 5–7 días para repintados completos. Apurar este paso compromete el acabado."
-            },
-            {
-              "title": "Lijado Húmedo y Pulido",
-              "description": "Una vez curado, la superficie se lija en húmedo con papel fino (1000–2000) para eliminar polvo, goteos o imperfecciones. Una pulidora de máquina luego pule el acabado a un brillo de sala de exhibición con brillo uniforme."
-            },
-            {
-              "title": "Inspección Final y Remoción de Máscaras",
-              "description": "Una inspección final de calidad verifica consistencia de color, cobertura y defectos bajo luz natural y artificial. Las máscaras protectoras se remueven cuidadosamente. El vehículo recibe un pulido final a mano y detallado."
-            }
-          ]
-        },
-        "technologySection": {
-          "heading": "Tecnología Avanzada de Igualación de Pintura",
-          "intro": "Lograr una coincidencia de pintura perfecta es uno de los desafíos más críticos en reparación de carrocería. La pintura desigual es inmediatamente visible y puede reducir significativamente el valor de reventa de su vehículo. Prestige Auto Body utiliza igualación de color computarizada de última generación para eliminar la incertidumbre.",
-          "technology": {
-            "spectrophotometer": {
-              "title": "Análisis de Color con Espectrofotómetro",
-              "description": "Nuestro espectrofotómetro es un instrumento de precisión que analiza la reflexión de luz de la pintura existente de su vehículo. Mide el color en todo el espectro visible y cuenta para metalizado, efectos de perla y variaciones de color causadas por edad y exposición UV."
-            },
-            "databaseAndFormulation": {
-              "title": "Base de Datos de Fábrica y Formulación Digital",
-              "description": "Mantenemos bases de datos completas de formulación de pintura para cada fabricante de vehículos — Toyota, Honda, BMW, Ford, Chevrolet y más. Nuestro software de igualación de color referencia la especificación de pintura exacta de fábrica. Los ajustes personalizados consideran desvanecimiento y factores ambientales."
-            },
-            "boothEnvironment": {
-              "title": "Ambiente de Cabina de Pintura Downdraft",
-              "description": "La aplicación de pintura ocurre en nuestra cabina de pintura downdraft climatizada. La temperatura (22°C ± 1°C) y humedad (50% ± 5%) se mantienen en especificaciones de fábrica. Este ambiente controlado asegura flujo de pintura consistente, atomización uniforme y asentamiento perfecto de color."
-            },
-            "multipleApplications": {
-              "title": "Aplicación de Precisión Multi-Capa",
-              "description": "La pintura automotriz profesional requiere capas: primer, sellador, capa base y capa transparente. Cada capa se aplica con patrones de pulverización específicos, presión de pistola y espesor de película húmeda. Nuestros técnicos certificados I-CAR usan pistolas de pulverización calibradas para precisión a nivel micro."
-            },
-            "qualityControl": {
-              "title": "Control de Calidad en Caja de Luz",
-              "description": "Después de la pintura, usamos una caja de luz (iluminación D65 5000K estándar) para inspeccionar el acabado bajo luz artificial consistente. Esto revela cambios de color, piel de naranja, polvo, goteos o problemas de mezcla que pueden no ser visibles bajo la luz solar."
-            }
-          }
-        },
-        "warrantySection": {
-          "heading": "Nuestra Garantía de Pintura de Por Vida",
-          "intro": "Cuando elige Prestige Auto Body para pintura de autos, su inversión está protegida por nuestra garantía integral de por vida en mano de obra.",
-          "coverage": [
-            "Cobertura de por vida contra pelado, agrietamiento o falla de adherencia de pintura debido a defectos de material o mano de obra",
-            "Protección contra desvanecimiento de color causado por nuestros materiales (capa transparente resistente a UV estándar)",
-            "Corrección de defectos sin cargo — repintado, mezcla o reparaciones puntuales según sea necesario",
-            "Sin límite de tiempo en cobertura — válido mientras sea propietario del vehículo",
-            "Transferible a propietarios posteriores (añade valor de reventa)"
-          ],
-          "exclusions": "Esta garantía cubre defectos de fabricación y aplicación solamente. No cubre daño por accidentes, abuso, cuidado inadecuado o negligencia."
-        },
-        "pricingSection": {
-          "heading": "Guía de Precios de Pintura de Autos",
-          "intro": "Los costos de pintura dependen del tamaño del vehículo, extensión del daño, tipo de pintura y complejidad del acabado. A continuación se muestra un marco de precios general para pintura de autos en Silver Spring, MD.",
-          "priceOptions": [
-            {
-              "service": "Reparación Puntual (rasguño/astilla único)",
-              "price": "$150–$400",
-              "description": "Área localizada hasta 6 pulgadas. Incluye lijado, primer, pintura y capa transparente."
-            },
-            {
-              "service": "Repintado de Panel (puerta, guardabarros, capó único)",
-              "price": "$400–$800",
-              "description": "Un panel, color igualado y mezcla en los bordes. Incluye primer, capa base y capa transparente."
-            },
-            {
-              "service": "Repintado de Dos Paneles",
-              "price": "$700–$1,300",
-              "description": "Dos paneles adyacentes (ejemplo: puerta del conductor + guardabarros). Línea de mezcla manejada para transición sin costuras."
-            },
-            {
-              "service": "Repintado Completo del Vehículo (sedán/coupé)",
-              "price": "$2,500–$4,500",
-              "description": "Exterior completo + bahía del motor. Incluye preparación completa, primer, capa base, capa transparente y curado de varios días."
-            },
-            {
-              "service": "Repintado Completo del Vehículo (SUV/camión)",
-              "price": "$3,500–$5,500",
-              "description": "Área de superficie más grande. Paneles adicionales (techo, compuerta trasera, tablillas corridas) aumentan mano de obra y material."
-            },
-            {
-              "service": "Actualización de Pintura Ecológica a Base de Agua",
-              "price": "+$300–$600",
-              "description": "Pinturas a base de agua con bajo VOC. Beneficios ambientales y de seguridad premium. Misma durabilidad que pintura tradicional."
-            },
-            {
-              "service": "Actualización de Pintura Metálica o Perla",
-              "price": "+$200–$400",
-              "description": "Acabados metálicos personalizados o de perla requieren capas de pulverización adicionales y tiempo de curado."
-            },
-            {
-              "service": "Protección de Ceramic Coat (complemento)",
-              "price": "+$400–$800",
-              "description": "Recubrimiento de cerámica 9H aplicado sobre capa transparente final. Proporciona protección hidrofóbica, resistencia a rayones y UV."
-            }
-          ],
-          "note": "Los precios varían según tipo de pintura, condición del vehículo y complejidad. Cotización final proporcionada después de inspección en persona. Cotizaciones gratis disponibles dentro de 24 horas de contacto."
-        },
-        "faqExpanded": [
-          {
-            "question": "¿Qué tan precisa es la igualación computarizada de color de pintura?",
-            "answer": "La igualación de color moderna basada en espectrofotómetro es 95–99% precisa. Nuestro sistema analiza miles de puntos de datos y cuenta para metalizado, perlas y variaciones de color. El resultado es una coincidencia invisible al ojo humano."
-          },
-          {
-            "question": "¿Cuál es la diferencia entre pintura a base de agua y pintura automotriz tradicional?",
-            "answer": "Las pinturas a base de agua (ecológicas) usan agua como portador en lugar de solvente. Beneficios: emisiones VOC más bajas, secado más rápido, riesgo de fuego reducido y durabilidad similar. Ambas están respaldadas por nuestra garantía de por vida."
-          },
-          {
-            "question": "¿Por qué tarda 5–7 días un repintado completo?",
-            "answer": "El curado profesional lleva tiempo. Después de la aplicación de capa base (día 1–2), la pintura debe curarse en un ambiente controlado a temperatura/humedad específicas. El curado debe ser completo para evitar problemas de adhesión."
-          },
-          {
-            "question": "¿Pueden pintar solo un panel para que coincida con el resto?",
-            "answer": "Sí, ofrecemos repintado de panel con igualación de color y gestión de línea de mezcla. Sin embargo, si la pintura existente está desvanecida, un panel puede verse ligeramente más brillante. En estos casos, recomendamos repintar paneles adyacentes o todo el vehículo."
-          },
-          {
-            "question": "¿Qué sucede si la coincidencia de color no es perfecta?",
-            "answer": "Es extremadamente raro, pero si no está satisfecho con la coincidencia de color dentro de 48 horas de finalización, reactivaremos sin cargo. Esto está cubierto bajo nuestra garantía de por vida en mano de obra."
-          },
-          {
-            "question": "¿Cuánto tiempo dura la pintura antes de desvanecerse?",
-            "answer": "La pintura automotriz de calidad dura 10–15 años con cuidado adecuado. Nuestra capa transparente resistente a UV extiende significativamente este período. La protección de ceramic coat puede extender la vida a 20+ años."
-          },
-          {
-            "question": "¿Ofrecen ceramic coating para proteger la nueva pintura?",
-            "answer": "Sí. El ceramic coating es una capa de vidrio líquido aplicada sobre la capa transparente final. Proporciona hidrofóbico, resistencia a rayones y protección UV. Es un complemento opcional a $400–$800."
-          },
-          {
-            "question": "¿Qué si mi vehículo tiene un color especial (perla, metálico, color-shift)?",
-            "answer": "Nuestra base de datos incluye colores especiales. Perlas y metalizados requieren capas de base adicionales y técnica de pulverización más precisa. La igualación de color es igualmente precisa."
-          },
-          {
-            "question": "¿Puedo recoger mi vehículo inmediatamente después de la pintura?",
-            "answer": "No. Requerimos un mínimo de 24 horas de curado antes de la recogida para reparaciones puntuales/paneles, y 5–7 días para repintados completos. La recogida prematura arriesga que la pintura se pegue o se raye."
-          },
-          {
-            "question": "¿La pintura de autos incluye reparación de abolladuras o rayones?",
-            "answer": "La pintura y reparación de carrocería son servicios separados. Nuestros equipos de reparación de colisiones y carrocería manejan abolladuras, rayones y daño estructural. Una vez completo el trabajo de carrocería, nuestro equipo de pintura toma el relevo."
-          },
-          {
-            "question": "¿Cuánto cuesta la pintura para reclamos de seguros?",
-            "answer": "Los seguros típicamente cubren costos de pintura asociados con reparaciones de colisiones. Trabajamos directamente con los ajustadores. Llame para una cotización gratis."
-          },
-          {
-            "question": "¿Qué debo hacer para proteger áreas recién pintadas?",
-            "answer": "Evite lavar durante la primera semana (déjela curarse completamente). Estacione en sombra si es posible. Evite cera o selladores durante 30 días. Después del curado completo, lavado regular y encerado cada 3 meses extiende significativamente la vida de la pintura."
-          }
-        ],
         "relatedArticles": {
           "heading": "Aprenda Más Sobre Pintura de Autos",
           "description": "Explore nuestro blog para consejos expertos sobre protección de pintura, tecnología de igualación de color, mantenimiento de su acabado y técnicas de pintura profesional.",
@@ -862,7 +689,7 @@
       },
       "insuranceClaims": {
         "metaTitle": "Reclamos de Seguro Silver Spring, MD | Toda Aseguradora",
-        "metaDescription": "Manejamos su reclamo de seguro de auto de principio a fin en Silver Spring, MD. Todos los seguros principales aceptados, garantía de por vida en reparaciones, cotizaciones gratis. Llame al (301) 578-8779.",
+        "metaDescription": "Manejamos su reclamo de seguro de principio a fin en Silver Spring, MD. Todos los seguros principales aceptados. Garantía de por vida.",
         "title": "Asistencia con Reclamos de Seguro — Silver Spring, MD",
         "heroImageAlt": "Asesor profesional de reclamos de seguros revisando documentación con cliente satisfecho en el área de consulta de Prestige Auto Body",
         "heroDescription": "Manejamos su reclamo de seguro de auto de principio a fin. Todas las compañías de seguros principales aceptadas — trabajamos directamente con su ajustador para que usted pueda enfocarse en volver a la carretera. Garantía de por vida en cada reparación.",
@@ -904,37 +731,6 @@
         }
       },
       "towing": {
-        "metaTitle": "Servicios de Grúa 24/7 Silver Spring, MD | Ayuda de Emergencia en Carretera",
-        "metaDescription": "Grúa de emergencia 24/7 en Silver Spring, MD. Respuesta rápida, conductores profesionales, todo tipo de vehículos. Cotizaciones gratis. Especialista en recuperación de accidentes.",
-        "title": "Servicios de Grúa de Emergencia — Silver Spring, MD",
-        "heroImageAlt": "Camión profesional de grúa equipado con equipo de levantamiento avanzado para recuperación segura de vehículos",
-        "heroDescription": "Grúa rápida y confiable 24/7 en Silver Spring y el Condado de Montgomery, Maryland. Todo tipo de vehículos manejados con cuidado — de sedanes a camiones pesados. Conductores profesionales con experiencia en recuperación de accidentes.",
-        "offerings": {
-          "item1": {
-            "title": "Respuesta de Emergencia 24/7",
-            "description": "Disponible las 24 horas del día para accidentes, descomposturas y emergencias de carretera."
-          },
-          "item2": {
-            "title": "Grúa de Larga Distancia",
-            "description": "Manejamos traslados en todo Maryland y estados vecinos con equipo de nivel profesional."
-          },
-          "item3": {
-            "title": "Servicio de Grúa Tipo Cama y Brazo",
-            "description": "Equipo especializado para sedanes, SUVs, camiones y vehículos exóticos — todo transportado con seguridad."
-          },
-          "item4": {
-            "title": "Recuperación de Accidentes",
-            "description": "Recuperación segura de escena de accidente con daño mínimo adicional a su vehículo."
-          },
-          "item5": {
-            "title": "Asistencia de Carretera",
-            "description": "Cerraduras, arranque de batería, entrega de combustible y cambios de llantas disponibles bajo solicitud."
-          },
-          "item6": {
-            "title": "Coordinación Directa a Reparación",
-            "description": "Transportamos directamente a nuestra instalación y comenzamos reparaciones inmediatamente con aprobación de seguros."
-          }
-        },
         "relatedArticles": {
           "heading": "Aprenda Más Sobre Grúa y Recuperación",
           "description": "Explore nuestro blog para consejos sobre seguridad en carretera, qué hacer después de un accidente, mejores prácticas de grúa y preparación para emergencias.",
@@ -942,37 +738,6 @@
         }
       },
       "rentalAssistance": {
-        "metaTitle": "Asistencia con Renta de Autos Silver Spring, MD | Programas de Vehículos Prestados",
-        "metaDescription": "Asistencia con renta de autos para reparaciones de colisiones en Silver Spring, MD. Programa de vehículos prestados mientras se repara su auto. Coordinación de seguros incluida.",
-        "title": "Programa de Renta de Autos y Vehículos Prestados — Silver Spring, MD",
-        "heroImageAlt": "Flota de vehículos prestados de Prestige Auto Body disponible mientras se repara su auto",
-        "heroDescription": "No se quede sin transporte durante las reparaciones. Prestige Auto Body ofrece asistencia con renta de autos y programas de vehículos prestados para que pueda desplazarse mientras reparamos su vehículo.",
-        "offerings": {
-          "item1": {
-            "title": "Programa de Vehículos Prestados",
-            "description": "Vehículos prestados gratis disponibles mientras su auto está en el taller de reparación (disponibilidad varía)."
-          },
-          "item2": {
-            "title": "Coordinación de Seguros",
-            "description": "Coordinamos con seguros para asegurar que los costos de renta estén cubiertos bajo su póliza."
-          },
-          "item3": {
-            "title": "Referencias de Renta a Corto Plazo",
-            "description": "Asociaciones con agencias de alquiler locales para tarifas diarias/semanales asequibles."
-          },
-          "item4": {
-            "title": "Reparaciones de Tiempo de Espera Rápido",
-            "description": "Nuestro proceso de reparación eficiente significa períodos de alquiler más cortos y costos más bajos para usted."
-          },
-          "item5": {
-            "title": "Transporte Durante Colisión",
-            "description": "Vales de viaje compartido de emergencia disponibles para transporte el mismo día después de accidentes."
-          },
-          "item6": {
-            "title": "Recogida y Entrega el Mismo Día",
-            "description": "Disponibilidad conveniente de vehículos prestados con horarios flexibles de recogida y entrega."
-          }
-        },
         "relatedArticles": {
           "heading": "Aprenda Más Sobre Asistencia con Renta",
           "description": "Explore nuestro blog para consejos sobre manejo de transporte durante reparaciones, comprensión de cobertura de seguros para alquileres y superación de una reparación suavemente.",
@@ -980,37 +745,6 @@
         }
       },
       "carWashDetailing": {
-        "metaTitle": "Lavado de Autos y Detallado Silver Spring, MD | Lavado a Mano y Encerado",
-        "metaDescription": "Lavado profesional de autos y detallado en Silver Spring, MD. Lavado a mano, detalle interior, protección de pintura, recubrimiento cerámico. Cuidado experto para cada vehículo.",
-        "title": "Lavado Profesional de Autos y Detallado — Silver Spring, MD",
-        "heroImageAlt": "Técnico experto realizando lavado a mano y detallado en vehículo de lujo con equipo profesional",
-        "heroDescription": "Servicios profesionales de lavado a mano y detallado que protegen la pintura, interior y valor de su vehículo. Desde mantenimiento regular hasta restauración profunda, nuestros especialistas en detallado cuidan cada vehículo como si fuera propio.",
-        "offerings": {
-          "item1": {
-            "title": "Lavado a Mano y Secado",
-            "description": "Lavado a mano suave con jabones premium y secado con microfibra para prevenir marcas de remolino."
-          },
-          "item2": {
-            "title": "Detallado Interior",
-            "description": "Limpieza profunda de asientos, alfombras, tablero y molduras con tratamientos especializados."
-          },
-          "item3": {
-            "title": "Corrección y Pulido de Pintura",
-            "description": "Elimine marcas de remolino, rayaduras y oxidación para restaurar un acabado de sala de exhibición."
-          },
-          "item4": {
-            "title": "Aplicación de Recubrimiento Cerámico",
-            "description": "Recubrimiento protector duradero que proporciona hidrofóbico, resistencia a raspaduras y protección UV."
-          },
-          "item5": {
-            "title": "Protección de Cera y Sellador",
-            "description": "Encerado premium y selladores sintéticos preservan su pintura y extienden la longevidad del vehículo."
-          },
-          "item6": {
-            "title": "Restauración de Faros y Molduras",
-            "description": "Pulido profesional de faros y restauración de molduras para mejorar el atractivo visual."
-          }
-        },
         "relatedArticles": {
           "heading": "Aprenda Más Sobre Cuidado de Autos y Protección",
           "description": "Explore nuestro blog para consejos sobre mantenimiento de vehículos, protección de pintura, mejores prácticas de detallado y beneficios de recubrimiento cerámico.",

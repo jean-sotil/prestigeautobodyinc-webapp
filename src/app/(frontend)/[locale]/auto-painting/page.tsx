@@ -80,19 +80,23 @@ export default async function AutoPaintingPage({
     locale,
   );
 
-  // Expanded FAQ with paint process, technology, warranty, pricing, etc.
-  const autoPaintingFaqs = t
-    .raw(`pages.autoPainting.faqExpanded`)
-    .map((faq: { question: string; answer: string }) => ({
-      question: faq.question,
-      answer: faq.answer,
-    }));
-
-  const processSection = t.raw(`pages.${SERVICE_KEY}.processSection`);
-  const techSection = t.raw(`pages.${SERVICE_KEY}.technologySection`);
-  const warrantySection = t.raw(`pages.${SERVICE_KEY}.warrantySection`);
-  const pricingSection = t.raw(`pages.${SERVICE_KEY}.pricingSection`);
-  const relatedArticles = t.raw(`pages.${SERVICE_KEY}.relatedArticles`);
+  const autoPaintingFaqs = [
+    {
+      question: 'What type of paint do you use for auto painting?',
+      answer:
+        'We use premium automotive-grade paint with computer color-matching technology to ensure a factory-perfect finish that matches your vehicle exactly, backed by our lifetime warranty.',
+    },
+    {
+      question: 'How long does a full car repaint take?',
+      answer:
+        'A full vehicle repaint typically takes 5 to 7 business days, depending on the size of the vehicle, the number of panels involved, and whether bodywork or dent repair is needed beforehand.',
+    },
+    {
+      question: 'Can you fix scratches without repainting the whole car?',
+      answer:
+        'Yes. For localized scratches or chips we offer spot and panel repainting with precise color matching, so you only pay for the area affected instead of a full repaint.',
+    },
+  ];
 
   return (
     <>
@@ -117,150 +121,6 @@ export default async function AutoPaintingPage({
           t(`pages.${SERVICE_KEY}.heroImageAlt`),
         )}
       />
-
-      {/* Paint Process Section */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-6">{processSection.heading}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-          {processSection.intro}
-        </p>
-        <div className="grid gap-8 md:grid-cols-2">
-          {(
-            processSection.steps as Array<{
-              title: string;
-              description: string;
-            }>
-          ).map((step, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-800"
-            >
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                {step.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Paint-Match Technology Section */}
-      <section className="py-16 bg-blue-50 dark:bg-blue-950 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
-        <h2 className="text-4xl font-bold mb-6">{techSection.heading}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-          {techSection.intro}
-        </p>
-        <div className="grid gap-8 md:grid-cols-2">
-          {(
-            Object.entries(techSection.technology) as Array<
-              [string, { title: string; description: string }]
-            >
-          ).map(([key, tech]) => (
-            <div key={key} className="bg-white dark:bg-gray-900 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3">{tech.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                {tech.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Warranty Section */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold mb-6">{warrantySection.heading}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-          {warrantySection.intro}
-        </p>
-        <div className="bg-green-50 dark:bg-green-950 p-8 rounded-lg border-l-4 border-green-500">
-          <h3 className="text-2xl font-semibold mb-6 text-green-900 dark:text-green-100">
-            What&apos;s Covered
-          </h3>
-          <ul className="space-y-4">
-            {(warrantySection.coverage as string[]).map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <span className="text-green-600 dark:text-green-400 font-bold">
-                  ✓
-                </span>
-                <span className="text-gray-700 dark:text-gray-300">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-sm text-gray-600 dark:text-gray-400 italic">
-            <strong>Note:</strong> {warrantySection.exclusions}
-          </p>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
-        <h2 className="text-4xl font-bold mb-6">{pricingSection.heading}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed">
-          {pricingSection.intro}
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-200 dark:bg-gray-700">
-                <th className="border border-gray-300 dark:border-gray-600 p-4 font-semibold">
-                  Service
-                </th>
-                <th className="border border-gray-300 dark:border-gray-600 p-4 font-semibold">
-                  Price Range
-                </th>
-                <th className="border border-gray-300 dark:border-gray-600 p-4 font-semibold">
-                  Description
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {(
-                pricingSection.priceOptions as Array<{
-                  service: string;
-                  price: string;
-                  description: string;
-                }>
-              ).map((option, idx) => (
-                <tr
-                  key={idx}
-                  className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
-                >
-                  <td className="border border-gray-300 dark:border-gray-600 p-4 font-semibold">
-                    {option.service}
-                  </td>
-                  <td className="border border-gray-300 dark:border-gray-600 p-4 text-green-600 dark:text-green-400 font-semibold">
-                    {option.price}
-                  </td>
-                  <td className="border border-gray-300 dark:border-gray-600 p-4 text-gray-700 dark:text-gray-300">
-                    {option.description}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-8 text-gray-600 dark:text-gray-400 text-sm">
-          {pricingSection.note}
-        </p>
-      </section>
-
-      {/* Related Articles CTA */}
-      <section className="py-16 bg-gradient-to-r from-purple-500 to-purple-600 dark:from-purple-900 dark:to-purple-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4 text-white">
-            {relatedArticles.heading}
-          </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            {relatedArticles.description}
-          </p>
-          <a
-            href={`/${locale}/blog`}
-            className="inline-block bg-white text-purple-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-200 transition"
-          >
-            {relatedArticles.linkText} →
-          </a>
-        </div>
-      </section>
     </>
   );
 }
