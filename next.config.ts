@@ -132,19 +132,7 @@ const nextConfig: NextConfig = {
     const staticRedirects: NextRedirect[] = [
       // Canonical domain: consolidate non-www → www + locale in ONE redirect
       // Root path on non-www → www.prestigeautobodyinc.com/en (direct, no chain)
-      {
-        source: '/',
-        destination: 'https://www.prestigeautobodyinc.com/en',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
       // All other paths: non-www → www.prestigeautobodyinc.com
-      {
-        source: '/:path*',
-        destination: 'https://www.prestigeautobodyinc.com/:path*',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
       // www root without locale → /en (middleware handles this, but keep as fallback)
       {
         source: '/',
@@ -181,43 +169,6 @@ const nextConfig: NextConfig = {
       // ===== Legacy 404 fixes: old bilingual URL patterns =====
       // CRITICAL: Add non-www versions FIRST to avoid redirect chains
       // These go DIRECTLY to final destination (single 301, not multi-hop)
-      {
-        source: '/insurance-claims-Seguro',
-        destination: 'https://www.prestigeautobodyinc.com/en/insurance-claims',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/get-a-quote-Cotización',
-        destination: 'https://www.prestigeautobodyinc.com/en/get-a-quote',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/collision-repair-Collision',
-        destination: 'https://www.prestigeautobodyinc.com/en/collision-repair',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/about-Nosotros',
-        destination: 'https://www.prestigeautobodyinc.com/en/about',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/auto-painting-Pintura',
-        destination: 'https://www.prestigeautobodyinc.com/en/auto-painting',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/about-Servicios',
-        destination:
-          'https://www.prestigeautobodyinc.com/en/auto-body-services',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
       // www bilingual URLs (URL-encoded version for Cotización)
       {
         source: '/insurance-claims-Seguro',
@@ -226,6 +177,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/get-a-quote-Cotizaci%C3%B3n',
+        destination: '/en/get-a-quote',
+        permanent: true,
+      },
+      {
+        source: '/get-a-quote-Cotización',
         destination: '/en/get-a-quote',
         permanent: true,
       },
@@ -256,26 +212,6 @@ const nextConfig: NextConfig = {
       },
       // Legacy WordPress/old-site routes
       // Direct non-www URLs to avoid chains
-      {
-        source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
-        destination: 'https://www.prestigeautobodyinc.com/es',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/en/body-services/:path*',
-        destination:
-          'https://www.prestigeautobodyinc.com/en/auto-body-services',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
-      {
-        source: '/es/body-services/:path*',
-        destination:
-          'https://www.prestigeautobodyinc.com/es/auto-body-services',
-        permanent: true,
-        has: [{ type: 'host', value: 'prestigeautobodyinc.com' }],
-      },
       // www versions (locale-aware)
       {
         source: '/es/prestige-auto-body-collision-automotive-repair/:path*',
@@ -283,7 +219,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/:locale/body-services',
+        source: '/:locale/body-services/:path*',
         destination: '/:locale/auto-body-services',
         permanent: true,
       },
