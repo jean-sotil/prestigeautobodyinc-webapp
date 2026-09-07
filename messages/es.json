@@ -804,7 +804,8 @@
     "previous": "Anterior",
     "next": "Siguiente",
     "noImage": "Sin imagen",
-    "home": "Inicio"
+    "home": "Inicio",
+    "icarWatermarkAlt": "Taller de reparación de colisiones certificado I-CAR Gold Class"
   },
   "language": {
     "switchTo": "Cambiar a {locale}",
