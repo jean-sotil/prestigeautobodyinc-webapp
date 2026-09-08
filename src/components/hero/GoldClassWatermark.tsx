@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 
 type Size = 'hero' | 'banner';
 type Position = 'top-center' | 'top-right';
@@ -18,10 +19,17 @@ const positionClasses: Record<Position, string> = {
   'top-right': 'top-3 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6',
 };
 
-export function GoldClassWatermark({
+/**
+ * The I-CAR Gold Class mark is a certification, not decoration: on pages that
+ * do not state the credential in body copy (auto-painting, rental-assistance)
+ * this image is its only carrier, so it needs a real alt rather than
+ * alt="" + aria-hidden.
+ */
+export async function GoldClassWatermark({
   size = 'hero',
   position = 'top-center',
 }: GoldClassWatermarkProps) {
+  const t = await getTranslations('common');
   return (
     <div
       className={`absolute pointer-events-none motion-safe:animate-fade-in-up z-0 ${positionClasses[position]}`}
@@ -29,10 +37,9 @@ export function GoldClassWatermark({
     >
       <Image
         src="/gold_class_icar_hero_logo.png"
-        alt=""
+        alt={t('icarWatermarkAlt')}
         width={200}
         height={200}
-        aria-hidden="true"
         className={`${sizeClasses[size]} animate-glow-pulse drop-shadow-[0_0_32px_rgba(200,180,80,0.6)]`}
       />
     </div>

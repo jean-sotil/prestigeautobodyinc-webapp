@@ -804,7 +804,8 @@
     "previous": "Previous",
     "next": "Next",
     "noImage": "No image",
-    "home": "Home"
+    "home": "Home",
+    "icarWatermarkAlt": "I-CAR Gold Class certified collision repair facility"
   },
   "language": {
     "switchTo": "Switch to {locale}",

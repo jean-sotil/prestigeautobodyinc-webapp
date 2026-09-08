@@ -62,7 +62,7 @@ function ReviewCard({
         {review.authorPhotoUrl ? (
           <Image
             src={review.authorPhotoUrl}
-            alt=""
+            alt={review.authorName}
             width={40}
             height={40}
             loading="lazy"
