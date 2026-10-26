@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import {
@@ -73,6 +74,11 @@ export default async function AutoPaintingPage({
     getTranslations({ locale, namespace: 'nav' }),
   ]);
 
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: '/auto-painting',
+  });
+
   const breadcrumbItems = generateBreadcrumbItems(
     nav('autoPainting'),
     `/${locale}/auto-painting`,
@@ -103,7 +109,7 @@ export default async function AutoPaintingPage({
       <ServiceJsonLd
         serviceName="Auto Painting"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url={`https://prestigeautobodyinc.com/${locale}/auto-painting`}
+        url={localizedPath}
         serviceType="Auto Painting"
         showAggregateRating
         locale={locale}

@@ -116,7 +116,7 @@ export default async function AutoBodyServicesPage({
       <ServiceJsonLd
         serviceName="Auto Body Work Services"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url={`https://prestigeautobodyinc.com${localizedPath}`}
+        url={localizedPath}
         serviceType="Auto Body Repair"
         showAggregateRating
         locale={locale}

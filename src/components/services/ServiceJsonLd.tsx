@@ -15,6 +15,7 @@ interface OfferItem {
 interface ServiceJsonLdProps {
   serviceName: string;
   description: string;
+  /** Localized path (e.g. `/es/remolque`) or an absolute URL. */
   url: string;
   serviceType?: string | string[];
   locale?: string;
@@ -50,7 +51,7 @@ export async function ServiceJsonLd({
     '@type': schemaType,
     name: serviceName,
     description,
-    url,
+    url: url.startsWith('http') ? url : `${BUSINESS_INFO.url}${url}`,
     provider: {
       '@type': 'AutoBodyShop',
       name: BUSINESS_INFO.name,

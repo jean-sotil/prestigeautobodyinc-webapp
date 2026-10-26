@@ -126,7 +126,7 @@ export default async function TowingPage({
       <ServiceJsonLd
         serviceName="24/7 Towing Service"
         description="Emergency towing services available 24 hours a day, 7 days a week in Silver Spring, MD and surrounding areas"
-        url={`https://prestigeautobodyinc.com${localizedPath}`}
+        url={localizedPath}
         serviceType="Towing Service"
         locale={locale}
       />
