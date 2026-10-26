@@ -154,16 +154,30 @@ const nextConfig: NextConfig = {
         destination: '/:path+',
         permanent: true,
       },
-      // Route renames: paint-solutions → auto-painting
+      // Route renames. One rule per locale, each pointing at the PUBLIC slug:
+      // a shared `/:locale/...` rule sent Spanish URLs to the internal English
+      // route (/es/auto-painting), which next-intl then redirected again to
+      // /es/pintura-de-autos — two hops instead of one.
+      // paint-solutions → auto-painting
       {
-        source: '/:locale/paint-solutions',
-        destination: '/:locale/auto-painting',
+        source: '/en/paint-solutions',
+        destination: '/en/auto-painting',
         permanent: true,
       },
-      // Route renames: insurance → insurance-claims
       {
-        source: '/:locale/insurance',
-        destination: '/:locale/insurance-claims',
+        source: '/es/paint-solutions',
+        destination: '/es/pintura-de-autos',
+        permanent: true,
+      },
+      // insurance → insurance-claims
+      {
+        source: '/en/insurance',
+        destination: '/en/insurance-claims',
+        permanent: true,
+      },
+      {
+        source: '/es/insurance',
+        destination: '/es/reclamos-de-seguro',
         permanent: true,
       },
       // ===== Legacy 404 fixes: old bilingual URL patterns =====
@@ -219,8 +233,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/:locale/body-services/:path*',
-        destination: '/:locale/auto-body-services',
+        source: '/en/body-services/:path*',
+        destination: '/en/auto-body-services',
+        permanent: true,
+      },
+      {
+        source: '/es/body-services/:path*',
+        destination: '/es/servicios-de-carroceria',
         permanent: true,
       },
       // ── Unlocalized blog slugs (no /en or /es prefix) ────────────────
