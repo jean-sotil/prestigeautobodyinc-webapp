@@ -1,4 +1,5 @@
 import { BUSINESS_INFO } from '@/lib/business';
+import { routing, type Locale } from '@/i18n/routing';
 import type { BlogPost } from '@/lib/queries/types';
 
 interface ArticleJsonLdProps {
@@ -36,7 +37,7 @@ export function ArticleJsonLd({ post, locale = 'en' }: ArticleJsonLdProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    '@id': `${postUrl}/#article`,
+    '@id': `${postUrl}#article`,
     headline: post.title,
     description: post.excerpt,
     image: {
@@ -51,7 +52,9 @@ export function ArticleJsonLd({ post, locale = 'en' }: ArticleJsonLdProps) {
         ? `${siteUrl}/#author-${post.author.id}`
         : undefined,
       name: post.author?.fullName || 'Prestige Auto Body',
-      url: post.author?.id ? `${siteUrl}/our-team` : undefined,
+      url: post.author?.id
+        ? `${siteUrl}/${locale}${routing.pathnames['/our-team'][locale as Locale]}`
+        : undefined,
     },
     publisher: {
       '@type': 'Organization',
