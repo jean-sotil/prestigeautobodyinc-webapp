@@ -117,7 +117,7 @@ export default async function CarWashDetailingPage({
       <ServiceJsonLd
         serviceName="Hand Wash & Detailing Services"
         description={t('meta.description')}
-        url={`https://prestigeautobodyinc.com${localizedPath}`}
+        url={localizedPath}
         serviceType={['Car Wash', 'Auto Detailing', 'Ceramic Coating']}
         schemaType="AutoWash"
         showAggregateRating

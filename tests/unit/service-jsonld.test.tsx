@@ -77,3 +77,18 @@ describe('ServiceJsonLd aggregateRating', () => {
     expect(rating.reviewCount).toBe(FALLBACK_RATING.reviewCount);
   });
 });
+
+describe('ServiceJsonLd url', () => {
+  it('resolves a localized path against the canonical www origin', async () => {
+    const element = await ServiceJsonLd({
+      serviceName: 'Towing',
+      description: 'Towing',
+      url: '/es/remolque',
+    });
+    const { container } = render(element);
+
+    expect(extractJsonLd(container).url).toBe(
+      'https://www.prestigeautobodyinc.com/es/remolque',
+    );
+  });
+});

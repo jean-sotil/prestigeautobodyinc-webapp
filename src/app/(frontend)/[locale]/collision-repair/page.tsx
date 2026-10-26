@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import {
@@ -73,9 +74,14 @@ export default async function CollisionRepairPage({
     getTranslations({ locale, namespace: 'nav' }),
   ]);
 
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: '/collision-repair',
+  });
+
   const breadcrumbItems = generateBreadcrumbItems(
     nav('collisionRepair'),
-    `/${locale}/collision-repair`,
+    localizedPath,
     nav('home'),
     locale,
   );
@@ -106,7 +112,7 @@ export default async function CollisionRepairPage({
       <ServiceJsonLd
         serviceName="Collision Repair"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url={`https://prestigeautobodyinc.com/${locale}/collision-repair`}
+        url={localizedPath}
         serviceType="Collision Repair"
         showAggregateRating
         locale={locale}

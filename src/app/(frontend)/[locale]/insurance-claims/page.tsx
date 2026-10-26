@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { ServicePageTemplate, ServiceJsonLd } from '@/components/services';
 import { getHeroMedia, pickAlt } from '@/lib/heroMedia';
 import {
@@ -73,9 +74,14 @@ export default async function InsuranceClaimsPage({
     getTranslations({ locale, namespace: 'nav' }),
   ]);
 
+  const localizedPath = getPathname({
+    locale: locale as 'en' | 'es',
+    href: '/insurance-claims',
+  });
+
   const breadcrumbItems = generateBreadcrumbItems(
     nav('insuranceClaims'),
-    `/${locale}/insurance-claims`,
+    localizedPath,
     nav('home'),
     locale,
   );
@@ -105,7 +111,7 @@ export default async function InsuranceClaimsPage({
       <ServiceJsonLd
         serviceName="Insurance Claims Assistance"
         description={t(`pages.${SERVICE_KEY}.metaDescription`)}
-        url={`https://prestigeautobodyinc.com/${locale}/insurance-claims`}
+        url={localizedPath}
         serviceType="Insurance Claims Assistance"
         showAggregateRating
         locale={locale}

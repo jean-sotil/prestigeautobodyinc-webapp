@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 import { LocalBusinessJsonLd } from '@/components/seo/LocalBusinessJsonLd';
 import { WebsiteJsonLd } from '@/components/seo/WebsiteJsonLd';
 import { FAQJsonLd } from '@/components/seo/FAQJsonLd';
+import { ArticleJsonLd } from '@/components/seo/ArticleJsonLd';
+import type { BlogPost } from '@/lib/queries/types';
 import {
   BreadcrumbJsonLd,
   generateBreadcrumbItems,
@@ -220,5 +222,36 @@ describe('generateBreadcrumbItems', () => {
     );
     expect(items[0].item).toBe('/es');
     expect(items[0].name).toBe('Inicio');
+  });
+});
+
+describe('ArticleJsonLd', () => {
+  const post = {
+    slug: 'que-es-un-suplemento-de-carroceria',
+    title: 'Suplementos',
+    excerpt: 'Resumen',
+    createdAt: '2026-01-01T00:00:00.000Z',
+    updatedAt: '2026-01-02T00:00:00.000Z',
+    author: { id: 'abc', fullName: 'Shop Team' },
+  } as unknown as BlogPost;
+
+  function articleSchema() {
+    const { container } = render(<ArticleJsonLd post={post} locale="es" />);
+    const script = container.querySelector(
+      'script[type="application/ld+json"]',
+    );
+    return JSON.parse(script!.textContent!);
+  }
+
+  it('links the author to the localized team page, not the bare /our-team', () => {
+    expect(articleSchema().author.url).toBe(
+      'https://www.prestigeautobodyinc.com/es/nuestro-equipo',
+    );
+  });
+
+  it('keeps the post @id free of a trailing slash before the fragment', () => {
+    expect(articleSchema()['@id']).toBe(
+      'https://www.prestigeautobodyinc.com/es/blog/que-es-un-suplemento-de-carroceria#article',
+    );
   });
 });

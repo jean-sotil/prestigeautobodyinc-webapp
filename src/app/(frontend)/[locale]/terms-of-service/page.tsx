@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { LegalPage } from '@/components/legal/LegalPage';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
@@ -78,7 +79,7 @@ export default async function TermsOfServicePage({
 
   const breadcrumbItems = generateBreadcrumbItems(
     t('termsOfService') || 'Terms of Service',
-    `/${locale}/terms-of-service`,
+    getPathname({ locale: locale as 'en' | 'es', href: '/terms-of-service' }),
     t('home'),
     locale,
   );

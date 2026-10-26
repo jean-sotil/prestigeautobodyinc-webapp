@@ -95,7 +95,7 @@ export default async function RentalAssistancePage({
       <ServiceJsonLd
         serviceName="Rental Car Assistance"
         description="Rental assistance services to keep you on the road while your vehicle is being repaired. Ask us about our rental car partnerships."
-        url={`https://prestigeautobodyinc.com${localizedPath}`}
+        url={localizedPath}
         serviceType="Rental Assistance"
         locale={locale}
       />
