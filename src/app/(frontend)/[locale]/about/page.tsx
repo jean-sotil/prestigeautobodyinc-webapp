@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { PageHeroBanner } from '@/components/hero';
 import { AboutContent } from './AboutContent';
 import { getMediaByFilename, pickAlt } from '@/lib/heroMedia';
@@ -71,7 +72,7 @@ export default async function AboutPage({
 
   const breadcrumbItems = generateBreadcrumbItems(
     nav('about'),
-    `/${locale}/about`,
+    getPathname({ locale: locale as 'en' | 'es', href: '/about' }),
     nav('home'),
     locale,
   );

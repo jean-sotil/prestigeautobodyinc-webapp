@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { BASE_URL } from '@/lib/seo';
+import { getPathname } from '@/i18n/navigation';
 import { LegalPage } from '@/components/legal/LegalPage';
 import { BreadcrumbJsonLd, generateBreadcrumbItems } from '@/components/seo';
 
@@ -76,7 +77,7 @@ export default async function PrivacyPolicyPage({
 
   const breadcrumbItems = generateBreadcrumbItems(
     t('privacyPolicy') || 'Privacy Policy',
-    `/${locale}/privacy-policy`,
+    getPathname({ locale: locale as 'en' | 'es', href: '/privacy-policy' }),
     t('home'),
     locale,
   );

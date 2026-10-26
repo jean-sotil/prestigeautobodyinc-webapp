@@ -81,7 +81,7 @@ export default async function AutoPaintingPage({
 
   const breadcrumbItems = generateBreadcrumbItems(
     nav('autoPainting'),
-    `/${locale}/auto-painting`,
+    localizedPath,
     nav('home'),
     locale,
   );

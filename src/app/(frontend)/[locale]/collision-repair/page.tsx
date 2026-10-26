@@ -81,7 +81,7 @@ export default async function CollisionRepairPage({
 
   const breadcrumbItems = generateBreadcrumbItems(
     nav('collisionRepair'),
-    `/${locale}/collision-repair`,
+    localizedPath,
     nav('home'),
     locale,
   );

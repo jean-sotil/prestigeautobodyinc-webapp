@@ -81,7 +81,7 @@ export default async function InsuranceClaimsPage({
 
   const breadcrumbItems = generateBreadcrumbItems(
     nav('insuranceClaims'),
-    `/${locale}/insurance-claims`,
+    localizedPath,
     nav('home'),
     locale,
   );
