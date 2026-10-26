@@ -6,16 +6,31 @@ interface FooterProps {
 }
 
 export default async function Footer({ className = '' }: FooterProps) {
-  const t = await getTranslations('footer');
+  const [t, nav] = await Promise.all([
+    getTranslations('footer'),
+    getTranslations('nav'),
+  ]);
   const currentYear = new Date().getFullYear();
 
+  // The footer is the only sitewide link to towing, rental assistance, team,
+  // certifications and locations — they are absent from the header menu.
+  // Without these links those pages were reachable only via the sitemap,
+  // which Search Console reports as "Crawled/Discovered – not indexed".
   const quickLinks = [
     { href: '/collision-repair', label: t('quickLinks.collisionRepair') },
     { href: '/auto-body-services', label: t('quickLinks.autoBodyServices') },
     { href: '/auto-painting', label: t('quickLinks.paintSolutions') },
+    { href: '/towing', label: nav('towing') },
+    { href: '/rental-assistance', label: nav('rentalAssistance') },
     { href: '/insurance-claims', label: t('quickLinks.insuranceClaims') },
+    { href: '/car-wash-detailing', label: nav('carWashDetailing') },
     { href: '/get-a-quote', label: t('quickLinks.getAQuote') },
     { href: '/about', label: t('quickLinks.about') },
+    { href: '/our-team', label: nav('ourTeam') },
+    { href: '/certifications', label: nav('certifications') },
+    { href: '/locations', label: nav('locations') },
+    { href: '/gallery', label: nav('gallery') },
+    { href: '/blog', label: nav('blog') },
   ];
 
   const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.2820420367487!2d-77.0394!3d39.0194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cf5c6f98a8c3%3A0x7e3b8f1e2c4a6d9e!2s928%20Philadelphia%20Ave%2C%20Silver%20Spring%2C%20MD%2020910!5e0!3m2!1sen!2sus!4v1234567890000!5m2!1sen!2sus`;
@@ -139,7 +154,7 @@ export default async function Footer({ className = '' }: FooterProps) {
               {t('quickLinks.title')}
             </h2>
             <nav aria-label="Footer navigation">
-              <ul className="flex flex-col gap-2">
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                 {quickLinks.map((link) => (
                   <li key={`${link.href}-${link.label}`}>
                     <Link
