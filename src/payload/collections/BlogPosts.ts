@@ -1,4 +1,8 @@
 import type { CollectionConfig } from 'payload';
+import {
+  revalidateBlogAfterChange,
+  revalidateBlogAfterDelete,
+} from '@/payload/hooks/revalidateBlog';
 
 export const BlogPosts: CollectionConfig = {
   slug: 'blog-posts',
@@ -193,28 +197,7 @@ export const BlogPosts: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [
-      async ({ doc, req, previousDoc }) => {
-        if (doc.status === 'published' && previousDoc?.status !== 'published') {
-          try {
-            if (typeof window !== 'undefined') return doc;
-
-            const locale = req.locale || doc.locale || 'en';
-            const slug =
-              typeof doc.slug === 'string'
-                ? doc.slug
-                : doc.slug?.[locale] || doc.slug?.en || '';
-
-            if (!slug) return doc;
-
-            const { revalidateBlogPost } = await import('@/lib/revalidation');
-            await revalidateBlogPost(slug, locale);
-          } catch (error) {
-            console.error('Failed to revalidate blog post:', error);
-          }
-        }
-        return doc;
-      },
-    ],
+    afterChange: [revalidateBlogAfterChange],
+    afterDelete: [revalidateBlogAfterDelete],
   },
 };
