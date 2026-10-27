@@ -287,7 +287,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Main Content */}
           <div className="prose prose-lg max-w-none dark:prose-invert mb-12">
-            <RichTextRenderer content={post.content} />
+            <RichTextRenderer content={post.content} locale={locale} />
           </div>
 
           {/* Tags */}
