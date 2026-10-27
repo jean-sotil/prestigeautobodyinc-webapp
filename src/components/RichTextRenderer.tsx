@@ -21,14 +21,22 @@ interface LexicalElementNode {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   listType?: 'bullet' | 'number';
   url?: string;
-  fields?: {
-    url?: string;
-    newTab?: boolean;
-    linkType?: 'custom' | 'reference';
-  };
+  fields?: LinkFields;
   direction?: 'ltr' | 'rtl' | null;
   format?: string;
   indent?: number;
+}
+
+// Payload 3 link fields. An "internal" link points at a document instead of
+// carrying a URL, so the URL has to be built from that document.
+interface LinkFields {
+  url?: string;
+  newTab?: boolean;
+  linkType?: 'custom' | 'internal';
+  doc?: {
+    relationTo: string;
+    value: string | { slug?: string | null };
+  } | null;
 }
 
 type LexicalNode = LexicalTextNode | LexicalElementNode;
@@ -58,6 +66,34 @@ const IS_SUPERSCRIPT = 1 << 6;
 interface RichTextRendererProps {
   content: LexicalDocument | unknown;
   className?: string;
+  /** Locale of the page, used to build URLs for internal links. */
+  locale?: string;
+}
+
+/**
+ * The href for a link node, or null when it has none.
+ *
+ * Custom links carry their URL. Internal links to a blog post are resolved to
+ * that post's URL in the current locale; the post must be populated (the
+ * query depth covers it). Anything else has no public URL to point to.
+ */
+export function resolveLinkUrl(
+  fields: LinkFields | undefined,
+  legacyUrl: string | undefined,
+  locale: string,
+): string | null {
+  if (fields?.linkType === 'internal') {
+    const doc = fields.doc;
+    if (
+      doc?.relationTo === 'blog-posts' &&
+      typeof doc.value === 'object' &&
+      doc.value?.slug
+    ) {
+      return `/${locale}/blog/${doc.value.slug}`;
+    }
+    return null;
+  }
+  return fields?.url || legacyUrl || null;
 }
 
 /**
@@ -123,13 +159,17 @@ function renderTextNode(node: LexicalTextNode, key: string): React.ReactNode {
 /**
  * Render a single node
  */
-function renderNode(node: LexicalNode, key: string): React.ReactNode {
+function renderNode(
+  node: LexicalNode,
+  key: string,
+  locale: string,
+): React.ReactNode {
   if (isTextNode(node)) {
     return renderTextNode(node, key);
   }
 
   const children = node.children?.map((child, index) =>
-    renderNode(child, `${key}-${index}`),
+    renderNode(child, `${key}-${index}`, locale),
   );
 
   switch (node.type) {
@@ -189,7 +229,9 @@ function renderNode(node: LexicalNode, key: string): React.ReactNode {
       return <li key={key}>{children}</li>;
 
     case 'link':
-      const url = node.fields?.url || node.url || '#';
+      const url = resolveLinkUrl(node.fields, node.url, locale);
+      // A link with nowhere to go renders as plain text, not href="#".
+      if (!url) return <React.Fragment key={key}>{children}</React.Fragment>;
       const isExternal = url.startsWith('http');
 
       return (
@@ -216,6 +258,7 @@ function renderNode(node: LexicalNode, key: string): React.ReactNode {
 export function RichTextRenderer({
   content,
   className,
+  locale = 'en',
 }: RichTextRendererProps) {
   // Handle null/undefined
   if (!content) {
@@ -240,7 +283,7 @@ export function RichTextRenderer({
   }
 
   const children = lexicalContent.root.children.map((node, index) =>
-    renderNode(node, `root-${index}`),
+    renderNode(node, `root-${index}`, locale),
   );
 
   return (

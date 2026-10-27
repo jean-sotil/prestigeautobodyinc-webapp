@@ -1,0 +1,626 @@
+[
+  {
+    "locale": "en",
+    "source": "protect-car-paint-from-sun-damage",
+    "anchor": "ensure a perfect match",
+    "target": "/en/blog/science-of-car-paint-matching"
+  },
+  {
+    "locale": "en",
+    "source": "protect-car-paint-from-sun-damage",
+    "anchor": "you may not need a full repaint",
+    "target": "/en/blog/car-paint-repair-myths"
+  },
+  {
+    "locale": "es",
+    "source": "protect-car-paint-from-sun-damage",
+    "anchor": "garantizar una coincidencia de color perfecta",
+    "target": "/es/blog/ciencia-igualacion-pintura-auto"
+  },
+  {
+    "locale": "es",
+    "source": "protect-car-paint-from-sun-damage",
+    "anchor": "puede que no necesites un repintado completo",
+    "target": "/es/blog/car-paint-repair-myths"
+  },
+  {
+    "locale": "en",
+    "source": "document-car-accident-insurance-claim",
+    "anchor": "The moments after a car accident",
+    "target": "/en/blog/what-to-do-after-car-accident"
+  },
+  {
+    "locale": "en",
+    "source": "document-car-accident-insurance-claim",
+    "anchor": "Even for minor accidents",
+    "target": "/en/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "es",
+    "source": "document-car-accident-insurance-claim",
+    "anchor": "Los momentos posteriores a un accidente de auto",
+    "target": "/es/blog/what-to-do-after-car-accident"
+  },
+  {
+    "locale": "es",
+    "source": "document-car-accident-insurance-claim",
+    "anchor": "Incluso en accidentes menores",
+    "target": "/es/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "en",
+    "source": "ev-collision-repair-specialist",
+    "anchor": "aluminum vehicles",
+    "target": "/en/blog/aluminum-vs-steel-body-repair"
+  },
+  {
+    "locale": "en",
+    "source": "ev-collision-repair-specialist",
+    "anchor": "these sensors can be knocked out of alignment",
+    "target": "/en/blog/adas-recalibration-after-collision"
+  },
+  {
+    "locale": "en",
+    "source": "ev-collision-repair-specialist",
+    "anchor": "Before you choose a shop",
+    "target": "/en/blog/right-to-choose-auto-body-shop"
+  },
+  {
+    "locale": "es",
+    "source": "ev-collision-repair-specialist",
+    "anchor": "vehículos de aluminio",
+    "target": "/es/blog/aluminum-vs-steel-body-repair"
+  },
+  {
+    "locale": "es",
+    "source": "ev-collision-repair-specialist",
+    "anchor": "estos sensores pueden desalinearse",
+    "target": "/es/blog/adas-recalibration-after-collision"
+  },
+  {
+    "locale": "es",
+    "source": "ev-collision-repair-specialist",
+    "anchor": "Antes de elegir un taller",
+    "target": "/es/blog/right-to-choose-auto-body-shop"
+  },
+  {
+    "locale": "en",
+    "source": "preventing-repairing-winter-car-rust",
+    "anchor": "a quality coat of wax or a paint sealant",
+    "target": "/en/blog/protect-car-paint-from-sun-damage"
+  },
+  {
+    "locale": "en",
+    "source": "preventing-repairing-winter-car-rust",
+    "anchor": "minor paint chips",
+    "target": "/en/blog/car-paint-repair-myths"
+  },
+  {
+    "locale": "es",
+    "source": "prevenir-reparar-oxido-auto-invierno",
+    "anchor": "una capa de cera de calidad o un sellador de pintura",
+    "target": "/es/blog/protect-car-paint-from-sun-damage"
+  },
+  {
+    "locale": "es",
+    "source": "prevenir-reparar-oxido-auto-invierno",
+    "anchor": "pequeñas astillas de pintura",
+    "target": "/es/blog/car-paint-repair-myths"
+  },
+  {
+    "locale": "en",
+    "source": "rental-car-coverage-during-repairs-guide",
+    "anchor": "unexpected out-of-pocket expenses",
+    "target": "/en/blog/what-is-car-insurance-deductible"
+  },
+  {
+    "locale": "es",
+    "source": "rental-car-coverage-during-repairs-guide",
+    "anchor": "de tu bolsillo",
+    "target": "/es/blog/what-is-car-insurance-deductible"
+  },
+  {
+    "locale": "en",
+    "source": "minor-collision-hidden-damage-inspection",
+    "anchor": "exchange information",
+    "target": "/en/blog/document-car-accident-insurance-claim"
+  },
+  {
+    "locale": "en",
+    "source": "minor-collision-hidden-damage-inspection",
+    "anchor": "blind-spot monitoring, and forward collision warning (ADAS)",
+    "target": "/en/blog/adas-recalibration-after-collision"
+  },
+  {
+    "locale": "en",
+    "source": "minor-collision-hidden-damage-inspection",
+    "anchor": "steel or aluminum bar",
+    "target": "/en/blog/aluminum-vs-steel-body-repair"
+  },
+  {
+    "locale": "es",
+    "source": "minor-collision-hidden-damage-inspection",
+    "anchor": "intercambiar información",
+    "target": "/es/blog/document-car-accident-insurance-claim"
+  },
+  {
+    "locale": "es",
+    "source": "minor-collision-hidden-damage-inspection",
+    "anchor": "monitoreo de punto ciego y alerta de colisión frontal (ADAS)",
+    "target": "/es/blog/adas-recalibration-after-collision"
+  },
+  {
+    "locale": "es",
+    "source": "minor-collision-hidden-damage-inspection",
+    "anchor": "barra de acero o aluminio",
+    "target": "/es/blog/aluminum-vs-steel-body-repair"
+  },
+  {
+    "locale": "en",
+    "source": "what-to-do-insurance-estimate-too-low",
+    "anchor": "a physical teardown",
+    "target": "/en/blog/what-is-an-auto-body-supplement"
+  },
+  {
+    "locale": "en",
+    "source": "what-to-do-insurance-estimate-too-low",
+    "anchor": "Aftermarket or Recycled Parts",
+    "target": "/en/blog/oem-vs-aftermarket-parts-collision-repair"
+  },
+  {
+    "locale": "en",
+    "source": "what-to-do-insurance-estimate-too-low",
+    "anchor": "a lower labor rate",
+    "target": "/en/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "es",
+    "source": "que-hacer-estimado-seguro-muy-bajo",
+    "anchor": "un desmontaje físico",
+    "target": "/es/blog/que-es-un-suplemento-de-carroceria"
+  },
+  {
+    "locale": "es",
+    "source": "que-hacer-estimado-seguro-muy-bajo",
+    "anchor": "Piezas No Originales o Recicladas",
+    "target": "/es/blog/partes-oem-vs-aftermarket-reparacion-colision"
+  },
+  {
+    "locale": "es",
+    "source": "que-hacer-estimado-seguro-muy-bajo",
+    "anchor": "una tarifa de mano de obra más baja",
+    "target": "/es/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "en",
+    "source": "hail-damage-repair-guide",
+    "anchor": "comprehensive portion of your auto insurance policy",
+    "target": "/en/blog/collision-vs-comprehensive-insurance-guide"
+  },
+  {
+    "locale": "en",
+    "source": "hail-damage-repair-guide",
+    "anchor": "deductible amount",
+    "target": "/en/blog/what-is-car-insurance-deductible"
+  },
+  {
+    "locale": "en",
+    "source": "hail-damage-repair-guide",
+    "anchor": "Using advanced technology like a spectrophotometer",
+    "target": "/en/blog/science-of-car-paint-matching"
+  },
+  {
+    "locale": "es",
+    "source": "hail-damage-repair-guide",
+    "anchor": "porción de cobertura completa (comprehensive)",
+    "target": "/es/blog/collision-vs-comprehensive-insurance-guide"
+  },
+  {
+    "locale": "es",
+    "source": "hail-damage-repair-guide",
+    "anchor": "el monto de su deducible",
+    "target": "/es/blog/what-is-car-insurance-deductible"
+  },
+  {
+    "locale": "es",
+    "source": "hail-damage-repair-guide",
+    "anchor": "Usando tecnología avanzada como un espectrofotómetro",
+    "target": "/es/blog/ciencia-igualacion-pintura-auto"
+  },
+  {
+    "locale": "en",
+    "source": "car-paint-repair-myths",
+    "anchor": "constantly exposed to UV rays",
+    "target": "/en/blog/protect-car-paint-from-sun-damage"
+  },
+  {
+    "locale": "en",
+    "source": "car-paint-repair-myths",
+    "anchor": "a specific paint code",
+    "target": "/en/blog/science-of-car-paint-matching"
+  },
+  {
+    "locale": "en",
+    "source": "car-paint-repair-myths",
+    "anchor": "luxury and electric models",
+    "target": "/en/blog/ev-collision-repair-specialist"
+  },
+  {
+    "locale": "en",
+    "source": "car-paint-repair-myths",
+    "anchor": "from rust and corrosion",
+    "target": "/en/blog/preventing-repairing-winter-car-rust"
+  },
+  {
+    "locale": "es",
+    "source": "car-paint-repair-myths",
+    "anchor": "constantemente expuesta a los rayos UV",
+    "target": "/es/blog/protect-car-paint-from-sun-damage"
+  },
+  {
+    "locale": "es",
+    "source": "car-paint-repair-myths",
+    "anchor": "un código de pintura específico",
+    "target": "/es/blog/ciencia-igualacion-pintura-auto"
+  },
+  {
+    "locale": "es",
+    "source": "car-paint-repair-myths",
+    "anchor": "los de lujo y eléctricos",
+    "target": "/es/blog/ev-collision-repair-specialist"
+  },
+  {
+    "locale": "es",
+    "source": "car-paint-repair-myths",
+    "anchor": "del óxido y la corrosión",
+    "target": "/es/blog/prevenir-reparar-oxido-auto-invierno"
+  },
+  {
+    "locale": "en",
+    "source": "body-shop-vs-mechanic-signs",
+    "anchor": "there can be hidden damage",
+    "target": "/en/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "en",
+    "source": "body-shop-vs-mechanic-signs",
+    "anchor": "ADAS recalibration tied to the windshield camera",
+    "target": "/en/blog/adas-recalibration-windshield-replacement"
+  },
+  {
+    "locale": "en",
+    "source": "body-shop-vs-mechanic-signs",
+    "anchor": "a partial teardown",
+    "target": "/en/blog/what-is-an-auto-body-supplement"
+  },
+  {
+    "locale": "es",
+    "source": "taller-carroceria-vs-mecanico-senales",
+    "anchor": "puede haber daños ocultos",
+    "target": "/es/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "es",
+    "source": "taller-carroceria-vs-mecanico-senales",
+    "anchor": "recalibración ADAS necesaria vinculada a la cámara del parabrisas",
+    "target": "/es/blog/adas-recalibration-windshield-replacement"
+  },
+  {
+    "locale": "es",
+    "source": "taller-carroceria-vs-mecanico-senales",
+    "anchor": "un desmontaje parcial",
+    "target": "/es/blog/que-es-un-suplemento-de-carroceria"
+  },
+  {
+    "locale": "en",
+    "source": "adas-recalibration-windshield-replacement",
+    "anchor": "After any collision",
+    "target": "/en/blog/adas-recalibration-after-collision"
+  },
+  {
+    "locale": "en",
+    "source": "adas-recalibration-windshield-replacement",
+    "anchor": "follow OEM procedures",
+    "target": "/en/blog/oem-vs-aftermarket-parts-collision-repair"
+  },
+  {
+    "locale": "es",
+    "source": "adas-recalibration-windshield-replacement",
+    "anchor": "Después de cualquier colisión",
+    "target": "/es/blog/adas-recalibration-after-collision"
+  },
+  {
+    "locale": "es",
+    "source": "adas-recalibration-windshield-replacement",
+    "anchor": "seguimos los procedimientos del fabricante (OEM)",
+    "target": "/es/blog/partes-oem-vs-aftermarket-reparacion-colision"
+  },
+  {
+    "locale": "en",
+    "source": "collision-vs-comprehensive-insurance-guide",
+    "anchor": "what you might pay out of pocket",
+    "target": "/en/blog/what-is-car-insurance-deductible"
+  },
+  {
+    "locale": "en",
+    "source": "collision-vs-comprehensive-insurance-guide",
+    "anchor": "OEM (Original Equipment Manufacturer) parts",
+    "target": "/en/blog/oem-vs-aftermarket-parts-collision-repair"
+  },
+  {
+    "locale": "es",
+    "source": "collision-vs-comprehensive-insurance-guide",
+    "anchor": "qué podrías tener que pagar de tu bolsillo",
+    "target": "/es/blog/what-is-car-insurance-deductible"
+  },
+  {
+    "locale": "es",
+    "source": "collision-vs-comprehensive-insurance-guide",
+    "anchor": "piezas OEM (Fabricante de Equipo Original)",
+    "target": "/es/blog/partes-oem-vs-aftermarket-reparacion-colision"
+  },
+  {
+    "locale": "en",
+    "source": "science-of-car-paint-matching",
+    "anchor": "Sun exposure (UV rays)",
+    "target": "/en/blog/protect-car-paint-from-sun-damage"
+  },
+  {
+    "locale": "en",
+    "source": "science-of-car-paint-matching",
+    "anchor": "factory paint code",
+    "target": "/en/blog/car-paint-repair-myths"
+  },
+  {
+    "locale": "es",
+    "source": "ciencia-igualacion-pintura-auto",
+    "anchor": "La exposición al sol (rayos UV)",
+    "target": "/es/blog/protect-car-paint-from-sun-damage"
+  },
+  {
+    "locale": "es",
+    "source": "ciencia-igualacion-pintura-auto",
+    "anchor": "código de pintura de fábrica",
+    "target": "/es/blog/car-paint-repair-myths"
+  },
+  {
+    "locale": "en",
+    "source": "how-to-read-auto-body-estimate",
+    "anchor": "Painting an adjacent, undamaged panel",
+    "target": "/en/blog/science-of-car-paint-matching"
+  },
+  {
+    "locale": "en",
+    "source": "how-to-read-auto-body-estimate",
+    "anchor": "(OEM, Aftermarket, Used/LKQ)",
+    "target": "/en/blog/oem-vs-aftermarket-parts-collision-repair"
+  },
+  {
+    "locale": "en",
+    "source": "how-to-read-auto-body-estimate",
+    "anchor": "potential hidden damage",
+    "target": "/en/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "es",
+    "source": "how-to-read-auto-body-estimate",
+    "anchor": "Pintar un panel adyacente no dañado",
+    "target": "/es/blog/ciencia-igualacion-pintura-auto"
+  },
+  {
+    "locale": "es",
+    "source": "how-to-read-auto-body-estimate",
+    "anchor": "(OEM, Aftermarket, Usada/LKQ)",
+    "target": "/es/blog/partes-oem-vs-aftermarket-reparacion-colision"
+  },
+  {
+    "locale": "es",
+    "source": "how-to-read-auto-body-estimate",
+    "anchor": "potencial daño oculto",
+    "target": "/es/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "en",
+    "source": "aluminum-vs-steel-body-repair",
+    "anchor": "electric vehicle",
+    "target": "/en/blog/ev-collision-repair-specialist"
+  },
+  {
+    "locale": "en",
+    "source": "aluminum-vs-steel-body-repair",
+    "anchor": "long-term corrosion",
+    "target": "/en/blog/preventing-repairing-winter-car-rust"
+  },
+  {
+    "locale": "es",
+    "source": "aluminum-vs-steel-body-repair",
+    "anchor": "vehículo eléctrico",
+    "target": "/es/blog/ev-collision-repair-specialist"
+  },
+  {
+    "locale": "es",
+    "source": "aluminum-vs-steel-body-repair",
+    "anchor": "corrosión a largo plazo",
+    "target": "/es/blog/prevenir-reparar-oxido-auto-invierno"
+  },
+  {
+    "locale": "en",
+    "source": "adas-recalibration-after-collision",
+    "anchor": "not your local mechanic",
+    "target": "/en/blog/body-shop-vs-mechanic-signs"
+  },
+  {
+    "locale": "en",
+    "source": "adas-recalibration-after-collision",
+    "anchor": "a simple windshield replacement",
+    "target": "/en/blog/adas-recalibration-windshield-replacement"
+  },
+  {
+    "locale": "es",
+    "source": "adas-recalibration-after-collision",
+    "anchor": "no para su mecánico local",
+    "target": "/es/blog/taller-carroceria-vs-mecanico-senales"
+  },
+  {
+    "locale": "es",
+    "source": "adas-recalibration-after-collision",
+    "anchor": "un simple reemplazo del parabrisas",
+    "target": "/es/blog/adas-recalibration-windshield-replacement"
+  },
+  {
+    "locale": "en",
+    "source": "what-is-car-insurance-deductible",
+    "anchor": "hail damage",
+    "target": "/en/blog/hail-damage-repair-guide"
+  },
+  {
+    "locale": "en",
+    "source": "what-is-car-insurance-deductible",
+    "anchor": "Comprehensive Coverage",
+    "target": "/en/blog/collision-vs-comprehensive-insurance-guide"
+  },
+  {
+    "locale": "en",
+    "source": "what-is-car-insurance-deductible",
+    "anchor": "After a car accident",
+    "target": "/en/blog/what-to-do-after-car-accident"
+  },
+  {
+    "locale": "es",
+    "source": "what-is-car-insurance-deductible",
+    "anchor": "daños por granizo",
+    "target": "/es/blog/hail-damage-repair-guide"
+  },
+  {
+    "locale": "es",
+    "source": "what-is-car-insurance-deductible",
+    "anchor": "Cobertura Comprensiva",
+    "target": "/es/blog/collision-vs-comprehensive-insurance-guide"
+  },
+  {
+    "locale": "es",
+    "source": "what-is-car-insurance-deductible",
+    "anchor": "Después de un accidente de auto",
+    "target": "/es/blog/what-to-do-after-car-accident"
+  },
+  {
+    "locale": "en",
+    "source": "what-is-an-auto-body-supplement",
+    "anchor": "the original repair estimate",
+    "target": "/en/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "en",
+    "source": "what-is-an-auto-body-supplement",
+    "anchor": "Hidden Damage",
+    "target": "/en/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "es",
+    "source": "que-es-un-suplemento-de-carroceria",
+    "anchor": "al estimado de reparación original",
+    "target": "/es/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "es",
+    "source": "que-es-un-suplemento-de-carroceria",
+    "anchor": "no puede ver todos los daños ocultos",
+    "target": "/es/blog/minor-collision-hidden-damage-inspection"
+  },
+  {
+    "locale": "en",
+    "source": "what-to-do-after-car-accident",
+    "anchor": "rental car coverage",
+    "target": "/en/blog/rental-car-coverage-during-repairs-guide"
+  },
+  {
+    "locale": "en",
+    "source": "what-to-do-after-car-accident",
+    "anchor": "you have the right to choose where your car is towed",
+    "target": "/en/blog/right-to-choose-auto-body-shop"
+  },
+  {
+    "locale": "en",
+    "source": "what-to-do-after-car-accident",
+    "anchor": "file a police report",
+    "target": "/en/blog/document-car-accident-insurance-claim"
+  },
+  {
+    "locale": "es",
+    "source": "what-to-do-after-car-accident",
+    "anchor": "la cobertura de auto de alquiler",
+    "target": "/es/blog/rental-car-coverage-during-repairs-guide"
+  },
+  {
+    "locale": "es",
+    "source": "what-to-do-after-car-accident",
+    "anchor": "tienes el derecho de elegir a dónde se remolca tu auto",
+    "target": "/es/blog/right-to-choose-auto-body-shop"
+  },
+  {
+    "locale": "es",
+    "source": "what-to-do-after-car-accident",
+    "anchor": "presenta un reporte policial",
+    "target": "/es/blog/document-car-accident-insurance-claim"
+  },
+  {
+    "locale": "en",
+    "source": "oem-vs-aftermarket-parts-collision-repair",
+    "anchor": "the estimate, filled with acronyms",
+    "target": "/en/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "en",
+    "source": "oem-vs-aftermarket-parts-collision-repair",
+    "anchor": "Some insurance policies may default to using less expensive alternatives",
+    "target": "/en/blog/what-to-do-insurance-estimate-too-low"
+  },
+  {
+    "locale": "es",
+    "source": "partes-oem-vs-aftermarket-reparacion-colision",
+    "anchor": "el estimado, lleno de siglas",
+    "target": "/es/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "es",
+    "source": "partes-oem-vs-aftermarket-reparacion-colision",
+    "anchor": "Algunas pólizas de seguro pueden optar por usar alternativas menos costosas",
+    "target": "/es/blog/que-hacer-estimado-seguro-muy-bajo"
+  },
+  {
+    "locale": "en",
+    "source": "right-to-choose-auto-body-shop",
+    "anchor": "discounted labor rates",
+    "target": "/en/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "en",
+    "source": "right-to-choose-auto-body-shop",
+    "anchor": "the use of aftermarket parts",
+    "target": "/en/blog/oem-vs-aftermarket-parts-collision-repair"
+  },
+  {
+    "locale": "en",
+    "source": "right-to-choose-auto-body-shop",
+    "anchor": "negotiate with the insurance company",
+    "target": "/en/blog/what-to-do-insurance-estimate-too-low"
+  },
+  {
+    "locale": "es",
+    "source": "right-to-choose-auto-body-shop",
+    "anchor": "tarifas de mano de obra con descuento",
+    "target": "/es/blog/how-to-read-auto-body-estimate"
+  },
+  {
+    "locale": "es",
+    "source": "right-to-choose-auto-body-shop",
+    "anchor": "piezas no originales (aftermarket)",
+    "target": "/es/blog/partes-oem-vs-aftermarket-reparacion-colision"
+  },
+  {
+    "locale": "es",
+    "source": "right-to-choose-auto-body-shop",
+    "anchor": "negociar con la compañía de seguros",
+    "target": "/es/blog/que-hacer-estimado-seguro-muy-bajo"
+  }
+]
