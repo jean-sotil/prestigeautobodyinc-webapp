@@ -5,6 +5,7 @@
 
 import 'server-only';
 import type { BlogPost, BlogPostsResponse } from './types';
+import { pickRelatedPosts } from '@/lib/related-posts';
 
 const DEFAULT_PAGE = 1;
 const DEFAULT_LIMIT = 10;
@@ -132,69 +133,32 @@ export async function resolveSlugInLocale(
 
 interface FetchRelatedPostsOptions {
   locale: string;
-  excludeSlug: string;
-  categorySlugs: string[];
+  post: BlogPost;
   limit?: number;
 }
 
 /**
- * Posts in the same category as the current article, excluding it. Falls back
- * to the most recent posts in this locale if no category match is available so
- * the section never renders empty.
+ * Related posts for an article. Loads every published post in the locale and
+ * lets `pickRelatedPosts` rotate through them, so links are spread evenly
+ * across the archive instead of always pointing at the newest posts.
  */
 export async function fetchRelatedPosts({
   locale,
-  excludeSlug,
-  categorySlugs,
+  post,
   limit = 3,
 }: FetchRelatedPostsOptions): Promise<BlogPost[]> {
   try {
     const payload = await getPayloadClient();
+    const all = await payload.find({
+      collection: 'blog-posts',
+      depth: 2,
+      pagination: false,
+      sort: '-publishedAt',
+      locale: locale as 'en' | 'es',
+      where: { publishStatus: { equals: 'published' } },
+    });
 
-    const sameCategory =
-      categorySlugs.length > 0
-        ? await payload.find({
-            collection: 'blog-posts',
-            depth: 2,
-            limit,
-            sort: '-publishedAt',
-            locale: locale as 'en' | 'es',
-            where: {
-              and: [
-                { publishStatus: { equals: 'published' } },
-                { 'categories.slug': { in: categorySlugs } },
-                { slug: { not_equals: excludeSlug } },
-              ],
-            },
-          })
-        : { docs: [] as unknown[] };
-
-    const related = sameCategory.docs as unknown as BlogPost[];
-
-    // Top up with most-recent posts if the category alone didn't yield enough.
-    if (related.length < limit) {
-      const fillerNeeded = limit - related.length;
-      const filler = await payload.find({
-        collection: 'blog-posts',
-        depth: 2,
-        limit: fillerNeeded + 1, // +1 in case the excluded slug shows up
-        sort: '-publishedAt',
-        locale: locale as 'en' | 'es',
-        where: {
-          and: [
-            { publishStatus: { equals: 'published' } },
-            { slug: { not_equals: excludeSlug } },
-          ],
-        },
-      });
-      const existing = new Set(related.map((p) => p.id));
-      for (const doc of filler.docs as unknown as BlogPost[]) {
-        if (related.length >= limit) break;
-        if (!existing.has(doc.id)) related.push(doc);
-      }
-    }
-
-    return related.slice(0, limit);
+    return pickRelatedPosts(all.docs as unknown as BlogPost[], post, limit);
   } catch (error) {
     console.error('Error fetching related posts:', error);
     return [];

@@ -144,12 +144,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const relatedPosts = await fetchRelatedPosts({
-    locale,
-    excludeSlug: post.slug,
-    categorySlugs: post.categories?.map((c) => c.slug) ?? [],
-    limit: 3,
-  });
+  const relatedPosts = await fetchRelatedPosts({ locale, post, limit: 3 });
 
   // Format dates
   const publishDate = post.publishedAt
