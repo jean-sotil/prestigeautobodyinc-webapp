@@ -19,6 +19,16 @@ export const metadata: Metadata = {
   },
   description:
     'Trusted collision repair and auto body shop in Silver Spring, MD. 24/7 towing, insurance claims assistance, and certified professionals with 30+ years experience.',
+  // Served from /public at fixed URLs. An app/favicon.ico would be emitted as
+  // /favicon.ico?favicon.<hash>.ico, a URL that changes between builds and
+  // that Search Console reports on its own.
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
   keywords: [
     'auto body shop',
     'collision repair',
