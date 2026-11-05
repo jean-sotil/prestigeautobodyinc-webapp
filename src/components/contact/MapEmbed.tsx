@@ -1,3 +1,5 @@
+import { LazyMapIframe } from '@/components/embeds/LazyMapIframe';
+
 type MapEmbedProps = {
   query: string;
   title: string;
@@ -21,13 +23,12 @@ export function MapEmbed({
       className={`relative w-full bg-muted ${className}`}
     >
       <div className="relative aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/8] w-full">
-        <iframe
+        <LazyMapIframe
           src={embedUrl}
           title={title}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          containerClassName="absolute inset-0 h-full w-full"
+          iframeClassName="absolute inset-0 h-full w-full border-0"
           allowFullScreen
-          className="absolute inset-0 h-full w-full border-0"
         />
         <a
           href={externalUrl}

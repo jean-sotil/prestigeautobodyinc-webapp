@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { LazyMapIframe } from '@/components/embeds/LazyMapIframe';
 
 interface FooterProps {
   className?: string;
@@ -193,16 +194,7 @@ export default async function Footer({ className = '' }: FooterProps) {
               {t('findUs.title')}
             </h2>
             <div className="w-full h-40 rounded-lg overflow-hidden bg-[#2e2e2e] border border-[#333]">
-              <iframe
-                src={mapEmbedUrl}
-                title={t('findUs.mapTitle')}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <LazyMapIframe src={mapEmbedUrl} title={t('findUs.mapTitle')} />
             </div>
           </div>
         </div>
