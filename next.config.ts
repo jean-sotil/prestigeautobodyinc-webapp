@@ -140,6 +140,17 @@ const nextConfig: NextConfig = {
         permanent: true,
         has: [{ type: 'host', value: 'www.prestigeautobodyinc.com' }],
       },
+      // Root fallback for all other hosts (localhost, Vercel preview URLs,
+      // the bare apex). Without this, `/` has no handler: with
+      // `localePrefix: 'always'` nothing renders the unprefixed root, so the
+      // locale layout that carries <html>/<body> is never reached and Next
+      // throws "Missing <html> and <body> tags". The host-scoped rule above
+      // only fires on the production www host, so it can't cover dev/preview.
+      {
+        source: '/',
+        destination: '/en',
+        permanent: false,
+      },
       // Trailing slash consolidation: /path/ → /path
       // Merges duplicate impressions from URLs with/without trailing slash
       // Applied AFTER locale/domain redirects so /en/contact/ → /en/contact
