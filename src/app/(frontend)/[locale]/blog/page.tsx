@@ -187,7 +187,7 @@ export default async function BlogIndexPage({
                     <li
                       key={c.id}
                       className="flex items-center gap-2.5"
-                      title={`${c.fullName} — ${c.position}`}
+                      title={`${c.fullName}, ${c.position}`}
                     >
                       <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-border">
                         {c.photoUrl ? (

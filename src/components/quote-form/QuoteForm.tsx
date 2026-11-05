@@ -81,9 +81,9 @@ function QuoteFormInner() {
     clearDraft();
   });
 
-  // Track form abandonment on beforeunload
+  // Track form abandonment on pagehide
   useEffect(() => {
-    function handleBeforeUnload() {
+    function handlePageHide() {
       if (currentStep > 0 && !isSuccess) {
         trackEvent('quote_form_abandon', {
           last_step: (currentStep + 1) as FormStep,
@@ -92,8 +92,8 @@ function QuoteFormInner() {
       }
     }
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('pagehide', handlePageHide);
+    return () => window.removeEventListener('pagehide', handlePageHide);
   }, [currentStep, isSuccess, mountTime]);
 
   // Track form start (first service selection)

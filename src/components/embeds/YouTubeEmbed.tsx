@@ -17,7 +17,13 @@ export function YouTubeEmbed({
   title = 'YouTube video',
 }: YouTubeEmbedProps) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // Use `hqdefault.jpg`, which YouTube generates for EVERY video, instead of
+  // `maxresdefault.jpg`, which only exists for videos uploaded at/above 1280px.
+  // When maxres is missing the upstream returns 404 and Next's image optimizer
+  // turns that into a 500 (`/_next/image … 500`). hqdefault never 404s.
+  const [thumbnailUrl, setThumbnailUrl] = useState(
+    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+  );
 
   if (!isLoaded) {
     return (
@@ -34,6 +40,13 @@ export function YouTubeEmbed({
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover opacity-80 group-hover:opacity-60 transition-opacity"
           loading="lazy"
+          onError={() => {
+            // Final fallback to the default frame thumbnail (`0.jpg`), which
+            // YouTube also always generates, so the facade never shows a
+            // broken image even if hqdefault is somehow unavailable.
+            const fallback = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+            if (thumbnailUrl !== fallback) setThumbnailUrl(fallback);
+          }}
         />
 
         {/* Play button overlay */}

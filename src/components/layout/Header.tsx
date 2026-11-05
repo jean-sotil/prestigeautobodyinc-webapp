@@ -225,7 +225,6 @@ export default function Header() {
                 <a
                   href={`tel:${SHOP_PHONE_TEL}`}
                   className="hidden lg:inline-flex items-center gap-2 font-bold text-sm text-foreground hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm whitespace-nowrap"
-                  aria-label={`${c('callNow')} ${t('phone')}`}
                 >
                   <PhoneIcon size={16} ariaLabel="" />
                   <span className="flex flex-col items-start leading-tight">
