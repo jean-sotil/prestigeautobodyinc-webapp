@@ -74,6 +74,28 @@ export async function getBusinessRating(): Promise<PlaceRating> {
   };
 }
 
+// Review avatars render at 40x40 CSS px. Google-hosted photo URLs
+// (lh3.googleusercontent.com / *.ggpht.com) accept a trailing size directive
+// such as "=s128-c". Default avatars come at 128px, which is ~10x the bytes
+// actually displayed. Normalize the size token to 80px (40px at 2x DPR) so the
+// image is requested at the size it is shown. Displayed dimensions and crop are
+// unchanged, so layout/CLS and alt text are unaffected.
+const AVATAR_RENDER_SIZE = 80;
+
+function sizeAvatarUrl(url: string | undefined): string | undefined {
+  if (!url) return url;
+  const isGoogleHosted = /(?:googleusercontent\.com|ggpht\.com)\//.test(url);
+  if (!isGoogleHosted) return url;
+
+  // Replace an existing "=s<NN>" token (optionally followed by more flags like
+  // "-c-rp-mo-br100"), preserving any extra flags after the size value.
+  if (/=s\d+/.test(url)) {
+    return url.replace(/=s\d+/, `=s${AVATAR_RENDER_SIZE}`);
+  }
+  // No size directive present: append a cropped-square size token.
+  return `${url}${url.includes('=') ? '-' : '='}s${AVATAR_RENDER_SIZE}-c`;
+}
+
 export async function getBusinessReviews(): Promise<BusinessReview[]> {
   const data = await fetchPlaceDetails();
   if (!data?.reviews?.length) return [];
@@ -84,7 +106,7 @@ export async function getBusinessReviews(): Promise<BusinessReview[]> {
       id: r.name!,
       authorName: r.authorAttribution?.displayName ?? 'Anonymous',
       authorUrl: r.authorAttribution?.uri,
-      authorPhotoUrl: r.authorAttribution?.photoUri,
+      authorPhotoUrl: sizeAvatarUrl(r.authorAttribution?.photoUri),
       rating: r.rating!,
       text: r.text!.text!,
       language: r.text?.languageCode ?? 'en',
