@@ -95,7 +95,7 @@ function ReviewCard({
           href={review.reviewUrl}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          aria-label={`${readMoreLabel} — ${review.authorName}`}
+          aria-label={`${readMoreLabel}, ${review.authorName}`}
           className="text-xs font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm self-start"
         >
           {readMoreLabel}

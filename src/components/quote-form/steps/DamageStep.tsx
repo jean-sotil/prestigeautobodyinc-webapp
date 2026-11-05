@@ -447,7 +447,7 @@ export function DamageStep({
               >
                 <AlertIcon className="mt-0.5 h-3.5 w-3.5 flex-shrink-0" />
                 <span className="flex-1">
-                  <span className="font-medium">{r.name}</span> —{' '}
+                  <span className="font-medium">{r.name}</span>:{' '}
                   {t(`photos.reject.${r.reason}`)}
                 </span>
               </li>

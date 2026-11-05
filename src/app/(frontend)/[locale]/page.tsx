@@ -136,12 +136,12 @@ export default async function HomePage({
     {
       question: 'Do you offer a warranty on repairs?',
       answer:
-        'Yes — Prestige Auto Body offers a lifetime warranty on all repairs. This covers workmanship and materials for as long as you own your vehicle.',
+        'Yes. Prestige Auto Body offers a lifetime warranty on all repairs. This covers workmanship and materials for as long as you own your vehicle.',
     },
     {
       question: 'Are you I-CAR certified?',
       answer:
-        'Yes. Prestige Auto Body is I-CAR Gold Class certified — the highest training designation in the collision repair industry. Our technicians undergo continuous training to stay current with the latest vehicle technologies and repair procedures.',
+        'Yes. Prestige Auto Body is I-CAR Gold Class certified, the highest training designation in the collision repair industry. Our technicians undergo continuous training to stay current with the latest vehicle technologies and repair procedures.',
     },
     {
       question: 'Do you provide rental car assistance?',
