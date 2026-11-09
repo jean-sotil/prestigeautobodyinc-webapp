@@ -125,10 +125,52 @@ export async function resolveSlugInLocale(
 
     // Only redirect when the target locale has its own, different slug.
     if (targetSlug && targetSlug !== slug) return targetSlug;
-    return null;
+    continue;
   }
 
-  return null;
+  // Renamed slug: no locale's current slug matches (e.g. the old English slug
+  // is gone). Match the requested slug against the stored value of every
+  // locale and bridge to the target locale's current slug.
+  return resolveSlugFromStoredValues(slug, targetLocale);
+}
+
+async function resolveSlugFromStoredValues(
+  slug: string,
+  targetLocale: string,
+): Promise<string | null> {
+  try {
+    const payload = await getPayloadClient();
+    const result = await payload.find({
+      collection: 'blog-posts',
+      depth: 0,
+      limit: 1,
+      locale: 'all',
+      where: {
+        and: [
+          {
+            or: [
+              { 'slug.en': { equals: slug } },
+              { 'slug.es': { equals: slug } },
+            ],
+          },
+          { publishStatus: { equals: 'published' } },
+        ],
+      },
+    });
+
+    const doc = result.docs?.[0] as { slug?: unknown } | undefined;
+    const stored = doc?.slug;
+    if (!stored || typeof stored !== 'object') return null;
+
+    const targetSlug = (stored as Record<string, unknown>)[targetLocale];
+    if (typeof targetSlug === 'string' && targetSlug && targetSlug !== slug) {
+      return targetSlug;
+    }
+    return null;
+  } catch (error) {
+    console.error('Error resolving slug from stored values:', error);
+    return null;
+  }
 }
 
 interface FetchRelatedPostsOptions {

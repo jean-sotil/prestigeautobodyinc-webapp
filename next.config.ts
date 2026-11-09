@@ -9,6 +9,42 @@ type NextRedirect = Awaited<
   ReturnType<NonNullable<NextConfig['redirects']>>
 >[number];
 
+// English slug → proposed Spanish slug for the 15 ES posts that still store the
+// English string as their Spanish slug. Keep in sync with
+// .agents/tasks/es-slug-mapping.md (owner-approved before the CMS change).
+const ES_UNTRANSLATED_SLUG_MAP: Record<string, string> = {
+  'protect-car-paint-from-sun-damage': 'proteger-pintura-auto-dano-solar',
+  'document-car-accident-insurance-claim':
+    'como-documentar-accidente-auto-seguro',
+  'ev-collision-repair-specialist':
+    'reparacion-colisiones-vehiculos-electricos-especialista',
+  'rental-car-coverage-during-repairs-guide':
+    'guia-cobertura-auto-alquiler-durante-reparaciones',
+  'minor-collision-hidden-damage-inspection':
+    'choque-leve-dano-oculto-inspeccion-profesional',
+  'hail-damage-repair-guide': 'guia-reparacion-danos-por-granizo',
+  'car-paint-repair-myths': 'mitos-reparacion-pintura-auto',
+  'adas-recalibration-windshield-replacement':
+    'recalibracion-adas-reemplazo-parabrisas',
+  'collision-vs-comprehensive-insurance-guide':
+    'seguro-colision-vs-cobertura-amplia',
+  'how-to-read-auto-body-estimate': 'como-leer-estimado-carroceria',
+  'aluminum-vs-steel-body-repair': 'reparacion-carroceria-aluminio-vs-acero',
+  'adas-recalibration-after-collision':
+    'recalibracion-adas-despues-de-colision',
+  'what-is-car-insurance-deductible': 'que-es-deducible-seguro-auto',
+  'what-to-do-after-car-accident': 'que-hacer-despues-de-accidente-auto',
+  'right-to-choose-auto-body-shop': 'derecho-a-elegir-taller-carroceria',
+};
+
+const ES_UNTRANSLATED_SLUG_REDIRECTS: NextRedirect[] = Object.entries(
+  ES_UNTRANSLATED_SLUG_MAP,
+).map(([english, spanish]) => ({
+  source: `/es/blog/${english}`,
+  destination: `/es/blog/${spanish}`,
+  permanent: true,
+}));
+
 const nextConfig: NextConfig = {
   // Core Web Vitals Optimizations
 
@@ -283,6 +319,16 @@ const nextConfig: NextConfig = {
         destination: '/es/blog/que-es-un-suplemento-de-carroceria',
         permanent: true,
       },
+      {
+        source: '/blog/que-hacer-estimado-seguro-muy-bajo',
+        destination: '/es/blog/que-hacer-estimado-seguro-muy-bajo',
+        permanent: true,
+      },
+      {
+        source: '/blog/taller-carroceria-vs-mecanico-senales',
+        destination: '/es/blog/taller-carroceria-vs-mecanico-senales',
+        permanent: true,
+      },
       // Catch-all: remaining unlocalized blog paths → /en/blog/:slug
       {
         source: '/blog/:slug+',
@@ -351,6 +397,25 @@ const nextConfig: NextConfig = {
         destination: '/es/blog/que-es-un-suplemento-de-carroceria',
         permanent: true,
       },
+      // Renamed posts: the old English-slug URL under /es was indexed by
+      // Google and now 404s. Single-hop 301 to the Spanish slug.
+      {
+        source: '/es/blog/what-to-do-insurance-estimate-too-low',
+        destination: '/es/blog/que-hacer-estimado-seguro-muy-bajo',
+        permanent: true,
+      },
+      {
+        source: '/es/blog/body-shop-vs-mechanic-signs',
+        destination: '/es/blog/taller-carroceria-vs-mecanico-senales',
+        permanent: true,
+      },
+      // Posts whose Spanish slug is still the English string in the CMS.
+      // Proposed slugs: .agents/tasks/es-slug-mapping.md. These are 301s, so
+      // they MUST NOT be live until the CMS slugs are translated, otherwise
+      // the 200 pages currently indexed would turn into 404s. Opt-in only.
+      ...(process.env.ENABLE_ES_BLOG_SLUG_REDIRECTS === 'true'
+        ? ES_UNTRANSLATED_SLUG_REDIRECTS
+        : []),
       // Malformed URL
       {
         source: '/$',
