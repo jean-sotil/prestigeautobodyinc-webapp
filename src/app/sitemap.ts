@@ -104,19 +104,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ? new Date(post.updatedAt)
         : new Date();
 
+      // A Spanish slug identical to the English one is untranslated data.
+      // TODO: once the 15 untranslated ES slugs are translated in the CMS and
+      // ENABLE_ES_BLOG_SLUG_REDIRECTS=true is deployed (see next.config.ts),
+      // those /es/<english-slug> URLs 301 to the Spanish slug and are skipped
+      // here. Until then they are still listed so currently indexed URLs are
+      // not orphaned. Translated slugs never match, so no new incoherent URL
+      // is introduced. Remove the flag once the CMS data is fixed.
+      const skipUntranslatedEs =
+        esSlug === enSlug &&
+        process.env.ENABLE_ES_BLOG_SLUG_REDIRECTS === 'true';
+
       // Add English URL with hreflang
       entries.push({
         url: `${baseUrl}/en/blog/${enSlug}`,
         lastModified,
         changeFrequency: 'weekly',
         priority: 0.7,
-        alternates: {
-          languages: {
-            en: `${baseUrl}/en/blog/${enSlug}`,
-            es: `${baseUrl}/es/blog/${esSlug}`,
-          },
-        },
+        ...(skipUntranslatedEs
+          ? {}
+          : {
+              alternates: {
+                languages: {
+                  en: `${baseUrl}/en/blog/${enSlug}`,
+                  es: `${baseUrl}/es/blog/${esSlug}`,
+                },
+              },
+            }),
       });
+
+      if (skipUntranslatedEs) continue;
 
       // Add Spanish URL with hreflang
       entries.push({
